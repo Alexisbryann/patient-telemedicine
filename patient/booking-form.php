@@ -15,7 +15,7 @@
         <fieldset style="text-align:left;">
             <div class="row">
                 <div class="input-group col-8 col-md-8 col-sm-12">
-                    <div class="col-12 col-md-12 col-sm-12" style="margin-bottom: 30px; margin-top: 30px;">Fill in the patient's details</div>
+                    <div class="col-12 col-md-12 col-sm-12" style="margin-bottom: 30px; margin-top: 30px; font-weight: bold;">Fill in the patient's details</div>
                     <div class="col-6 col-md-6 col-sm-12">
                         <label>Full name<span class="required"> * </span></label>
                         <input id="fullname" name="fullname" class="form-control" placeholder="Full name" required/>
@@ -119,7 +119,7 @@
         <h3></h3>
         <fieldset style="text-align:left;">
             <div class="row">
-                <div class="col-12 col-md-12 col-sm-12" style="text-align:center; margin-bottom: 10px;">Kindly confirm the details you entered to ensure they are correct.</div>
+                <div class="col-12 col-md-12 col-sm-12" style="text-align:center; margin-bottom: 50px;">Kindly confirm the details you entered to ensure they are correct.</div>
                 
                 <div class="input-group col-6 col-md-6 col-sm-12">
                     <div class="title row" style="margin-bottom:10px;">Patient Details</div>
