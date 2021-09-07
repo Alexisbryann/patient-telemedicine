@@ -272,6 +272,9 @@ if (global_settings.screen_is_mobile) {
         title: "",
         content: `<div class="booking-time d-flex flex-column justify-content-start">${booking_time_element}</div>`,
     });
+
+    $("#confirm-appointment-cost").insertBefore("#confirm-appointment-patient");
+    $("#confirm-appointment-details").insertBefore("#confirm-appointment-patient");
 }
 
 function checkStatus() {

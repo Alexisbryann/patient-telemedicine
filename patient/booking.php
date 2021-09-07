@@ -62,7 +62,7 @@
     <script src="assets/bundles/datetimepicker/build/jquery.datetimepicker.full.js"></script>
     <!-- wizard -->
     <script src="assets/bundles/steps/jquery.steps.js"></script>
-    <script src="assets/booking.js"></script>
+    <script src="assets/booking.js?v=0"></script>
     <script src="assets/patientAvatar.js"></script>
     <!-- end js include path -->
 </body>
