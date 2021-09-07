@@ -392,9 +392,7 @@ a[href="#previous"] {
     text-align: left;
     padding-bottom: 40px;
     max-width: fit-content;
-    margin: 1px;
-    /* padding-left: 10px; */
-    /* padding-right: 10px; */
+    margin: 2px;
 }
 
 
