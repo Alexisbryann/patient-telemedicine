@@ -817,3 +817,64 @@ div.testGroup {
     display: inline-block;
     padding: 0.5rem 2rem;
 }
+
+/* Mobile display */
+@media screen and (max-width: 758px) {
+    .appt-booking .page-content {
+        margin: 0;
+    }
+
+    .card-body, .booking-card {
+        padding-top: 0;
+    }
+
+    .wizard>.actions>ul {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .wizard>.actions>ul a {
+        border-radius: 0;
+    }
+
+    .col-md-12 {
+        padding: .3rem;
+    }
+
+    .md-col {
+        flex-direction: column;
+    }
+
+    .form-control {
+        border-radius: 0;
+    }
+
+    .patient-details {
+        border: none;
+        padding: 0;
+        margin-bottom: 2em;
+    }
+
+    .booking-step {
+        display: none;
+    }
+
+    .wizard .content .body {
+        padding-top: 0;
+    }
+
+    #mobile-page-logo {
+        height: 3em;
+    }
+
+    #mobile-page-close {
+        font-size: 1.5em;
+        cursor: pointer;
+        font-weight: 1000;
+    }
+
+    progress::-moz-progress-bar { background: black; }
+    progress::-webkit-progress-value { background: black; }
+    progress { color: black; }
+}

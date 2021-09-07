@@ -4,29 +4,31 @@
             <input type="radio" id="appointment" name="radio-button" checked />
             <span>Appointment Details</span>
         </label>
-        <label><hr></label>
         <label>
-            <input type="radio" id="confirm" name="radio-button"/>
+            <hr>
+        </label>
+        <label>
+            <input type="radio" id="confirm" name="radio-button" />
             <span>Confirm details</span>
         </label>
     </div>
     <form class="col-md-12" id="booking_form" role="form" name="onboarding_form" method="post" enctype="multipart/form-data">
         <h3></h3>
         <fieldset style="text-align:left;">
-            <div class="row">
-                <div class="input-group col-8 col-md-8 col-sm-12">
-                    <div class="col-12 col-md-12 col-sm-12" style="margin-bottom: 30px; margin-top: 30px; font-weight: bold;">Fill in the patient's details</div>
-                    <div class="col-6 col-md-6 col-sm-12">
+            <div class="row md-col">
+                <div class="patient-details input-group col-12 col-md-8">
+                    <div class="w-100 d-none d-md-flex" style="margin-bottom: 30px; margin-top: 30px; font-weight: bold;">Fill in the patient's details</div>
+                    <div class="col-12 col-md-6 mt-1 px-0">
                         <label>Full name<span class="required"> * </span></label>
-                        <input id="fullname" name="fullname" class="form-control" placeholder="Full name" required/>
+                        <input id="fullname" name="fullname" class="form-control" placeholder="Full name" required />
                         <div id="name-error" class="col-6 col-md-6 alert alert-danger" style="display: none;"></div>
                     </div>
-                    <div class="col-6 col-md-6 col-sm-12">
+                    <div class="col-12 col-md-6 mt-1 px-0">
                         <label>Email address<span class="required"> * </span></label>
-                        <input id="email" name="email" class="form-control" placeholder="Email address" required/>
+                        <input id="email" name="email" class="form-control" placeholder="Email address" required />
                         <div id="email-error" class="col-6 col-md-6 alert alert-danger" style="display: none;"></div>
                     </div>
-                    <div class="col-6 col-md-6 col-sm-12">
+                    <div class="col-12 col-md-6 mt-1 px-0">
                         <label>Gender<span class="required"> * </span></label>
                         <select id="gender" name="gender" class="form-control" required>
                             <option selected disabled>Select gender</option>
@@ -35,17 +37,17 @@
                         </select>
                         <div id="gender-error" class="col-6 col-md-6 alert alert-danger" style="display: none;"></div>
                     </div>
-                    <div class="col-6 col-md-6 col-sm-12">
+                    <div class="col-12 col-md-6 mt-1 px-0">
                         <label>Phone number<span class="required"> * </span></label>
-                        <input id="phone" name="phone" class="form-control" placeholder="Phone number" required/>
+                        <input id="phone" name="phone" class="form-control" placeholder="Phone number" required />
                         <div id="phone-error" class="col-6 col-md-6 alert alert-danger" style="display: none;"></div>
                     </div>
-                    <div class="col-6 col-md-6 col-sm-12">
+                    <div class="col-12 col-md-6 mt-1 px-0">
                         <label>Date of birth<span class="required"> * </span></label>
-                        <input id="dob" name="dob" class="form-control" placeholder="Date of birth" required/>
+                        <input id="dob" name="dob" class="form-control" placeholder="Date of birth" required />
                         <div id="dob-error" class="col-6 col-md-6 alert alert-danger" style="display: none;"></div>
                     </div>
-                    <div class="col-6 col-md-6 col-sm-12">
+                    <div class="col-12 col-md-6 mt-1 px-0">
                         <label>Location<span class="required"> * </span></label>
                         <select id="location" name="location" class="form-control select2" required>
                             <option selected disabled>Select location</option>
@@ -77,7 +79,7 @@
                             <option value='Meru'>Meru</option>
                             <option value='Migori'>Migori</option>
                             <option value='Mombasa'>Mombasa</option>
-                            <option value='Murang'a'>Murang'a</option>
+                            <option value="Murang'a">Murang'a</option>
                             <option value='Nairobi City'>Nairobi City</option>
                             <option value='Nakuru'>Nakuru</option>
                             <option value='Nandi'>Nandi</option>
@@ -109,7 +111,7 @@
                             <span>Speak to a doctor now</span>
                         </label><br>
                         <label>
-                            <input type="radio" id="schedule" name="time"/>
+                            <input type="radio" id="schedule" name="time" />
                             <span>Schedule for later</span>
                         </label><br>
                     </div>
@@ -120,11 +122,11 @@
         <fieldset style="text-align:left;">
             <div class="row">
                 <div class="col-12 col-md-12 col-sm-12" style="text-align:center; margin-bottom: 50px;">Kindly confirm the details you entered to ensure they are correct.</div>
-                
-                <div class="input-group col-6 col-md-6 col-sm-12">
+
+                <div class="input-group col-12 col-md-6 mt-1 px-0">
                     <div class="title row" style="margin-bottom:10px;">Patient Details</div>
                     <div class="preview-div col-4 col-md-4 col-sm-12">
-                        <span>Full name</span><br/>
+                        <span>Full name</span><br />
                         <span class="preview" id="name-preview">Bonface</span>
                     </div>
                     <div class="preview-div col-4 col-md-4 col-sm-12">
@@ -135,17 +137,17 @@
                         <span>Date of birth</span><br>
                         <span class="preview" id="dob-preview">Bonface</span>
                     </div>
-                    
+
                     <div class="preview-div col-4 col-md-4 col-sm-12">
                         <span>Email address</span><br>
                         <span class="preview" id="email-preview">Bonface</span>
                     </div>
-                    
+
                     <div class="preview-div col-4 col-md-4 col-sm-12">
                         <span>Phone number</span><br>
                         <span class="preview" id="phone-preview">Bonface</span>
                     </div>
-                    
+
                     <div class="preview-div col-4 col-md-4 col-sm-12">
                         <span>Location</span><br>
                         <span class="preview" id="location-preview">Bonface</span>
@@ -163,7 +165,7 @@
                 </div>
                 <div class="input-group col-3 col-md-3 col-sm-12">
                     <div class="title row">Appointment Cost</div>
-                    <div class="cost col-6 col-md-6 col-sm-12" >
+                    <div class="cost col-12 col-md-6 mt-1 px-0">
                         <span>Total</span><br>
                         <span class="preview" id="type-preview">Ksh. 300</span>
                     </div>
