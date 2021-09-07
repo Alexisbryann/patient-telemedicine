@@ -29,17 +29,19 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="booking-card">
-                    <div class="d-flex d-md-none w-100 justify-content-between align-items-center px-4">
-                        <img src="images/psi/mha-psi-logo.png" id="mobile-page-logo">
-                        <span id="mobile-page-close" title="Close">&#x2715;</span>
-                    </div>
-
-                    <div class="d-flex px-4 flex-column d-md-none" id="mobile-booking-progress-container">
-                        <div class="d-flex justify-content-between">
-                            <strong>Patient Details</strong>
-                            <span>Step 1 of 3</span>
+                    <div class="fixed-top">
+                        <div class="d-flex d-md-none w-100 justify-content-between align-items-center px-3 bg-white">
+                            <img src="images/psi/mha-psi-logo.png" id="mobile-page-logo">
+                            <span id="mobile-page-close" title="Close">&#x2715;</span>
                         </div>
-                        <progress class="w-100" max="3" value="1"></progress>
+
+                        <div class="d-flex px-3 flex-column d-md-none bg-white" id="mobile-booking-progress-container">
+                            <div class="d-flex justify-content-between">
+                                <strong>Patient Details</strong>
+                                <span>Step 1 of 3</span>
+                            </div>
+                            <progress class="w-100" max="3" value="1"></progress>
+                        </div>
                     </div>
                     <div class="card-body no-padding height-12">
                         <div class="row text-center m-t-10">

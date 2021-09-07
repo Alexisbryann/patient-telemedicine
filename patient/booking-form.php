@@ -18,17 +18,17 @@
             <div class="row md-col">
                 <div class="patient-details input-group col-12 col-md-8">
                     <div class="w-100 d-none d-md-flex" style="margin-bottom: 30px; margin-top: 30px; font-weight: bold;">Fill in the patient's details</div>
-                    <div class="col-12 col-md-6 mt-1 px-0">
+                    <div class="col-12 col-md-6 mt-i">
                         <label>Full name<span class="required"> * </span></label>
                         <input id="fullname" name="fullname" class="form-control" placeholder="Full name" required />
                         <div id="name-error" class="col-6 col-md-6 alert alert-danger" style="display: none;"></div>
                     </div>
-                    <div class="col-12 col-md-6 mt-1 px-0">
+                    <div class="col-12 col-md-6 mt-i">
                         <label>Email address<span class="required"> * </span></label>
                         <input id="email" name="email" class="form-control" placeholder="Email address" required />
                         <div id="email-error" class="col-6 col-md-6 alert alert-danger" style="display: none;"></div>
                     </div>
-                    <div class="col-12 col-md-6 mt-1 px-0">
+                    <div class="col-12 col-md-6 mt-i">
                         <label>Gender<span class="required"> * </span></label>
                         <select id="gender" name="gender" class="form-control" required>
                             <option selected disabled>Select gender</option>
@@ -37,17 +37,17 @@
                         </select>
                         <div id="gender-error" class="col-6 col-md-6 alert alert-danger" style="display: none;"></div>
                     </div>
-                    <div class="col-12 col-md-6 mt-1 px-0">
+                    <div class="col-12 col-md-6 mt-i">
                         <label>Phone number<span class="required"> * </span></label>
                         <input id="phone" name="phone" class="form-control" placeholder="Phone number" required />
                         <div id="phone-error" class="col-6 col-md-6 alert alert-danger" style="display: none;"></div>
                     </div>
-                    <div class="col-12 col-md-6 mt-1 px-0">
+                    <div class="col-12 col-md-6 mt-i">
                         <label>Date of birth<span class="required"> * </span></label>
                         <input id="dob" name="dob" class="form-control" placeholder="Date of birth" required />
                         <div id="dob-error" class="col-6 col-md-6 alert alert-danger" style="display: none;"></div>
                     </div>
-                    <div class="col-12 col-md-6 mt-1 px-0">
+                    <div class="col-12 col-md-6 mt-i">
                         <label>Location<span class="required"> * </span></label>
                         <select id="location" name="location" class="form-control select2" required>
                             <option selected disabled>Select location</option>
@@ -123,7 +123,7 @@
             <div class="row">
                 <div class="col-12 col-md-12 col-sm-12" style="text-align:center; margin-bottom: 50px;">Kindly confirm the details you entered to ensure they are correct.</div>
 
-                <div class="input-group col-12 col-md-6 mt-1 px-0">
+                <div class="input-group col-12 col-md-6 mt-i">
                     <div class="title row" style="margin-bottom:10px;">Patient Details</div>
                     <div class="preview-div col-4 col-md-4 col-sm-12">
                         <span>Full name</span><br />
@@ -165,7 +165,7 @@
                 </div>
                 <div class="input-group col-3 col-md-3 col-sm-12">
                     <div class="title row">Appointment Cost</div>
-                    <div class="cost col-12 col-md-6 mt-1 px-0">
+                    <div class="cost col-12 col-md-6 mt-i">
                         <span>Total</span><br>
                         <span class="preview" id="type-preview">Ksh. 300</span>
                     </div>
