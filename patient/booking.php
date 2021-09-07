@@ -18,7 +18,7 @@
     <link href="assets/bundles/steps/steps.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="assets/bundles/datetimepicker/jquery.datetimepicker.css" />
-    <link href="css/telemedicine.css?v=0" rel="stylesheet" type="text/css" />
+    <link href="css/telemedicine.css?v=1" rel="stylesheet" type="text/css" />
     <!-- favicon -->
     <link rel="shortcut icon" href="images/my-health-africa.png" />
 </head>
@@ -29,13 +29,13 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="booking-card">
-                    <div class="fixed-top">
-                        <div class="d-flex d-md-none w-100 justify-content-between align-items-center px-3 bg-white">
+                    <div class="fixed-top bg-white pb-2">
+                        <div class="d-flex d-md-none w-100 justify-content-between align-items-center px-3">
                             <img src="images/psi/mha-psi-logo.png" id="mobile-page-logo">
                             <span id="mobile-page-close" title="Close">&#x2715;</span>
                         </div>
 
-                        <div class="d-flex px-3 flex-column d-md-none bg-white" id="mobile-booking-progress-container">
+                        <div class="d-flex px-3 flex-column d-md-none" id="mobile-booking-progress-container">
                             <div class="d-flex justify-content-between">
                                 <strong>Patient Details</strong>
                                 <span>Step 1 of 3</span>

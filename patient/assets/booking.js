@@ -265,6 +265,15 @@ form.steps({
     }
 });
 
+if (global_settings.screen_is_mobile) {
+    const booking_time_element = $(".booking-time").html();
+    $(".booking-time").remove();
+    form.steps("insert", 1, {
+        title: "",
+        content: `<div class="booking-time d-flex flex-column justify-content-start">${booking_time_element}</div>`,
+    });
+}
+
 function checkStatus() {
     $.ajax({
         url: "operation/checkStatus.php",

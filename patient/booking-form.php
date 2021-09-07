@@ -14,7 +14,7 @@
     </div>
     <form class="col-md-12" id="booking_form" role="form" name="onboarding_form" method="post" enctype="multipart/form-data">
         <h3></h3>
-        <fieldset style="text-align:left;">
+        <fieldset style="text-align:left;" id="patient-details-step-parent">
             <div class="row md-col">
                 <div class="patient-details input-group col-12 col-md-8">
                     <div class="w-100 d-none d-md-flex" style="margin-bottom: 30px; margin-top: 30px; font-weight: bold;">Fill in the patient's details</div>
@@ -118,6 +118,7 @@
                 </div>
             </div>
         </fieldset>
+
         <h3></h3>
         <fieldset style="text-align:left;">
             <div class="row">

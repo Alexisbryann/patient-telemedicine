@@ -795,7 +795,7 @@ div.testGroup {
         margin: 0;
     }
     .card-body {
-        margin-top: 3.6em;
+        margin-top: 4.5em;
     }
     .card-body, .booking-card {
         padding-top: 0;
@@ -848,5 +848,13 @@ div.testGroup {
         z-index: 1030;
         background-color: white;
         padding: 1em;
+    }
+    .booking-time {
+        width: 100%;
+        text-align: start;
+    }
+    .booking-time label>input[type="radio"]+* {
+        padding-left: 0;
+        padding-right: 0;
     }
 }
