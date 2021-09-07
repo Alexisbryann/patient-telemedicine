@@ -1,5 +1,5 @@
 <div class="col-md-12">
-    <div class="booking-step col-md-12" >
+    <div class="booking-step col-md-12" style = "border-bottom: ridge 2px;" >
         <label>
             <input type="radio" id="appointment" name="radio-button" checked />
             <span>Appointment Details</span>

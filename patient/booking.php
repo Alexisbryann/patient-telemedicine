@@ -27,9 +27,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="booking card">
-                    <div class="card-body no-padding height-12">
+                    <div class="card-body no-padding  height-12" style = "padding-left: 0px;padding-right:0px;padding-top:0px;">
                         <div class="row text-center m-t-10">
-                            <div class="col-md-12 telemed-step-one" style="display: none;">
+                            <div class="col-md-12 telemed-step-one" style="display: none;padding-left: 0px;padding-right:0px;">
                                 <?php require_once 'booking-form.php'; ?>
                             </div>
                         </div>
