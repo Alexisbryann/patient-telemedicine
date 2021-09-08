@@ -46,7 +46,7 @@
                     <div class="card-body no-padding height-12">
                         <div class="row text-center m-t-10">
                             <div class="col-md-12 telemed-step-one" style="display: none;">
-                                <?php require_once('booking-form.php'); ?>
+                                <?php require_once 'booking-form.php'; ?>
                             </div>
                         </div>
                     </div>
