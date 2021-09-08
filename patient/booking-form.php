@@ -128,7 +128,7 @@
                     <div class="title row" style="margin-bottom:10px;">Patient Details</div>
                     <div class="preview-div col-12 col-md-4 col-sm-12">
                         <span>Full name</span><br />
-                        <span class="preview" id="name-preview">Bonface</span>
+                        <span class="preview" id="name-preview">Bonface bonface bonface bonface bonface bonface</span>
                     </div>
                     <div class="preview-div col-12 col-md-4 col-sm-12">
                         <span>Gender</span><br>
@@ -141,7 +141,7 @@
 
                     <div class="preview-div col-12 col-md-4 col-sm-12">
                         <span>Email address</span><br>
-                        <span class="preview" id="email-preview">Bonface</span>
+                        <span class="preview" id="email-preview">Bonfacebonfacebonfacebonfacebonface@bonfacebonface.bonface</span>
                     </div>
 
                     <div class="preview-div col-12 col-md-4 col-sm-12">
