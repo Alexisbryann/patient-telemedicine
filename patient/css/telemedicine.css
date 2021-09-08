@@ -7,16 +7,13 @@ p {
     margin-bottom: 1rem;
 }
 
-.telemed-step-one h3,
-.telemed-step-two h3,
-.payment h3 {
+.telemed-step-one h3, .telemed-step-two h3, .payment h3 {
     font-size: 30px !important;
     font-weight: bold;
     font-family: 'Segoe UI';
 }
 
-.telemed-step-one h5,
-.telemed-step-two h5 {
+.telemed-step-one h5, .telemed-step-two h5 {
     font-size: 17px !important;
     font-weight: 400;
     font-family: 'Segoe UI';
@@ -49,8 +46,7 @@ p {
     text-align: center !important;
 }
 
-#permission-info h4,
-#callback h4 {
+#permission-info h4, #callback h4 {
     color: #000000 !important;
     font-family: 'Segoe UI' !important;
     font-size: 19px !important;
@@ -121,13 +117,11 @@ p {
     transform: rotate(45deg);
 }
 
-.error,
-.required {
+.error, .required {
     color: #FF5252;
 }
 
-.preview,
-.title {
+.preview, .title {
     font-weight: bold;
 }
 
@@ -153,7 +147,7 @@ p {
 .cost {
     background-color: #FBC98D;
     min-width: -webkit-fill-available;
-    min-height: 90%;
+    height: 80%;
 }
 
 a[href="#next"] {
@@ -192,7 +186,6 @@ a[href="#previous"] {
         transform: rotate(360deg);
     }
 }
-
 
 /* Patient Telemedicine */
 
@@ -395,9 +388,7 @@ a[href="#previous"] {
     margin: 2px;
 }
 
-
 /***************Responsive Media Queries**************/
-
 
 /* 
   ##Device = Desktops
@@ -408,7 +399,6 @@ a[href="#previous"] {
     /* CSS */
 }
 
-
 /* 
   ##Device = Laptops, Desktops
   ##Screen = B/w 1025px to 1280px
@@ -417,7 +407,6 @@ a[href="#previous"] {
 @media (min-width: 1025px) and (max-width: 1280px) {
     /* CSS */
 }
-
 
 /* 
   ##Device = Tablets, Ipads (portrait)
@@ -428,7 +417,6 @@ a[href="#previous"] {
     /* CSS */
 }
 
-
 /* 
   ##Device = Tablets, Ipads (landscape)
   ##Screen = B/w 768px to 1024px
@@ -437,7 +425,6 @@ a[href="#previous"] {
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     /* CSS */
 }
-
 
 /* 
   ##Device = Low Resolution Tablets, Mobiles (Landscape)
@@ -448,17 +435,14 @@ a[href="#previous"] {
     /* CSS */
 }
 
-
 /* 
   ##Device = Most of the Smartphones Mobiles (Portrait)
   ##Screen = B/w 320px to 479px
 */
 
 @media (min-width: 320px) and (max-width: 480px) {
-    body,
-    html {
+    body, html {
         overflow-x: hidden;
-        background-color: #f5f5f5;
         margin: 0 auto;
         height: 100%;
     }
@@ -474,17 +458,14 @@ a[href="#previous"] {
         padding-bottom: 0;
         border: none;
     }
-    .telemed-step-one h3,
-    .telemed-step-two h3,
-    .payment h3 {
+    .telemed-step-one h3, .telemed-step-two h3, .payment h3 {
         padding-top: 20px;
     }
     #callback .modal-footer button {
         width: 210px;
         margin: 10px;
     }
-    #callback #reschedule-appointment,
-    #callback #request-callback {
+    #callback #reschedule-appointment, #callback #request-callback {
         float: none;
     }
     #permission-info .modal-dialog {
@@ -515,7 +496,6 @@ a[href="#previous"] {
     }
 }
 
-
 /******************TELEMEDICINE SETUP GUIDE******************/
 
 .tab {
@@ -529,7 +509,6 @@ button:hover {
 #prevBtn {
     background-color: #bbbbbb;
 }
-
 
 /* Step indicators */
 
@@ -548,7 +527,6 @@ button:hover {
     opacity: 0.5;
     background: #0080ff;
 }
-
 
 /* Finished steps */
 
@@ -585,9 +563,7 @@ button:hover {
     cursor: pointer;
 }
 
-#allowPermissions,
-#testMic,
-#testInternet {
+#allowPermissions, #testMic, #testInternet {
     background-color: #4CAF50;
     font-family: 'Segoe UI';
     border: none;
@@ -610,7 +586,6 @@ button:focus {
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
 }
-
 
 /****************MICROPHONE TEST *******************/
 
@@ -638,7 +613,6 @@ button:focus {
 #test-result {
     font-size: 1em;
 }
-
 
 /****************INTERNET SPEED TEST ***************/
 
@@ -695,8 +669,7 @@ div.meterText {
     color: #309030;
 }
 
-#pingText,
-#jitText {
+#pingText, #jitText {
     color: #AA6060;
 }
 
@@ -737,13 +710,11 @@ div.testGroup {
     }
 }
 
-
 /*******************PATIENT ON BOARDING******************/
 
 .alert-danger {
     margin-top: 20px;
 }
-
 
 /*****************PATIENT BOOKING **********************/
 
@@ -787,7 +758,6 @@ div.testGroup {
     margin-bottom: -5px;
 }
 
-
 /* pretty radio */
 
 .booking-time label>input[type="radio"] {
@@ -816,4 +786,75 @@ div.testGroup {
 .booking-time label>input[type="radio"]+* {
     display: inline-block;
     padding: 0.5rem 2rem;
+}
+
+/* Mobile display */
+
+@media screen and (max-width: 758px) {
+    .appt-booking .page-content {
+        margin: 0;
+    }
+    .card-body {
+        margin-top: 4.5em;
+    }
+    .card-body, .booking-card {
+        padding-top: 0;
+    }
+    .wizard>.actions>ul {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    .wizard>.actions>ul a {
+        border-radius: 0;
+    }
+    .col-md-12 {
+        padding: .3rem;
+    }
+    .patient-details .col-12 {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .md-col {
+        flex-direction: column;
+    }
+    .form-control {
+        border-radius: 0;
+    }
+    .patient-details {
+        border: none;
+        padding: 0;
+        margin-bottom: 2em;
+    }
+    .booking-step {
+        display: none;
+    }
+    .wizard .content .body {
+        padding-top: 0;
+    }
+    #mobile-page-logo {
+        height: 3em;
+    }
+    #mobile-page-close {
+        font-size: 1.5em;
+        cursor: pointer;
+        font-weight: 1000;
+    }
+    .wizard>.actions {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1030;
+        background-color: white;
+        padding: 1em;
+    }
+    .booking-time {
+        width: 100%;
+        text-align: start;
+    }
+    .booking-time label>input[type="radio"]+* {
+        padding-left: 0;
+        padding-right: 0;
+    }
 }

@@ -1,4 +1,8 @@
 var appointment_id, onboarding;
+const global_settings = {
+    screen_is_mobile: window.innerWidth < 758,
+}
+
 jQuery(document).ready(function() {
     'use strict';
 
@@ -146,7 +150,7 @@ form.steps({
         previous: "Back",
     },
     onStepChanging: function(event, currentIndex, newIndex) {
-        // Allways allow previous action even if the current form is not valid!
+        // Always allow previous action even if the current form is not valid!
         if (currentIndex > newIndex) {
             if (currentIndex === 0) {
                 $("a[href$='previous']").hide();
@@ -260,6 +264,18 @@ form.steps({
         });
     }
 });
+
+if (global_settings.screen_is_mobile) {
+    const booking_time_element = $(".booking-time").html();
+    $(".booking-time").remove();
+    form.steps("insert", 1, {
+        title: "",
+        content: `<div class="booking-time d-flex flex-column justify-content-start">${booking_time_element}</div>`,
+    });
+
+    $("#confirm-appointment-cost").insertBefore("#confirm-appointment-patient");
+    $("#confirm-appointment-details").insertBefore("#confirm-appointment-patient");
+}
 
 function checkStatus() {
     $.ajax({
