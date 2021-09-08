@@ -855,4 +855,14 @@ div.testGroup {
         padding-left: 0;
         padding-right: 0;
     }
+    .cost {
+        margin: -10px -15px 0;
+        height: auto;
+    }
+    .cost .preview {
+        font-size: 2.3em;
+    }
+    .input-group#confirm-appointment-cost {
+        padding-bottom: 0;
+    }
 }
