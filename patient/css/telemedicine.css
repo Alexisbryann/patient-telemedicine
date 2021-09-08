@@ -392,8 +392,6 @@ a[href="#previous"] {
 .input-group {
     text-align: left;
     padding-bottom: 40px;
-    max-width: fit-content;
-    margin: 2px;
 }
 
 
@@ -888,5 +886,15 @@ div.testGroup {
     .booking-time label>input[type="radio"]+* {
         padding-left: 0;
         padding-right: 0;
+    }
+    .cost {
+        margin: -10px -15px 0;
+        height: auto;
+    }
+    .cost .preview {
+        font-size: 2.3em;
+    }
+    .input-group#confirm-appointment-cost {
+        padding-bottom: 0;
     }
 }
