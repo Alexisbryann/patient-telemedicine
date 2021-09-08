@@ -384,8 +384,6 @@ a[href="#previous"] {
 .input-group {
     text-align: left;
     padding-bottom: 40px;
-    max-width: fit-content;
-    margin: 2px;
 }
 
 /***************Responsive Media Queries**************/

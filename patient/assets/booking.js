@@ -1,6 +1,6 @@
 var appointment_id, onboarding;
 const global_settings = {
-    screen_is_mobile: window.innerWidth < 758,
+    "screen_is_mobile": window.innerWidth < 758,
 }
 
 jQuery(document).ready(function() {
