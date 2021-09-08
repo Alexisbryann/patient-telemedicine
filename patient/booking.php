@@ -43,10 +43,10 @@
                             <progress class="w-100" max="3" value="1"></progress>
                         </div>
                     </div>
-                    <div class="card-body no-padding height-12">
-                        <div class="row text-center m-t-10">
-                            <div class="col-md-12 telemed-step-one" style="display: none;">
-                                <?php require_once('booking-form.php'); ?>
+
+                    <div class="card-body no-padding  height-12" style = "padding-left: 0px;padding-right:0px;padding-top:0px;">                        <div class="row text-center m-t-10">
+                            <div class="col-md-12 telemed-step-one" style="display: none;padding-left: 0px;padding-right:0px;">
+                                <?php require_once 'booking-form.php'; ?>
                             </div>
                         </div>
                     </div>
