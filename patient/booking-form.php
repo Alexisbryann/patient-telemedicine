@@ -1,5 +1,5 @@
-<div class="col-md-12">
-    <div class="booking-step col-md-12">
+<div class="col-md-12" style = "padding:0px">
+    <div class="booking-step col-md-12" style = "border-bottom: solid 1px gray;">
         <label>
             <input type="radio" id="appointment" name="radio-button" checked />
             <span>Appointment Details</span>
@@ -12,11 +12,11 @@
             <span>Confirm details</span>
         </label>
     </div>
-    <form class="col-md-12" id="booking_form" role="form" name="onboarding_form" method="post" enctype="multipart/form-data">
+    <form class="col-md-12" style = "padding:0px" id="booking_form" role="form" name="onboarding_form" method="post" enctype="multipart/form-data">
         <h3></h3>
         <fieldset style="text-align:left;" id="patient-details-step-parent">
             <div class="row md-col">
-                <div class="patient-details input-group col-12 col-md-8">
+                <div class="patient-details input-group col-12 col-md-8" >
                     <div class="w-100 d-none d-md-flex" style="margin-bottom: 30px; margin-top: 30px; font-weight: bold;">Fill in the patient's details</div>
                     <div class="col-12 col-md-6 mt-i">
                         <label>Full name<span class="required"> * </span></label>
@@ -103,7 +103,7 @@
                         <div id="location-error" class="col-6 col-md-6 alert alert-danger" style="display: none;"></div>
                     </div>
                 </div>
-                <div class="booking-time input-group col-4 col-md-4 col-sm-12">
+                <div class="booking-time input-group col-4 col-md-4 col-sm-12" style="border-right:none">
                     <div>
                         <p>What time do you want to consult a doctor?</p>
                         <label>
@@ -124,7 +124,7 @@
             <div class="row">
                 <div class="col-12 col-md-12 col-sm-12" style="text-align:center; margin-bottom: 50px;">Kindly confirm the details you entered to ensure they are correct.</div>
 
-                <div class="input-group col-12 col-md-6 mt-i pb-0" id="confirm-appointment-patient">
+                <div class="input-group col-12 col-md-6 mt-i pb-0" style = "border:1px solid gray" id="confirm-appointment-patient">
                     <div class="title row" style="margin-bottom:10px;">Patient Details</div>
                     <div class="preview-div col-12 col-md-4 col-sm-12">
                         <span>Full name</span><br />
@@ -155,7 +155,7 @@
                     </div>
                 </div>
 
-                <div class="input-group col-12 col-md-6 px-0 pb-0">
+                <div class="input-group col-12 col-md-6 px-0 pb-0" style = "border:solid 1px gray">
                     <div class="input-group col-12 col-md-6" id="confirm-appointment-details">
                         <div class="title row">Appointment Details</div>
                         <div class="col-12 col-md-12 col-sm-12">
@@ -166,7 +166,7 @@
                             <span class="preview" id="time-preview">Date </span><br><span class="preview" id="time-preview">Time</span>
                         </div>
                     </div>
-                    <div class="input-group col-12 col-md-6" id="confirm-appointment-cost">
+                    <div class="input-group col-12 col-md-6" style = "border:solid 1px gray" id="confirm-appointment-cost">
                         <div class="title row">Appointment Cost</div>
                         <div class="cost col-12 col-md-6 mt-i">
                             <span>Total</span><br>
