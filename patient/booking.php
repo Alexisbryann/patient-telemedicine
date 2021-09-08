@@ -44,8 +44,8 @@
                         </div>
                     </div>
                     <div class="card-body no-padding height-12">
-                        <div class="row text-center m-t-10">
-                            <div class="col-md-12 telemed-step-one" style="display: none;">
+                        <div class="row text-center m-t-10 " style="border: solid 1px gray;">
+                            <div class="col-md-12 telemed-step-one" style="display: none; padding:0px">
                                 <?php require_once 'booking-form.php'; ?>
                             </div>
                         </div>
