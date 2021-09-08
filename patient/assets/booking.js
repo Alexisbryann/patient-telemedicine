@@ -213,6 +213,17 @@ form.steps({
             form.find(".body:eq(" + newIndex + ") .error").removeClass("error");
         }
     },
+    onStepChanged: function (event, currentIndex, priorIndex) {
+        if (global_settings.screen_is_mobile) {
+            const booking_form_progress = $("#booking-form-progress"),
+                current_progress_value = booking_form_progress.val(),
+                new_progress_value = priorIndex < currentIndex ? current_progress_value + 1 : current_progress_value - 1;
+
+            console.log({ current_progress_value }, { new_progress_value });
+            booking_form_progress.val(new_progress_value);
+            $("#booking-form-step-number").text(new_progress_value);
+        }
+    },
     onFinishing: function(event, currentIndex) {
         if (document.getElementById("allergies-yes").checked) {
             if ($('#allergies').val() !== '') {

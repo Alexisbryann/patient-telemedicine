@@ -38,9 +38,9 @@
                         <div class="d-flex px-3 flex-column d-md-none" id="mobile-booking-progress-container">
                             <div class="d-flex justify-content-between">
                                 <strong>Patient Details</strong>
-                                <span>Step 1 of 3</span>
+                                <span>Step <span id="booking-form-step-number">1</span> of 3</span>
                             </div>
-                            <progress class="w-100" max="3" value="1"></progress>
+                            <progress class="w-100" max="3" value="1" id="booking-form-progress"></progress>
                         </div>
                     </div>
                     <div class="card-body no-padding height-12">
@@ -62,7 +62,7 @@
     <script src="assets/bundles/datetimepicker/build/jquery.datetimepicker.full.js"></script>
     <!-- wizard -->
     <script src="assets/bundles/steps/jquery.steps.js"></script>
-    <script src="assets/booking.js?v=0"></script>
+    <script src="assets/booking.js?v=1"></script>
     <script src="assets/patientAvatar.js"></script>
     <!-- end js include path -->
 </body>
