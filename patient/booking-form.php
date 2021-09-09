@@ -17,7 +17,7 @@
         <fieldset style="text-align:left;" id="patient-details-step-parent">
             <div class="row md-col">
 
-                <div class="patient-details input-group col-12 col-md-8" >
+                <div class="patient-details input-group col-12 col-md-8">
                     <div class="w-100 d-none d-md-flex" style="margin-bottom: 30px; margin-top: 30px; font-weight: bold;padding-left: 15px;">Fill in the patient's details</div>
                     <div class="col-12 col-md-6 mt-i">
                         <label>Full name<span class="required"> * </span></label>
@@ -131,59 +131,61 @@
 
         <h3></h3>
         <fieldset style="text-align:left;">
-            <div class="row">
+            <div id="confirm-details-section">
                 <div class="col-12 col-md-12 col-sm-12" style="text-align:center; margin-bottom: 50px;">Kindly confirm the details you entered to ensure they are correct.</div>
 
-                <div class="input-group col-12 col-md-6 mt-i pb-0" style="border:1px solid gray" id="confirm-appointment-patient">
-                    <div class="title row" style="margin-bottom:10px;">Patient Details</div>
-                    <div class="preview-div col-12 col-md-4 col-sm-12">
-                        <span>Full name</span><br />
-                        <span class="preview" id="name-preview">Bonface bonface bonface bonface bonface bonface</span>
-                    </div>
-                    <div class="preview-div col-12 col-md-4 col-sm-12">
-                        <span>Gender</span><br>
-                        <span class="preview" id="gender-preview">Bonface</span>
-                    </div>
-                    <div class="preview-div col-12 col-md-4 col-sm-12">
-                        <span>Date of birth</span><br>
-                        <span class="preview" id="dob-preview">Bonface</span>
-                    </div>
+                <div class="d-flex flex-column flex-md-row">
+                    <div class="input-group w-100 mr-1 pb-0" style="border:1px solid silver" id="confirm-appointment-patient">
+                        <div class="title" style="margin-bottom:10px;">Patient Details</div>
+                        <div class="preview-div col-12 col-md-4 col-sm-12">
+                            <span>Full name</span><br />
+                            <span class="preview" id="name-preview">Bonface bonface bonface bonface bonface bonface</span>
+                        </div>
+                        <div class="preview-div col-12 col-md-4 col-sm-12">
+                            <span>Gender</span><br>
+                            <span class="preview" id="gender-preview">Bonface</span>
+                        </div>
+                        <div class="preview-div col-12 col-md-4 col-sm-12">
+                            <span>Date of birth</span><br>
+                            <span class="preview" id="dob-preview">Bonface</span>
+                        </div>
 
-                    <div class="preview-div col-12 col-md-4 col-sm-12">
-                        <span>Email address</span><br>
-                        <span class="preview" id="email-preview">Bonfacebonfacebonfacebonfacebonface@bonfacebonface.bonface</span>
-                    </div>
+                        <div class="preview-div col-12 col-md-4 col-sm-12">
+                            <span>Email address</span><br>
+                            <span class="preview" id="email-preview">Bonfacebonfacebonfacebonfacebonface@bonfacebonface.bonface</span>
+                        </div>
 
-                    <div class="preview-div col-12 col-md-4 col-sm-12">
-                        <span>Phone number</span><br>
-                        <span class="preview" id="phone-preview">Bonface</span>
-                    </div>
+                        <div class="preview-div col-12 col-md-4 col-sm-12">
+                            <span>Phone number</span><br>
+                            <span class="preview" id="phone-preview">Bonface</span>
+                        </div>
 
-                    <div class="preview-div col-12 col-md-4 col-sm-12">
-                        <span>Location</span><br>
-                        <span class="preview" id="location-preview">Bonface</span>
+                        <div class="preview-div col-12 col-md-4 col-sm-12">
+                            <span>Location</span><br>
+                            <span class="preview" id="location-preview">Bonface</span>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column-reverse flex-md-row w-100 px-0 pb-0">
+                        <div class="w-100 mx-0 mx-md-1 pb-2 pb-md-0" id="confirm-appointment-details">
+                            <div class="title">Appointment Details</div>
+                            <div class="col-12 col-md-12 col-sm-12">
+                                <span>Type</span><br>
+                                <span class="preview" id="type-preview">Speak To A Doctor Now</span>
+                            </div>
+                            <div class="col-12 px-1 px-md-3 col-sm-12">
+                                <span class="preview" id="time-preview">Date </span><br><span class="preview" id="time-preview">Time</span>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column w-100 mx-0 mx-md-1" id="confirm-appointment-cost">
+                            <div class="title">Appointment Cost</div>
+                            <div class="cost h-100 p-2">
+                                <span>Total</span><br>
+                                <span class="preview" id="type-preview">Ksh. 300</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="input-group col-12 col-md-6 px-0 pb-0" style="border:solid 1px gray">
-                    <div class="input-group col-12 col-md-6" id="confirm-appointment-details">
-                        <div class="title row">Appointment Details</div>
-                        <div class="col-12 col-md-12 col-sm-12">
-                            <span>Type</span><br>
-                            <span class="preview" id="type-preview">Speak To A Doctor Now</span>
-                        </div>
-                        <div class="col-12 px-1 px-md-3 col-sm-12">
-                            <span class="preview" id="time-preview">Date </span><br><span class="preview" id="time-preview">Time</span>
-                        </div>
-                    </div>
-                    <div class="input-group col-12 col-md-6" style="border:solid 1px gray" id="confirm-appointment-cost">
-                        <div class="title row">Appointment Cost</div>
-                        <div class="cost col-12 col-md-6 mt-i">
-                            <span>Total</span><br>
-                            <span class="preview" id="type-preview">Ksh. 300</span>
-                        </div>
-                    </div>
-                </div>
             </div>
         </fieldset>
     </form>
