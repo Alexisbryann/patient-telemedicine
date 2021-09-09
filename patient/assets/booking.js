@@ -19,30 +19,6 @@ jQuery(document).ready(function() {
         $('.telemed-step-one').show(500);
     }
 
-    $('#datetimepicker').datetimepicker({
-        format: 'd/m/Y H:i',
-        defaultDate: false,
-        defaultTime: false,
-        minDate: 0,
-        maxDate: '+07-01-1970',
-        validateOnBlur: true,
-        maxTime: '18:30',
-        allowTimes: [
-            '08:00',
-            '09:00',
-            '10:00',
-            '11:00',
-            '12:00',
-            '13:00',
-            '14:00',
-            '15:00',
-            '16:00',
-            '17:00',
-            '18:00'
-        ],
-        roundTime: 'ceil'
-    });
-
     $(document).on('click', '#request-callback', function() {
         $.ajax({
             url: "operation/psi/telemedicineOperations.php",
@@ -223,6 +199,7 @@ form.steps({
             booking_form_progress.val(new_progress_value);
             $("#booking-form-step-number").text(new_progress_value);
         }
+        console.log($("#set-appointment-time").val());
     },
     onFinishing: function(event, currentIndex) {
         if (document.getElementById("allergies-yes").checked) {
@@ -276,7 +253,22 @@ form.steps({
     }
 });
 
-if (global_settings.screen_is_mobile) {
+function checkStatus() {
+    $.ajax({
+        url: "operation/checkStatus.php",
+        method: "POST",
+        data: { id: appointment_id },
+        dataType: 'json',
+        success: function (response) {
+            if (response.status == 200) {
+                window.location = response.redirect_url;
+            }
+        }
+    });
+}
+
+if (global_settings.screen_is_mobile) { // handler for mobile behavior
+    // Add second step to booking form
     const booking_time_element = $(".booking-time").html();
     $(".booking-time").remove();
     form.steps("insert", 1, {
@@ -286,18 +278,26 @@ if (global_settings.screen_is_mobile) {
 
     $("#confirm-appointment-cost").insertBefore("#confirm-appointment-patient");
     $("#confirm-appointment-details").insertBefore("#confirm-appointment-patient");
-}
 
-function checkStatus() {
-    $.ajax({
-        url: "operation/checkStatus.php",
-        method: "POST",
-        data: { id: appointment_id },
-        dataType: 'json',
-        success: function(response) {
-            if (response.status == 200) {
-                window.location = response.redirect_url;
-            }
-        }
+    // hide desktop screen elements
+    $("[data-screen='desktop-only']").remove();
+} else {
+    // hide mobile screen elements
+    $("[data-screen='mobile-only']").remove();
+    $("#set-appointment-time").timepicker({
+        explicitMode: true,
+        icons: {
+            up: 'fa fa-chevron-up',
+            down: 'fa fa-chevron-down'
+        },
+        minuteStep: 1,
     });
 }
+
+$("#set-appointment-time").on("focus", function () {
+    $(this).closest(".timepicker").find(".input-group-addon").click();
+});
+
+$("[name='time']").on("change", function () {
+    $("#date-time-picker-container").toggleClass("d-none");
+});
