@@ -12,7 +12,7 @@
             <span>Confirm details</span>
         </label>
     </div>
-    <form class="col-md-12" id="booking_form" role="form" name="onboarding_form" method="post" enctype="multipart/form-data">
+    <form class="col-md-12" id="booking-form" role="form" name="onboarding_form" method="post" enctype="multipart/form-data">
         <h3></h3>
         <fieldset style="text-align:left;" id="patient-details-step-parent">
             <div class="row md-col">
@@ -20,7 +20,7 @@
                     <div class="w-100 d-none d-md-flex" style="margin-bottom: 30px; margin-top: 30px; font-weight: bold;">Fill in the patient's details</div>
                     <div class="col-12 col-md-6 mt-i">
                         <label>Full name<span class="required"> * </span></label>
-                        <input type="text" id="fullname" name="fullname" class="form-control" placeholder="Full name" required />
+                        <input type="text" id="name" name="name" class="form-control" placeholder="Full name" required />
                         <div id="name-error" class="col-12 col-md-12 alert alert-danger" style="display: none;"></div>
                     </div>
                     <div class="col-12 col-md-6 mt-i">
@@ -31,7 +31,7 @@
                     <div class="col-12 col-md-6 mt-i">
                         <label>Gender<span class="required"> * </span></label>
                         <select id="gender" name="gender" class="form-control" required>
-                            <option selected disabled>Select gender</option>
+                            <option selected disabled value="">Select gender</option>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
                         </select>
@@ -49,8 +49,8 @@
                     </div>
                     <div class="col-12 col-md-6 mt-i">
                         <label>Location<span class="required"> * </span></label>
-                        <select id="location" name="location" class="form-control select2" required>
-                            <option selected disabled>Select location</option>
+                        <select id="location" name="location" class="form-control" required>
+                            <option selected disabled value="">Select location</option>
                             <option value='Baringo'>Baringo</option>
                             <option value='Bomet'>Bomet</option>
                             <option value='Bungoma'>Bungoma</option>
@@ -114,9 +114,14 @@
                             <input type="radio" id="schedule" name="appointment-type" value="schedule" />
                             <span>Schedule for later</span>
                         </label><br>
+                        <input type="text" id="date" name="appointment-date" class="form-control" placeholder="date" />
+                        <div id="date-error" class="col-12 col-md-12 alert alert-danger" style="display: none;"></div>
+                        <input type="text" id="time" name="appointment-time" class="form-control" placeholder="time" />
+                        <div id="time-error" class="col-12 col-md-12 alert alert-danger" style="display: none;"></div>
                     </div>
                 </div>
                 <input type="hidden" name="clinic" value="psi" hidden />
+                <input type="hidden" name="operation" value="booking" hidden />
             </div>
         </fieldset>
 
@@ -127,29 +132,26 @@
 
                 <div class="input-group col-12 col-md-6 mt-i pb-0" id="confirm-appointment-patient">
                     <div class="title row" style="margin-bottom:10px;">Patient Details</div>
-                    <div class="preview-div col-12 col-md-4 col-sm-12">
+                    <div class="preview-div col-12 col-md-6 col-sm-12">
                         <span>Full name</span><br />
                         <span class="preview" id="name-preview"></span>
                     </div>
-                    <div class="preview-div col-12 col-md-4 col-sm-12">
-                        <span>Gender</span><br>
-                        <span class="preview" id="gender-preview"></span>
-                    </div>
-                    <div class="preview-div col-12 col-md-4 col-sm-12">
-                        <span>Date of birth</span><br>
-                        <span class="preview" id="dob-preview"></span>
-                    </div>
-
-                    <div class="preview-div col-12 col-md-4 col-sm-12">
-                        <span>Email address</span><br>
-                        <span class="preview" id="email-preview"></span>
-                    </div>
-
-                    <div class="preview-div col-12 col-md-4 col-sm-12">
+                    <div class="preview-div col-12 col-md-6 col-sm-12">
                         <span>Phone number</span><br>
                         <span class="preview" id="phone-preview"></span>
                     </div>
-
+                    <div class="preview-div col-12 col-md-6 col-sm-12">
+                        <span>Gender</span><br>
+                        <span class="preview" id="gender-preview"></span>
+                    </div>
+                    <div class="preview-div col-12 col-md-6 col-sm-12">
+                        <span>Date of birth</span><br>
+                        <span class="preview" id="dob-preview"></span>
+                    </div>
+                    <div class="preview-div col-12 col-md-8 col-sm-12">
+                        <span>Email address</span><br>
+                        <span class="preview" id="email-preview"></span>
+                    </div>
                     <div class="preview-div col-12 col-md-4 col-sm-12">
                         <span>Location</span><br>
                         <span class="preview" id="location-preview"></span>
@@ -164,7 +166,8 @@
                             <span class="preview" id="type-preview">Speak To A Doctor Now</span>
                         </div>
                         <div class="col-12 px-1 px-md-3 col-sm-12">
-                            <span class="preview" id="time-preview">Date </span><br><span class="preview" id="time-preview">Time</span>
+                            <span>Date: </span><span class="preview" id="date-preview"></span><br>
+                            <span>Time: </span><span class="preview" id="time-preview"></span>
                         </div>
                     </div>
                     <div class="input-group col-12 col-md-6" id="confirm-appointment-cost">

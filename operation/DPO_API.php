@@ -30,9 +30,9 @@ if (isset($_POST["operation"])) {
         $type = $_POST['type'];
         $currency = 'KES';
         $txRef = $_POST["txRef"];
-        $fullName = ltrim($_POST["fullName"]);
-        if ($fullName == trim($fullName) && strpos($fullName, ' ') !== false) {
-            $patient_name = explode(' ', $fullName);
+        $name = ltrim($_POST["name"]);
+        if ($name == trim($name) && strpos($name, ' ') !== false) {
+            $patient_name = explode(' ', $name);
             if (count($patient_name) == 2) {
                 $first_name = $patient_name[0];
                 $last_name = $patient_name[1];
@@ -40,13 +40,13 @@ if (isset($_POST["operation"])) {
                 $first_name = $patient_name[0];
                 $last_name = $patient_name[1].' '.$patient_name[2];
             } else {
-                $first_name = $fullName;
-                $last_name = $fullName;
+                $first_name = $name;
+                $last_name = $name;
             }
             
         } else {
-            $first_name = $fullName;
-            $last_name = $fullName;
+            $first_name = $name;
+            $last_name = $name;
         }
         $email = $_POST["email"];
         $country = 'KE';
@@ -72,7 +72,7 @@ if (isset($_POST["operation"])) {
                             <customerEmail>'.$email.'</customerEmail>
                             <customerCountry>'.$SELECTED_COUNTRY_CODE.'</customerCountry>
                             <customerPhone>'.$phone.'</customerPhone>
-                            <CardHolderName>'.$fullName.'</CardHolderName>
+                            <CardHolderName>'.$name.'</CardHolderName>
                             <DefaultPayment>MO</DefaultPayment>
                             </Transaction>
                             <Services>
@@ -89,7 +89,7 @@ if (isset($_POST["operation"])) {
                             </Additional>
                         </API3G>';
     
-        // file_put_contents($fullName.'.xml', $xml_request);
+        // file_put_contents($name.'.xml', $xml_request);
         $curl = curl_init();
         curl_setopt_array($curl, array(
         CURLOPT_URL => $Endpoint,
@@ -115,7 +115,7 @@ if (isset($_POST["operation"])) {
         } else {
             $xml = simplexml_load_string($response);
             file_put_contents('Token-'.$txRef.'.xml', $response);
-            echo json_encode($xml);
+            // echo json_encode($xml);
         }
     }
 }

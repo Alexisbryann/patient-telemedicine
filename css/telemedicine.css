@@ -120,6 +120,10 @@ p {
 .error, .required {
     color: #FF5252;
 }
+span p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
 
 .preview, .title {
     font-weight: bold;
@@ -721,8 +725,8 @@ div.testGroup {
     }
 }
 fieldset .patient-details .alert-danger{
-    margin-top: 10px;
-    padding: .35rem .6rem;
+    margin-top: 5px;
+    padding: .05rem .6rem;
 }
 /*******************PATIENT ON BOARDING******************/
 

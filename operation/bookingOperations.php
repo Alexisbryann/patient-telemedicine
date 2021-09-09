@@ -12,7 +12,7 @@ $db = new DB_Functions();
 $response = array("error" => FALSE);
 if (isset($_POST["operation"])) {
 	if ($_POST["operation"] == 'booking') {
-		$name = $_POST["fullname"];
+		$name = $_POST["name"];
 		$email = $_POST["email"];
 		$gender = $_POST["gender"];
 		$phone = $_POST["phone"];
@@ -30,7 +30,6 @@ if (isset($_POST["operation"])) {
 		$clinic = $_POST['clinic'];
 
 		$user = $db->TunzaClinicTelemedicineAppointmentBooking(
-			$type,
 			$name, 
 			$email,
 			$gender,

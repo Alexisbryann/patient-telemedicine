@@ -74,6 +74,8 @@ class DB_Functions {
         $clinic
         ) {
         $db = $this->conn;
+        // $date = date('Y-m-d', $date);
+        // $time = date('G:i:s', $time);
 
         $query = "INSERT INTO wp_ea_appointments (wp_ea_appointments.location, wp_ea_appointments.date, wp_ea_appointments.start, end_date, wp_ea_appointments.status, created, price, med_on_demand, clinic) 
                 VALUES (130, '$date', '$time', '$date', 'pending payment', '$date.' '.$time', '$cost', 1, '$clinic')";
@@ -121,8 +123,6 @@ class DB_Functions {
                 $statement = mysqli_query($db, $query) or die(mysqli_error($db));
                 $i++;
             }
-            echo $appointment_id;
-            exit();
             if (!empty($statement)) {
                 $response['response'] = 200;
                 $response['id'] = $appointment_id;
@@ -143,8 +143,8 @@ class DB_Functions {
                                                    **********************************/
 
     public function TunzaClinicTelemedicinePayment(
-        $appointment_id, 
         $type,
+        $appointment_id,
         $TransactionToken,
         $TransactionAmount,
         $TransactionRef,
@@ -218,8 +218,8 @@ class DB_Functions {
                         $location = trim($value);
                     }
                 }
-                $email1 = $this->sendBookingConfirmationEmailToPatient($type, $appointment_id, $date, $time, $email, $first_name.' '.$last_name, $phone, $gender, $concern='', $location);
-                $email2 = $this->sendBookingConfirmationEmailToFacility($type, $appointment_id, $date, $time, $email, $first_name.' '.$last_name, $phone, $gender, $concern='', $location);
+                $email1 = $this->sendBookingConfirmationEmailToPatient($type, $appointment_id, $date, $time, $email, $first_name.' '.$last_name, $phone, $gender, $location);
+                $email2 = $this->sendBookingConfirmationEmailToFacility($type, $appointment_id, $date, $time, $email, $first_name.' '.$last_name, $phone, $gender, $location);
                 $sms1 = $this->sendBookingSMSToPatient($type, $appointment_id, $first_name.' '.$last_name, $phone, $date, $time);
                 //$sms2 = $this->sendBookingSMSToFacility($type, $appointment_id, $first_name.' '.$last_name, $phone, $date, $time);
                 ($email1 && $sms1) ? $response = 200 : $response = 500;
@@ -248,7 +248,6 @@ class DB_Functions {
         $name, 
         $phone, 
         $gender, 
-        $concern, 
         $location
         ) {
         $button = "<a href='https://myhealthafrica.com/coldroom/myonemedpro/psi-telemedicine/patient/patient-waiting-room.php?appid={$appointment_id}' target='_blank'><button class='button button4' style='border-radius: 12px;background-color: #28A745;border: none; color: white;
@@ -295,7 +294,6 @@ class DB_Functions {
                             </div>
                             <div class='f-fallback'>
                                 <p style=' font-size: 13px; line-height: 1.625; color: #51545E;'><b>Location:</b> Online Consultation </p>
-                                <p style=' font-size: 13px; line-height: 1.625; color: #51545E;'><b>Medical concern:</b> {$concern}</p>
                             </div>
                             <div class='f-fallback'>
                                 <h5 style='margin-top: 20px; text-decoration: underline; color: #333333; font-size: 14px; font-weight: bold; text-align: left;'>Patient Details</h5>
@@ -394,7 +392,6 @@ class DB_Functions {
         $name, 
         $phone, 
         $gender, 
-        $concern, 
         $location
         ) {
         
@@ -447,7 +444,6 @@ class DB_Functions {
                             </div>
                             <div class='f-fallback'>
                                 <p style=' font-size: 13px; line-height: 1.625; color: #51545E;'><b>Location:</b> Online Consultation </p>
-                                <p style=' font-size: 13px; line-height: 1.625; color: #51545E;'><b>Medical concern:</b> {$concern}</p>
                             </div>
                             <div class='f-fallback'>
                                 <h5 style='margin-top: 20px; text-decoration: underline; color: #333333; font-size: 14px; font-weight: bold; text-align: left;'>Patient Details</h5>
@@ -482,8 +478,8 @@ class DB_Functions {
             'title' => 'Tunza Clinic Telemedicine',
             'address' => 'Online Telemedicine',
             'description' => 'New appointment with Tunza Clinic doctor',
-            'datestart' => strtotime($start_date),
-            'dateend' => strtotime($end_date),
+            'date_start' => strtotime($start_date),
+            'date_end' => strtotime($end_date),
             'address' => 'Online Telemedicine'
         );
 
@@ -497,8 +493,8 @@ class DB_Functions {
         $ical .= 'PRODID:-//My Health Africa/Appointments//Booking Platform//EN'.PHP_EOL;
         $ical .= 'CALSCALE:GREGORIAN'.PHP_EOL;
         $ical .= 'BEGIN:VEVENT'.PHP_EOL;
-        $ical .= 'DTSTART:'.dateToCalendar($event["datestart"]).''.PHP_EOL;
-        $ical .= 'DTEND:'.dateToCalendar($event["dateend"]).''.PHP_EOL;
+        $ical .= 'DTSTART:'.dateToCalendar($event["date_start"]).''.PHP_EOL;
+        $ical .= 'DTEND:'.dateToCalendar($event["date_end"]).''.PHP_EOL;
         $ical .= 'UID:'.md5($event["title"]).''.PHP_EOL;
         $ical .= 'DTSTAMP:'.time().''.PHP_EOL;
         $ical .= 'LOCATION:'.addslashes($event['address']).''.PHP_EOL;
@@ -608,6 +604,17 @@ class DB_Functions {
         $date, 
         $time
         ) {
+
+        $facility_phones = [
+            '+254720034709',
+            '+254733820562',
+            '+254722254433',
+            '+254720838318',
+            '+254722519169',
+            '+254724713567',
+            '+254722869026',
+            '+254720855084',
+        ];
         
         $url = "https://myhealthafrica.com/coldroom/myonemedpro/my-waiting-room?appid={$appointment_id}.";
         if ($type == 'schedule') {
@@ -617,6 +624,13 @@ class DB_Functions {
         } else if ($type == 'reminder') {
             $message = 'This is to remind you that you have a telemedicine appointment with '.$name.' on '.$date.' '.$time.' is confirmed. Start your session by clicking this url '.$url.'. Check your email/ login to your account for details or to cancel/reschedule.';
         }
+        // foreach ($facility_phones as $phone) {
+        //     try {
+        //         $result = $GLOBALS['gateway']->sendMessage($phone, $message, $GLOBALS['from']);
+        //     } catch (Exception $e) {
+        //         echo "Error: ".$e->getMessage();
+        //     }
+        // }
         try {
             $result = $GLOBALS['gateway']->sendMessage($phone, $message, $GLOBALS['from']);
         } catch (Exception $e) {

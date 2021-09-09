@@ -49,7 +49,7 @@ jQuery(document).ready(function () {
     }
 });
 
-var form = $("#booking_form").show();
+var form = $("#booking-form").show();
 form.steps({
     headerTag: "h3",
     bodyTag: "fieldset",
@@ -74,26 +74,24 @@ form.steps({
         }
         if (global_settings['screen_is_mobile']) {
             if (currentIndex === 0) {
-                if (validateInput()) {
+                if (validateInput(step=1)) {
                     $("a[href$='previous']").show();
                     document.getElementById("appointment").checked = false;
                     document.getElementById("confirm").checked = true;
                     return true;
                 }
             } else if (currentIndex === 1) {
-                if (validateInput()) {
-                    
+                if (document.getElementById('now').checked) {
+                    return true;
+                } else if (document.getElementById('schedule').checked) {
+                    if (validateInput(step=2)) {
+                        return true;  
+                    }
                 }
-                if (document.getElementById('date').value !== '' && document.getElementById('time').value !== '') {
-                    
-                } else {
-                    
-                }
-                return true;
             }
         } else {
             if (currentIndex === 0) {
-                if (validateInput()) {
+                if (validateInput(step=1)) {
                     $("a[href$='previous']").show();
                     document.getElementById("appointment").checked = false;
                     document.getElementById("confirm").checked = true;
@@ -118,7 +116,7 @@ form.steps({
         $(btn).html('<i class="sending fa fa-spinner fa-spin"></i>Sending...');
         $('.btn-next').css("pointer-events", "none");
         const txRef = '' + Math.floor((Math.random() * 1000000000) + 1);
-        const fullName = document.getElementById('fullname').value;
+        const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
         const phone = document.getElementById('phone').value;
 
@@ -136,7 +134,7 @@ form.steps({
                     $(btn).html('');
                     $(btn).html('Submitted');
                     var appointment_id = response.id;
-                    DPO_Payment(PaymentURL, fullName, email, phone, txRef, appointment_id);
+                    DPO_Payment(PaymentURL, name, email, phone, txRef, appointment_id);
                 } else if(response == 500) {
                     $(btn).css("pointer-events", "auto");
                     $(btn).html('');
@@ -151,7 +149,7 @@ form.steps({
     }
 });
 
-function DPO_Payment(PaymentURL, fullName, email, phone, txRef, appointment_id) {
+function DPO_Payment(PaymentURL, name, email, phone, txRef, appointment_id) {
     var type;
     if (document.getElementById('now').checked) {
         type = 'now';
@@ -166,7 +164,7 @@ function DPO_Payment(PaymentURL, fullName, email, phone, txRef, appointment_id) 
             id: appointment_id,
             type: type,
             txRef: txRef,
-            fullName: fullName,
+            name: name,
             email: email,
             phone: phone
         },
@@ -191,54 +189,110 @@ function DPO_Payment(PaymentURL, fullName, email, phone, txRef, appointment_id) 
     });
 }
 
-function validateInput() {
-    var name = $('#fullname').val(), 
-        email = $('#email').val(), 
-        gender = $('#gender').val(), 
-        dob = $('#dob').val(), 
-        phone = $('#phone').val(), 
-        location = $('#location').val();
-    if (name == '' && email == '' && gender == '' && dob == '' && phone == '' && location == '') {
-        alert('hey');
-        document.getElementById('name-error').innerHTML = 'Kindly fill in your full name.';
-        document.getElementById('email-error').innerHTML = 'Kindly fill in your email address.';
-        document.getElementById('gender-error').innerHTML = 'Kindly fill in your gender.';
-        document.getElementById('dob-error').innerHTML = 'Kindly fill in your date of birth.';
-        document.getElementById('phone-error').innerHTML = 'Kindly input your phone number.';
-        document.getElementById('location-error').innerHTML = 'Kindly select your location.';
-        $('#name-error, #gender-error, #email-error, #phone-error, #dob-error, #location-error').show(500);
-        return false;
-    } else if (name == '') {
-        document.getElementById('name-error').innerHTML = 'Kindly fill in your full name.';
-        $('#name-error').show(500);
-        return false;
-    } else if (email == '') {
-        document.getElementById('email-error').innerHTML = 'Kindly fill in your email address.';
-        $('#email-error').show(500);
-        return false;
-    } else if (gender == '') {
-        document.getElementById('gender-error').innerHTML = 'Kindly fill in your gender';
-        $('#gender-error').show(500);
-        return false;
-    } else if (phone == '') {
-        document.getElementById('phone-error').innerHTML = 'Kindly input your phone number.';
-        $('#phone-error').show(500);
-        return false;
-    } else if (dob == '') {
-        document.getElementById('dob-error').innerHTML = 'Kindly fill in your date of birth.';
-        $('#dob-error').show(500);
-        return false;
-    } else if (location == '') {
-        document.getElementById('location-error').innerHTML = 'Kindly select your location.';
-        $('#location-error').show(500);
+function validateInput(step) {
+    var error = 0,
+        name = document.forms["booking-form"]["name"].value,
+        email = document.forms["booking-form"]["email"].value,
+        phone = document.forms["booking-form"]["phone"].value,
+        gender = document.forms["booking-form"]["gender"].value,
+        dob = document.forms["booking-form"]["dob"].value,
+        location = document.forms["booking-form"]["location"].value,
+        type = document.forms["booking-form"]["appointment-type"].value,
+        date = document.forms["booking-form"]["appointment-date"].value,
+        time = document.forms["booking-form"]["appointment-time"].value;
+
+    if (step == 1) {
+        document.getElementById('name-error').innerHTML = '';
+        if (name == null || name == '') {
+            error++;
+            document.getElementById('name-error').innerHTML = 'Kindly fill in your full name.';
+            $('#name-error').show(500);
+        }else $('#name-error').hide(500);
+        document.getElementById('email-error').innerHTML = '';
+        if (email == null || email == '') {
+            error++;
+            document.getElementById('email-error').innerHTML = 'Kindly fill in your email address.';
+            $('#email-error').show(500);
+        }else $('#email-error').hide(500);
+        document.getElementById('gender-error').innerHTML = '';
+        if (gender == null || gender == '') {
+            error++;
+            document.getElementById('gender-error').innerHTML = 'Kindly fill in your gender.';
+            $('#gender-error').show(500);
+        }else $('#gender-error').hide(500);
+        document.getElementById('dob-error').innerHTML = '';
+        if (dob == null || dob == '') {
+            error++;
+            document.getElementById('dob-error').innerHTML = 'Kindly fill in your date of birth.';
+            $('#dob-error').show(500);
+        }else $('#dob-error').hide(500);
+        document.getElementById('phone-error').innerHTML = '';
+        if (phone == null || phone == '') {
+            error++;
+            document.getElementById('phone-error').innerHTML = 'Kindly input your phone number.';
+            $('#phone-error').show(500);
+        }else $('#phone-error').hide(500);
+        document.getElementById('location-error').innerHTML = '';
+        if (location == null || location == '') {
+            error++;
+            document.getElementById('location-error').innerHTML = 'Kindly select your location.';
+            $('#location-error').show(500);
+        }else $('#location-error').hide(500);
+        if (!global_settings['screen_is_mobile']) {
+            if (type == 'schedule') {
+                document.getElementById('date-error').innerHTML = '';
+                if (date == null || date == '') {
+                    error++;
+                    document.getElementById('date-error').innerHTML = 'Please enter your preferred appointment date.';
+                    $('#date-error').show(500);
+                }else $('#date-error').hide(500);
+                document.getElementById('time-error').innerHTML = '';
+                if (time == null || time == '') {
+                    error++;
+                    document.getElementById('time-error').innerHTML = 'Please enter preferred appointment time.';
+                    $('#time-error').show(500);
+                }else $('#time-error').hide(500);
+            }
+        } 
+    } else if (step == 2) {
+        if (type == 'schedule') {
+            document.getElementById('date-error').innerHTML = '';
+            if (date == null || date == '') {
+                error++;
+                document.getElementById('date-error').innerHTML = 'Please enter your preferred appointment date.';
+                $('#date-error').show(500);
+            }else $('#date-error').hide(500);
+            document.getElementById('time-error').innerHTML = '';
+            if (time == null || time == '') {
+                error++;
+                document.getElementById('time-error').innerHTML = 'Please enter preferred appointment time.';
+                $('#time-error').show(500);
+            }else $('#time-error').hide(500);
+        }
+    }
+
+    if(error>0) {
         return false;
     } else {
-        document.getElementById('name-preview').innerHTML = name;
-        document.getElementById('email-preview').innerHTML = email;
-        document.getElementById('gender-preview').innerHTML = gender;
-        document.getElementById('dob-preview').innerHTML = dob;
-        document.getElementById('phone-preview').innerHTML = phone;
-        document.getElementById('location-preview').innerHTML = location;
-        return true
-    }
+        if (step == 1) {
+            document.getElementById('name-preview').innerHTML = name;
+            document.getElementById('gender-preview').innerHTML = gender;
+            document.getElementById('dob-preview').innerHTML = dob;
+            document.getElementById('phone-preview').innerHTML = phone;
+            document.getElementById('email-preview').innerHTML = email;
+            document.getElementById('location-preview').innerHTML = location;
+            if (!global_settings['screen_is_mobile']) {
+                if (type == 'schedule') {
+                    document.getElementById('date-preview').innerHTML = date;
+                    document.getElementById('time-preview').innerHTML = time;
+                }
+            } 
+        } else if (step == 2){
+            if (type == 'schedule') {
+                document.getElementById('date-preview').innerHTML = date;
+                document.getElementById('time-preview').innerHTML = time;
+            }
+        }
+        return true;
+    } 
 }
