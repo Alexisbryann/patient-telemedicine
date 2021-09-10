@@ -5,7 +5,7 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 // Load Composer's autoloader
-require $_SERVER['DOCUMENT_ROOT'] . "/patient/vendor/autoload.php";
+require "../../vendor/autoload.php";
 // require '..\vendor\autoload.php';
 
 function mailer()
