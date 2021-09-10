@@ -643,6 +643,8 @@
          * to the nearest "step", like 45 if step is 15. Segment will
          * "overflow" to 0 if it's larger than 59 or would otherwise
          * round up to 60.
+         *
+         * Modified to always round up to the next step - ANGELO
          */
         changeToNearestStep: function (segment, step) {
             if (segment % step === 0) {
@@ -651,7 +653,7 @@
             if (Math.round((segment % step) / step)) {
                 return (segment + (step - segment % step)) % 60;
             } else {
-                return segment - segment % step;
+                return segment + segment % step;
             }
         },
 

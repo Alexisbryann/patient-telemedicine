@@ -118,10 +118,15 @@
                     </div>
 
                     <div id="date-time-picker-container" class="d-none">
-                        <input type="date" class="form-control my-2" id="set-appointment-date">
-                        <input type="time" class="form-control my-2" id="set-appointment-time" data-screen="mobile-only">
-                        <div class="input-group bootstrap-timepicker timepicker" data-screen="desktop-only">
-                            <input id="set-appointment-time" type="text" class="form-control input-small">
+                        <div class="input-group bootstrap-timepicker timepicker mb-2 datepicker" title="Select date">
+                            <input type="text" class="form-control input-small" id="set-appointment-date" name="set-appointment-date">
+                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                        </div>
+
+                        <input type="time" class="form-control my-2" id="set-appointment-time" data-screen="mobile-only" min="08:00" max="18:00">
+
+                        <div class="input-group bootstrap-timepicker timepicker" data-screen="desktop-only" title="Select time">
+                            <input id="set-appointment-time" name="set-appointment-time" type="text" class="form-control input-small">
                             <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
                         </div>
                     </div>
