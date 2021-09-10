@@ -1,0 +1,423 @@
+:root {
+    --notes-blue: rgb(62, 149, 241);
+    --buttons-bottom: 3.3em;
+    --buttons-dimensions: 60px;
+    --buttons-background: white;
+    --reduced-opacity: .6;
+    --buttons-font-size: 1.3em;
+    --icons-dimensions: 30px;
+    --card-width: 300px;
+    --cards-max-height: 60vh;
+    --mobile-buttons-edge-gaps-x: 2em;
+    --mobile-buttons-bottom-gap: 6.3em;
+}
+
+textarea {
+    width: 85%!important;
+    border-radius: 3px!important;
+    max-height: 15em;
+    min-height: 4em;
+}
+
+#telemed-iframe {
+    width: 100%;
+    height: 100%;
+    max-height: 100vh;
+    z-index: 0;
+    border: none;
+}
+
+#main-container {
+    position: relative;
+}
+
+#notes-container {
+    position: absolute;
+    bottom: var(--buttons-bottom);
+    left: 8em;
+    opacity: var(--reduced-opacity);
+}
+
+#notes-container:hover, #notes-container:focus, #notes-btn-container:hover, #chat-btn-container:hover, #chat-container:hover, #chat-container:focus {
+    opacity: 1;
+}
+
+#notes-btn-container .fa.fa-pencil {
+    color: white;
+}
+
+.notes-icon {
+    width: var(--icons-dimensions);
+    height: var(--icons-dimensions);
+    border-radius: 50%;
+    color: white;
+    background-color: var(--notes-blue);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+[data-display="no"] {
+    display: none;
+}
+
+[data-display="yes"] {
+    display: block;
+}
+
+#notes-pointer-icon .fa {
+    transition: .3s;
+}
+
+#notes-textarea {
+    border: none;
+    width: 100%!important;
+    max-height: 100%!important;
+    height: 100%;
+}
+
+.separator {
+    margin: .7em 0;
+}
+
+#attach-file-btn-container {
+    cursor: pointer;
+}
+
+#attach-file-btn-container {
+    font-weight: 800;
+    padding: .1em;
+    font-size: 1.2em;
+}
+
+.delete-file::after {
+    content: "X";
+    cursor: pointer;
+}
+
+.notes-attachment-container {
+    background-color: #eee;
+    border-radius: 4px;
+    margin: .2em;
+    white-space: nowrap;
+    font-size: .8em;
+    cursor: default;
+}
+
+.notes-attachment-container .fa-file-text {
+    color: var(--notes-blue);
+}
+
+.delete-file:hover {
+    color: rgb(255, 68, 0);
+}
+
+#attached-files-container, #telemed-chat-files-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 .7rem;
+}
+
+#save-notes-button {
+    font-size: .9em;
+}
+
+#telemed-case-notes-error, #telemed-chat-error {
+    font-size: 0.9em;
+    color: rgb(254 118 81);
+    display: none;
+}
+
+#notes-btn {
+    display: none;
+}
+
+#chat-btn-container, #notes-btn-container {
+    height: var(--buttons-dimensions);
+    width: var(--buttons-dimensions);
+    background-color: var(--buttons-background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    opacity: var(--reduced-opacity);
+    font-size: var(--buttons-font-size);
+    cursor: pointer;
+    margin: 1em 1em 0 auto;
+}
+
+#notes-btn-container {
+    margin: 1em auto 0 1em;
+}
+
+#chat-container {
+    position: absolute;
+    bottom: var(--buttons-bottom);
+    opacity: var(--reduced-opacity);
+    right: 8em;
+}
+
+.card {
+    width: var(--card-width);
+    border: none;
+}
+
+.adiv {
+    border-bottom: 2px solid #f5f5f5;
+    font-size: 14px;
+    font-weight: bold;
+    height: 46px;
+    font-family: 'Segoe UI';
+}
+
+.pb-3 {
+    color: #000;
+}
+
+.chat {
+    border: none;
+    background: #E2FFE8;
+    border-radius: 20px 20px 20px 0;
+    font-family: 'Segoe UI';
+}
+
+.bg-white {
+    border: 1px solid #E7E7E9;
+    border-radius: 20px 20px 0 20px
+}
+
+.dot {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.p-3 {
+    padding: 0.8rem !important;
+}
+
+.bubble {
+    padding: .5em 1em !important;
+}
+
+.form-control::placeholder {
+    font-size: .8em;
+    color: #C4C4C4
+}
+
+.bubble .typing {
+    display: inline-block;
+    width: 0.4rem;
+    height: 0.4rem;
+    margin-right: 0rem;
+    box-sizing: border-box;
+    background: #ccc;
+    border-radius: 50%;
+}
+
+.bubble .typing.typing-1 {
+    -webkit-animation: typing 1s infinite;
+    animation: typing 3s infinite;
+}
+
+.bubble .typing.typing-2 {
+    -webkit-animation: typing 2s 200ms infinite;
+    animation: typing 3s 200ms infinite;
+}
+
+.bubble .typing.typing-3 {
+    -webkit-animation: typing 3s 400ms infinite;
+    animation: typing 3s 400ms infinite;
+}
+
+.input {
+    font-size: 12px;
+    box-sizing: border-box;
+    flex-basis: 4rem;
+    flex-shrink: 0;
+    display: flex;
+    align-items: flex-end;
+    padding: 0 0.5rem 0 1.5rem;
+}
+
+input:focus, select:focus, textarea:focus, button:focus {
+    outline: none;
+}
+
+input:placeholder {
+    color: #999;
+}
+
+#chat-messages-container .notes-icon {
+    width: calc(var(--icons-dimensions) - 3px);
+    height: calc(var(--icons-dimensions) - 3px);
+    font-size: .8rem;
+}
+
+.chat-time {
+    font-size: .8em;
+    color: rgb(153, 149, 149);
+    margin-bottom: 0;
+}
+
+#chat-messages {
+    overflow: auto;
+    font-size: .75rem;
+}
+
+.chat-initials {
+    width: var(--icons-dimensions);
+    height: var(--icons-dimensions);
+    font-weight: 700;
+    color: rgb(37, 145, 240);
+    border: 1px solid rgb(37, 145, 240);
+    text-align: center;
+    border-radius: 50%;
+    line-height: 1.7rem;
+    margin-top: auto;
+}
+
+.card-hide-btn {
+    text-align: center;
+    width: 100%;
+    cursor: pointer;
+    font-size: .7rem;
+    display: none;
+}
+
+.card-hide-btn:hover {
+    background-color: rgb(250, 63, 11);
+    color: white;
+}
+
+.card {
+    height: var(--cards-max-height);
+}
+
+#virtual-room-logo {
+    height: 100%;
+}
+
+#virtual-room-logo-cntnr {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 76px;
+    background-color: white;
+}
+
+#leave-room-btn {
+    position: absolute;
+    left: calc(50% - 5.1em);
+    bottom: 1em;
+    padding: .2em .8em;
+    border: 2px solid rgb(189, 189, 189);
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: #F22F46;
+    color: white;
+    opacity: var(--reduced-opacity);
+}
+
+#leave-room-btn:hover, #leave-room-btn:focus {
+    background-color: #f01932;
+    opacity: 1;
+    color: white;
+}
+
+.modal-button {
+    cursor: pointer;
+    padding: 0 2em;
+    border-radius: .1rem;
+}
+
+.modal-header img {
+    height: 4rem;
+    margin: auto;
+}
+
+.chat-file {
+    width: calc(var(--card-width) - 8rem);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: .1rem .5em;
+    border: 1px solid silver;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: gray;
+    color: white;
+}
+
+.chat-image-display {
+    width: calc(var(--card-width) - 8rem);
+    cursor: pointer;
+}
+
+#display-image-modal .modal-body {
+    padding: 0;
+}
+
+#display-image-modal .modal-content {
+    background: none;
+    border: none;
+}
+
+#display-image-modal .modal-header {
+    border: none;
+}
+
+@keyframes typing {
+    0%, 75%, 100% {
+        transform: translate(0, 0.25rem) scale(0.9);
+        opacity: 0.5;
+    }
+    25% {
+        transform: translate(0, -0.25rem) scale(1);
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width: 758px) {
+    #notes-btn-container {
+        position: absolute;
+        bottom: var(--mobile-buttons-bottom-gap);
+        margin-left: 0;
+        left: var(--mobile-buttons-edge-gaps-x);
+    }
+    #chat-btn-container {
+        position: absolute;
+        bottom: var(--mobile-buttons-bottom-gap);
+        margin-right: 0;
+        right: var(--mobile-buttons-edge-gaps-x);
+    }
+    .card-hide-btn {
+        display: block;
+    }
+    #chat-container, #notes-container {
+        position: relative;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+    #notes-input-container, #chat-messages-container {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        opacity: 1;
+        z-index: 2;
+    }
+    .card {
+        width: 100%;
+        padding: .5em;
+    }
+    .container {
+        padding: 0;
+    }
+    #virtual-room-logo-cntnr {
+        width: 100%;
+    }
+    #virtual-room-logo {
+        width: 100%;
+    }
+}

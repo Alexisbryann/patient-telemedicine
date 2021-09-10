@@ -19,7 +19,7 @@
     <link href="css/responsive.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="assets/bundles/bootstrap-timepicker/css/bootstrap-timepicker.css" />
     <link rel="stylesheet" type="text/css" href="assets/bundles/bootstrap-datepicker/css/bootstrap-datepicker.css" />
-    <link href="css/telemedicine.css?v=0" rel="stylesheet" type="text/css" />
+    <link href="css/telemedicine.css?v=1" rel="stylesheet" type="text/css" />
     <!-- favicon -->
     <link rel="shortcut icon" href="images/my-health-africa.png" />
 </head>
@@ -46,7 +46,7 @@
                     </div>
                     <div class="card-body no-padding height-12">
                         <div class="row text-center m-t-10 " style="border: solid 1px gray;">
-                            <div class="col-md-12 telemed-step-one" style="display: none; padding:0px">
+                            <div class="col-md-12 telemed-step-one" style="padding:0px">
                                 <?php require_once 'booking-form.php'; ?>
                             </div>
                         </div>

@@ -1,0 +1,43 @@
+<!-- Doctor notes container -->
+<div id="notes-container" class="d-flex flex-column" title="Add appointment notes">
+    <!-- Notes toggle button -->
+    <!-- <div id="notes-btn-container" class="d-flex align-items-center justify-content-between">
+                    <span id="notes-pointer-icon" class=" hidden-sm"><i class="fa fa-chevron-up"></i></span>
+                    <span class="mx-md-4 hidden-sm"><strong>Appointment Notes</strong></span>
+                    <span id="notes-pen-icon" class="notes-icon"><i class="fa fa-pencil"></i></span>
+                </div> -->
+
+    <!-- doctor's notes container -->
+    <div id="notes-input-container" class="d-none">
+        <div class="container d-flex justify-content-center">
+            <div class="card">
+                <div class="d-flex flex-row justify-content-between p-3 adiv text-white">
+                    <span class="pb-3">Doctor's Notes</span><i class="fas fa-times"></i>
+                </div>
+                <textarea id="notes-textarea" class="form-control my-2" rows="8" placeholder="Write your notes here..."
+                    required></textarea>
+                <input type="file" id="notes-file-input" name="notes-file-input[]" multiple="multiple"
+                    style="display: none;" accept="images/*,.pdf,.txt,.doc,.docx,.odt,.xls,.csv">
+
+                <hr class="separator" data-display="no">
+
+                <div id="attached-files-container">
+                    <span id="telemed-case-notes-error" class="w-100">File upload error</span>
+                </div>
+
+                <div id="notes-input-footer" class="d-flex justify-content-between align-items-center px-3 py-2">
+                    <label id="attach-file-btn-container" class="my-0 notes-icon" title="Add Files"
+                        for="notes-file-input"><i class="fa fa-paperclip"></i></label>
+                    <button id="save-notes-button" class="btn btn-primary py-1" title="Save notes"
+                        data-appointment_id='<?php echo $apptid ?>'>Save</button>
+                </div>
+                <span class="py-2 display-toggler card-hide-btn" id="hide-notes"
+                    data-toggle="#notes-input-container">Hide</span>
+            </div>
+        </div>
+    </div>
+
+    <span id="notes-btn-container" class="display-toggler" data-toggle="#notes-input-container" title="Doctor Notes">
+        <i class="fa fa-pencil-square-o"></i>
+    </span>
+</div>

@@ -12,46 +12,45 @@
             <span>Confirm details</span>
         </label>
     </div>
-    <form class="col-md-12" style="padding:0px" id="booking_form" role="form" name="onboarding_form" method="post" enctype="multipart/form-data">
+    <form class="col-md-12" style="padding:0px" id="booking-form" role="form" name="onboarding_form" method="post" enctype="multipart/form-data">
         <h3></h3>
         <fieldset style="text-align:left;" id="patient-details-step-parent">
             <div class="row md-col">
-
                 <div class="patient-details input-group col-12 col-md-8">
-                    <div class="w-100 d-none d-md-flex" style="margin-bottom: 30px; margin-top: 30px; font-weight: bold;padding-left: 15px;">Fill in the patient's details</div>
+                    <div class="w-100 d-none d-md-flex" style="margin-bottom: 30px; margin-top: 30px; font-weight: bold;">Fill in the patient's details</div>
                     <div class="col-12 col-md-6 mt-i">
                         <label>Full name<span class="required"> * </span></label>
-                        <input id="fullname" name="fullname" class="form-control" placeholder="Full name" required />
-                        <div id="name-error" class="col-6 col-md-6 alert alert-danger" style="display: none;"></div>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="Full name" required />
+                        <div id="name-error" class="col-12 col-md-12 error" style="display: none;"></div>
                     </div>
                     <div class="col-12 col-md-6 mt-i">
                         <label>Email address<span class="required"> * </span></label>
-                        <input id="email" name="email" class="form-control" placeholder="Email address" required />
-                        <div id="email-error" class="col-6 col-md-6 alert alert-danger" style="display: none;"></div>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Email address" required />
+                        <div id="email-error" class="col-12 col-md-12 error" style="display: none;"></div>
                     </div>
                     <div class="col-12 col-md-6 mt-i">
                         <label>Gender<span class="required"> * </span></label>
                         <select id="gender" name="gender" class="form-control" required>
-                            <option selected disabled>Select gender</option>
+                            <option selected disabled value="">Select gender</option>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
                         </select>
-                        <div id="gender-error" class="col-6 col-md-6 alert alert-danger" style="display: none;"></div>
+                        <div id="gender-error" class="col-12 col-md-12 error" style="display: none;"></div>
                     </div>
                     <div class="col-12 col-md-6 mt-i">
                         <label>Phone number<span class="required"> * </span></label>
-                        <input id="phone" name="phone" class="form-control" placeholder="Phone number" required />
-                        <div id="phone-error" class="col-6 col-md-6 alert alert-danger" style="display: none;"></div>
+                        <input type="text" id="phone" name="phone" class="form-control" placeholder="Phone number" required />
+                        <div id="phone-error" class="col-12 col-md-12 error" style="display: none;"></div>
                     </div>
                     <div class="col-12 col-md-6 mt-i">
                         <label>Date of birth<span class="required"> * </span></label>
-                        <input id="dob" name="dob" class="form-control" placeholder="Date of birth" required />
-                        <div id="dob-error" class="col-6 col-md-6 alert alert-danger" style="display: none;"></div>
+                        <input type="date" id="dob" name="dob" class="form-control" placeholder="Date of birth" max="<?php echo date("Y-m-d") ?>" step="1" required />
+                        <div id="dob-error" class="col-12 col-md-12 error" style="display: none;"></div>
                     </div>
                     <div class="col-12 col-md-6 mt-i">
                         <label>Location<span class="required"> * </span></label>
-                        <select id="location" name="location" class="form-control select2" required>
-                            <option selected disabled>Select location</option>
+                        <select id="location" name="location" class="form-control" required>
+                            <option selected disabled value="">Select location</option>
                             <option value='Baringo'>Baringo</option>
                             <option value='Bomet'>Bomet</option>
                             <option value='Bungoma'>Bungoma</option>
@@ -101,36 +100,40 @@
                             <option value='Wajir'>Wajir</option>
                             <option value='Others'>Others</option>
                         </select>
-                        <div id="location-error" class="col-6 col-md-6 alert alert-danger" style="display: none;"></div>
+                        <div id="location-error" class="col-12 col-md-12 error" style="display: none;"></div>
                     </div>
                 </div>
                 <div class="booking-time input-group col-4 col-md-4 col-sm-12" style="border-right:none">
                     <div>
                         <p>What time do you want to consult a doctor?</p>
                         <label>
-                            <input type="radio" id="now" name="time" value="Speak to a doctor now" checked />
+                            <input type="radio" id="now" name="appointment-type" value="now" checked />
                             <span>Speak to a doctor now</span>
                         </label><br>
                         <label>
-                            <input type="radio" id="schedule" name="time" value="Schedule for later" />
+                            <input type="radio" id="schedule" name="appointment-type" value="schedule" />
                             <span>Schedule for later</span>
                         </label><br>
                     </div>
 
                     <div id="date-time-picker-container" class="d-none">
                         <div class="input-group bootstrap-timepicker timepicker mb-2 datepicker" title="Select date">
-                            <input type="text" class="form-control input-small" id="set-appointment-date" name="set-appointment-date">
+                            <input type="text" class="form-control input-small" id="set-appointment-date" name="appointment-date" value="<?php echo date("Y-m-d"); ?>">
                             <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                         </div>
+                        <div id="date-error" class="error" style="display: none;"></div>
 
-                        <input type="time" class="form-control my-2" id="set-appointment-time" data-screen="mobile-only" min="08:00" max="18:00">
+                        <input type="time" class="form-control my-2" id="set-appointment-time" name="appointment-time" data-screen="mobile-only" min="08:00" max="18:00" value="<?php echo date("H:i") ?>">
 
                         <div class="input-group bootstrap-timepicker timepicker" data-screen="desktop-only" title="Select time">
-                            <input id="set-appointment-time" name="set-appointment-time" type="text" class="form-control input-small">
+                            <input id="set-appointment-time" name="appointment-time" type="text" class="form-control input-small">
                             <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
                         </div>
+                        <div id="time-error" class="error" style="display: none;"></div>
                     </div>
                 </div>
+                <input type="hidden" name="clinic" value="psi" hidden />
+                <input type="hidden" name="operation" value="booking" hidden />
             </div>
         </fieldset>
 
@@ -144,30 +147,30 @@
                         <div class="title" style="margin-bottom:10px;">Patient Details</div>
                         <div class="preview-div col-12 col-md-4 col-sm-12">
                             <span>Full name</span><br />
-                            <span class="preview" id="name-preview">Bonface bonface bonface bonface bonface bonface</span>
+                            <span class="preview" id="name-preview"></span>
                         </div>
                         <div class="preview-div col-12 col-md-4 col-sm-12">
                             <span>Gender</span><br>
-                            <span class="preview" id="gender-preview">Bonface</span>
+                            <span class="preview" id="gender-preview"></span>
                         </div>
                         <div class="preview-div col-12 col-md-4 col-sm-12">
                             <span>Date of birth</span><br>
-                            <span class="preview" id="dob-preview">Bonface</span>
+                            <span class="preview" id="dob-preview"></span>
                         </div>
 
                         <div class="preview-div col-12 col-md-4 col-sm-12">
                             <span>Email address</span><br>
-                            <span class="preview" id="email-preview">Bonfacebonfacebonfacebonfacebonface@bonfacebonface.bonface</span>
+                            <span class="preview" id="email-preview"></span>
                         </div>
 
                         <div class="preview-div col-12 col-md-4 col-sm-12">
                             <span>Phone number</span><br>
-                            <span class="preview" id="phone-preview">Bonface</span>
+                            <span class="preview" id="phone-preview"></span>
                         </div>
 
                         <div class="preview-div col-12 col-md-4 col-sm-12">
                             <span>Location</span><br>
-                            <span class="preview" id="location-preview">Bonface</span>
+                            <span class="preview" id="location-preview"></span>
                         </div>
                     </div>
                     <div class="d-flex flex-column-reverse flex-md-row w-100 px-0 pb-0">

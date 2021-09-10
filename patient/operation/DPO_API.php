@@ -22,22 +22,39 @@ if (isset($_POST["operation"])) {
     $VerityEndpoint = 'https://secure.3gdirectpay.com/API/v7/';
 
     if($_POST["operation"] == 'verifyToken') {
-        $email = $_POST["email"];
         $TransactionToken = $_POST["TransactionToken"];
-        $verify = verifyToken($CompanyToken, $VerityEndpoint, $TransactionToken, $Endpoint, $email);
+        $verify = verifyToken($CompanyToken, $VerityEndpoint, $TransactionToken);
         echo json_encode($verify);
-    } else if($_POST["createToken"]) {
+    } else if($_POST["operation"] == 'createToken') {
         $appointment_id = $_POST["id"];
-        $currency = $_POST["currency"];
+        $type = $_POST['type'];
+        $currency = 'KES';
         $txRef = $_POST["txRef"];
-        $fullName = ltrim($_POST["fullName"]);
+        $name = ltrim($_POST["name"]);
+        if ($name == trim($name) && strpos($name, ' ') !== false) {
+            $patient_name = explode(' ', $name);
+            if (count($patient_name) == 2) {
+                $first_name = $patient_name[0];
+                $last_name = $patient_name[1];
+            } else if (count($patient_name) >= 2){
+                $first_name = $patient_name[0];
+                $last_name = $patient_name[1].' '.$patient_name[2];
+            } else {
+                $first_name = $name;
+                $last_name = $name;
+            }
+            
+        } else {
+            $first_name = $name;
+            $last_name = $name;
+        }
         $email = $_POST["email"];
-        $country = $_POST["country"];
-        $SELECTED_COUNTRY_CODE = $_POST["SELECTED_COUNTRY_CODE"];
+        $country = 'KE';
+        $SELECTED_COUNTRY_CODE = 'KE';
         $phone = $_POST["phone"];
-        $amount = (integer) $_POST["amount"];
+        $amount = (integer) 1;
 
-        $redirectURL = 'https://myhealthafrica.com/psi/verify-payment?id='.$appointment_id.'&email='.$email.'';
+        $redirectURL = 'https://myhealthafrica.com/psi/verify-payment?id='.$appointment_id.'&type='.$type.'';
         $xml_request = '<?xml version="1.0" encoding="utf-8"?>
                         <API3G>
                             <CompanyToken>'.$CompanyToken.'</CompanyToken>
@@ -48,20 +65,20 @@ if (isset($_POST["operation"])) {
                             <CompanyRefUnique>1</CompanyRefUnique>
                             <CompanyRef>'.$txRef.'</CompanyRef>
                             <RedirectURL>'.$redirectURL.'</RedirectURL>
-                            <PTL>15</PTL>
+                            <PTL>30</PTL>
                             <PTLtype>minutes</PTLtype>
-                            <customerFirstName>'.$fullName.'</customerFirstName>
-                            <customerLastName>'.$fullName.'</customerLastName>
+                            <customerFirstName>'.$first_name.'</customerFirstName>
+                            <customerLastName>'.$last_name.'</customerLastName>
                             <customerEmail>'.$email.'</customerEmail>
                             <customerCountry>'.$SELECTED_COUNTRY_CODE.'</customerCountry>
                             <customerPhone>'.$phone.'</customerPhone>
-                            <CardHolderName>'.$fullName.'</CardHolderName>
+                            <CardHolderName>'.$name.'</CardHolderName>
                             <DefaultPayment>MO</DefaultPayment>
                             </Transaction>
                             <Services>
                             <Service>
                             <ServiceType>23819</ServiceType>
-                            <ServiceDescription>Tunza Clinic Telemedicine</ServiceDescription>
+                            <ServiceDescription>Tunza Clinic Telemedicine Appointment</ServiceDescription>
                             <ServiceDate>'.$created.'</ServiceDate>
                             </Service>
                             </Services>
@@ -72,7 +89,7 @@ if (isset($_POST["operation"])) {
                             </Additional>
                         </API3G>';
     
-        // file_put_contents($fullName.'.xml', $xml_request);
+        // file_put_contents($name.'.xml', $xml_request);
         $curl = curl_init();
         curl_setopt_array($curl, array(
         CURLOPT_URL => $Endpoint,
@@ -98,12 +115,12 @@ if (isset($_POST["operation"])) {
         } else {
             $xml = simplexml_load_string($response);
             file_put_contents('Token-'.$txRef.'.xml', $response);
-            echo json_encode($xml);
+            // echo json_encode($xml);
         }
     }
 }
 
-function verifyToken($CompanyToken, $VerityEndpoint, $TransactionToken, $Endpoint, $email) {
+function verifyToken($CompanyToken, $VerityEndpoint, $TransactionToken) {
         $xml_request = '<?xml version="1.0" encoding="utf-8"?>
                         <API3G>
                             <CompanyToken>'.$CompanyToken.'</CompanyToken>
