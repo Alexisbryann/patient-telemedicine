@@ -11,89 +11,6 @@ const global_settings = {
 jQuery(document).ready(function() {
     'use strict';
 
-    $('#callback-error, #reschedule-error, #concern-error, #concern-desc-error, #reports-error, #medication-error, #allergies-error').hide();
-    appointment_id = $('#appointment_id').val();
-    onboarding = $('#onboarding').val();
-    if (onboarding == 1) {
-        $('.telemed-step-one').hide();
-        $('.telemed-step-two').show(500);
-        countdown('countdown', 0, 5);
-        setInterval(checkStatus, 5000);
-    } else {
-        $('.telemed-step-two').hide();
-        $('.telemed-step-one').show(500);
-    }
-
-    $(document).on('click', '#request-callback', function() {
-        $.ajax({
-            url: "operation/psi/telemedicineOperations.php",
-            method: "POST",
-            data: { operation: 'request-callback', appointment_id: appointment_id },
-            dataType: "json",
-            success: function(result) {
-                if (result == 200) {
-                    $('.modal-header, .modal-body, .modal-footer').hide();
-                    $('#message').html('');
-                    $('#message').html('Call Back Requested');
-                    $('.callback-success').show(500);
-                    setInterval(function() {
-                        $('#callback').modal('hide');
-                        window.location.href = 'https://healthafrica.com';
-                    }, 4000);
-                } else {
-                    document.getElementById('callback-error').innerHTML = '';
-                    $('#callback-error').show(500);
-                    document.getElementById('callback-error').innerHTML = 'Sorry. A problem occurred while sending your request, please try again.';
-                }
-            },
-            failure: function() {
-                document.getElementById('callback-error').innerHTML = '';
-                $('#callback-error').show(500);
-                document.getElementById('callback-error').innerHTML = 'Sorry. A problem occurred while sending your request, please try again.';
-            }
-        });
-    });
-    $(document).on('click', '#reschedule-appointment', function() {
-        $('.waiting').hide(500);
-        $('.reschedule-appointment').show(500);
-    });
-    $('.validate').change(function() {
-        var chose_date = $('#datetimepicker').val();
-        if (chose_date == '') {
-            $('#reschedule').attr('disabled', 'disabled');
-        } else {
-            $('#reschedule').removeAttr('disabled');
-        }
-    });
-    $('#reschedule').on('click', function() {
-        var chose_date = $('#datetimepicker').val();
-        if (chose_date !== '') {
-            $.ajax({
-                url: "operation/psi/telemedicineOperations.php",
-                method: "POST",
-                data: { operation: 'reschedule-appointment', appointment_id: appointment_id, chose_date: chose_date },
-                dataType: "json",
-                success: function(result) {
-                    if (result == 200) {
-                        $('.reschedule-appointment, .waiting .modal-body, .waiting .modal-footer').hide();
-                        $('#message').html('');
-                        $('#message').html('Your Appointment Has Been Rescheduled');
-                        $('.waiting, .callback-success').show(500);
-                    } else {
-                        document.getElementById('reschedule-error').innerHTML = '';
-                        $('#reschedule-error').show(500);
-                        document.getElementById('reschedule-error').innerHTML = 'Sorry. A problem occurred while sending your request, please try again.';
-                    }
-                },
-                failure: function() {
-                    document.getElementById('reschedule-error').innerHTML = '';
-                    $('#reschedule-error').show(500);
-                    document.getElementById('reschedule-error').innerHTML = 'Sorry. A problem occurred while sending your request, please try again.';
-                }
-            });
-        }
-    });
-
     document.getElementById("now").onchange = appointmentNow;
     document.getElementById("schedule").onchange = appointmentSchedule;
 
@@ -105,7 +22,6 @@ jQuery(document).ready(function() {
             $('.uploads').hide(500);
         }
     }
-
     function appointmentSchedule() {
         if (document.getElementById("schedule").checked) {
             $('#medication').show(500);
@@ -117,7 +33,7 @@ jQuery(document).ready(function() {
 });
 
 /*****************PATIENT ON BOARDING*****************/
-var form = $("#booking_form").show();
+var form = $("#booking-form").show();
 form.steps({
     headerTag: "h3",
     bodyTag: "fieldset",
@@ -130,62 +46,43 @@ form.steps({
         next: "Next",
         previous: "Back",
     },
-    onStepChanging: function(event, currentIndex, newIndex) {
-        // Always allow previous action even if the current form is not valid!
+    onStepChanging: function (event, currentIndex, newIndex) {
+        // Allways allow previous action even if the current form is not valid!
         if (currentIndex > newIndex) {
             if (currentIndex === 0) {
                 $("a[href$='previous']").hide();
-                document.getElementById("appointment").checked = true;
-                document.getElementById("confirm").checked = false;
             } else if (currentIndex === 1) {
-                $("a[href$='previous']").hide();
+                $("a[href$='previous']").show();
             }
             return true;
         }
-        if (currentIndex === 0) {
-            $("a[href$='previous']").show();
-            document.getElementById("appointment").checked = false;
-            document.getElementById("confirm").checked = true;
-            return true;
-        } else if (currentIndex === 1) {
-            return true;
-        } else if (currentIndex === 2) {
-            if (document.getElementById("reports-yes").checked || document.getElementById("reports-no").checked) {
-                if (document.getElementById("reports-yes").checked) {
-                    if ($('#medical-reports').val() !== '') {
+        if (global_settings['screen_is_mobile']) {
+            if (currentIndex === 0) {
+                if (validateInput(step = 1)) {
+                    $("a[href$='previous']").show();
+                    document.getElementById("appointment").checked = false;
+                    document.getElementById("confirm").checked = true;
+                    return true;
+                }
+            } else if (currentIndex === 1) {
+                if (document.getElementById('now').checked) {
+                    return true;
+                } else if (document.getElementById('schedule').checked) {
+                    if (validateInput(step = 2)) {
                         return true;
-                    } else {
-                        document.getElementById('reports-error').innerHTML = '';
-                        document.getElementById('reports-error').innerHTML = 'You\'ve selected to upload medical reports, kindly upload them.';
-                        $('#reports-error').show(500);
-                        return false;
                     }
-                } else if (document.getElementById("reports-no").checked) {
-                    return true;
                 }
-            } else {
-                document.getElementById('reports-error').innerHTML = '';
-                document.getElementById('reports-error').innerHTML = 'Kindly select an option to continue.';
-                $('#reports-error').show(500);
-                return false;
             }
-        } else if (currentIndex === 3) {
-            if (document.getElementById("medication-yes").checked) {
-                if ($('#medication').val() !== '') {
+        } else {
+            if (currentIndex === 0) {
+                if (validateInput(step = 1)) {
+                    $("a[href$='previous']").show();
+                    document.getElementById("appointment").checked = false;
+                    document.getElementById("confirm").checked = true;
                     return true;
-                } else {
-                    document.getElementById('medication-error').innerHTML = '';
-                    document.getElementById('medication-error').innerHTML = 'Kindly give a brief description of the medication you\'re under.';
-                    $('#medication-error').show(500);
-                    return false;
                 }
-            } else if (document.getElementById("medication-no").checked) {
+            } else if (currentIndex === 1) {
                 return true;
-            } else {
-                document.getElementById('medication-error').innerHTML = '';
-                document.getElementById('medication-error').innerHTML = 'Kindly select an option to continue.';
-                $('#medication-error').show(500);
-                return false;
             }
         }
         if (currentIndex < newIndex) {
@@ -200,56 +97,44 @@ form.steps({
                 current_progress_value = booking_form_progress.val(),
                 new_progress_value = priorIndex < currentIndex ? current_progress_value + 1 : current_progress_value - 1;
 
-            console.log({ current_progress_value }, { new_progress_value });
             booking_form_progress.val(new_progress_value);
             $("#booking-form-step-number").text(new_progress_value);
         }
-        console.log($("#set-appointment-time").val());
     },
-    onFinishing: function(event, currentIndex) {
-        if (document.getElementById("allergies-yes").checked) {
-            if ($('#allergies').val() !== '') {
-                return true;
-            } else {
-                document.getElementById('allergies-error').innerHTML = '';
-                document.getElementById('allergies-error').innerHTML = 'Kindly specify your allergens.';
-                $('#allergies-error').show(500);
-                return false;
-            }
-        } else if (document.getElementById("allergies-no").checked) {
-            return true;
-        } else {
-            document.getElementById('allergies-error').innerHTML = '';
-            document.getElementById('allergies-error').innerHTML = 'Kindly select an option to continue.';
-            $('#allergies-error').show(500);
-            return false;
-        }
+    onFinishing: function (event, currentIndex) {
+        return true;
     },
-    onFinished: function(event, currentIndex) {
+    onFinished: function (event, currentIndex) {
         event.preventDefault();
+        var btn = document.querySelectorAll('a[href="#finish"]');
+        $(btn).html('<i class="sending fa fa-spinner fa-spin"></i>Sending...');
+        $('.btn-next').css("pointer-events", "none");
+        const txRef = '' + Math.floor((Math.random() * 1000000000) + 1);
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+
+        //Direct Pay Online details
+        const PaymentURL = 'https://secure.3gdirectpay.com/dpopayment.php?ID=';
         $.ajax({
-            url: "operation/updatePatientInfo.php",
+            url: "operation/bookingOperations.php",
             method: "POST",
             data: new FormData(this),
             contentType: false,
             processData: false,
-            success: function(response) {
-                if (response == 200) {
-                    setInterval(checkStatus, 5000);
-                    $('.telemed-step-one').hide();
-                    $('.telemed-step-two').show(500);
-                    countdown('countdown', 0, 5);
-                } else if (response == 400) {
+            success: function (response) {
+                var response = JSON.parse(response);
+                if (response.response == 200) {
+                    $(btn).html('');
+                    $(btn).html('Submitted');
+                    var appointment_id = response.id;
+                    DPO_Payment(PaymentURL, name, email, phone, txRef, appointment_id);
+                } else if (response == 500) {
+                    $(btn).css("pointer-events", "auto");
+                    $(btn).html('');
+                    $(btn).html('Proceed To Pay');
                     document.getElementById('allergies-error').innerHTML = '';
-                    document.getElementById('allergies-error').innerHTML = 'Sorry, one or more files you uploaded in the medical reports section is not of a valid expected file type.';
-                    $('#allergies-error').show(500);
-                } else if (response == 405) {
-                    document.getElementById('allergies-error').innerHTML = '';
-                    document.getElementById('allergies-error').innerHTML = 'Sorry, one or more files you uploaded in the medical reports section is too large. Maximum allowed size is 10MB';
-                    $('#allergies-error').show(500);
-                } else if (response == 404) {
-                    document.getElementById('allergies-error').innerHTML = '';
-                    document.getElementById('allergies-error').innerHTML = 'Sorry, one or more files you uploaded in the medical reports section not allowed.';
+                    document.getElementById('allergies-error').innerHTML = 'Sorry, there was a problem with sending your request, please try again.';
                     $('#allergies-error').show(500);
                 }
             },
@@ -257,20 +142,6 @@ form.steps({
         });
     }
 });
-
-function checkStatus() {
-    $.ajax({
-        url: "operation/checkStatus.php",
-        method: "POST",
-        data: { id: appointment_id },
-        dataType: 'json',
-        success: function (response) {
-            if (response.status == 200) {
-                window.location = response.redirect_url;
-            }
-        }
-    });
-}
 
 if (global_settings.screen_is_mobile) { // handler for mobile behavior
     // Add second step to booking form
@@ -289,11 +160,6 @@ if (global_settings.screen_is_mobile) { // handler for mobile behavior
 } else {
     // hide mobile screen elements
     $("[data-screen='mobile-only']").remove();
-
-    const current_time = global_settings.current_time,
-        current_min_past_midnight = parseInt((current_time[0] * 60)) + parseInt(current_time[1]),
-        minutes_8_am = 8 * 60,
-        minutes_6_pm = 18 * 60;
 
     $("#set-appointment-time").timepicker({
         explicitMode: true,
@@ -314,14 +180,14 @@ $("#set-appointment-time").on("focus", function () {
     $(this).closest(".timepicker").find(".input-group-addon").click();
 });
 
-$("[name='time']").on("change", function () {
+$("[name='appointment-type']").on("change", function () {
     // toggling display of options to schedule appointment
     $("#date-time-picker-container").toggleClass("d-none");
 });
 
 $("#set-appointment-date").datepicker({
     daysOfWeekDisabled: ["0"],
-    autoClose: true,
+    autoclose: true,
     startDate: global_settings.current_time[0] <= 18 ? Date() : tomorrow = new Date(new Date().setDate(new Date().getDate() + 1)), // if it's past 6pm, prevent selecting of today's date
     format: "dd/mm/yyyy",
 }).on("show", function (e) {
@@ -338,7 +204,6 @@ $("#set-appointment-date").datepicker({
             hour = current_hour > 12 ? current_hour - 12 : current_hour;
 
         global_settings.minimum_appointment_time = `${global_settings.current_time[1] > 40 ? parseInt(hour) + 1 : hour}:${global_settings.current_time[1]} ${meridian}`;
-        console.log(global_settings.minimum_appointment_time);
     } else {
         global_settings.minimum_appointment_time = "08:00 AM";
     }
@@ -349,3 +214,150 @@ $("#set-appointment-date").datepicker({
 $(".datepicker .input-group-addon").on("click", function () {
     $(this).closest(".datepicker").find("input").focus();
 });
+
+function DPO_Payment(PaymentURL, name, email, phone, txRef, appointment_id) {
+    var type;
+    if (document.getElementById('now').checked) {
+        type = 'now';
+    } else if (document.getElementById('schedule').checked) {
+        type = 'schedule';
+    }
+    $.ajax({
+        url: "operation/DPO_API.php",
+        method: "POST",
+        data: {
+            operation: 'createToken',
+            id: appointment_id,
+            type: type,
+            txRef: txRef,
+            name: name,
+            email: email,
+            phone: phone
+        },
+        dataType: "json",
+        success: function (endpoint_response) {
+            if (endpoint_response.Result == 000) {
+                var TransactionToken = endpoint_response.TransToken;
+                window.location = PaymentURL + TransactionToken;
+            } else {
+                var tokenError = endpoint_response.ResultExplanation;
+                swal({
+                    title: "Transaction token creation failed",
+                    text: tokenError,
+                    type: "error",
+                    timer: 5000,
+                    showConfirmButton: false
+                });
+                $(btn).prop('disabled', false).html('Proceed To Pay');
+            }
+        }
+    });
+}
+
+function validateInput(step) {
+    var error = 0,
+        name = document.forms["booking-form"]["name"].value,
+        email = document.forms["booking-form"]["email"].value,
+        phone = document.forms["booking-form"]["phone"].value,
+        gender = document.forms["booking-form"]["gender"].value,
+        dob = document.forms["booking-form"]["dob"].value,
+        location = document.forms["booking-form"]["location"].value,
+        type = document.forms["booking-form"]["appointment-type"].value,
+        date = document.forms["booking-form"]["appointment-date"].value,
+        time = document.forms["booking-form"]["appointment-time"].value;
+
+    if (step == 1) {
+        document.getElementById('name-error').innerHTML = '';
+        if (name == null || name == '') {
+            error++;
+            document.getElementById('name-error').innerHTML = 'Kindly fill in your full name.';
+            $('#name-error').show(500);
+        } else $('#name-error').hide(500);
+        document.getElementById('email-error').innerHTML = '';
+        if (email == null || email == '') {
+            error++;
+            document.getElementById('email-error').innerHTML = 'Kindly fill in your email address.';
+            $('#email-error').show(500);
+        } else $('#email-error').hide(500);
+        document.getElementById('gender-error').innerHTML = '';
+        if (gender == null || gender == '') {
+            error++;
+            document.getElementById('gender-error').innerHTML = 'Kindly fill in your gender.';
+            $('#gender-error').show(500);
+        } else $('#gender-error').hide(500);
+        document.getElementById('dob-error').innerHTML = '';
+        if (dob == null || dob == '') {
+            error++;
+            document.getElementById('dob-error').innerHTML = 'Kindly fill in your date of birth.';
+            $('#dob-error').show(500);
+        } else $('#dob-error').hide(500);
+        document.getElementById('phone-error').innerHTML = '';
+        if (phone == null || phone == '') {
+            error++;
+            document.getElementById('phone-error').innerHTML = 'Kindly input your phone number.';
+            $('#phone-error').show(500);
+        } else $('#phone-error').hide(500);
+        document.getElementById('location-error').innerHTML = '';
+        if (location == null || location == '') {
+            error++;
+            document.getElementById('location-error').innerHTML = 'Kindly select your location.';
+            $('#location-error').show(500);
+        } else $('#location-error').hide(500);
+        if (!global_settings['screen_is_mobile']) {
+            if (type == 'schedule') {
+                document.getElementById('date-error').innerHTML = '';
+                if (date == null || date == '') {
+                    error++;
+                    document.getElementById('date-error').innerHTML = 'Please enter your preferred appointment date.';
+                    $('#date-error').show(500);
+                } else $('#date-error').hide(500);
+                document.getElementById('time-error').innerHTML = '';
+                if (time == null || time == '') {
+                    error++;
+                    document.getElementById('time-error').innerHTML = 'Please enter preferred appointment time.';
+                    $('#time-error').show(500);
+                } else $('#time-error').hide(500);
+            }
+        }
+    } else if (step == 2) {
+        if (type == 'schedule') {
+            document.getElementById('date-error').innerHTML = '';
+            if (date == null || date == '') {
+                error++;
+                document.getElementById('date-error').innerHTML = 'Please enter your preferred appointment date.';
+                $('#date-error').show(500);
+            } else $('#date-error').hide(500);
+            document.getElementById('time-error').innerHTML = '';
+            if (time == null || time == '') {
+                error++;
+                document.getElementById('time-error').innerHTML = 'Please enter preferred appointment time.';
+                $('#time-error').show(500);
+            } else $('#time-error').hide(500);
+        }
+    }
+
+    if (error > 0) {
+        return false;
+    } else {
+        if (step == 1) {
+            document.getElementById('name-preview').innerHTML = name;
+            document.getElementById('gender-preview').innerHTML = gender;
+            document.getElementById('dob-preview').innerHTML = dob;
+            document.getElementById('phone-preview').innerHTML = phone;
+            document.getElementById('email-preview').innerHTML = email;
+            document.getElementById('location-preview').innerHTML = location;
+            if (!global_settings['screen_is_mobile']) {
+                if (type == 'schedule') {
+                    document.getElementById('date-preview').innerHTML = date;
+                    document.getElementById('time-preview').innerHTML = time;
+                }
+            }
+        } else if (step == 2) {
+            if (type == 'schedule') {
+                document.getElementById('date-preview').innerHTML = date;
+                document.getElementById('time-preview').innerHTML = time;
+            }
+        }
+        return true;
+    }
+}
