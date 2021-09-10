@@ -86,10 +86,10 @@ switch ($user_type) {
 <body>
     <main id="main-container">
         <span id="virtual-room-logo-cntnr">
-            <img src="../images/mha-psi-tunza.png" id="virtual-room-logo" alt="My Health Africa - PSI - Tunza Clinics">
+            <img src="../../images/mha-psi-tunza.png" id="virtual-room-logo" alt="My Health Africa - PSI - Tunza Clinics">
         </span>
 
-        <div class="modal fade" id="leave-room-modal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="leave-room-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header py-0">
@@ -97,10 +97,10 @@ switch ($user_type) {
                     </div>
                     <div class="modal-body">
                         <div class="text-center">
-                            <div class="mb-3"><strong id="leave-room-text">Are you sure you want to leave this consultation?</strong></div>
+                            <div class="mb-3"><strong id="leave-room-text">Are you sure you want to end this call?</strong></div>
                             <div class="d-flex w-100 justify-content-around">
-                                <span class="modal-button ml-auto mr-2 btn-success btn stay" title="Stay">Stay</span>
-                                <span class="modal-button mr-auto ml-2 btn-danger btn leave" title="Leave">Leave</span>
+                                <span class="modal-button mr-auto ml-2 btn-danger btn leave" title="Leave">No</span>
+                                <span class="modal-button ml-auto mr-2 btn-success btn stay" title="Stay">Yes</span>
                             </div>
                         </div>
                     </div>

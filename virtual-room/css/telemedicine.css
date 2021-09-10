@@ -1,15 +1,16 @@
 :root {
     --notes-blue: rgb(62, 149, 241);
-    --buttons-bottom: 3.3em;
+    --buttons-bottom: 3.6em;
     --buttons-dimensions: 60px;
     --buttons-background: white;
-    --reduced-opacity: .6;
+    --reduced-opacity: 1;
     --buttons-font-size: 1.3em;
     --icons-dimensions: 30px;
     --card-width: 300px;
     --cards-max-height: 60vh;
     --mobile-buttons-edge-gaps-x: 2em;
     --mobile-buttons-bottom-gap: 6.3em;
+    --notes-chat-edge-gap: .1em;
 }
 
 textarea {
@@ -34,7 +35,7 @@ textarea {
 #notes-container {
     position: absolute;
     bottom: var(--buttons-bottom);
-    left: 8em;
+    left: var(--notes-chat-edge-gap);
     opacity: var(--reduced-opacity);
 }
 
@@ -138,13 +139,20 @@ textarea {
     width: var(--buttons-dimensions);
     background-color: var(--buttons-background);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
     opacity: var(--reduced-opacity);
     font-size: var(--buttons-font-size);
     cursor: pointer;
-    margin: 1em 1em 0 auto;
+    margin: .5em .5em 0 auto;
+}
+
+#chat-btn-container {
+    border-radius: 5px;
+    background-color: var(--notes-blue);
+    color: white;
 }
 
 #notes-btn-container {
@@ -155,7 +163,7 @@ textarea {
     position: absolute;
     bottom: var(--buttons-bottom);
     opacity: var(--reduced-opacity);
-    right: 8em;
+    right: var(--notes-chat-edge-gap);
 }
 
 .card {
@@ -301,27 +309,30 @@ input:placeholder {
 #virtual-room-logo-cntnr {
     position: absolute;
     top: 0;
-    right: 0;
+    left: 0;
     height: 76px;
     background-color: white;
 }
 
 #leave-room-btn {
     position: absolute;
-    left: calc(50% - 5.1em);
-    bottom: 1em;
-    padding: .2em .8em;
-    border: 2px solid rgb(189, 189, 189);
-    border-radius: 3px;
+    left: calc(50% + 4.9em);
+    bottom: calc(var(--buttons-bottom) + 3px);
+    border-radius: 50px;
     cursor: pointer;
+    width: var(--buttons-dimensions);
+    height: var(--buttons-dimensions);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #F22F46;
     color: white;
-    opacity: var(--reduced-opacity);
+    opacity: 0;
 }
 
 #leave-room-btn:hover, #leave-room-btn:focus {
     background-color: #f01932;
-    opacity: 1;
+    /* opacity: 1; */
     color: white;
 }
 
@@ -365,6 +376,38 @@ input:placeholder {
 
 #display-image-modal .modal-header {
     border: none;
+}
+
+#notes-btn-container-desktop {
+    background-color: white;
+    padding: 1em;
+    width: var(--card-width);
+    left: var(--notes-chat-edge-gap);
+    margin: 1em auto 0 .4em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#notes-banner-paperclip-icon {
+    width: var(--icons-dimensions);
+    height: var(--icons-dimensions);
+    border-radius: 50%;
+    color: white;
+    background-color: var(--notes-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    padding-left: .4em;
+    padding-right: .4em;
+}
+
+#chat-button-text {
+    font-size: .5em;
+    margin-top: .5em;
 }
 
 @keyframes typing {
@@ -419,5 +462,17 @@ input:placeholder {
     }
     #virtual-room-logo {
         width: 100%;
+    }
+    #chat-btn-container {
+        border-radius: 50%;
+        background-color: white;
+        color: black;
+    }
+    #chat-button-text {
+        display: none;
+        font-size: .5em;
+    }
+    #chat-btn-container i {
+        margin-bottom: auto;
     }
 }

@@ -15,6 +15,7 @@ $(function () {
                 4: "One or more files uploaded has an unsupported extension. Only documents and images are allowed.",
             },
             domain_name: "myhealthafrica.com/coldroom",
+            mobile_screen: window.innerWidth < 758,
         };
     let uploaded_files = {
         notes: [],
@@ -86,7 +87,7 @@ $(function () {
     });
 
     // websocket connection and event handlers
-    var conn = new WebSocket(`ws://${chat_app_settings.domain_name}:8080?user_type=${chat_app_settings.user_type}&id=${chat_app_settings.user_id}&appointment_id=${chat_app_settings.appointment_id}`);
+    var conn = new WebSocket(`wss://https://${chat_app_settings.domain_name}:8080?user_type=${chat_app_settings.user_type}&id=${chat_app_settings.user_id}&appointment_id=${chat_app_settings.appointment_id}`);
 
     // conn.onopen = function (e) {
     // };
@@ -129,6 +130,12 @@ $(function () {
     $(".modal-button.leave").on("click", function () {
         leaveVirtualRoom(chat_app_settings);
     });
+
+    if (chat_app_settings.mobile_screen) {
+        $("#notes-btn-container-desktop").remove();
+    } else {
+        $("#notes-btn-container").remove();
+    }
 });
 
 function addFileUpload(files_field, files_display_container, uploaded_files, error_message_container, file_designation = "notes") {
@@ -265,7 +272,8 @@ function saveCaseNotes(all_uploads, new_files, case_note_text, appointment_id, c
 }
 
 function toggleDisplay(target) {
-    target.toggleClass("d-none").find(".scroll-section").scrollTop($('#chat-messages')[0].scrollHeight);;
+    target.toggleClass("d-none").find(".scroll-section").scrollTop($('#chat-messages')[0].scrollHeight);
+    if (target[0].id == "notes-input-container") $("#notes-btn-container-desktop").toggleClass("d-none");
 }
 
 function generateChatMessage(message, owns, files, timestamp, recipient_name, domain_name) {
