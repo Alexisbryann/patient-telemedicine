@@ -1,3 +1,27 @@
+.container {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    border: 1px solid gray;
+    padding: 10px;
+    background-color: #bbbbbb;
+}
+
+.l-btn {
+    background-color: orange;
+    padding: 10px;
+    align-self: center;
+    margin: 10px;
+    color: white;
+    border: none;
+}
+
+.bg {
+    background-color: white;
+    border-radius: 8px;
+    padding: 0px 20px 5px 20px;
+}
+
 .profile-sidebar img {
     display: inline;
 }
@@ -1160,4 +1184,10 @@ input[type="time"]::-webkit-clear-button {
     .m-t-10 {
         border: none!important;
     }
+}
+
+border: none!important;
+
+}
+
 }
