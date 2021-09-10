@@ -18,7 +18,7 @@
     <link href="assets/bundles/steps/steps.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="assets/bundles/bootstrap-timepicker/css/bootstrap-timepicker.css" />
-    <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"> -->
+    <link rel="stylesheet" type="text/css" href="assets/bundles/bootstrap-datepicker/css/bootstrap-datepicker.css" />
     <link href="css/telemedicine.css?v=0" rel="stylesheet" type="text/css" />
     <!-- favicon -->
     <link rel="shortcut icon" href="images/my-health-africa.png" />
@@ -61,9 +61,10 @@
     <!-- bootstrap -->
     <script src="assets/bundles/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/bundles/bootstrap-timepicker/js/bootstrap-timepicker.js?v=0"></script>
+    <script src="assets/bundles/bootstrap-datepicker/js/bootstrap-datepicker.js?v=1"></script>
     <!-- wizard -->
     <script src="assets/bundles/steps/jquery.steps.js"></script>
-    <script src="assets/booking.js?v=0"></script>
+    <script src="assets/booking.js?v=1"></script>
     <script src="assets/patientAvatar.js"></script>
     <!-- end js include path -->
 </body>

@@ -1,6 +1,11 @@
 var appointment_id, onboarding;
 const global_settings = {
-    "screen_is_mobile": window.innerWidth < 758,
+    screen_is_mobile: window.innerWidth < 758,
+    date_now: new Date(),
+    get current_time() { // return current time as an array of [hh,mm,ss]
+        return this.date_now.toTimeString().split(" ").shift().split(":");
+    },
+    minimum_appointment_time: "08:00 AM",
 }
 
 jQuery(document).ready(function() {
@@ -284,13 +289,24 @@ if (global_settings.screen_is_mobile) { // handler for mobile behavior
 } else {
     // hide mobile screen elements
     $("[data-screen='mobile-only']").remove();
+
+    const current_time = global_settings.current_time,
+        current_min_past_midnight = parseInt((current_time[0] * 60)) + parseInt(current_time[1]),
+        minutes_8_am = 8 * 60,
+        minutes_6_pm = 18 * 60;
+
     $("#set-appointment-time").timepicker({
         explicitMode: true,
         icons: {
             up: 'fa fa-chevron-up',
             down: 'fa fa-chevron-down'
         },
-        minuteStep: 1,
+        minuteStep: 20,
+        snapToStep: true,
+        defaultTime: global_settings.minimum_appointment_time, // show default time as 8 am if it is not yet 8 am, and show current time if it is past 8 am
+    }).on("changeTime.timepicker", function (e) {
+        if (e.time.meridian.toLowerCase() === "am" && e.time.hours < 8) $('#set-appointment-time').timepicker('setTime', '08:00 AM');
+        if (e.time.meridian.toLowerCase() === "pm" && e.time.hours > 6) $('#set-appointment-time').timepicker('setTime', '06:00 PM');
     });
 }
 
@@ -299,5 +315,37 @@ $("#set-appointment-time").on("focus", function () {
 });
 
 $("[name='time']").on("change", function () {
+    // toggling display of options to schedule appointment
     $("#date-time-picker-container").toggleClass("d-none");
+});
+
+$("#set-appointment-date").datepicker({
+    daysOfWeekDisabled: ["0"],
+    autoClose: true,
+    startDate: global_settings.current_time[0] <= 18 ? Date() : tomorrow = new Date(new Date().setDate(new Date().getDate() + 1)), // if it's past 6pm, prevent selecting of today's date
+    format: "dd/mm/yyyy",
+}).on("show", function (e) {
+    if (!global_settings.screen_is_mobile) { // hack to position the datepicker in contact with the input box on desktop
+        const date_picker_element = $(".datepicker.datepicker-dropdown.dropdown-menu.datepicker-orient-left.datepicker-orient-top"),
+            datepicker_top = date_picker_element.css("top");
+
+        date_picker_element.css("top", parseInt(datepicker_top) + 40);
+    }
+}).on("changeDate", function (e) {
+    if (e.date.toDateString() == global_settings.date_now.toDateString()) {
+        const current_hour = global_settings.current_time[0],
+            meridian = current_hour > 12 ? "PM" : "AM",
+            hour = current_hour > 12 ? current_hour - 12 : current_hour;
+
+        global_settings.minimum_appointment_time = `${global_settings.current_time[1] > 40 ? parseInt(hour) + 1 : hour}:${global_settings.current_time[1]} ${meridian}`;
+        console.log(global_settings.minimum_appointment_time);
+    } else {
+        global_settings.minimum_appointment_time = "08:00 AM";
+    }
+
+    $('#set-appointment-time').timepicker('setTime', global_settings.minimum_appointment_time);
+});
+
+$(".datepicker .input-group-addon").on("click", function () {
+    $(this).closest(".datepicker").find("input").focus();
 });
