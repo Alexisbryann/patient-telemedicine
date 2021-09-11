@@ -47,7 +47,7 @@ form.steps({
         previous: "Back",
     },
     onStepChanging: function (event, currentIndex, newIndex) {
-        // Allways allow previous action even if the current form is not valid!
+        // Always allow previous action even if the current form is not valid!
         if (currentIndex > newIndex) {
             if (currentIndex === 0) {
                 $("a[href$='previous']").hide();

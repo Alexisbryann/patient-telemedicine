@@ -1057,6 +1057,10 @@ input[type="date"]::-webkit-clear-button, input[type="time"]::-webkit-clear-butt
     border-right: none;
 }
 
+.wizard>.actions {
+    text-align: center;
+}
+
 /* Mobile display */
 
 @media screen and (max-width: 758px) {
