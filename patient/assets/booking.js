@@ -107,7 +107,7 @@ form.steps({
     onFinished: function (event, currentIndex) {
         event.preventDefault();
         var btn = document.querySelectorAll('a[href="#finish"]');
-        $(btn).html('<i class="sending fa fa-spinner fa-spin"></i>Sending...');
+        $(btn).html('<i class="sending fa fa-spinner fa-spin">&nbsp;&nbsp;</i>Sending...');
         $('.btn-next').css("pointer-events", "none");
         const txRef = '' + Math.floor((Math.random() * 1000000000) + 1);
         const name = document.getElementById('name').value;

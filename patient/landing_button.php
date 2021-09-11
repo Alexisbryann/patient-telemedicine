@@ -18,20 +18,40 @@
     <link href="assets/bundles/steps/steps.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="assets/bundles/bootstrap-timepicker/css/bootstrap-timepicker.css" />
-    <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"> -->
-    <link href="css/telemedicine.css?v=0" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="assets/bundles/bootstrap-timepicker/css/bootstrap-timepicker.css" />
+    <link rel="stylesheet" type="text/css" href="assets/bundles/bootstrap-datepicker/css/bootstrap-datepicker.css" />
+    <link href="css/telemedicine.css?v=1" rel="stylesheet" type="text/css" />
     <!-- favicon -->
     <link rel="shortcut icon" href="images/my-health-africa.png" />
+
+    <style>
+        .booking-card .sticky-top {
+            display: none;
+        }
+    </style>
 </head>
+
 <body>
-<section class = "container">
-    <div>
-        <div class = "bg">
-        <h3 style = "font-weight:bolder">Telemedicine Consultations At Tunza Clinics.</h3>
-        <p>Book a telemedicine consultation through Tunza Clinics</p>
+    <section class="container-fluid d-flex flex-column align-items-center justify-content-center bg-gray h-100 p-0">
+        <div class="bg text-center">
+            <h2><strong>Telemedicine Consultations At Tunza Clinics.</strong></h2>
+            <p>Book a telemedicine consultation through Tunza Clinics</p>
         </div>
-        <Button class = "l-btn button">Book A Telemedicine Appointment </span><i class="fa fa-caret-down"></i></Button>
-    </div>
-</section>
+        <button class="l-btn button mb-0" data-toggle="collapse" data-target="#booking-form-content">
+            <span>Book A Telemedicine Appointment </span>
+            <i class="fa fa-chevron-down"></i>
+        </button>
+
+        <div id="booking-form-content" class="w-100 collapse">
+            <?php
+            require "booking-form-content.php";
+            ?>
+        </div>
+    </section>
+
+    <?php
+    require "booking-form-javascript.html";
+    ?>
 </body>
+
 </html>
