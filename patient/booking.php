@@ -19,7 +19,7 @@
     <link href="css/responsive.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="assets/bundles/bootstrap-timepicker/css/bootstrap-timepicker.css" />
     <link rel="stylesheet" type="text/css" href="assets/bundles/bootstrap-datepicker/css/bootstrap-datepicker.css" />
-    <link href="css/telemedicine.css?v=1" rel="stylesheet" type="text/css" />
+    <link href="css/booking.css?v=1" rel="stylesheet" type="text/css" />
     <!-- favicon -->
     <link rel="shortcut icon" href="images/my-health-africa.png" />
 </head>
