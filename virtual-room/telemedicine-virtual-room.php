@@ -2,7 +2,7 @@
 include('../../functions.php');
 include('../../connect.php');
 
-$inclusions_version = 1;
+$inclusions_version = 0;
 function clean_str($string)
 {
     $remove_single_ap = str_replace("'", "_", $string);

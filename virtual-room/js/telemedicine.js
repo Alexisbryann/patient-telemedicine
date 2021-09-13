@@ -47,7 +47,7 @@ $(function () {
 
     $("#save-notes-button").on("click", function () {
         const case_note_text = $("#notes-textarea").val(),
-            appointment_id = $(this).attr("data-appointment_id");
+            appointment_id = chat_app_settings.appointment_id;
 
         saveCaseNotes(uploaded_files.notes, uploaded_files.notes.slice(notes_settings.uploads_start_index), case_note_text, appointment_id, $(this), notes_settings);
     });
@@ -238,7 +238,7 @@ function saveCaseNotes(all_uploads, new_files, case_note_text, appointment_id, c
     });
 
     $.ajax({
-        url: "../operation/addCaseNotes.php",
+        url: "../../operation/addCaseNotes.php",
         method: "POST",
         data: case_note_form_data,
         processData: false,
@@ -252,6 +252,10 @@ function saveCaseNotes(all_uploads, new_files, case_note_text, appointment_id, c
                 notes_settings.uploads_start_index = all_uploads.length;
                 notes_settings.operation = "update";
                 notes_settings.note_id = response.note_id;
+
+                setTimeout(() => {
+                    clicked_element.html("Update").toggleClass("btn-primary").toggleClass("btn-success").prop("disabled", false);
+                }, 1500);
             } else {
                 $("#telemed-case-notes-error").text("There was a problem saving your notes. Please try again.").show();
 
@@ -261,12 +265,11 @@ function saveCaseNotes(all_uploads, new_files, case_note_text, appointment_id, c
             }
         },
         error: function (response) {
-            console.log(response);
+            setTimeout(() => {
+                clicked_element.html("Save").addClass("btn-primary").removeClass("btn-success").prop("disabled", false);
+            }, 1500);
         },
         complete: function () {
-            setTimeout(() => {
-                clicked_element.html("Save").toggleClass("btn-primary").toggleClass("btn-success").prop("disabled", false);
-            }, 1500);
         }
     });
 }
