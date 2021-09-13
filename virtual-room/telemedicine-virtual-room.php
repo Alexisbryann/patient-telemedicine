@@ -99,8 +99,8 @@ switch ($user_type) {
                         <div class="text-center">
                             <div class="mb-3"><strong id="leave-room-text">Are you sure you want to end this call?</strong></div>
                             <div class="d-flex w-100 justify-content-around">
-                                <span class="modal-button mr-auto ml-2 btn-danger btn leave" title="Leave">No</span>
-                                <span class="modal-button ml-auto mr-2 btn-success btn stay" title="Stay">Yes</span>
+                                <span class="modal-button ml-auto mr-2 btn-danger btn leave" title="Leave">No</span>
+                                <span class="modal-button mr-auto ml-2 btn-success btn stay" title="Stay">Yes</span>
                             </div>
                         </div>
                     </div>
