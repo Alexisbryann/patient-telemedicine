@@ -1,462 +1,99 @@
-.container {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    border: 1px solid gray;
-    padding: 10px;
-    background-color: #bbbbbb;
-}
-
-.l-btn {
-    background-color: orange;
-    padding: .8em 3em;
-    align-self: center;
-    margin: 10px;
-    color: white;
-    border: none;
-    font-weight: 700;
-    font-size: .9em;
-    cursor: pointer;
-}
-
-.bg {
-    background-color: white;
-    border-radius: 8px;
-    padding: 0px 20px 5px 20px;
-}
-
-.profile-sidebar img {
-    display: inline;
-}
-
-p {
-    margin-top: 2em;
-    margin-bottom: 1rem;
-}
-
-.telemed-step-one h3, .telemed-step-two h3, .payment h3 {
-    font-size: 30px !important;
-    font-weight: bold;
-    font-family: 'Segoe UI';
-}
-
-.telemed-step-one h5, .telemed-step-two h5 {
-    font-size: 17px !important;
-    font-weight: 400;
-    font-family: 'Segoe UI';
-}
-
-.telemed-step-one button {
-    background-color: #0080ff;
-    font-family: 'Segoe UI';
-    border: none;
-    color: #fff;
-    padding: 5px 30px;
-    margin: 30px 0;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: bold;
-}
-
-#permission-info {
-    padding: 0;
-}
-
-#permission-info .modal-dialog {
-    max-width: 600px;
-    margin: 10rem auto !important;
-    text-align: center !important;
-}
-
-#permission-info .modal-header {
-    display: inline !important;
-    text-align: center !important;
-}
-
-#permission-info h4, #callback h4 {
-    color: #000000 !important;
-    font-family: 'Segoe UI' !important;
-    font-size: 19px !important;
-    font-weight: 700;
-    display: inline !important;
-    text-align: center !important;
-}
-
-#permission-info p {
-    font-family: 'Segoe UI' !important;
-    text-align: left !important;
-}
-
-#permission-info button {
-    background-color: #0080ff;
-    padding: 5px 50px;
-    color: #fff;
-    border: none;
-    font-family: 'Segoe UI';
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: bold;
-}
-
-.telemed-step-two .loader-container {
-    margin: 20px;
-}
-
-.telemed-step-two .loader {
-    border: 10px solid #f3f3f3;
-    border-radius: 50%;
-    border-top: 8px solid #0080ff;
-    border-right: 8px solid #0080ff;
-    border-bottom: 8px solid #0080ff;
-    width: 70px;
-    height: 70px;
-    -webkit-animation: spin 2s linear infinite;
-    animation: spin 2s linear infinite;
-}
-
-.payment {
-    border: 1px solid#F7941C;
-    background-color: #fff !important;
-}
-
-.payment .loader-container {
-    margin: 30px;
-}
-
-.payment .loader {
-    border: 10px solid #f3f3f3;
-    border-radius: 50%;
-    border-top: 8px solid#F7941C;
-    border-right: 8px solid #F7941C;
-    border-bottom: 8px solid #F7941C;
-    width: 70px;
-    height: 70px;
-    -webkit-animation: spin 2s linear infinite;
-    animation: spin 2s linear infinite;
-}
-
-.checkmark {
-    display: inline-block;
-    height: 100px;
-    width: 40px;
-    border-bottom: 15px solid #F7941C;
-    border-right: 15px solid #F7941C;
-    transform: rotate(45deg);
-}
-
-.error, .required {
-    color: #FF5252;
-}
-
-.preview, .title {
-    font-weight: bold;
-}
-
-.title {
-    font-weight: bold;
-    color: #F7941C;
-    font-size: 14px;
-    margin-bottom: 10px;
-    border: 1px solid gray;
-    width: -webkit-fill-available;
-    padding: 10px;
-    height: fit-content;
-}
-
-.input-group {
-    border-right: solid 1px gray;
-}
-
-.preview-div {
-    margin-bottom: 15px;
-    word-wrap: break-word;
-}
-
-.cost {
-    background-color: #FBC98D;
-    margin-top: -10px;
-}
-
-a[href="#next"] {
-    background: #F7941C !important;
-    color: #000000 !important;
-    border-radius: 4px;
-}
-
-a[href="#finish"] {
-    background: #F7941C !important;
-    color: #000000 !important;
-    border-radius: 4px;
-}
-
-a[href="#previous"] {
-    background: none !important;
-    color: #000000 !important;
-    border: 1px solid;
-    border-radius: 4px;
-}
-
-@-webkit-keyframes spin {
-    0% {
-        -webkit-transform: rotate(0deg);
+    .container {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        border: 1px solid gray;
+        padding: 10px;
+        background-color: #bbbbbb;
     }
-    100% {
-        -webkit-transform: rotate(360deg);
+    
+    .l-btn {
+        background-color: orange;
+        padding: .8em 3em;
+        align-self: center;
+        margin: 10px;
+        color: white;
+        border: none;
+        font-weight: 700;
+        font-size: .9em;
+        cursor: pointer;
     }
-}
-
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
+    
+    .pad {
+        padding: 10px;
     }
-    100% {
-        transform: rotate(360deg);
+    
+    .size {
+        /* max-width: 33% !important; */
+        flex-wrap: wrap!important;
     }
-}
-
-/* Patient Telemedicine */
-
-.patient .page-content {
-    margin: 50px 100px;
-    border: none;
-}
-
-.appt-booking .page-content {
-    margin: 50px 50px;
-    border: none;
-}
-
-.booking {
-    padding-bottom: 10px !important;
-}
-
-.wizard>.content {
-    border: none;
-}
-
-.card {
-    background-color: white;
-    padding-top: 0px;
-    padding-bottom: 100px;
-}
-
-.img-responsive {
-    width: 22em;
-}
-
-.round {
-    border-radius: 50%;
-}
-
-.waiting {
-    margin: 30px;
-}
-
-.time {
-    color: #0080ff;
-    font-family: 'Segoe UI';
-    font-weight: bold;
-}
-
-.telemed-step-two .waiting-time {
-    background-color: #fff;
-    color: #0080ff;
-    border: 1px solid #0080ff;
-    border-radius: 3px;
-    padding: 5px;
-    font-family: 'Segoe UI';
-    font-weight: bold;
-}
-
-.loading {
-    margin: 30px;
-    font-size: 16px;
-}
-
-.loading span {
-    font-size: 20px;
-    font-weight: bold;
-    margin: 2px;
-}
-
-.loading .one {
-    opacity: 0;
-    -webkit-animation: dot 1.5s infinite;
-    -webkit-animation-delay: 0.0s;
-    animation: dot 1.5s infinite;
-    animation-delay: 0.0s;
-}
-
-.loading .two {
-    opacity: 0;
-    -webkit-animation: dot 1.5s infinite;
-    -webkit-animation-delay: 0.2s;
-    animation: dot 1.5s infinite;
-    animation-delay: 0.3s;
-}
-
-.loading .three {
-    opacity: 0;
-    -webkit-animation: dot 1.5s infinite;
-    -webkit-animation-delay: 0.3s;
-    animation: dot 1.5s infinite;
-    animation-delay: 0.4s;
-}
-
-@-webkit-keyframes dot {
-    0% {
-        opacity: 0;
+    
+    .radio-css {
+        background-color: #FBC98D;
+        border-radius: 16px;
+        padding: 8px;
+        margin-bottom: 4px;
     }
-    100% {
-        opacity: 1;
+    
+    .bg {
+        background-color: white;
+        border-radius: 8px;
+        padding: 0px 20px 5px 20px;
     }
-}
-
-#callback .modal-dialog {
-    max-width: 550px;
-    margin: 12rem auto !important;
-    text-align: center !important;
-}
-
-#callback p {
-    margin-top: 25px;
-    text-align: center;
-    font-family: 'Segoe UI' !important;
-}
-
-#callback .modal-footer button {
-    width: 210px;
-    background-color: #0080ff;
-    padding: 5px 20px;
-    color: #fff;
-    border: none;
-    font-family: 'Segoe UI';
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-#callback #request-callback {
-    float: left;
-}
-
-#callback #reschedule-appointment {
-    float: right;
-}
-
-#callback .modal-header {
-    border: none;
-}
-
-#callback .modal-header button {
-    margin-top: -15px !important;
-    padding: 0 !important;
-    margin-right: -10px;
-    padding: 0 !important;
-}
-
-#callback .close {
-    background-color: #fff;
-    color: #000000;
-    font-size: 30px;
-    border: none;
-    font-family: 'Segoe UI';
-    font-weight: bold;
-    cursor: pointer;
-}
-
-#callback .modal-body {
-    padding: 0 3em;
-}
-
-#callback .modal-footer {
-    border: none;
-    display: inline;
-    padding: 2em 3em;
-}
-
-#callback .callback-success {
-    height: 15em;
-}
-
-#callback .callback-success h5 {
-    color: #000000;
-    font-size: 20px;
-    font-family: 'Segoe UI';
-    font-weight: bold;
-    margin: 1.5em 0;
-}
-
-#callback .callback-success .fa-check {
-    color: #0080ff;
-    font-size: 3em;
-    padding-top: .5em;
-}
-
-.input-group {
-    text-align: left;
-    padding-bottom: 40px;
-}
-
-/***************Responsive Media Queries**************/
-
-/* 
-  ##Device = Desktops
-  ##Screen = 1281px to higher resolution desktops
-*/
-
-@media (min-width: 1281px) {
-    /* CSS */
-}
-
-/* 
-  ##Device = Laptops, Desktops
-  ##Screen = B/w 1025px to 1280px
-*/
-
-@media (min-width: 1025px) and (max-width: 1280px) {
-    /* CSS */
-}
-
-/* 
-  ##Device = Tablets, Ipads (portrait)
-  ##Screen = B/w 768px to 1024px
-*/
-
-@media (min-width: 768px) and (max-width: 1024px) {
-    /* CSS */
-}
-
-/* 
-  ##Device = Tablets, Ipads (landscape)
-  ##Screen = B/w 768px to 1024px
-*/
-
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-    /* CSS */
-}
-
-/* 
-  ##Device = Low Resolution Tablets, Mobiles (Landscape)
-  ##Screen = B/w 481px to 767px
-*/
-
-@media (min-width: 481px) and (max-width: 767px) {
-    /* CSS */
-}
-
-/* 
-  ##Device = Most of the Smartphones Mobiles (Portrait)
-  ##Screen = B/w 320px to 479px
-*/
-
-@media (min-width: 320px) and (max-width: 480px) {
-    body, html {
-        overflow-x: hidden;
-        margin: 0 auto;
-        height: 100%;
+    
+    .profile-sidebar img {
+        display: inline;
     }
-    #permission-info h4, #callback h4 {
+    
+    p {
+        margin-top: 2em;
+        margin-bottom: 1rem;
+    }
+    
+    .telemed-step-one h3,
+    .telemed-step-two h3,
+    .payment h3 {
+        font-size: 30px !important;
+        font-weight: bold;
+        font-family: 'Segoe UI';
+    }
+    
+    .telemed-step-one h5,
+    .telemed-step-two h5 {
+        font-size: 17px !important;
+        font-weight: 400;
+        font-family: 'Segoe UI';
+    }
+    
+    .telemed-step-one button {
+        background-color: #0080ff;
+        font-family: 'Segoe UI';
+        border: none;
+        color: #fff;
+        padding: 5px 30px;
+        margin: 30px 0;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: bold;
+    }
+    
+    #permission-info {
+        padding: 0;
+    }
+    
+    #permission-info .modal-dialog {
+        max-width: 600px;
+        margin: 10rem auto !important;
+        text-align: center !important;
+    }
+    
+    #permission-info .modal-header {
+        display: inline !important;
+        text-align: center !important;
+    }
+    
+    #permission-info h4,
+    #callback h4 {
         color: #000000 !important;
         font-family: 'Segoe UI' !important;
         font-size: 19px !important;
@@ -464,10 +101,12 @@ a[href="#previous"] {
         display: inline !important;
         text-align: center !important;
     }
+    
     #permission-info p {
         font-family: 'Segoe UI' !important;
         text-align: left !important;
     }
+    
     #permission-info button {
         background-color: #0080ff;
         padding: 5px 50px;
@@ -478,9 +117,11 @@ a[href="#previous"] {
         font-size: 14px;
         font-weight: bold;
     }
+    
     .telemed-step-two .loader-container {
         margin: 20px;
     }
+    
     .telemed-step-two .loader {
         border: 10px solid #f3f3f3;
         border-radius: 50%;
@@ -492,13 +133,16 @@ a[href="#previous"] {
         -webkit-animation: spin 2s linear infinite;
         animation: spin 2s linear infinite;
     }
+    
     .payment {
         border: 1px solid#F7941C;
         background-color: #fff !important;
     }
+    
     .payment .loader-container {
         margin: 30px;
     }
+    
     .payment .loader {
         border: 10px solid #f3f3f3;
         border-radius: 50%;
@@ -510,6 +154,7 @@ a[href="#previous"] {
         -webkit-animation: spin 2s linear infinite;
         animation: spin 2s linear infinite;
     }
+    
     .checkmark {
         display: inline-block;
         height: 100px;
@@ -518,12 +163,17 @@ a[href="#previous"] {
         border-right: 15px solid #F7941C;
         transform: rotate(45deg);
     }
-    .error, .required {
+    
+    .error,
+    .required {
         color: #FF5252;
     }
-    .preview, .title {
+    
+    .preview,
+    .title {
         font-weight: bold;
     }
+    
     .title {
         font-weight: bold;
         color: #F7941C;
@@ -534,35 +184,40 @@ a[href="#previous"] {
         padding: 10px;
         height: fit-content;
     }
+    
     .input-group {
-        /* border: .5px solid gray; */
         border-right: solid 1px gray;
     }
+    
     .preview-div {
         margin-bottom: 15px;
         word-wrap: break-word;
     }
+    
     .cost {
         background-color: #FBC98D;
-        min-width: -webkit-fill-available;
-        height: 80%;
+        margin-top: -10px;
     }
+    
     a[href="#next"] {
         background: #F7941C !important;
         color: #000000 !important;
         border-radius: 4px;
     }
+    
     a[href="#finish"] {
         background: #F7941C !important;
         color: #000000 !important;
         border-radius: 4px;
     }
+    
     a[href="#previous"] {
         background: none !important;
         color: #000000 !important;
         border: 1px solid;
         border-radius: 4px;
     }
+    
     @-webkit-keyframes spin {
         0% {
             -webkit-transform: rotate(0deg);
@@ -571,6 +226,7 @@ a[href="#previous"] {
             -webkit-transform: rotate(360deg);
         }
     }
+    
     @keyframes spin {
         0% {
             transform: rotate(0deg);
@@ -580,37 +236,71 @@ a[href="#previous"] {
         }
     }
     /* Patient Telemedicine */
+    
     .patient .page-content {
         margin: 50px 100px;
         border: none;
     }
+    
     .appt-booking .page-content {
         margin: 50px 50px;
         border: none;
     }
-    .telemed-step-one h3, .telemed-step-two h3, .payment h3 {
-        padding-top: 20px;
+    
+    .booking {
+        padding-bottom: 10px !important;
     }
+    
     .wizard>.content {
         border: none;
     }
-    #callback #reschedule-appointment, #callback #request-callback {
-        float: none;
+    
+    .card {
+        background-color: white;
+        padding-top: 0px;
+        padding-bottom: 100px;
     }
+    
     .img-responsive {
         width: 22em;
     }
+    
+    .border {
+        border-right: solid 1px gray;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-left: 20px;
+        margin-right: 20px
+    }
+    
+    .bord {
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-left: 20px;
+        margin-right: 20px
+    }
+    
     .round {
         border-radius: 50%;
     }
+    
+    .input[type="radio"]+label {
+        position: relative;
+        padding-left: 54px;
+        cursor: pointer;
+        font-size: 26px;
+    }
+    
     .waiting {
         margin: 30px;
     }
+    
     .time {
         color: #0080ff;
         font-family: 'Segoe UI';
         font-weight: bold;
     }
+    
     .telemed-step-two .waiting-time {
         background-color: #fff;
         color: #0080ff;
@@ -620,15 +310,18 @@ a[href="#previous"] {
         font-family: 'Segoe UI';
         font-weight: bold;
     }
+    
     .loading {
         margin: 30px;
         font-size: 16px;
     }
+    
     .loading span {
         font-size: 20px;
         font-weight: bold;
         margin: 2px;
     }
+    
     .loading .one {
         opacity: 0;
         -webkit-animation: dot 1.5s infinite;
@@ -636,6 +329,7 @@ a[href="#previous"] {
         animation: dot 1.5s infinite;
         animation-delay: 0.0s;
     }
+    
     .loading .two {
         opacity: 0;
         -webkit-animation: dot 1.5s infinite;
@@ -643,6 +337,7 @@ a[href="#previous"] {
         animation: dot 1.5s infinite;
         animation-delay: 0.3s;
     }
+    
     .loading .three {
         opacity: 0;
         -webkit-animation: dot 1.5s infinite;
@@ -650,38 +345,28 @@ a[href="#previous"] {
         animation: dot 1.5s infinite;
         animation-delay: 0.4s;
     }
+    
     @-webkit-keyframes dot {
         0% {
             opacity: 0;
         }
-        50% {
-            opacity: 0;
-        }
         100% {
             opacity: 1;
         }
     }
-    @keyframes dot {
-        0% {
-            opacity: 0;
-        }
-        50% {
-            opacity: 0;
-        }
-        100% {
-            opacity: 1;
-        }
-    }
+    
     #callback .modal-dialog {
         max-width: 550px;
         margin: 12rem auto !important;
         text-align: center !important;
     }
+    
     #callback p {
         margin-top: 25px;
         text-align: center;
         font-family: 'Segoe UI' !important;
     }
+    
     #callback .modal-footer button {
         width: 210px;
         background-color: #0080ff;
@@ -693,457 +378,818 @@ a[href="#previous"] {
         font-weight: bold;
         cursor: pointer;
     }
+    
     #callback #request-callback {
         float: left;
     }
-    .step-buttons button {
-        margin: 5px;
+    
+    #callback #reschedule-appointment {
+        float: right;
     }
-    .test-vid {
-        margin-bottom: 3em;
-    }
-}
-
-/******************TELEMEDICINE SETUP GUIDE******************/
-
-.tab {
-    display: none;
-}
-
-button:hover {
-    opacity: 0.8;
-}
-
-#prevBtn {
-    background-color: #bbbbbb;
-}
-
-/* Step indicators */
-
-.step {
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    background-color: #bbbbbb;
-    border: none;
-    border-radius: 50%;
-    display: inline-block;
-    opacity: 0.5;
-}
-
-.step.active {
-    opacity: 0.5;
-    background: #0080ff;
-}
-
-/* Finished steps */
-
-.step.finish {
-    background-color: #0080ff;
-}
-
-.setup-1 p {
-    margin: 1em 2em;
-}
-
-.setup-1 p span {
-    font-weight: bold;
-}
-
-.step-indicators {
-    margin: -80px auto 30px auto;
-}
-
-.step-buttons {
-    margin-top: 80px;
-}
-
-.step-buttons button {
-    width: auto;
-    background-color: #0080ff;
-    padding: 5px 20px;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    font-family: 'Segoe UI';
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-#allowPermissions, #testMic, #testInternet {
-    background-color: #4CAF50;
-    font-family: 'Segoe UI';
-    border: none;
-    border-radius: 3px;
-    color: #fff;
-    padding: 5px 30px;
-    margin: 10px 0;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: bold;
-}
-
-button:focus {
-    outline: none;
-}
-
-#v {
-    height: 190px;
-    margin-top: -30px;
-    -webkit-transform: scaleX(-1);
-    transform: scaleX(-1);
-}
-
-/****************MICROPHONE TEST *******************/
-
-.bar {
-    --volume: 0%;
-    position: relative;
-    width: 320px;
-    height: 18px;
-    border-radius: 3px;
-    margin: 10px auto;
-}
-
-.bar::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    border-radius: 5px;
-    width: var(--volume);
-    background-color: #0080ff;
-    transition: width 100ms linear;
-}
-
-#test-result {
-    font-size: 1em;
-}
-
-/****************INTERNET SPEED TEST ***************/
-
-h1 {
-    color: #404040;
-    font-size: 20px !important;
-}
-
-#testInternet.running {
-    background-color: #FF3030;
-    border-color: #FF6060;
-    color: #FFFFFF;
-}
-
-#testInternet:before {
-    content: "Start";
-}
-
-#testInternet.running:before {
-    content: "Abort";
-}
-
-div.testArea {
-    display: inline-block;
-    width: 14em;
-    height: 4em;
-    position: relative;
-    box-sizing: border-box;
-}
-
-div.testName {
-    position: absolute;
-    top: 0.1em;
-    left: 0;
-    width: 100%;
-    font-size: 1em;
-    z-index: 9;
-}
-
-div.meterText {
-    position: absolute;
-    bottom: 0.2em;
-    left: 0;
-    width: 100%;
-    font-size: 1.5em;
-    z-index: 9;
-}
-
-#dlText {
-    color: #6060AA;
-}
-
-#ulText {
-    color: #309030;
-}
-
-#pingText, #jitText {
-    color: #AA6060;
-}
-
-div.meterText:empty:before {
-    color: #505050 !important;
-    content: "0.00";
-}
-
-div.unit {
-    position: absolute;
-    bottom: -1em;
-    left: 0;
-    width: 100%;
-    z-index: 9;
-}
-
-div #ipArea {
-    margin-top: 20px;
-}
-
-div.testGroup {
-    display: inline-block;
-}
-
-@media all and (max-width:65em) {
-    body {
-        font-size: 1.5vw;
-    }
-}
-
-@media all and (max-width:40em) {
-    body {
-        font-size: 0.8em;
-        padding: 10px;
-        padding-top: 10px;
-    }
-    div.testGroup {
-        display: block;
-        margin: 0 auto;
-    }
-}
-
-/*******************PATIENT ON BOARDING******************/
-
-.alert-danger {
-    margin-top: 20px;
-}
-
-/*****************PATIENT BOOKING **********************/
-
-.booking-step label>input[type="radio"] {
-    display: none;
-}
-
-.booking-step label>span {
-    font-weight: bold;
-}
-
-.booking-step label>input[type="radio"]+*::before {
-    content: "";
-    display: inline-block;
-    vertical-align: bottom;
-    width: 1rem;
-    height: 1rem;
-    margin-right: 0.3rem;
-    margin-bottom: 2px;
-    border-radius: 50%;
-    border: .5px solid #F7941C;
-}
-
-.booking-step label>input[type="radio"]:checked+*::before {
-    border: 4px solid #F7941C;
-    background-color: #F7941C;
-}
-
-.booking-step label>input[type="radio"]+* {
-    display: inline-block;
-    padding: 0.5rem 2rem;
-}
-
-.booking-step label>hr {
-    background-color: #F7941C;
-    height: 0px;
-    width: 40px;
-    text-align: left;
-    margin-left: -15px;
-    margin-right: -15px;
-    margin-bottom: -5px;
-}
-
-/* pretty radio */
-
-.booking-time label>input[type="radio"] {
-    display: none;
-    margin-top: 1em;
-}
-
-.booking-time label>input[type="radio"]+*::before {
-    content: "";
-    display: inline-block;
-    vertical-align: bottom;
-    width: 1.5rem;
-    height: 1.5rem;
-    margin-right: 0.3rem;
-    margin-bottom: 2px;
-    border-radius: 50%;
-    border: 1px solid #F7941C;
-    cursor: pointer;
-}
-
-.booking-time label>input[type="radio"]:checked+*::before {
-    background: radial-gradient(#F7941C 0%, #F7941C 50%, transparent 50%, transparent);
-    border-color: #F7941C;
-}
-
-.booking-time label>input[type="radio"]+* {
-    display: inline-block;
-    padding: 0.5rem 2rem;
-}
-
-#date-time-picker-container {
-    display: flex;
-    flex-direction: column;
-    padding: 0 32px;
-}
-
-input[type="date"], input[type="time"] {
-    position: relative;
-}
-
-input[type="date"]:after {
-    font-family: 'FontAwesome';
-    font-weight: 900;
-    content: "\f073";
-    color: #212529;
-    padding: 0 5px;
-}
-
-input[type="time"]:after {
-    font-family: 'FontAwesome';
-    font-weight: 900;
-    content: "\f017";
-    color: #212529;
-    padding: 0 5px;
-}
-
-input[type="date"]::-webkit-calendar-picker-indicator, input[type="time"]::-webkit-calendar-picker-indicator {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: auto;
-    height: auto;
-    color: transparent;
-    background: transparent;
-}
-
-input[type="date"]::-webkit-inner-spin-button, input[type="time"]::-webkit-inner-spin-button {
-    z-index: 1;
-}
-
-input[type="date"]::-webkit-clear-button, input[type="time"]::-webkit-clear-button {
-    z-index: 1;
-}
-
-#confirm-details-section .title {
-    border: none;
-    border-bottom: 1px solid silver;
-}
-
-#confirm-appointment-details, #confirm-appointment-cost {
-    border: 1px solid silver;
-}
-
-#confirm-appointment-details .input-group, #confirm-appointment-cost .input-group {
-    border-right: none;
-}
-
-.wizard>.actions {
-    text-align: center;
-}
-
-/* Mobile display */
-
-@media screen and (max-width: 758px) {
-    .appt-booking .page-content {
-        margin: 0;
-    }
-    .card-body, .booking-card {
-        padding-top: 10px;
-    }
-    .wizard>.actions>ul {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-    }
-    .wizard>.actions>ul a {
-        border-radius: 0;
-    }
-    .col-md-12 {
-        padding: .3rem;
-    }
-    .patient-details .col-12 {
-        padding-left: 0;
-        padding-right: 0;
-    }
-    .md-col {
-        flex-direction: column;
-    }
-    .form-control {
-        border-radius: 0;
-    }
-    .patient-details {
+    
+    #callback .modal-header {
         border: none;
-        padding: 0;
-        margin-bottom: 2em;
     }
-    .booking-step {
+    
+    #callback .modal-header button {
+        margin-top: -15px !important;
+        padding: 0 !important;
+        margin-right: -10px;
+        padding: 0 !important;
+    }
+    
+    #callback .close {
+        background-color: #fff;
+        color: #000000;
+        font-size: 30px;
+        border: none;
+        font-family: 'Segoe UI';
+        font-weight: bold;
+        cursor: pointer;
+    }
+    
+    #callback .modal-body {
+        padding: 0 3em;
+    }
+    
+    #callback .modal-footer {
+        border: none;
+        display: inline;
+        padding: 2em 3em;
+    }
+    
+    #callback .callback-success {
+        height: 15em;
+    }
+    
+    #callback .callback-success h5 {
+        color: #000000;
+        font-size: 20px;
+        font-family: 'Segoe UI';
+        font-weight: bold;
+        margin: 1.5em 0;
+    }
+    
+    #callback .callback-success .fa-check {
+        color: #0080ff;
+        font-size: 3em;
+        padding-top: .5em;
+    }
+    
+    .input-group {
+        text-align: left;
+        padding-bottom: 40px;
+    }
+    /***************Responsive Media Queries**************/
+    /* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+    
+    @media (min-width: 1281px) {
+        /* CSS */
+    }
+    /* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+    
+    @media (min-width: 1025px) and (max-width: 1280px) {
+        /* CSS */
+    }
+    /* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+    
+    @media (min-width: 768px) and (max-width: 1024px) {
+        /* CSS */
+    }
+    /* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+    
+    @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+        /* CSS */
+    }
+    /* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+    
+    @media (min-width: 481px) and (max-width: 767px) {
+        /* CSS */
+    }
+    /* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+    
+    @media (min-width: 320px) and (max-width: 480px) {
+        body,
+        html {
+            overflow-x: hidden;
+            margin: 0 auto;
+            height: 100%;
+        }
+        #permission-info h4,
+        #callback h4 {
+            color: #000000 !important;
+            font-family: 'Segoe UI' !important;
+            font-size: 19px !important;
+            font-weight: 700;
+            display: inline !important;
+            text-align: center !important;
+        }
+        #permission-info p {
+            font-family: 'Segoe UI' !important;
+            text-align: left !important;
+        }
+        #permission-info button {
+            background-color: #0080ff;
+            padding: 5px 50px;
+            color: #fff;
+            border: none;
+            font-family: 'Segoe UI';
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .telemed-step-two .loader-container {
+            margin: 20px;
+        }
+        .telemed-step-two .loader {
+            border: 10px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 8px solid #0080ff;
+            border-right: 8px solid #0080ff;
+            border-bottom: 8px solid #0080ff;
+            width: 70px;
+            height: 70px;
+            -webkit-animation: spin 2s linear infinite;
+            animation: spin 2s linear infinite;
+        }
+        .payment {
+            border: 1px solid#F7941C;
+            background-color: #fff !important;
+        }
+        .payment .loader-container {
+            margin: 30px;
+        }
+        .payment .loader {
+            border: 10px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 8px solid#F7941C;
+            border-right: 8px solid #F7941C;
+            border-bottom: 8px solid #F7941C;
+            width: 70px;
+            height: 70px;
+            -webkit-animation: spin 2s linear infinite;
+            animation: spin 2s linear infinite;
+        }
+        .checkmark {
+            display: inline-block;
+            height: 100px;
+            width: 40px;
+            border-bottom: 15px solid #F7941C;
+            border-right: 15px solid #F7941C;
+            transform: rotate(45deg);
+        }
+        .error,
+        .required {
+            color: #FF5252;
+        }
+        .preview,
+        .title {
+            font-weight: bold;
+        }
+        .title {
+            font-weight: bold;
+            color: #F7941C;
+            font-size: 14px;
+            margin-bottom: 10px;
+            border: 1px solid gray;
+            width: -webkit-fill-available;
+            padding: 10px;
+            height: fit-content;
+        }
+        .input-group {
+            /* border: .5px solid gray; */
+            border-right: solid 1px gray;
+        }
+        .preview-div {
+            margin-bottom: 15px;
+            word-wrap: break-word;
+        }
+        .cost {
+            background-color: #FBC98D;
+            min-width: -webkit-fill-available;
+            height: 80%;
+        }
+        a[href="#next"] {
+            background: #F7941C !important;
+            color: #000000 !important;
+            border-radius: 4px;
+        }
+        a[href="#finish"] {
+            background: #F7941C !important;
+            color: #000000 !important;
+            border-radius: 4px;
+        }
+        a[href="#previous"] {
+            background: none !important;
+            color: #000000 !important;
+            border: 1px solid;
+            border-radius: 4px;
+        }
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        /* Patient Telemedicine */
+        .patient .page-content {
+            margin: 50px 100px;
+            border: none;
+        }
+        .appt-booking .page-content {
+            margin: 50px 50px;
+            border: none;
+        }
+        .telemed-step-one h3,
+        .telemed-step-two h3,
+        .payment h3 {
+            padding-top: 20px;
+        }
+        .wizard>.content {
+            border: none;
+        }
+        #callback #reschedule-appointment,
+        #callback #request-callback {
+            float: none;
+        }
+        .img-responsive {
+            width: 22em;
+        }
+        .round {
+            border-radius: 50%;
+        }
+        .waiting {
+            margin: 30px;
+        }
+        .time {
+            color: #0080ff;
+            font-family: 'Segoe UI';
+            font-weight: bold;
+        }
+        .telemed-step-two .waiting-time {
+            background-color: #fff;
+            color: #0080ff;
+            border: 1px solid #0080ff;
+            border-radius: 3px;
+            padding: 5px;
+            font-family: 'Segoe UI';
+            font-weight: bold;
+        }
+        .loading {
+            margin: 30px;
+            font-size: 16px;
+        }
+        .loading span {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 2px;
+        }
+        .loading .one {
+            opacity: 0;
+            -webkit-animation: dot 1.5s infinite;
+            -webkit-animation-delay: 0.0s;
+            animation: dot 1.5s infinite;
+            animation-delay: 0.0s;
+        }
+        .loading .two {
+            opacity: 0;
+            -webkit-animation: dot 1.5s infinite;
+            -webkit-animation-delay: 0.2s;
+            animation: dot 1.5s infinite;
+            animation-delay: 0.3s;
+        }
+        .loading .three {
+            opacity: 0;
+            -webkit-animation: dot 1.5s infinite;
+            -webkit-animation-delay: 0.3s;
+            animation: dot 1.5s infinite;
+            animation-delay: 0.4s;
+        }
+        @-webkit-keyframes dot {
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        @keyframes dot {
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        #callback .modal-dialog {
+            max-width: 550px;
+            margin: 12rem auto !important;
+            text-align: center !important;
+        }
+        #callback p {
+            margin-top: 25px;
+            text-align: center;
+            font-family: 'Segoe UI' !important;
+        }
+        #callback .modal-footer button {
+            width: 210px;
+            background-color: #0080ff;
+            padding: 5px 20px;
+            color: #fff;
+            border: none;
+            font-family: 'Segoe UI';
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        #callback #request-callback {
+            float: left;
+        }
+        .step-buttons button {
+            margin: 5px;
+        }
+        .test-vid {
+            margin-bottom: 3em;
+        }
+    }
+    /******************TELEMEDICINE SETUP GUIDE******************/
+    
+    .tab {
         display: none;
     }
-    .wizard .content .body {
-        padding-top: 0;
+    
+    button:hover {
+        opacity: 0.8;
     }
-    #mobile-page-logo {
-        height: 2.5em;
+    
+    #prevBtn {
+        background-color: #bbbbbb;
     }
-    #mobile-page-close {
-        font-size: 1.5em;
+    /* Step indicators */
+    
+    .step {
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbbbbb;
+        border: none;
+        border-radius: 50%;
+        display: inline-block;
+        opacity: 0.5;
+    }
+    
+    .step.active {
+        opacity: 0.5;
+        background: #0080ff;
+    }
+    /* Finished steps */
+    
+    .step.finish {
+        background-color: #0080ff;
+    }
+    
+    .setup-1 p {
+        margin: 1em 2em;
+    }
+    
+    .setup-1 p span {
+        font-weight: bold;
+    }
+    
+    .step-indicators {
+        margin: -80px auto 30px auto;
+    }
+    
+    .step-buttons {
+        margin-top: 80px;
+    }
+    
+    .step-buttons button {
+        width: auto;
+        background-color: #0080ff;
+        padding: 5px 20px;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        font-family: 'Segoe UI';
+        font-size: 14px;
+        font-weight: bold;
         cursor: pointer;
-        font-weight: 1000;
     }
-    .wizard>.actions {
-        position: fixed;
-        right: 0;
+    
+    #allowPermissions,
+    #testMic,
+    #testInternet {
+        background-color: #4CAF50;
+        font-family: 'Segoe UI';
+        border: none;
+        border-radius: 3px;
+        color: #fff;
+        padding: 5px 30px;
+        margin: 10px 0;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: bold;
+    }
+    
+    button:focus {
+        outline: none;
+    }
+    
+    #v {
+        height: 190px;
+        margin-top: -30px;
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+    }
+    /****************MICROPHONE TEST *******************/
+    
+    .bar {
+        --volume: 0%;
+        position: relative;
+        width: 320px;
+        height: 18px;
+        border-radius: 3px;
+        margin: 10px auto;
+    }
+    
+    .bar::before {
+        content: '';
+        position: absolute;
+        top: 0;
         bottom: 0;
         left: 0;
-        z-index: 1030;
-        background-color: white;
-        padding: 1em;
+        border-radius: 5px;
+        width: var(--volume);
+        background-color: #0080ff;
+        transition: width 100ms linear;
     }
-    .booking-time {
+    
+    #test-result {
+        font-size: 1em;
+    }
+    /****************INTERNET SPEED TEST ***************/
+    
+    h1 {
+        color: #404040;
+        font-size: 20px !important;
+    }
+    
+    #testInternet.running {
+        background-color: #FF3030;
+        border-color: #FF6060;
+        color: #FFFFFF;
+    }
+    
+    #testInternet:before {
+        content: "Start";
+    }
+    
+    #testInternet.running:before {
+        content: "Abort";
+    }
+    
+    div.testArea {
+        display: inline-block;
+        width: 14em;
+        height: 4em;
+        position: relative;
+        box-sizing: border-box;
+    }
+    
+    div.testName {
+        position: absolute;
+        top: 0.1em;
+        left: 0;
         width: 100%;
-        text-align: start;
+        font-size: 1em;
+        z-index: 9;
     }
+    
+    div.meterText {
+        position: absolute;
+        bottom: 0.2em;
+        left: 0;
+        width: 100%;
+        font-size: 1.5em;
+        z-index: 9;
+    }
+    
+    #dlText {
+        color: #6060AA;
+    }
+    
+    #ulText {
+        color: #309030;
+    }
+    
+    #pingText,
+    #jitText {
+        color: #AA6060;
+    }
+    
+    div.meterText:empty:before {
+        color: #505050 !important;
+        content: "0.00";
+    }
+    
+    div.unit {
+        position: absolute;
+        bottom: -1em;
+        left: 0;
+        width: 100%;
+        z-index: 9;
+    }
+    
+    div #ipArea {
+        margin-top: 20px;
+    }
+    
+    div.testGroup {
+        display: inline-block;
+    }
+    
+    @media all and (max-width:65em) {
+        body {
+            font-size: 1.5vw;
+        }
+    }
+    
+    @media all and (max-width:40em) {
+        body {
+            font-size: 0.8em;
+            padding: 10px;
+            padding-top: 10px;
+        }
+        div.testGroup {
+            display: block;
+            margin: 0 auto;
+        }
+    }
+    /*******************PATIENT ON BOARDING******************/
+    
+    .alert-danger {
+        margin-top: 20px;
+    }
+    /*****************PATIENT BOOKING **********************/
+    
+    .booking-step label>input[type="radio"] {
+        display: none;
+    }
+    
+    .booking-step label>span {
+        font-weight: bold;
+    }
+    
+    .booking-step label>input[type="radio"]+*::before {
+        content: "";
+        display: inline-block;
+        vertical-align: bottom;
+        width: 1rem;
+        height: 1rem;
+        margin-right: 0.3rem;
+        margin-bottom: 2px;
+        border-radius: 50%;
+        border: .5px solid #F7941C;
+    }
+    
+    .booking-step label>input[type="radio"]:checked+*::before {
+        border: 4px solid #F7941C;
+        background-color: #F7941C;
+    }
+    
+    .booking-step label>input[type="radio"]+* {
+        display: inline-block;
+        padding: 0.5rem 2rem;
+    }
+    
+    .booking-step label>hr {
+        background-color: #F7941C;
+        height: 0px;
+        width: 40px;
+        text-align: left;
+        margin-left: -15px;
+        margin-right: -15px;
+        margin-bottom: -5px;
+    }
+    /* pretty radio */
+    
+    .booking-time label>input[type="radio"] {
+        display: none;
+        margin-top: 1em;
+    }
+    
+    .booking-time label>input[type="radio"]+*::before {
+        content: "";
+        display: inline-block;
+        vertical-align: bottom;
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-right: 0.3rem;
+        margin-bottom: 2px;
+        border-radius: 50%;
+        border: 1px solid #F7941C;
+        cursor: pointer;
+    }
+    
+    .booking-time label>input[type="radio"]:checked+*::before {
+        background: radial-gradient(#F7941C 0%, #F7941C 50%, transparent 50%, transparent);
+        border-color: #F7941C;
+    }
+    
     .booking-time label>input[type="radio"]+* {
-        padding-left: 0;
-        padding-right: 0;
+        display: inline-block;
+        padding: 0.5rem 2rem;
     }
-    .cost {
-        border-top: solid 1px gray;
-        border-bottom: solid 1px gray;
+    
+    #date-time-picker-container {
+        display: flex;
+        flex-direction: column;
+        padding: 0 32px;
     }
-    .cost .preview {
-        font-size: 2.3em;
+    
+    input[type="date"],
+    input[type="time"] {
+        position: relative;
     }
-    .input-group#confirm-appointment-cost {
-        padding-bottom: 0;
+    
+    input[type="date"]:after {
+        font-family: 'FontAwesome';
+        font-weight: 900;
+        content: "\f073";
+        color: #212529;
+        padding: 0 5px;
     }
-    .input-group#confirm-appointment-details {
-        border: solid 1px gray;
+    
+    input[type="time"]:after {
+        font-family: 'FontAwesome';
+        font-weight: 900;
+        content: "\f017";
+        color: #212529;
+        padding: 0 5px;
     }
-    .input-group {
+    
+    input[type="date"]::-webkit-calendar-picker-indicator,
+    input[type="time"]::-webkit-calendar-picker-indicator {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: auto;
+        height: auto;
+        color: transparent;
+        background: transparent;
+    }
+    
+    input[type="date"]::-webkit-inner-spin-button,
+    input[type="time"]::-webkit-inner-spin-button {
+        z-index: 1;
+    }
+    
+    input[type="date"]::-webkit-clear-button,
+    input[type="time"]::-webkit-clear-button {
+        z-index: 1;
+    }
+    
+    #confirm-details-section .title {
+        border: none;
+        border-bottom: 1px solid silver;
+    }
+    
+    #confirm-appointment-details,
+    #confirm-appointment-cost {
+        border: 1px solid silver;
+    }
+    
+    #confirm-appointment-details .input-group,
+    #confirm-appointment-cost .input-group {
         border-right: none;
     }
-    .row, .text-center, .m-t-10 {
-        border: none!important;
+    
+    .wizard>.actions {
+        text-align: center;
     }
-}
+    /* Mobile display */
+    
+    @media screen and (max-width: 758px) {
+        .appt-booking .page-content {
+            margin: 0;
+        }
+        .card-body,
+        .booking-card {
+            padding-top: 10px;
+        }
+        .wizard>.actions>ul {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .wizard>.actions>ul a {
+            border-radius: 0;
+        }
+        .col-md-12 {
+            padding: .3rem;
+        }
+        .patient-details .col-12 {
+            padding-left: 0;
+            padding-right: 0;
+        }
+        .md-col {
+            flex-direction: column;
+        }
+        .form-control {
+            border-radius: 0;
+        }
+        .patient-details {
+            border: none;
+            padding: 0;
+            margin-bottom: 2em;
+        }
+        .booking-step {
+            display: none;
+        }
+        .wizard .content .body {
+            padding-top: 0;
+        }
+        #mobile-page-logo {
+            height: 2.5em;
+        }
+        #mobile-page-close {
+            font-size: 1.5em;
+            cursor: pointer;
+            font-weight: 1000;
+        }
+        .wizard>.actions {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1030;
+            background-color: white;
+            padding: 1em;
+        }
+        .booking-time {
+            width: 100%;
+            text-align: start;
+        }
+        .booking-time label>input[type="radio"]+* {
+            padding-left: 0;
+            padding-right: 0;
+        }
+        .cost {
+            border-top: solid 1px gray;
+            border-bottom: solid 1px gray;
+        }
+        .cost .preview {
+            font-size: 2.3em;
+        }
+        .input-group#confirm-appointment-cost {
+            padding-bottom: 0;
+        }
+        .input-group#confirm-appointment-details {
+            border: solid 1px gray;
+        }
+        .input-group {
+            border-right: none;
+        }
+        .row,
+        .text-center,
+        .m-t-10 {
+            border: none!important;
+        }
+    }
