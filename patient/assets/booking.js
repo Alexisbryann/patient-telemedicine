@@ -6,33 +6,14 @@ const global_settings = {
         return this.date_now.toTimeString().split(" ").shift().split(":");
     },
     minimum_appointment_time: "08:00 AM",
-}
+},
+    datepicker_settings = {
+        daysOfWeekDisabled: ["0"],
+        autoclose: true,
+        startDate: global_settings.current_time[0] <= 18 ? Date() : tomorrow = new Date(new Date().setDate(new Date().getDate() + 1)), // if it's past 6pm, prevent selecting of today's date
+        format: "dd/mm/yyyy",
+    };
 
-jQuery(document).ready(function() {
-    'use strict';
-
-    document.getElementById("now").onchange = appointmentNow;
-    document.getElementById("schedule").onchange = appointmentSchedule;
-
-    function appointmentNow() {
-        if (document.getElementById("now").checked) {
-            $('.uploads').show(500);
-        } else {
-            $('#medical-reports').val('');
-            $('.uploads').hide(500);
-        }
-    }
-    function appointmentSchedule() {
-        if (document.getElementById("schedule").checked) {
-            $('#medication').show(500);
-        } else {
-            $('#medication').val('');
-            $('#medication').hide(500);
-        }
-    }
-});
-
-/*****************PATIENT ON BOARDING*****************/
 var form = $("#booking-form").show();
 form.steps({
     headerTag: "h3",
@@ -186,10 +167,7 @@ $("[name='appointment-type']").on("change", function () {
 });
 
 $("#set-appointment-date").datepicker({
-    daysOfWeekDisabled: ["0"],
-    autoclose: true,
-    startDate: global_settings.current_time[0] <= 18 ? Date() : tomorrow = new Date(new Date().setDate(new Date().getDate() + 1)), // if it's past 6pm, prevent selecting of today's date
-    format: "dd/mm/yyyy",
+    ...datepicker_settings,
 }).on("show", function (e) {
     if (!global_settings.screen_is_mobile) { // hack to position the datepicker in contact with the input box on desktop
         const date_picker_element = $(".datepicker.datepicker-dropdown.dropdown-menu.datepicker-orient-left.datepicker-orient-top"),
@@ -361,3 +339,38 @@ function validateInput(step) {
         return true;
     }
 }
+
+// in-person appointment booking
+$("#book-inperson").steps({
+    bodyTag: "fieldset",
+    transitionEffect: "slideLeft",
+    headerTag: "h3",
+    labels: {
+        finish: "Proceed To Pay",
+        next: "Next",
+        previous: "Back",
+    },
+    onInit: function (event, current) {
+        $("a[href$='previous']").hide();
+    },
+    onStepChanging: function (event, currentIndex, newIndex) {
+
+    },
+    onStepChanged: function (event, currentIndex, priorIndex) {
+
+    },
+    onFinishing: function (event, currentIndex) {
+
+    },
+    onFinished: function (event, currentIndex) {
+
+    }
+});
+
+$("#in-person-appointment-date").datepicker({
+    ...datepicker_settings,
+}).on("changeDate", function () {
+    $('#appointment-date').val(
+        $('#in-person-appointment-date').datepicker('getFormattedDate')
+    );
+})
