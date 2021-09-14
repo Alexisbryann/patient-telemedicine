@@ -30,8 +30,23 @@
     .radio-css {
         background-color: #FBC98D;
         border-radius: 16px;
-        padding: 8px;
         margin-bottom: 4px;
+        padding: 0px !important;
+    }
+    
+    .radio-css input[type="radio"]+label {
+        position: relative;
+        cursor: pointer;
+        border-radius: 16px;
+        padding: 0px !important;
+    }
+    
+    .radio-css input[type="radio"]:checked+label {
+        position: relative;
+        cursor: pointer;
+        background-color: orange;
+        border-radius: 16px;
+        padding: 0px !important;
     }
     
     .bg {
@@ -312,13 +327,6 @@
     
     .round {
         border-radius: 50%;
-    }
-    
-    .input[type="radio"]+label {
-        position: relative;
-        padding-left: 54px;
-        cursor: pointer;
-        font-size: 26px;
     }
     
     .waiting {
