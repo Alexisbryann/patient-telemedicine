@@ -152,7 +152,7 @@
 .wizard>.content {
     border: 1px solid #ddd;
     display: block;
-    margin: 0.5em;
+    /* margin: 0.5em; */
     min-height: 35em;
     overflow: hidden;
     position: relative;
@@ -301,7 +301,7 @@ a[href="#previous"] {
 }
 
 .wizard .content .body {
-    padding: 15px;
+    /* padding: 15px; */
 }
 
 .wizard .steps .done a {
