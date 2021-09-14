@@ -38,7 +38,7 @@
         position: relative;
         cursor: pointer;
         border-radius: 16px;
-        padding: 0px !important;
+        padding: 4px !important;
     }
     
     .radio-css input[type="radio"]:checked+label {
@@ -46,7 +46,7 @@
         cursor: pointer;
         background-color: orange;
         border-radius: 16px;
-        padding: 0px !important;
+        padding: 4px !important;
     }
     
     .bg {
