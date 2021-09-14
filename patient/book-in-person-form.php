@@ -34,7 +34,7 @@
         <span>Please complete the steps below to book an in-person appointment.</span>
         
     </section>
-    <div class="d-flex booking-step justify-content-center border-btm ">
+                <div class="d-flex booking-step justify-content-center border-btm ">
                     <label>
                         <input type="radio" id="appointment" name="radio-button" checked />
                         <span>Appointment Details</span>
@@ -53,7 +53,7 @@
                         <input type="radio" id="confirm" name="radio-button" />
                         <span>Confirm details</span>
                     </label>
-            </div>
+                </div>
 
     <form id="book-inperson" class = "border margin">
         <h3></h3>
