@@ -1149,6 +1149,15 @@
         .size {
             flex-wrap: wrap!important;
         }
+        .body {
+            font-size: medium;
+        }
+        .border-btm {
+            border: solid 1px #e5e5e5;
+            margin-left: 0px !important;
+            margin-right: 0px !important;
+            text-align: -webkit-center;
+        }
         .card-body,
         .booking-card {
             padding-top: 10px;
