@@ -624,8 +624,8 @@ pre code {
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px
+    margin-right: 15px!important;
+    margin-left: 15px !important
 }
 
 .no-gutters {
@@ -2073,21 +2073,22 @@ textarea.form-control {
 .form-check {
     position: relative;
     display: block;
-    padding-left: 1.25rem
+    padding-left: 1.25rem;
 }
 
 .form-check-input {
     position: absolute;
     margin-top: .3rem;
-    margin-left: -1.25rem
+    margin-left: -1.25rem;
 }
 
 .form-check-input:disabled~.form-check-label {
-    color: #6c757d
+    color: #6c757d;
 }
 
 .form-check-label {
-    margin-bottom: 0
+    margin-bottom: 0;
+    background-color: orange;
 }
 
 .form-check-inline {
@@ -4619,7 +4620,8 @@ input[type=submit].btn-block {
 .card-body {
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;
-    /* padding: 1.25rem */
+    padding: 1.25rem;
+    margin-left: 20px;
 }
 
 .card-title {
@@ -6434,9 +6436,10 @@ button.bg-dark:hover {
     background-color: transparent!important
 }
 
-.border {
+
+/* .border {
     border: 1px solid #dee2e6!important
-}
+} */
 
 .border-top {
     border-top: 1px solid #dee2e6!important
@@ -6578,7 +6581,9 @@ button.bg-dark:hover {
 
 .d-flex {
     display: -ms-flexbox!important;
-    display: flex!important
+    display: flex!important;
+    max-width: 33% !important;
+    flex-wrap: wrap!important;
 }
 
 .d-inline-flex {
@@ -6796,7 +6801,7 @@ button.bg-dark:hover {
 
 .flex-column {
     -ms-flex-direction: column!important;
-    flex-direction: column!important
+    flex-direction: column!important;
 }
 
 .flex-row-reverse {
@@ -9069,6 +9074,12 @@ button.bg-dark:hover {
     }
     .text-md-center {
         text-align: center!important
+    }
+    .d-flex {
+        display: -ms-flexbox!important;
+        display: flex!important;
+        max-width: fit-content!important;
+        flex-wrap: wrap!important;
     }
 }
 
