@@ -9073,6 +9073,12 @@ button.bg-dark:hover {
     .text-md-center {
         text-align: center!important
     }
+    .d-flex {
+        display: -ms-flexbox!important;
+        display: flex!important;
+        max-width: fit-content!important;
+        flex-wrap: wrap!important;
+    }
 }
 
 @media (min-width:992px) {
