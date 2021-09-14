@@ -29,6 +29,13 @@ if (isset($_POST["operation"])) {
 		$cost = 300;
 		$clinic = $_POST['clinic'];
 
+        if ($_POST["in-person"] == 1) {
+            $facility_id = $_POST["facility_id"];
+            $date = $_POST["appointment-date"];
+            $time = $_POST["appointment-time"];
+            $medical_concern = $_POST["medical-concern"];
+        }
+
 		$user = $db->TunzaClinicTelemedicineAppointmentBooking(
 			$name, 
 			$email,
@@ -39,8 +46,12 @@ if (isset($_POST["operation"])) {
 			$date,
 			$time,
 			$cost,
-			$clinic
+            $clinic,
+            $_POST["in-person"] ? "inperson" : "telemedicine",
+            $facility_id ?? null,
+            $medical_concern ?? null
 		);
+        
 		if ($user != false) {
 			echo json_encode($user);
 		}

@@ -51,7 +51,7 @@
         </div>
     </section>
 
-    <form id="book-inperson">
+    <form id="book-inperson" data-facility_id="<?php echo $_GET["facility_id"] ?? "" ?>">
         <h3></h3>
         <fieldset>
             <!--Appointment details step-->
@@ -122,14 +122,7 @@
                         <div class="form-group">
                             <span>field title</span>
 
-                            <div class="d-flex flex-wrap">
-                                <div class="form-check align-items-center ml-2">
-                                    <input class="form-check-input" type="radio" name="time-slot" id="exampleRadios1" value="option1" checked>
-                                    <label class="form-check-label" for="exampleRadios1">
-                                        00:00
-                                    </label>
-                                </div>
-                            </div>
+                            <div class="d-flex flex-wrap" id="time-slots-container"></div>
                         </div>
 
                         <div class="d-flex flex-column">
