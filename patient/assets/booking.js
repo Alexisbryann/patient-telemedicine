@@ -12,6 +12,7 @@ const global_settings = {
         autoclose: true,
         startDate: global_settings.current_time[0] <= 18 ? Date() : tomorrow = new Date(new Date().setDate(new Date().getDate() + 1)), // if it's past 6pm, prevent selecting of today's date
         format: "dd/mm/yyyy",
+        todayHighlight: true
     };
 
 var form = $("#booking-form").show();
@@ -341,6 +342,17 @@ function validateInput(step) {
 }
 
 // in-person appointment booking
+const in_person_settings = {
+    facility_id: $("#book-inperson").data("facility_id"),
+    time_slots: timeSlotsList(),
+    time_slot_template: (time) => `<div class="form-check align-items-center ml-2">
+                                    <input class="form-check-input" type="radio" name="time-slot" id="ts${time}" value=${time} checked>
+                                    <label class="form-check-label" for="ts${time}">
+                                        ${time}
+                                    </label>
+                                </div>`
+};
+
 $("#book-inperson").steps({
     bodyTag: "fieldset",
     transitionEffect: "slideLeft",
@@ -363,15 +375,100 @@ $("#book-inperson").steps({
     onFinishing: function(event, currentIndex) {
 
     },
-    onFinished: function(event, currentIndex) {
 
+    onFinished: function (event, currentIndex) {
+        event.preventDefault();
+        var btn = document.querySelectorAll('a[href="#finish"]');
+        $(btn).html('<i class="sending fa fa-spinner fa-spin">&nbsp;&nbsp;</i>Sending...');
+        $('.btn-next').css("pointer-events", "none");
+
+        $.ajax({
+            url: "operation/bookingOperations.php",
+            method: "POST",
+            data: new FormData(this),
+            contentType: false,
+            processData: false,
+            success: function (response) {
+                var response = JSON.parse(response);
+                if (response.response == 200) {
+                    $(btn).html('');
+                    $(btn).html('Submitted');
+                    var appointment_id = response.id;
+                    DPO_Payment(PaymentURL, name, email, phone, txRef, appointment_id);
+                } else if (response == 500) {
+                    $(btn).css("pointer-events", "auto");
+                    $(btn).html('');
+                    $(btn).html('Proceed To Pay');
+                    document.getElementById('allergies-error').innerHTML = '';
+                    document.getElementById('allergies-error').innerHTML = 'Sorry, there was a problem with sending your request, please try again.';
+                    $('#allergies-error').show(500);
+                }
+            },
+            async: false
+        });
     }
 });
 
 $("#in-person-appointment-date").datepicker({
     ...datepicker_settings,
-}).on("changeDate", function() {
-    $('#appointment-date').val(
-        $('#in-person-appointment-date').datepicker('getFormattedDate')
-    );
-})
+}).on("changeDate", function () {
+    const selected_date = $('#in-person-appointment-date').datepicker('getFormattedDate');
+
+    $('#appointment-date').val(selected_date);
+
+    $.ajax({
+        url: `operation/getTakenTimeSlots.php?operation=getTakenTimeSlots&facility_id=${in_person_settings.facility_id}&selected_date=${selected_date}`,
+        dataType: "json",
+        success: function (response) {
+            if (response.error) {
+                // time slots fetching error handling
+                return false;
+            }
+
+            const available_time_slots = in_person_settings.time_slots.filter(x => !response.includes(x));
+
+            $("#time-slots-container").empty();
+
+            available_time_slots.forEach(time_slot => {
+                $("#time-slots-container").append(in_person_settings.time_slot_template(time_slot));
+            });
+        },
+        error: function (error) {
+
+        }
+    });
+});
+
+$("#medical-concern-description").closest(".form-group").hide();
+
+$('[name="medical-concern"]').on("input", function () {
+    $("#medical-concern-description").closest(".form-group").show(100);
+});
+
+$("#book-inperson #facility").on("change", function () {
+    const facility_id = $(this).val();
+    in_person_settings.facility_id = facility_id;
+});
+
+function timeSlotsList() {
+    /**
+     * Generates a list of facility time slots. Starts at 08:00 hrs and adds 20 min intervals until 17:00 hrs
+     * 
+     * @return string[] list of time slots.
+     */
+    const min_time = 8,
+        max_time = 25;
+    let time_slots = new Array(),
+        counter = min_time;
+
+    while (counter < max_time) {
+        if (global_settings.current_time[0] < counter) {
+            time_slots.push(`${counter}:00`);
+            time_slots.push(`${counter}:20`);
+            time_slots.push(`${counter}:40`);
+        }
+        counter++;
+    }
+
+    return time_slots.length > 0 ? time_slots.concat([`${max_time}:00`]) : time_slots;
+}

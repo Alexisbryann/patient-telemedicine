@@ -1,6 +1,6 @@
 <?php
 // php mailer
-require_once 'my_mail.php';
+// require_once $_SERVER['DOCUMENT_ROOT'] . '/coldroom/patientexperience/operation/include/my_mail.php';
 require_once('AfricasTalkingGateway.php');
 date_default_timezone_set('Africa/Nairobi');
 $current_date = date('Y-m-d', time());
@@ -23,7 +23,7 @@ class DB_Functions {
 
     private $conn;
     public function __construct(){
-        $this->conn = mysqli_connect('localhost', 'root', '', 'myhealth_database');
+        $this->conn = mysqli_connect('localhost', 'root', '', 'myhealt1_database');
         if (!$this->conn) {
             die("Connection failed: " . mysqli_connect_error());
           }
@@ -71,14 +71,39 @@ class DB_Functions {
         $date,
         $time,
         $cost,
-        $clinic
+        $clinic,
+        $appointment_type = "telemedicine",
+        $facility_id = null,
+        $medical_concern = null
         ) {
         $db = $this->conn;
         // $date = date('Y-m-d', $date);
         // $time = date('G:i:s', $time);
 
-        $query = "INSERT INTO wp_ea_appointments (wp_ea_appointments.location, wp_ea_appointments.date, wp_ea_appointments.start, end_date, wp_ea_appointments.status, created, price, med_on_demand, clinic) 
-                VALUES (130, '$date', '$time', '$date', 'pending payment', '$date.' '.$time', '$cost', 1, '$clinic')";
+        if ($appointment_type == "inperson") {
+            $user_id = $this->createPatientAccount($email, $name);
+            $user_id_field = ", user";
+            $user_id_value = ", '$user_id'";
+
+            $service = mysqli_fetch_assoc(mysqli_query($db, "SELECT DISTINCT wp_ea_connections.service FROM `wp_ea_services` INNER JOIN `wp_ea_connections` ON wp_ea_connections.service = wp_ea_services.id WHERE wp_ea_services.facility_id = '$facility_id' AND wp_ea_connections.location != 130 GROUP BY wp_ea_connections.service"))["service"]; // in-person service for clinic
+
+            $service_field = ", service";
+            $service_value = ", '$service'";
+
+            $worker_field = ", worker";
+
+            $facility_id_field = ", facility_id";
+            $worker_value = $facility_id_value = ", '$facility_id'";
+
+            $med_on_demand = 0;
+        } else {
+            $med_on_demand = 1;
+            $user_id_field = $user_id_value = $service_field = $service_value = $worker_field = $facility_id_field = $worker_value = $facility_id_value = "";
+        }
+
+
+        $query = "INSERT INTO wp_ea_appointments (wp_ea_appointments.location, wp_ea_appointments.date, wp_ea_appointments.start, end_date, wp_ea_appointments.status, created, price, med_on_demand, clinic " . trim("$user_id_field $worker_field $facility_id_field $service_field") . ")  VALUES (130, '$date', '$time', '$date', 'pending payment', '$date $time', '$cost', $med_on_demand, '$clinic' " . trim("$user_id_value $worker_value $facility_id_value $service_value") . ")";
+
         $result = mysqli_query($db, $query) or die(mysqli_error($db));
         $appointment_id = mysqli_insert_id($db);
 
@@ -95,16 +120,17 @@ class DB_Functions {
         $phone = base64_encode($phone);
 
         if (!empty($result) && !empty($appointment_id)) {
-            $fields = [1,2,7,8,15,16,20];
+            $fields = [1, 2, 7, 8, 15, 16, 20, 4];
             $name = explode(' ', $name);
             $meta_values = [
-                $email, 
-                $name[0], 
-                $name[1], 
+                $email,
+                $name[0],
+                $name[1] ?? "", 
                 $phone,
                 $gender,
                 $dob,
-                $location
+                $location,
+                $medical_concern ?? ""
             ];
             $i = 0;
             foreach ($fields as $key => $field) {
@@ -250,10 +276,10 @@ class DB_Functions {
         $gender, 
         $location
         ) {
-        $button = "<a href='https://myhealthafrica.com/coldroom/myonemedpro/psi-telemedicine/patient/patient-waiting-room.php?appid={$appointment_id}' target='_blank'><button class='button button4' style='border-radius: 12px;background-color: #28A745;border: none; color: white;
+        $button = "<a href='https://myhealthafrica.com/coldroom/psi/patient-waiting-room.php?appid={$appointment_id}' target='_blank'><button class='button button4' style='border-radius: 12px;background-color: #28A745;border: none; color: white;
                 padding: 13px;text-align: center;text-decoration: none;display: inline-block;
                 font-size: 16px;margin: 4px 2px;cursor: pointer;color:white;'>Start Session</button></a>";
-        $url = "<a href='https://myhealthafrica.com/coldroom/myonemedpro/psi-telemedicine/patient/patient-waiting-room.php?appid={$appointment_id}' target='_blank'>here</a>";
+        $url = "<a href='https://myhealthafrica.com/coldroom/psi/patient-waiting-room.php?appid={$appointment_id}' target='_blank'>here</a>";
 
         $separator = md5(time());
 
@@ -578,7 +604,7 @@ class DB_Functions {
         $date, 
         $time
         ) {
-        $url = "https://myhealthafrica.com/coldroom/myonemedpro/psi-telemedicine/patient/patient-waiting-room.php?appid={$appointment_id}.";
+        $url = "https://myhealthafrica.com/coldroom/psi/patient-waiting-room.php?appid={$appointment_id}.";
         if ($type == 'schedule') {
             $message = 'Your telemedicine appointment with Tunza Clinic on '.$date.' '.$time.' is confirmed. Start your session on the scheduled date & time by clicking this url '.$url.' or check your email.';
         } else if ($type == 'now') {
@@ -746,6 +772,142 @@ class DB_Functions {
         return substr($data, 0, -ord($data[strlen($data) - 1]));
     }
 
+    public function getTakenTimeSlots(
+        int $facility_id,
+        string $selected_date
+    ) {
+        /**
+         * Get taken time slots for a clinic on a particular day
+         * 
+         * @param int $facility_id facility id
+         * @param string $selected_date selected date
+         * 
+         * @return string[] list of selected time slots for the given day
+         */
+
+        $db = $this->conn;
+
+        $selected_date = date("Y-m-d", strtotime($selected_date));
+
+        $appointment_times_sql = "SELECT start FROM wp_ea_appointments WHERE date = '$selected_date' AND facility_id = '$facility_id' AND location != 130";
+
+
+        $appointment_times_result = mysqli_query($db, $appointment_times_sql);
+
+        if (mysqli_error($db)) {
+            $this->logError(__FUNCTION__, func_get_args(), "Failed to get facility time slots.", $appointment_times_sql, mysqli_error($db));
+            return ["error" => true, "error_code" => 0];
+        }
+
+        $response = array();
+        while ($appointment_time = mysqli_fetch_assoc($appointment_times_result)) {
+            $start_time = substr($appointment_time["start"], 0, strlen($appointment_time["start"]) - 3);
+            array_push($response, $start_time);
+        }
+
+        return $response;
+    }
+
+    private function createPatientAccount(
+        string $user_email,
+        string $user_name
+    ) {
+        /**
+         * Creates an MHA account for the patient after booking an in-person appointment.
+         * 
+         * @param string $user_email user email address
+         * @param string $user_name user name
+         * 
+         * @return false|int patient's user id if the account gets created successfully, false otherwise
+         */
+
+        $db = $this->conn;
+
+        $user_registered = date("Y-m-d");
+
+        $save_user_sql = "INSERT INTO `wp_users`(`user_login`, `user_email`, `user_registered`, `display_name`) VALUES ('$user_email','$user_email','$user_registered','$user_name')";
+
+        mysqli_query($db, $save_user_sql);
+
+        if (mysqli_error($db)) {
+            $this->logError(__FUNCTION__, func_get_args(), "Failed to add new user.", $save_user_sql, mysqli_error($db));
+            return ["error" => "Failed to add new user", "error_code" => 3];
+        }
+
+        $user_id = mysqli_insert_id($db);
+        $user_name_split = explode(" ", $user_name);
+        $first_name = $user_name_split[0];
+        $last_name = $user_name_split[1] ?? "";
+
+        $save_user_meta_error = $this->saveUserMeta($first_name, $last_name, $user_email, $user_id);
+
+        if ($save_user_meta_error) return $save_user_meta_error;
+
+        return $user_id;
+    }
+
+    private function saveUserMeta(
+        string $first_name,
+        string $last_name,
+        string $billing_email,
+        int $user_id
+    ) {
+        /**
+         * Saves user metadata when creating a user account
+         * 
+         * @param string $first_name 
+         * @param string $last_name 
+         * @param string $billing_email 
+         * @param int $user_id user id
+         * 
+         * @return boolean|array empty array if all metadata are inserted correctly, array with errors if there are any
+         */
+
+        $db = $this->conn;
+
+        $save_user_meta_sql = "INSERT INTO wp_usermeta (user_id, meta_key, meta_value) VALUES
+        ($user_id, 'first_name', '$first_name'),
+        ($user_id, 'last_name', '$last_name'),
+        ($user_id, 'billing_email', '$billing_email'),
+        ($user_id, 'wp_capabilities', ' a:1:{s:10:\"subscriber\";b:1;} '),
+        ($user_id, 'wp_user_level', 0)";
+
+        mysqli_query($db, $save_user_meta_sql);
+
+        if (mysqli_error($db)) {
+            $this->logError(__FUNCTION__, func_get_args(), "Failed to save user metadata.", $save_user_meta_sql, mysqli_error($db));
+            return ["error" => "Failed to store user metadata", "error_code" => 2];
+        }
+
+        return array();
+    }
+
+    private function generatePasswordResetUrl(
+        string $user_email
+    ) {
+        /**
+         * Generates password reset url
+         * 
+         * @param string $user_email user email address
+         * 
+         * @return string password reset url
+         */
+
+        $db = $this->conn;
+
+        $key = md5($user_email);
+        $addKey = substr(md5(uniqid(rand(), 1)), 3, 10);
+        $key = "$key$addKey";
+        $expiry_date = date("Y-m-d h:i:s", strtotime("+1day"));
+
+        $insert_key_sql = "INSERT INTO `password_reset_temp`(`email`, `key`, `expDate`) VALUES ('$user_email','$key','$expiry_date')";
+
+        mysqli_query($db, $insert_key_sql);
+
+        if (mysqli_error($db)) $this->logError(__FUNCTION__, func_get_args(), "Failed to insert activation token.", $insert_key_sql, mysqli_error($db));
+
+        return "https://myhealthafrica.com/patient-reset-password?action=rp&login=$user_email&key=$key";
+    }
 }
  
 ?>

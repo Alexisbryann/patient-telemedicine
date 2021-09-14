@@ -55,7 +55,7 @@
                     </label>
                 </div>
 
-    <form id="book-inperson" class = "border margin">
+    <form id="book-inperson" data-facility_id="<?php echo $_GET["facility_id"] ?? "" ?>" class = "border margin">
         <h3></h3>
         <fieldset>
             <!--Appointment details step-->

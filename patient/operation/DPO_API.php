@@ -54,7 +54,7 @@ if (isset($_POST["operation"])) {
         $phone = $_POST["phone"];
         $amount = (integer) 1;
 
-        $redirectURL = 'https://myhealthafrica.com/psi/verify-payment?id='.$appointment_id.'&type='.$type.'';
+        $redirectURL = 'https://myhealthafrica.com/coldroom/psi/verify-payment.php?id='.$appointment_id.'&type='.$type.'';
         $xml_request = '<?xml version="1.0" encoding="utf-8"?>
                         <API3G>
                             <CompanyToken>'.$CompanyToken.'</CompanyToken>
@@ -114,8 +114,8 @@ if (isset($_POST["operation"])) {
             echo "cURL Error #:" . $err;
         } else {
             $xml = simplexml_load_string($response);
-            file_put_contents('Token-'.$txRef.'.xml', $response);
-            // echo json_encode($xml);
+            // file_put_contents('Token-'.$txRef.'.xml', $response);
+            echo json_encode($xml);
         }
     }
 }
