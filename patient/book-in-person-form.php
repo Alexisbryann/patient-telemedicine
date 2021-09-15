@@ -135,7 +135,7 @@
                         <div class = "size">
                             <!--Calendar column-->
                         
-                            <div class = "border" id="in-person-appointment-date"></div>
+                            <div class = "border bord" id="in-person-appointment-date"></div>
                             <input type="hidden" id="appointment-date">
                         </div>
 
@@ -147,49 +147,49 @@
 
                                 <div class="d-flex flex-wrap">
                                     <div class="form-check radio-css align-items-center ml-2">
-                                        <input class="form-check-input d-none" type="radio" name="medical-concern" value="option1" id = "exampleRadios10" >
+                                        <input class="form-check-input d-none" type="radio" name="time-slot" value="option1" id = "exampleRadios10" >
                                         <label class="form-check-label " for="exampleRadios10">
                                             00:00
                                         </label>
                                     </div>
                                     <div class="form-check radio-css align-items-center ml-2">
-                                        <input class="form-check-input d-none" type="radio" name="medical-concern" value="option1" id = "exampleRadios11" >
+                                        <input class="form-check-input d-none" type="radio" name="time-slot" value="option1" id = "exampleRadios11" >
                                         <label class="form-check-label " for="exampleRadios11">
                                             00:00
                                         </label>
                                     </div>
                                     <div class="form-check radio-css align-items-center ml-2">
-                                        <input class="form-check-input d-none" type="radio" name="medical-concern" value="option1" id = "exampleRadios12" >
+                                        <input class="form-check-input d-none" type="radio" name="time-slot" value="option1" id = "exampleRadios12" >
                                         <label class="form-check-label " for="exampleRadios12">
                                             00:00
                                         </label>
                                     </div>
                                     <div class="form-check radio-css align-items-center ml-2">
-                                        <input class="form-check-input d-none" type="radio" name="medical-concern" value="option1" id = "exampleRadios13" >
+                                        <input class="form-check-input d-none" type="radio" name="time-slot" value="option1" id = "exampleRadios13" >
                                         <label class="form-check-label " for="exampleRadios13">
                                             00:00
                                         </label>
                                     </div>
                                     <div class="form-check radio-css align-items-center ml-2">
-                                        <input class="form-check-input d-none" type="radio" name="medical-concern" value="option1" id = "exampleRadios14" >
+                                        <input class="form-check-input d-none" type="radio" name="time-slot" value="option1" id = "exampleRadios14" >
                                         <label class="form-check-label " for="exampleRadios14">
                                             00:00
                                         </label>
                                     </div>
                                     <div class="form-check radio-css align-items-center ml-2">
-                                        <input class="form-check-input d-none" type="radio" name="medical-concern" value="option1" id = "exampleRadios15" >
+                                        <input class="form-check-input d-none" type="radio" name="time-slot" value="option1" id = "exampleRadios15" >
                                         <label class="form-check-label " for="exampleRadios15">
                                             00:00
                                         </label>
                                     </div>
                                     <div class="form-check radio-css align-items-center ml-2">
-                                        <input class="form-check-input d-none" type="radio" name="medical-concern" value="option1" id = "exampleRadios16" >
+                                        <input class="form-check-input d-none" type="radio" name="time-slot" value="option1" id = "exampleRadios16" >
                                         <label class="form-check-label " for="exampleRadios16">
                                             00:00
                                         </label>
                                     </div>
                                     <div class="form-check radio-css align-items-center ml-2">
-                                        <input class="form-check-input d-none" type="radio" name="medical-concern" value="option1" id = "exampleRadios17" >
+                                        <input class="form-check-input d-none" type="radio" name="time-slot" value="option1" id = "exampleRadios17" >
                                         <label class="form-check-label " for="exampleRadios17">
                                             00:00
                                         </label>
