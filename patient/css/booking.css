@@ -6,7 +6,7 @@
         padding: 10px;
         background-color: #bbbbbb;
     }
-    
+
     .l-btn {
         background-color: orange;
         padding: .8em 3em;
@@ -18,29 +18,29 @@
         font-size: .9em;
         cursor: pointer;
     }
-    
+
     .pad {
         padding: 10px;
     }
-    
+
     .size {
         flex-wrap: wrap!important;
     }
-    
+
     .radio-css {
         background-color: #FBC98D;
         border-radius: 16px;
         margin-bottom: 4px;
         padding: 0px !important;
     }
-    
+
     .radio-css input[type="radio"]+label {
         position: relative;
         cursor: pointer;
         border-radius: 16px;
         padding: 4px !important;
     }
-    
+
     .radio-css input[type="radio"]:checked+label {
         position: relative;
         cursor: pointer;
@@ -48,43 +48,40 @@
         border-radius: 16px;
         padding: 4px !important;
     }
-    
+
     .bg {
         background-color: white;
         border-radius: 8px;
         padding: 0px 20px 5px 20px;
     }
-    
+
     .border-btm {
         border: solid 1px #e5e5e5;
         margin-left: 100px !important;
         margin-right: 100px !important;
     }
-    
+
     .profile-sidebar img {
         display: inline;
     }
-    
+
     p {
         margin-top: 2em;
         margin-bottom: 1rem;
     }
-    
-    .telemed-step-one h3,
-    .telemed-step-two h3,
-    .payment h3 {
+
+    .telemed-step-one h3, .telemed-step-two h3, .payment h3 {
         font-size: 30px !important;
         font-weight: bold;
         font-family: 'Segoe UI';
     }
-    
-    .telemed-step-one h5,
-    .telemed-step-two h5 {
+
+    .telemed-step-one h5, .telemed-step-two h5 {
         font-size: 17px !important;
         font-weight: 400;
         font-family: 'Segoe UI';
     }
-    
+
     .telemed-step-one button {
         background-color: #0080ff;
         font-family: 'Segoe UI';
@@ -96,24 +93,23 @@
         font-size: 14px;
         font-weight: bold;
     }
-    
+
     #permission-info {
         padding: 0;
     }
-    
+
     #permission-info .modal-dialog {
         max-width: 600px;
         margin: 10rem auto !important;
         text-align: center !important;
     }
-    
+
     #permission-info .modal-header {
         display: inline !important;
         text-align: center !important;
     }
-    
-    #permission-info h4,
-    #callback h4 {
+
+    #permission-info h4, #callback h4 {
         color: #000000 !important;
         font-family: 'Segoe UI' !important;
         font-size: 19px !important;
@@ -121,12 +117,12 @@
         display: inline !important;
         text-align: center !important;
     }
-    
+
     #permission-info p {
         font-family: 'Segoe UI' !important;
         text-align: left !important;
     }
-    
+
     #permission-info button {
         background-color: #0080ff;
         padding: 5px 50px;
@@ -137,11 +133,11 @@
         font-size: 14px;
         font-weight: bold;
     }
-    
+
     .telemed-step-two .loader-container {
         margin: 20px;
     }
-    
+
     .telemed-step-two .loader {
         border: 10px solid #f3f3f3;
         border-radius: 50%;
@@ -153,16 +149,16 @@
         -webkit-animation: spin 2s linear infinite;
         animation: spin 2s linear infinite;
     }
-    
+
     .payment {
         border: 1px solid#F7941C;
         background-color: #fff !important;
     }
-    
+
     .payment .loader-container {
         margin: 30px;
     }
-    
+
     .payment .loader {
         border: 10px solid #f3f3f3;
         border-radius: 50%;
@@ -174,7 +170,7 @@
         -webkit-animation: spin 2s linear infinite;
         animation: spin 2s linear infinite;
     }
-    
+
     .checkmark {
         display: inline-block;
         height: 100px;
@@ -183,17 +179,15 @@
         border-right: 15px solid #F7941C;
         transform: rotate(45deg);
     }
-    
-    .error,
-    .required {
+
+    .error, .required {
         color: #FF5252;
     }
-    
-    .preview,
-    .title {
+
+    .preview, .title {
         font-weight: bold;
     }
-    
+
     .title {
         font-weight: bold;
         color: #F7941C;
@@ -204,51 +198,51 @@
         padding: 10px;
         height: fit-content;
     }
-    
+
     .input-group {
         border-right: solid 1px gray;
     }
-    
+
     .input-grp {
         /* border-right: solid 1px gray; */
         text-align: left;
         padding-bottom: 40px;
         display: contents;
     }
-    
+
     .preview-div {
         margin-bottom: 15px;
         word-wrap: break-word;
     }
-    
+
     .cost {
         background-color: #FBC98D;
         margin-top: -10px;
     }
-    
+
     .cost {
         margin-top: -10px;
     }
-    
+
     a[href="#next"] {
         background: #F7941C !important;
         color: #000000 !important;
         border-radius: 4px;
     }
-    
+
     a[href="#finish"] {
         background: #F7941C !important;
         color: #000000 !important;
         border-radius: 4px;
     }
-    
+
     a[href="#previous"] {
         background: none !important;
         color: #000000 !important;
         border: 1px solid;
         border-radius: 4px;
     }
-    
+
     @-webkit-keyframes spin {
         0% {
             -webkit-transform: rotate(0deg);
@@ -257,7 +251,7 @@
             -webkit-transform: rotate(360deg);
         }
     }
-    
+
     @keyframes spin {
         0% {
             transform: rotate(0deg);
@@ -266,36 +260,37 @@
             transform: rotate(360deg);
         }
     }
+
     /* Patient Telemedicine */
-    
+
     .patient .page-content {
         margin: 50px 100px;
         border: none;
     }
-    
+
     .appt-booking .page-content {
         margin: 50px 50px;
         border: none;
     }
-    
+
     .booking {
         padding-bottom: 10px !important;
     }
-    
+
     .wizard>.content {
         border: none;
     }
-    
+
     .card {
         background-color: white;
         padding-top: 0px;
         padding-bottom: 100px;
     }
-    
+
     .img-responsive {
         width: 22em;
     }
-    
+
     .border {
         border-right: solid 1px #e5e5e5;
         width: auto;
@@ -304,14 +299,14 @@
         margin-left: 20px;
         margin-right: 20px */
     }
-    
+
     .bord {
         /* padding-left: 20px; */
         /* padding-right: 20px; */
         margin-left: 20px;
         margin-right: 20px
     }
-    
+
     .bord1 {
         padding-left: 20px;
         padding-right: 20px;
@@ -319,26 +314,26 @@
         margin-right: 20px;
         max-width: 50%;
     }
-    
+
     .margin {
         margin-left: 100px;
         margin-right: 100px;
     }
-    
+
     .round {
         border-radius: 50%;
     }
-    
+
     .waiting {
         margin: 30px;
     }
-    
+
     .time {
         color: #0080ff;
         font-family: 'Segoe UI';
         font-weight: bold;
     }
-    
+
     .telemed-step-two .waiting-time {
         background-color: #fff;
         color: #0080ff;
@@ -348,18 +343,18 @@
         font-family: 'Segoe UI';
         font-weight: bold;
     }
-    
+
     .loading {
         margin: 30px;
         font-size: 16px;
     }
-    
+
     .loading span {
         font-size: 20px;
         font-weight: bold;
         margin: 2px;
     }
-    
+
     .loading .one {
         opacity: 0;
         -webkit-animation: dot 1.5s infinite;
@@ -367,7 +362,7 @@
         animation: dot 1.5s infinite;
         animation-delay: 0.0s;
     }
-    
+
     .loading .two {
         opacity: 0;
         -webkit-animation: dot 1.5s infinite;
@@ -375,7 +370,7 @@
         animation: dot 1.5s infinite;
         animation-delay: 0.3s;
     }
-    
+
     .loading .three {
         opacity: 0;
         -webkit-animation: dot 1.5s infinite;
@@ -383,7 +378,7 @@
         animation: dot 1.5s infinite;
         animation-delay: 0.4s;
     }
-    
+
     @-webkit-keyframes dot {
         0% {
             opacity: 0;
@@ -392,19 +387,19 @@
             opacity: 1;
         }
     }
-    
+
     #callback .modal-dialog {
         max-width: 550px;
         margin: 12rem auto !important;
         text-align: center !important;
     }
-    
+
     #callback p {
         margin-top: 25px;
         text-align: center;
         font-family: 'Segoe UI' !important;
     }
-    
+
     #callback .modal-footer button {
         width: 210px;
         background-color: #0080ff;
@@ -416,26 +411,26 @@
         font-weight: bold;
         cursor: pointer;
     }
-    
+
     #callback #request-callback {
         float: left;
     }
-    
+
     #callback #reschedule-appointment {
         float: right;
     }
-    
+
     #callback .modal-header {
         border: none;
     }
-    
+
     #callback .modal-header button {
         margin-top: -15px !important;
         padding: 0 !important;
         margin-right: -10px;
         padding: 0 !important;
     }
-    
+
     #callback .close {
         background-color: #fff;
         color: #000000;
@@ -445,21 +440,21 @@
         font-weight: bold;
         cursor: pointer;
     }
-    
+
     #callback .modal-body {
         padding: 0 3em;
     }
-    
+
     #callback .modal-footer {
         border: none;
         display: inline;
         padding: 2em 3em;
     }
-    
+
     #callback .callback-success {
         height: 15em;
     }
-    
+
     #callback .callback-success h5 {
         color: #000000;
         font-size: 20px;
@@ -467,72 +462,77 @@
         font-weight: bold;
         margin: 1.5em 0;
     }
-    
+
     #callback .callback-success .fa-check {
         color: #0080ff;
         font-size: 3em;
         padding-top: .5em;
     }
-    
+
     .input-group {
         text-align: left;
         padding-bottom: 40px;
     }
+
     /***************Responsive Media Queries**************/
+
     /* 
-  ##Device = Desktops
-  ##Screen = 1281px to higher resolution desktops
-*/
-    
+        ##Device = Desktops
+        ##Screen = 1281px to higher resolution desktops
+    */
+
     @media (min-width: 1281px) {
         /* CSS */
     }
+
     /* 
-  ##Device = Laptops, Desktops
-  ##Screen = B/w 1025px to 1280px
-*/
-    
+        ##Device = Laptops, Desktops
+        ##Screen = B/w 1025px to 1280px
+    */
+
     @media (min-width: 1025px) and (max-width: 1280px) {
         /* CSS */
     }
+
     /* 
-  ##Device = Tablets, Ipads (portrait)
-  ##Screen = B/w 768px to 1024px
-*/
-    
+        ##Device = Tablets, Ipads (portrait)
+        ##Screen = B/w 768px to 1024px
+    */
+
     @media (min-width: 768px) and (max-width: 1024px) {
         /* CSS */
     }
+
     /* 
-  ##Device = Tablets, Ipads (landscape)
-  ##Screen = B/w 768px to 1024px
-*/
-    
+        ##Device = Tablets, Ipads (landscape)
+        ##Screen = B/w 768px to 1024px
+    */
+
     @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
         /* CSS */
     }
+
     /* 
-  ##Device = Low Resolution Tablets, Mobiles (Landscape)
-  ##Screen = B/w 481px to 767px
-*/
-    
+        ##Device = Low Resolution Tablets, Mobiles (Landscape)
+        ##Screen = B/w 481px to 767px
+    */
+
     @media (min-width: 481px) and (max-width: 767px) {
         /* CSS */
     }
+
     /* 
-  ##Device = Most of the Smartphones Mobiles (Portrait)
-  ##Screen = B/w 320px to 479px
-*/
-    
+        ##Device = Most of the Smartphones Mobiles (Portrait)
+        ##Screen = B/w 320px to 479px
+    */
+
     @media (min-width: 320px) and (max-width: 480px) {
-        body,
-        html {
+        body, html {
             overflow-x: hidden;
             margin: 0 auto;
             height: 100%;
         }
-        #permission-info h4,
-        #callback h4 {
+        #permission-info h4, #callback h4 {
             color: #000000 !important;
             font-family: 'Segoe UI' !important;
             font-size: 19px !important;
@@ -594,12 +594,10 @@
             border-right: 15px solid #F7941C;
             transform: rotate(45deg);
         }
-        .error,
-        .required {
+        .error, .required {
             color: #FF5252;
         }
-        .preview,
-        .title {
+        .preview, .title {
             font-weight: bold;
         }
         .title {
@@ -666,16 +664,13 @@
             margin: 50px 50px;
             border: none;
         }
-        .telemed-step-one h3,
-        .telemed-step-two h3,
-        .payment h3 {
+        .telemed-step-one h3, .telemed-step-two h3, .payment h3 {
             padding-top: 20px;
         }
         .wizard>.content {
             border: none;
         }
-        #callback #reschedule-appointment,
-        #callback #request-callback {
+        #callback #reschedule-appointment, #callback #request-callback {
             float: none;
         }
         .img-responsive {
@@ -784,21 +779,23 @@
             margin-bottom: 3em;
         }
     }
+
     /******************TELEMEDICINE SETUP GUIDE******************/
-    
+
     .tab {
         display: none;
     }
-    
+
     button:hover {
         opacity: 0.8;
     }
-    
+
     #prevBtn {
         background-color: #bbbbbb;
     }
+
     /* Step indicators */
-    
+
     .step {
         height: 15px;
         width: 15px;
@@ -809,33 +806,34 @@
         display: inline-block;
         opacity: 0.5;
     }
-    
+
     .step.active {
         opacity: 0.5;
         background: #0080ff;
     }
+
     /* Finished steps */
-    
+
     .step.finish {
         background-color: #0080ff;
     }
-    
+
     .setup-1 p {
         margin: 1em 2em;
     }
-    
+
     .setup-1 p span {
         font-weight: bold;
     }
-    
+
     .step-indicators {
         margin: -80px auto 30px auto;
     }
-    
+
     .step-buttons {
         margin-top: 80px;
     }
-    
+
     .step-buttons button {
         width: auto;
         background-color: #0080ff;
@@ -848,10 +846,8 @@
         font-weight: bold;
         cursor: pointer;
     }
-    
-    #allowPermissions,
-    #testMic,
-    #testInternet {
+
+    #allowPermissions, #testMic, #testInternet {
         background-color: #4CAF50;
         font-family: 'Segoe UI';
         border: none;
@@ -863,19 +859,20 @@
         font-size: 14px;
         font-weight: bold;
     }
-    
+
     button:focus {
         outline: none;
     }
-    
+
     #v {
         height: 190px;
         margin-top: -30px;
         -webkit-transform: scaleX(-1);
         transform: scaleX(-1);
     }
+
     /****************MICROPHONE TEST *******************/
-    
+
     .bar {
         --volume: 0%;
         position: relative;
@@ -884,7 +881,7 @@
         border-radius: 3px;
         margin: 10px auto;
     }
-    
+
     .bar::before {
         content: '';
         position: absolute;
@@ -896,31 +893,32 @@
         background-color: #0080ff;
         transition: width 100ms linear;
     }
-    
+
     #test-result {
         font-size: 1em;
     }
+
     /****************INTERNET SPEED TEST ***************/
-    
+
     h1 {
         color: #404040;
         font-size: 20px !important;
     }
-    
+
     #testInternet.running {
         background-color: #FF3030;
         border-color: #FF6060;
         color: #FFFFFF;
     }
-    
+
     #testInternet:before {
         content: "Start";
     }
-    
+
     #testInternet.running:before {
         content: "Abort";
     }
-    
+
     div.testArea {
         display: inline-block;
         width: 14em;
@@ -928,7 +926,7 @@
         position: relative;
         box-sizing: border-box;
     }
-    
+
     div.testName {
         position: absolute;
         top: 0.1em;
@@ -937,7 +935,7 @@
         font-size: 1em;
         z-index: 9;
     }
-    
+
     div.meterText {
         position: absolute;
         bottom: 0.2em;
@@ -946,25 +944,24 @@
         font-size: 1.5em;
         z-index: 9;
     }
-    
+
     #dlText {
         color: #6060AA;
     }
-    
+
     #ulText {
         color: #309030;
     }
-    
-    #pingText,
-    #jitText {
+
+    #pingText, #jitText {
         color: #AA6060;
     }
-    
+
     div.meterText:empty:before {
         color: #505050 !important;
         content: "0.00";
     }
-    
+
     div.unit {
         position: absolute;
         bottom: -1em;
@@ -972,21 +969,21 @@
         width: 100%;
         z-index: 9;
     }
-    
+
     div #ipArea {
         margin-top: 20px;
     }
-    
+
     div.testGroup {
         display: inline-block;
     }
-    
+
     @media all and (max-width:65em) {
         body {
             font-size: 1.5vw;
         }
     }
-    
+
     @media all and (max-width:40em) {
         body {
             font-size: 0.8em;
@@ -998,21 +995,23 @@
             margin: 0 auto;
         }
     }
+
     /*******************PATIENT ON BOARDING******************/
-    
+
     .alert-danger {
         margin-top: 20px;
     }
+
     /*****************PATIENT BOOKING **********************/
-    
+
     .booking-step label>input[type="radio"] {
         display: none;
     }
-    
+
     .booking-step label>span {
         font-weight: bold;
     }
-    
+
     .booking-step label>input[type="radio"]+*::before {
         content: "";
         display: inline-block;
@@ -1024,17 +1023,17 @@
         border-radius: 50%;
         border: 2px solid #F7941C;
     }
-    
+
     .booking-step label>input[type="radio"]:checked+*::before {
         border: 4px solid #F7941C;
         background-color: #F7941C;
     }
-    
+
     .booking-step label>input[type="radio"]+* {
         display: inline-block;
         padding: 0.5rem 2rem;
     }
-    
+
     .booking-step label>hr {
         background-color: #F7941C;
         height: 0px;
@@ -1044,13 +1043,14 @@
         margin-right: -15px;
         margin-bottom: -5px;
     }
+
     /* pretty radio */
-    
+
     .booking-time label>input[type="radio"] {
         display: none;
         margin-top: 1em;
     }
-    
+
     .booking-time label>input[type="radio"]+*::before {
         content: "";
         display: inline-block;
@@ -1063,28 +1063,27 @@
         border: 1px solid #F7941C;
         cursor: pointer;
     }
-    
+
     .booking-time label>input[type="radio"]:checked+*::before {
         background: radial-gradient(#F7941C 0%, #F7941C 50%, transparent 50%, transparent);
         border-color: #F7941C;
     }
-    
+
     .booking-time label>input[type="radio"]+* {
         display: inline-block;
         padding: 0.5rem 2rem;
     }
-    
+
     #date-time-picker-container {
         display: flex;
         flex-direction: column;
         padding: 0 32px;
     }
-    
-    input[type="date"],
-    input[type="time"] {
+
+    input[type="date"], input[type="time"] {
         position: relative;
     }
-    
+
     input[type="date"]:after {
         font-family: 'FontAwesome';
         font-weight: 900;
@@ -1092,7 +1091,7 @@
         color: #212529;
         padding: 0 5px;
     }
-    
+
     input[type="time"]:after {
         font-family: 'FontAwesome';
         font-weight: 900;
@@ -1100,9 +1099,8 @@
         color: #212529;
         padding: 0 5px;
     }
-    
-    input[type="date"]::-webkit-calendar-picker-indicator,
-    input[type="time"]::-webkit-calendar-picker-indicator {
+
+    input[type="date"]::-webkit-calendar-picker-indicator, input[type="time"]::-webkit-calendar-picker-indicator {
         position: absolute;
         top: 0;
         left: 0;
@@ -1113,38 +1111,35 @@
         color: transparent;
         background: transparent;
     }
-    
-    input[type="date"]::-webkit-inner-spin-button,
-    input[type="time"]::-webkit-inner-spin-button {
+
+    input[type="date"]::-webkit-inner-spin-button, input[type="time"]::-webkit-inner-spin-button {
         z-index: 1;
     }
-    
-    input[type="date"]::-webkit-clear-button,
-    input[type="time"]::-webkit-clear-button {
+
+    input[type="date"]::-webkit-clear-button, input[type="time"]::-webkit-clear-button {
         z-index: 1;
     }
-    
+
     #confirm-details-section .title {
         border: none;
         border-bottom: 1px solid silver;
     }
-    
-    #confirm-appointment-details,
-    #confirm-appointment-cost {
+
+    #confirm-appointment-details, #confirm-appointment-cost {
         border: 1px solid silver;
     }
-    
-    #confirm-appointment-details .input-group,
-    #confirm-appointment-cost .input-group {
+
+    #confirm-appointment-details .input-group, #confirm-appointment-cost .input-group {
         border-right: none;
     }
-    
+
     .wizard>.actions {
         text-align: center;
         margin-top: 10px;
     }
+
     /* Mobile display */
-    
+
     @media screen and (max-width: 758px) {
         .appt-booking .page-content {
             margin: 0;
@@ -1179,8 +1174,7 @@
         #book-in-person.border {
             border: none;
         }
-        .card-body,
-        .booking-card {
+        .card-body, .booking-card {
             padding: 10px !important;
         }
         .wizard>.actions>ul {
@@ -1257,11 +1251,34 @@
         .input-group {
             border-right: none;
         }
-        .row,
-        .text-center,
-        .m-t-10 {
+        .row, .text-center, .m-t-10 {
             border: none!important;
             margin-right: 1px;
             margin-left: 1px;
         }
+    }
+
+    .disabled-element {
+        cursor: default;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+
+    .disabled-element .disabled-element-target {
+        opacity: .4;
+    }
+
+    .disabled-element-error {
+        color: rgb(70, 70, 70);
+        font-size: 2em;
+        font-weight: 600;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        height: 100%;
+        align-items: center;
     }

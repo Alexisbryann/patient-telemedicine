@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- BEGIN HEAD -->
+<?php $inclusions_version = 0 ?>
 
 <head>
     <meta charset="utf-8" />
@@ -15,7 +16,7 @@
     <link href="assets/bundles/steps/steps.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/bundles/bootstrap-timepicker/css/bootstrap-timepicker.css" />
     <link rel="stylesheet" type="text/css" href="assets/bundles/bootstrap-datepicker/css/bootstrap-datepicker.css" />
-    <link href="css/booking.css?v=0" rel="stylesheet" type="text/css" />
+    <link href="css/booking.css?v=<?php echo $inclusions_version ?>" rel="stylesheet" type="text/css" />
     <!-- favicon -->
     <link rel="shortcut icon" href="images/my-health-africa.png" />
 
@@ -32,118 +33,121 @@
         </header>
 
         <span>Please complete the steps below to book an in-person appointment.</span>
-        
-    </section>
-                <div class="d-flex booking-step justify-content-center border-btm ">
-                    <label>
-                        <input type="radio" id="appointment" name="radio-button" checked />
-                        <span>Appointment Details</span>
-                    </label>
-                    <label>
-                        <hr>
-                    </label>
-                    <label>
-                        <input type="radio" id="patient" name="radio-button" />
-                        <span>Patient details</span>
-                    </label>
-                    <label>
-                        <hr>
-                    </label>
-                    <label>
-                        <input type="radio" id="confirm" name="radio-button" />
-                        <span>Confirm details</span>
-                    </label>
-                </div>
 
-    <form id="book-inperson" data-facility_id="<?php echo $_GET["facility_id"] ?? "" ?>" class = "border margin">
+    </section>
+    <div class="d-flex booking-step justify-content-center border-btm ">
+        <label>
+            <input type="radio" id="appointment" name="radio-button" checked />
+            <span>Appointment Details</span>
+        </label>
+        <label>
+            <hr>
+        </label>
+        <label>
+            <input type="radio" id="patient" name="radio-button" />
+            <span>Patient details</span>
+        </label>
+        <label>
+            <hr>
+        </label>
+        <label>
+            <input type="radio" id="confirm" name="radio-button" />
+            <span>Confirm details</span>
+        </label>
+    </div>
+
+    <form id="book-inperson" data-facility_id="<?php echo $_GET["facility_id"] ?? "" ?>" class="border margin">
         <h3></h3>
         <fieldset>
             <!--Appointment details step-->
             <div class="d-flex flex-column">
-               
-                    <span class="mx-auto">Fill in the details to schedule the appointment.</span>
-                    <div class="d-flex flex-column flex-md-row" style="border-top-width: 10px;margin-top: 20px;">
-                        <!-- medical concern + date + time slots row -->
-                        <div class="d-flex flex-column size bord">
-                            <!--Medical concern and facility column-->
-                            <div class="form-group size">
-                                <span>Medical concern</span>
 
-                                <div class="d-flex size">
+                <span class="mx-auto">Fill in the details to schedule the appointment.</span>
+                <div class="d-flex flex-column flex-md-row" style="border-top-width: 10px;margin-top: 20px;">
+                    <!-- medical concern + date + time slots row -->
+                    <div class="d-flex flex-column size bord">
+                        <!--Medical concern and facility column-->
+                        <div class="form-group size">
+                            <span>Medical concern</span>
+
+                            <div class="d-flex size">
                                 <div class="form-check radio-css align-items-center ml-2">
-                                        <input class="form-check-input d-none" type="radio" name="medical-concern" value="option1" id = "exampleRadios1" >
-                                        <label class="form-check-label " for="exampleRadios1">
-                                            condition
-                                        </label>
-                                    </div>
-                                    <div class="form-check radio-css align-items-center ml-2">
-                                        <input class="form-check-input d-none" type="radio" name="medical-concern" value="option1" id = "exampleRadios2" >
-                                        <label class="form-check-label " for="exampleRadios2">
-                                            condition
-                                        </label>
-                                    </div>
-                                    <div class="form-check radio-css align-items-center ml-2">
-                                        <input class="form-check-input d-none" type="radio" name="medical-concern" value="option1" id = "exampleRadios3" >
-                                        <label class="form-check-label " for="exampleRadios3">
-                                            condition
-                                        </label>
-                                    </div>
-                                    <div class="form-check radio-css align-items-center ml-2">
-                                        <input class="form-check-input d-none" type="radio" name="medical-concern" value="option1" id = "exampleRadios4" >
-                                        <label class="form-check-label " for="exampleRadios4">
-                                            condition
-                                        </label>
-                                    </div>
-                                    <div class="form-check radio-css align-items-center ml-2">
-                                        <input class="form-check-input d-none" type="radio" name="medical-concern" value="option1" id = "exampleRadios5" >
-                                        <label class="form-check-label " for="exampleRadios5">
-                                            condition
-                                        </label>
-                                    </div><div class="form-check radio-css align-items-center ml-2">
-                                        <input class="form-check-input d-none" type="radio" name="medical-concern" value="option1" id = "exampleRadios6" >
-                                        <label class="form-check-label " for="exampleRadios6">
-                                            condition
-                                        </label>
-                                    </div><div class="form-check radio-css align-items-center ml-2">
-                                        <input class="form-check-input d-none" type="radio" name="medical-concern" value="option1" id = "exampleRadios7" >
-                                        <label class="form-check-label " for="exampleRadios7">
-                                            condition
-                                        </label>
-                                    </div>
-                                    <div class="form-check radio-css align-items-center ml-2">
-                                        <input class="form-check-input d-none" type="radio" name="medical-concern" value="option1" id = "exampleRadios8" >
-                                        <label class="form-check-label " for="exampleRadios8">
-                                            condition
-                                        </label>
-                                    </div>
-                                    
+                                    <input class="form-check-input d-none" type="radio" name="medical-concern" value="option1" id="exampleRadios1">
+                                    <label class="form-check-label " for="exampleRadios1">
+                                        condition
+                                    </label>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Select facility</label>
-                                <select class="form-control" name="facility" id="facility">
-                                    <option>facility</option>
-                                    <option>facility</option>
-                                    <option>facility</option>
-                                    <option>facility</option>
-                                    <option>facility</option>
-                                    <option>facility</option>
-                                </select>
+                                <div class="form-check radio-css align-items-center ml-2">
+                                    <input class="form-check-input d-none" type="radio" name="medical-concern" value="option1" id="exampleRadios2">
+                                    <label class="form-check-label " for="exampleRadios2">
+                                        condition
+                                    </label>
+                                </div>
+                                <div class="form-check radio-css align-items-center ml-2">
+                                    <input class="form-check-input d-none" type="radio" name="medical-concern" value="option1" id="exampleRadios3">
+                                    <label class="form-check-label " for="exampleRadios3">
+                                        condition
+                                    </label>
+                                </div>
+                                <div class="form-check radio-css align-items-center ml-2">
+                                    <input class="form-check-input d-none" type="radio" name="medical-concern" value="option1" id="exampleRadios4">
+                                    <label class="form-check-label " for="exampleRadios4">
+                                        condition
+                                    </label>
+                                </div>
+                                <div class="form-check radio-css align-items-center ml-2">
+                                    <input class="form-check-input d-none" type="radio" name="medical-concern" value="option1" id="exampleRadios5">
+                                    <label class="form-check-label " for="exampleRadios5">
+                                        condition
+                                    </label>
+                                </div>
+                                <div class="form-check radio-css align-items-center ml-2">
+                                    <input class="form-check-input d-none" type="radio" name="medical-concern" value="option1" id="exampleRadios6">
+                                    <label class="form-check-label " for="exampleRadios6">
+                                        condition
+                                    </label>
+                                </div>
+                                <div class="form-check radio-css align-items-center ml-2">
+                                    <input class="form-check-input d-none" type="radio" name="medical-concern" value="option1" id="exampleRadios7">
+                                    <label class="form-check-label " for="exampleRadios7">
+                                        condition
+                                    </label>
+                                </div>
+                                <div class="form-check radio-css align-items-center ml-2">
+                                    <input class="form-check-input d-none" type="radio" name="medical-concern" value="option1" id="exampleRadios8">
+                                    <label class="form-check-label " for="exampleRadios8">
+                                        condition
+                                    </label>
+                                </div>
+
                             </div>
                         </div>
-
-                        <div class = "size">
-                            <!--Calendar column-->
-                        
-                            <div class = "border bord" id="in-person-appointment-date"></div>
-                            <input type="hidden" id="appointment-date">
+                        <div class="form-group">
+                            <label>Select facility</label>
+                            <select class="form-control" name="facility" id="facility">
+                                <option selected disabled value="">facility</option>
+                                <option>facility</option>
+                                <option>facility</option>
+                                <option>facility</option>
+                                <option>facility</option>
+                                <option>facility</option>
+                            </select>
                         </div>
+                    </div>
 
-                        <div class="d-flex flex-column pad size">
-                            <!-- time slots column -->
+                    <div class="size">
+                        <!--Calendar column-->
 
-                            <div class="form-group">
-                                <span>Choose an available time slot</span>
+                        <div class="border disabled-element-target" id="in-person-appointment-date" data-required_input="#facility"></div>
+                        <input type="hidden" id="appointment-date">
+                        <span class="disabled-element-error"></span>
+                    </div>
+
+                    <div class="d-flex flex-column pad size">
+                        <!-- time slots column -->
+
+                        <div class="form-group">
+                            <span>Choose an available time slot</span>
 
                                 <div class="d-flex flex-wrap">
                                     <div class="form-check radio-css align-items-center ml-2">
@@ -196,25 +200,26 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="d-flex flex-column">
-                                <span>Your appointment will be on</span>
-                                <span><strong>text</strong>&nbsp;text&nbsp;<strong>text</strong>&nbsp;at&nbsp;<strong>text</strong></span>
-                            </div>
+                        <div class="d-flex flex-column">
+                            <span>Your appointment will be on</span>
+                            <span><strong>text</strong>&nbsp;text&nbsp;<strong>text</strong>&nbsp;at&nbsp;<strong>text</strong></span>
                         </div>
                     </div>
-
-                    <div class="form-group bord">
-                        <label>Describe your medical concern</label>
-                        <textarea id="medical-concern-description" class="form-control"></textarea>
-                    </div>
                 </div>
+
+                <div class="form-group bord">
+                    <label>Describe your medical concern</label>
+                    <textarea id="medical-concern-description" class="form-control"></textarea>
+                </div>
+            </div>
             </div>
         </fieldset>
         <h3></h3>
         <fieldset style="text-align:left;" id="patient-details-step-parent">
             <div class="row md-col" style="margin-left: 15px;margin-right: 15px;margin-bottom: 15px;">
-                <div class="patient-details input-grp col-12 col-md-8" >
+                <div class="patient-details input-grp col-12 col-md-8">
                     <div class="w-100 d-none d-md-flex" style="margin-bottom: 30px; margin-top: 30px; font-weight: bold;">Fill in the patient's details</div>
                     <div class="col-12 col-md-6 mt-i">
                         <label>Full name<span class="required"> * </span></label>
@@ -245,7 +250,7 @@
                         <input type="date" id="dob" name="dob" class="form-control" placeholder="Date of birth" max="<?php echo date("Y-m-d") ?>" step="1" required />
                         <div id="dob-error" class="col-12 col-md-12 error" style="display: none;"></div>
                     </div>
-                    
+
                 </div>
 
                 <input type="hidden" name="clinic" value="psi" hidden />
@@ -259,7 +264,7 @@
 
                 <div class="d-flex flex-column flex-md-row">
                     <div class="input-group w-100 mr-1 pb-0" style="border:1px solid silver" id="confirm-appointment-patient">
-                     <div class="title" style="margin-bottom:10px;">Patient Details</div>
+                        <div class="title" style="margin-bottom:10px;">Patient Details</div>
 
                         <div class="preview-div col-12 col-md-4 col-sm-12">
                             <span>Full name</span><br />
@@ -284,11 +289,11 @@
                             <span class="preview" id="phone-preview"></span>
                         </div>
 
-                    
+
                     </div>
                     <div class="d-flex flex-column-reverse flex-md-row w-100 px-0 pb-0">
                         <div class="w-100 mx-0 mx-md-1 pb-2 pb-md-0" id="confirm-appointment-details">
-                            
+
                             <div class="title">Appointment Details</div>
 
                             <div class="col-12 col-md-12 col-sm-12">
@@ -313,7 +318,7 @@
         </fieldset>
     </form>
 
-    <?php require "booking-form-javascript.html"; ?>
+    <?php require "booking-form-javascript.php"; ?>
 </body>
 
 </html>
