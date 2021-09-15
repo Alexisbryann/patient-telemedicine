@@ -198,14 +198,20 @@
                                     </div>
                                     </div>
                                 </section>
-                                <section class = "d-flex flex-column size">
-                                    <p>Choose a date to see available time slots</p>
+                                <section class = "d-flex flex-column size apt">
+                                    <h1>Choose a date to see available time slots</h1>
                                 </section>
                             </div>
 
                             <div class="d-flex flex-column">
-                                <span>Your appointment will be on</span>
+                                
+                                <span>Your appointment will be on</span>  
+                                <section class = "d-none">
                                 <span><strong>text</strong>&nbsp;text&nbsp;<strong>text</strong>&nbsp;at&nbsp;<strong>text</strong></span>
+                                </section>
+                                <section class = "d-flex flex-column size apt">
+                                <h1>Choose date and time</h1>
+                                </section>
                             </div>
                         </div>
                     </div>
