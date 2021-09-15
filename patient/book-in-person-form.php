@@ -72,49 +72,49 @@
                             <span>Medical concern</span>
 
                             <div class="d-flex size">
-                                <div class="form-check radio-css align-items-center ml-2">
+                                <div class="form-check radio-css-concern align-items-center ml-2">
                                     <input class="form-check-input d-none" type="radio" name="medical-concern" value="option1" id="exampleRadios1">
                                     <label class="form-check-label " for="exampleRadios1">
                                         condition
                                     </label>
                                 </div>
-                                <div class="form-check radio-css align-items-center ml-2">
+                                <div class="form-check radio-css-concern align-items-center ml-2">
                                     <input class="form-check-input d-none" type="radio" name="medical-concern" value="option1" id="exampleRadios2">
                                     <label class="form-check-label " for="exampleRadios2">
                                         condition
                                     </label>
                                 </div>
-                                <div class="form-check radio-css align-items-center ml-2">
+                                <div class="form-check radio-css-concern align-items-center ml-2">
                                     <input class="form-check-input d-none" type="radio" name="medical-concern" value="option1" id="exampleRadios3">
                                     <label class="form-check-label " for="exampleRadios3">
                                         condition
                                     </label>
                                 </div>
-                                <div class="form-check radio-css align-items-center ml-2">
+                                <div class="form-check radio-css-concern align-items-center ml-2">
                                     <input class="form-check-input d-none" type="radio" name="medical-concern" value="option1" id="exampleRadios4">
                                     <label class="form-check-label " for="exampleRadios4">
                                         condition
                                     </label>
                                 </div>
-                                <div class="form-check radio-css align-items-center ml-2">
+                                <div class="form-check radio-css-concern align-items-center ml-2">
                                     <input class="form-check-input d-none" type="radio" name="medical-concern" value="option1" id="exampleRadios5">
                                     <label class="form-check-label " for="exampleRadios5">
                                         condition
                                     </label>
                                 </div>
-                                <div class="form-check radio-css align-items-center ml-2">
+                                <div class="form-check radio-css-concern align-items-center ml-2">
                                     <input class="form-check-input d-none" type="radio" name="medical-concern" value="option1" id="exampleRadios6">
                                     <label class="form-check-label " for="exampleRadios6">
                                         condition
                                     </label>
                                 </div>
-                                <div class="form-check radio-css align-items-center ml-2">
+                                <div class="form-check radio-css-concern align-items-center ml-2">
                                     <input class="form-check-input d-none" type="radio" name="medical-concern" value="option1" id="exampleRadios7">
                                     <label class="form-check-label " for="exampleRadios7">
                                         condition
                                     </label>
                                 </div>
-                                <div class="form-check radio-css align-items-center ml-2">
+                                <div class="form-check radio-css-concern align-items-center ml-2">
                                     <input class="form-check-input d-none" type="radio" name="medical-concern" value="option1" id="exampleRadios8">
                                     <label class="form-check-label " for="exampleRadios8">
                                         condition
@@ -150,23 +150,42 @@
                         <div class="form-group">
                             <span>Choose an available time slot <span class="required">*</span></span>
 
-                            <section class="d-none">
-                                <div class="d-flex flex-wrap" id="time-slots-container"></div>
+                            <section class="">
+                                <div class="d-flex flex-wrap" id="time-slots-container">
+                                <div class="form-check radio-css-slots align-items-center ml-2">
+                                    <input class="form-check-input d-none" type="radio" name="time-slots" value="option1" id="exampleRadios10">
+                                    <label class="form-check-label " for="exampleRadios10">
+                                        condition
+                                    </label>
+                                </div>
+                                <div class="form-check radio-css-slots align-items-center ml-2">
+                                    <input class="form-check-input d-none" type="radio" name="time-slots" value="option1" id="exampleRadios11">
+                                    <label class="form-check-label " for="exampleRadios11">
+                                        condition
+                                    </label>
+                                </div>
+                                <div class="form-check radio-css-slots align-items-center ml-2">
+                                    <input class="form-check-input d-none" type="radio" name="time-slots" value="option1" id="exampleRadios12">
+                                    <label class="form-check-label " for="exampleRadios12">
+                                        condition
+                                    </label>
+                                </div>
+                                </div>
                             </section>
-                            <section class="d-flex flex-column size apt" id="time-slots-disabled">
+                            <!-- <section class="d-flex flex-column size apt" id="time-slots-disabled">
                                 <h2>Choose a date to see available time slots</h2>
-                            </section>
+                            </section> -->
                         </div>
 
                         <div class="d-flex flex-column">
 
                             <span>Your appointment will be on</span>
-                            <section class="d-none" id="appointment-date-time-display-container">
+                            <section class="" id="appointment-date-time-display-container">
                                 <span><strong id="appointment-date-display">text</strong>&nbsp;at&nbsp;<strong id="appointment-time-display">text</strong></span>
                             </section>
-                            <section class="d-flex flex-column size apt" id="appointment-time-unset">
+                            <!-- <section class="d-flex flex-column size apt" id="appointment-time-unset">
                                 <h2>Choose date and time</h2>
-                            </section>
+                            </section> -->
                         </div>
                     </div>
                 </div>

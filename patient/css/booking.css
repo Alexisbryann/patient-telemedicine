@@ -33,26 +33,50 @@
     min-width: 33%;
 }
 
-.radio-css {
+.radio-css-concern {
     background-color: #FBC98D;
     border-radius: 16px;
     margin-bottom: 4px;
     padding: 0px !important;
 }
 
-.radio-css input[type="radio"]+label {
+.radio-css-concern input[type="radio"]+label {
     position: relative;
     cursor: pointer;
     border-radius: 16px;
     padding: 4px !important;
 }
 
-.radio-css input[type="radio"]:checked+label {
+.radio-css-concern input[type="radio"]:checked+label {
     position: relative;
     cursor: pointer;
     background-color: orange;
     border-radius: 16px;
     padding: 4px !important;
+}
+
+.radio-css-slots {
+    background-color: #FBC98D;
+    border-radius: 16px;
+    margin-bottom: 4px;
+    padding: 0px !important;
+}
+
+.radio-css-slots input[type="radio"]+label {
+    position: relative;
+    cursor: pointer;
+    border-radius: 16px;
+    padding: 4px !important;
+}
+
+.radio-css-slots input[type="radio"]:checked+label {
+    position: relative;
+    cursor: pointer;
+    background-color: white;
+    border-color: orange;
+    border-radius: 16px;
+    padding: 4px !important;
+    border: solid 2px orange;
 }
 
 .bg {
