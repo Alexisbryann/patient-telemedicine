@@ -129,10 +129,13 @@ if (global_settings.screen_is_mobile) { // handler for mobile behavior
     // Add second step to booking form
     const booking_time_element = $(".booking-time").html();
     $(".booking-time").remove();
-    form.steps("insert", 1, {
-        title: "",
-        content: `<div class="booking-time d-flex flex-column justify-content-start">${booking_time_element}</div>`,
-    });
+
+    if ($("#booking-form").length > 0) {
+        $("#booking-form").steps("insert", 1, {
+            title: "",
+            content: `<div class="booking-time d-flex flex-column justify-content-start">${booking_time_element}</div>`,
+        });
+    }
 
     $("#confirm-appointment-cost").insertBefore("#confirm-appointment-patient");
     $("#confirm-appointment-details").insertBefore("#confirm-appointment-patient");
@@ -345,12 +348,12 @@ function validateInput(step) {
 const in_person_settings = {
     facility_id: $("#book-inperson").data("facility_id"),
     time_slots: timeSlotsList(),
-    time_slot_template: (time) => `<div class="form-check align-items-center ml-2">
-                                    <input class="form-check-input" type="radio" name="time-slot" id="ts${time}" value=${time} checked>
-                                    <label class="form-check-label" for="ts${time}">
-                                        ${time}
-                                    </label>
-                                </div>`
+    time_slot_template: (time) => `<div class="form-check radio-css align-items-center ml-2">
+                                        <input class="form-check-input d-none" type="radio" name="medical-concern" value="${time}" id = "time-slot-${time}">
+                                        <label class="form-check-label " for="time-slot-${time}">
+                                            ${time}
+                                        </label>
+                                    </div>`,
 };
 
 $("#book-inperson").steps({
