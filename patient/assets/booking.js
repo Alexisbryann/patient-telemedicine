@@ -349,7 +349,7 @@ const in_person_settings = {
     facility_id: $("#book-inperson").data("facility_id"),
     time_slots: timeSlotsList(),
     time_slot_template: (time) => `<div class="form-check radio-css align-items-center ml-2">
-                                        <input class="form-check-input d-none" type="radio" name="medical-concern" value="${time}" id = "time-slot-${time}">
+                                        <input class="form-check-input d-none" type="radio" name="appointment-time" value="${time}" id = "time-slot-${time}" required>
                                         <label class="form-check-label " for="time-slot-${time}">
                                             ${time}
                                         </label>
@@ -431,6 +431,9 @@ $("#in-person-appointment-date").datepicker({
                 .closest("section").removeClass("d-none");
 
             $("#time-slots-disabled").removeClass("d-flex").addClass("d-none");
+
+            $("#appointment-date-time-display-container").addClass("d-none");
+            $("#appointment-time-unset").addClass("d-flex").removeClass("d-none")
 
             available_time_slots.forEach(time_slot => {
                 $("#time-slots-container").append(in_person_settings.time_slot_template(time_slot));
@@ -521,4 +524,23 @@ $("#facility").on("change", function () {
     $(".disabled-element-error").text("");
 
     $("#in-person-appointment-date").closest(".disabled-element").removeClass("disabled-element").find(".disabled-element-error").remove();
+});
+
+$(document).on("change", `[name=appointment-time]`, function () {
+    const appointment_date = $("#appointment-date").val().split("/"),
+        appointment_date_obj = new Date(appointment_date[2], parseInt(appointment_date[1]) - 1, appointment_date[0]),
+        date_options = {
+            weekday: 'short',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        },
+        appointment_date_string = appointment_date_obj.toLocaleDateString(undefined, date_options),
+        appointment_time = $(this).val();
+
+    $("#appointment-time-unset").removeClass("d-flex").addClass("d-none");
+    $("#appointment-date-time-display-container").removeClass("d-none");
+
+    $("#appointment-date-display").text(appointment_date_string);
+    $("#appointment-time-display").text(`${appointment_time} hrs`);
 });
