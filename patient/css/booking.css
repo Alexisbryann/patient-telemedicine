@@ -301,8 +301,8 @@
     }
 
     .bord {
-        padding-left: 20px;
-        padding-right: 20px;
+        /* padding-left: 20px; */
+        /* padding-right: 20px; */
         margin-left: 20px;
         margin-right: 20px
     }
@@ -987,8 +987,8 @@
     @media all and (max-width:40em) {
         body {
             font-size: 0.8em;
-            padding: 10px;
-            padding-top: 10px;
+            padding: 5px;
+            padding-top: 5px;
         }
         div.testGroup {
             display: block;
@@ -1135,6 +1135,7 @@
 
     .wizard>.actions {
         text-align: center;
+        margin-top: 10px;
     }
 
     /* Mobile display */
@@ -1186,6 +1187,7 @@
         }
         .col-md-12 {
             padding: .3rem;
+            margin-bottom: 0px!important;
         }
         .patient-details .col-12 {
             padding-left: 0;
