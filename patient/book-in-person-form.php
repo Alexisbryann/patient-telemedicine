@@ -140,7 +140,7 @@
                     <div class="size">
                         <!--Calendar column-->
 
-                        <div class="border disabled-element-target" id="in-person-appointment-date" data-required_input="#facility"></div>
+                        <div class="border disabled-element-target center" id="in-person-appointment-date" data-required_input="#facility"></div>
                         <input type="hidden" id="appointment-date">
                         <span class="disabled-element-error"></span>
                     </div>
@@ -201,7 +201,7 @@
                                         </label>
                                     </div>
                                     </div>
-                                </section>
+                            </section>
                                 <section class = "d-flex flex-column size apt" id="time-slots-disabled">
                                     <h1>Choose a date to see available time slots</h1>
                                 </section>
@@ -232,7 +232,7 @@
         <fieldset style="text-align:left;" id="patient-details-step-parent">
             <div class="row md-col" style="margin-left: 15px;margin-right: 15px;margin-bottom: 15px;">
                 <div class="patient-details input-grp col-12 col-md-8">
-                    <div class="w-100 d-none d-md-flex" style="margin-bottom: 30px; margin-top: 30px; font-weight: bold;">Fill in the patient's details</div>
+                    <div class="w-100 d-none d-md-flex patient-details">Fill in the patient's details</div>
                     <div class="col-12 col-md-6 mt-i">
                         <label>Full name<span class="required"> * </span></label>
                         <input type="text" id="name" name="name" class="form-control" placeholder="Full name" required />
