@@ -1156,7 +1156,7 @@
             margin-right: 0px;
         }
         .border {
-            border: none!important
+            /* border: none!important */
         }
         .size {
             flex-wrap: wrap!important;

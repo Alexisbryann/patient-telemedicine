@@ -53,6 +53,7 @@
                         <input type="radio" id="confirm" name="radio-button" />
                         <span>Confirm details</span>
                     </label>
+                    
                 </div>
 
     <form id="book-inperson" data-facility_id="<?php echo $_GET["facility_id"] ?? "" ?>" class = "border margin">
@@ -135,7 +136,7 @@
                         <div class = "size">
                             <!--Calendar column-->
                         
-                            <div class = "border bord" id="in-person-appointment-date"></div>
+                            <div class = "border bord " id="in-person-appointment-date"></div>
                             <input type="hidden" id="appointment-date">
                         </div>
 
@@ -143,9 +144,10 @@
                             <!-- time slots column -->
 
                             <div class="form-group">
-                                <span>Choose an available time slot</span>
+                                <span>Choose an available time slot <span class = "required">*</span></span>
 
-                                <div class="d-flex flex-wrap">
+                                <section class = "d-none">
+                                    <div class="d-flex flex-wrap">
                                     <div class="form-check radio-css align-items-center ml-2">
                                         <input class="form-check-input d-none" type="radio" name="time-slot" value="option1" id = "exampleRadios10" >
                                         <label class="form-check-label " for="exampleRadios10">
@@ -194,7 +196,11 @@
                                             00:00
                                         </label>
                                     </div>
-                                </div>
+                                    </div>
+                                </section>
+                                <section class = "d-flex flex-column size">
+                                    <p>Choose a date to see available time slots</p>
+                                </section>
                             </div>
 
                             <div class="d-flex flex-column">
@@ -258,6 +264,7 @@
                 <div class="col-12 col-md-12 col-sm-12" style="text-align:center; margin-bottom: 50px;">Kindly confirm the details you entered to ensure they are correct.</div>
 
                 <div class="d-flex flex-column flex-md-row">
+
                     <div class="input-group w-100 mr-1 pb-0" style="border:1px solid silver" id="confirm-appointment-patient">
                      <div class="title" style="margin-bottom:10px;">Patient Details</div>
 
@@ -308,11 +315,9 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </fieldset>
     </form>
-
     <?php require "booking-form-javascript.html"; ?>
 </body>
 
