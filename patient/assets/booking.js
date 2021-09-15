@@ -375,10 +375,6 @@ $("#book-inperson").steps({
     onStepChanged: function(event, currentIndex, priorIndex) {
 
     },
-    onFinishing: function(event, currentIndex) {
-
-    },
-
     onFinished: function (event, currentIndex) {
         event.preventDefault();
         var btn = document.querySelectorAll('a[href="#finish"]');
@@ -430,7 +426,11 @@ $("#in-person-appointment-date").datepicker({
 
             const available_time_slots = in_person_settings.time_slots.filter(x => !response.includes(x));
 
-            $("#time-slots-container").empty();
+            $("#time-slots-container")
+                .empty()
+                .closest("section").removeClass("d-none");
+
+            $("#time-slots-disabled").removeClass("d-flex").addClass("d-none");
 
             available_time_slots.forEach(time_slot => {
                 $("#time-slots-container").append(in_person_settings.time_slot_template(time_slot));
@@ -460,18 +460,65 @@ function timeSlotsList() {
      * @return string[] list of time slots.
      */
     const min_time = 8,
-        max_time = 25;
+        max_time = 18,
+        current_hour = global_settings.current_time[0],
+        current_minutes = global_settings.current_time[1];
+
     let time_slots = new Array(),
         counter = min_time;
 
     while (counter < max_time) {
-        if (global_settings.current_time[0] < counter) {
-            time_slots.push(`${counter}:00`);
-            time_slots.push(`${counter}:20`);
-            time_slots.push(`${counter}:40`);
+        if (current_hour <= counter) {
+            if (current_hour == counter) {
+                if (current_minutes < 20) {
+                    time_slots.push(`${counter}:20`);
+                } else if (current_minutes < 40) {
+                    time_slots.push(`${counter}:40`);
+                }
+            } else {
+                time_slots.push(`${counter}:00`);
+                time_slots.push(`${counter}:20`);
+                time_slots.push(`${counter}:40`);
+            }
         }
         counter++;
     }
 
-    return time_slots.length > 0 ? time_slots.concat([`${max_time}:00`]) : time_slots;
+    return time_slots;
 }
+
+// disable calendar on page load
+$("#in-person-appointment-date").closest("div.size").addClass("disabled-element");
+
+$(".disabled-element").on("click", function () {
+    const error_message_container = $(this).find(".disabled-element-error"),
+        target_element = $(this).find(".disabled-element-target");
+
+    let error_message = "";
+
+    switch (target_element[0].id) {
+        case "in-person-appointment-date":
+            error_message = "Please select your preferred facility";
+            break;
+
+        default:
+            error_message = "Please fill the required fields.";
+            break;
+    }
+
+    error_message_container.text(error_message);
+
+    $(target_element.data("required_input")).focus();
+
+    setTimeout(() => {
+        error_message_container.text("");
+    }, 3000);
+});
+
+$("#facility").on("change", function () {
+    const facility = $(this).val();
+
+    $(".disabled-element-error").text("");
+
+    $("#in-person-appointment-date").closest(".disabled-element").removeClass("disabled-element").find(".disabled-element-error").remove();
+});
