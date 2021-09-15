@@ -35,6 +35,7 @@
         <span>Please complete the steps below to book an in-person appointment.</span>
 
     </section>
+
     <div class="d-flex booking-step justify-content-center border-btm ">
         <label>
             <input type="radio" id="appointment" name="radio-button" checked />
@@ -122,6 +123,7 @@
 
                             </div>
                         </div>
+
                         <div class="form-group">
                             <label>Select facility</label>
                             <select class="form-control" name="facility" id="facility">
@@ -145,73 +147,77 @@
 
                     <div class="d-flex flex-column pad size">
                         <!-- time slots column -->
-
                         <div class="form-group">
-                            <span>Choose an available time slot</span>
+                            <span>Choose an available time slot <span class="required">*</span></span>
 
-                            <div class="d-flex flex-wrap">
-                                <div class="form-check radio-css align-items-center ml-2">
-                                    <input class="form-check-input d-none" type="radio" name="time-slot" value="option1" id="exampleRadios10">
-                                    <label class="form-check-label " for="exampleRadios10">
-                                        00:00
-                                    </label>
+                            <section class="d-none">
+                                <div class="d-flex flex-wrap">
+                                    <div class="form-check radio-css align-items-center ml-2">
+                                        <input class="form-check-input d-none" type="radio" name="time-slot" value="option1" id="exampleRadios10">
+                                        <label class="form-check-label " for="exampleRadios10">
+                                            00:00
+                                        </label>
+                                    </div>
+                                    <div class="form-check radio-css align-items-center ml-2">
+                                        <input class="form-check-input d-none" type="radio" name="time-slot" value="option1" id="exampleRadios11">
+                                        <label class="form-check-label " for="exampleRadios11">
+                                            00:00
+                                        </label>
+                                    </div>
+                                    <div class="form-check radio-css align-items-center ml-2">
+                                        <input class="form-check-input d-none" type="radio" name="time-slot" value="option1" id="exampleRadios12">
+                                        <label class="form-check-label " for="exampleRadios12">
+                                            00:00
+                                        </label>
+                                    </div>
+                                    <div class="form-check radio-css align-items-center ml-2">
+                                        <input class="form-check-input d-none" type="radio" name="time-slot" value="option1" id="exampleRadios13">
+                                        <label class="form-check-label " for="exampleRadios13">
+                                            00:00
+                                        </label>
+                                    </div>
+                                    <div class="form-check radio-css align-items-center ml-2">
+                                        <input class="form-check-input d-none" type="radio" name="time-slot" value="option1" id="exampleRadios14">
+                                        <label class="form-check-label " for="exampleRadios14">
+                                            00:00
+                                        </label>
+                                    </div>
+                                    <div class="form-check radio-css align-items-center ml-2">
+                                        <input class="form-check-input d-none" type="radio" name="time-slot" value="option1" id="exampleRadios15">
+                                        <label class="form-check-label " for="exampleRadios15">
+                                            00:00
+                                        </label>
+                                    </div>
+                                    <div class="form-check radio-css align-items-center ml-2">
+                                        <input class="form-check-input d-none" type="radio" name="time-slot" value="option1" id="exampleRadios16">
+                                        <label class="form-check-label " for="exampleRadios16">
+                                            00:00
+                                        </label>
+                                    </div>
+                                    <div class="form-check radio-css align-items-center ml-2">
+                                        <input class="form-check-input d-none" type="radio" name="time-slot" value="option1" id="exampleRadios17">
+                                        <label class="form-check-label " for="exampleRadios17">
+                                            00:00
+                                        </label>
+                                    </div>
                                 </div>
-                                <div class="form-check radio-css align-items-center ml-2">
-                                    <input class="form-check-input d-none" type="radio" name="time-slot" value="option1" id="exampleRadios11">
-                                    <label class="form-check-label " for="exampleRadios11">
-                                        00:00
-                                    </label>
-                                </div>
-                                <div class="form-check radio-css align-items-center ml-2">
-                                    <input class="form-check-input d-none" type="radio" name="time-slot" value="option1" id="exampleRadios12">
-                                    <label class="form-check-label " for="exampleRadios12">
-                                        00:00
-                                    </label>
-                                </div>
-                                <div class="form-check radio-css align-items-center ml-2">
-                                    <input class="form-check-input d-none" type="radio" name="time-slot" value="option1" id="exampleRadios13">
-                                    <label class="form-check-label " for="exampleRadios13">
-                                        00:00
-                                    </label>
-                                </div>
-                                <div class="form-check radio-css align-items-center ml-2">
-                                    <input class="form-check-input d-none" type="radio" name="time-slot" value="option1" id="exampleRadios14">
-                                    <label class="form-check-label " for="exampleRadios14">
-                                        00:00
-                                    </label>
-                                </div>
-                                <div class="form-check radio-css align-items-center ml-2">
-                                    <input class="form-check-input d-none" type="radio" name="time-slot" value="option1" id="exampleRadios15">
-                                    <label class="form-check-label " for="exampleRadios15">
-                                        00:00
-                                    </label>
-                                </div>
-                                <div class="form-check radio-css align-items-center ml-2">
-                                    <input class="form-check-input d-none" type="radio" name="time-slot" value="option1" id="exampleRadios16">
-                                    <label class="form-check-label " for="exampleRadios16">
-                                        00:00
-                                    </label>
-                                </div>
-                                <div class="form-check radio-css align-items-center ml-2">
-                                    <input class="form-check-input d-none" type="radio" name="time-slot" value="option1" id="exampleRadios17">
-                                    <label class="form-check-label " for="exampleRadios17">
-                                        00:00
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
+                            </section>
+                            <section class="d-flex flex-column size">
+                                <p>Choose a date to see available time slots</p>
+                            </section>
+                      </div>
 
-                        <div class="d-flex flex-column">
-                            <span>Your appointment will be on</span>
-                            <span><strong>text</strong>&nbsp;text&nbsp;<strong>text</strong>&nbsp;at&nbsp;<strong>text</strong></span>
-                        </div>
+                    <div class="d-flex flex-column">
+                        <span>Your appointment will be on</span>
+                        <span><strong>text</strong>&nbsp;text&nbsp;<strong>text</strong>&nbsp;at&nbsp;<strong>text</strong></span>
                     </div>
                 </div>
+            </div>
 
-                <div class="form-group bord">
-                    <label>Describe your medical concern</label>
-                    <textarea id="medical-concern-description" class="form-control"></textarea>
-                </div>
+            <div class="form-group bord">
+                <label>Describe your medical concern</label>
+                <textarea id="medical-concern-description" class="form-control"></textarea>
+            </div>
             </div>
             </div>
         </fieldset>
@@ -262,6 +268,7 @@
                 <div class="col-12 col-md-12 col-sm-12" style="text-align:center; margin-bottom: 50px;">Kindly confirm the details you entered to ensure they are correct.</div>
 
                 <div class="d-flex flex-column flex-md-row">
+
                     <div class="input-group w-100 mr-1 pb-0" style="border:1px solid silver" id="confirm-appointment-patient">
                         <div class="title" style="margin-bottom:10px;">Patient Details</div>
 
@@ -312,7 +319,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </fieldset>
     </form>
