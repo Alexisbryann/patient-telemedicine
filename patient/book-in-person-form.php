@@ -63,7 +63,7 @@
             <!--Appointment details step-->
             <div class="d-flex flex-column">
 
-                <span class="mx-auto">Fill in the details to schedule the appointment.</span>
+                <span class="mx-auto pad-t">Fill in the details to schedule the appointment.</span>
                 <div class="d-flex flex-column flex-md-row" style="border-top-width: 10px;margin-top: 20px;">
                     <!-- medical concern + date + time slots row -->
                     <div class="d-flex flex-column size bord">
@@ -154,7 +154,7 @@
                                 <div class="d-flex flex-wrap" id="time-slots-container"></div>
                             </section>
                             <section class="d-flex flex-column size apt" id="time-slots-disabled">
-                                <h1>Choose a date to see available time slots</h1>
+                                <h2>Choose a date to see available time slots</h2>
                             </section>
                         </div>
 
@@ -165,7 +165,7 @@
                                 <span><strong id="appointment-date-display">text</strong>&nbsp;at&nbsp;<strong id="appointment-time-display">text</strong></span>
                             </section>
                             <section class="d-flex flex-column size apt" id="appointment-time-unset">
-                                <h1>Choose date and time</h1>
+                                <h2>Choose date and time</h2>
                             </section>
                         </div>
                     </div>
@@ -181,9 +181,10 @@
         </fieldset>
         <h3></h3>
         <fieldset style="text-align:left;" id="patient-details-step-parent">
+        <div class="w-100 d-none d-md-flex pad-t patient-details">Fill in the patient's details</div>
             <div class="row md-col" style="margin-left: 15px;margin-right: 15px;margin-bottom: 15px;">
                 <div class="patient-details input-grp col-12 col-md-8">
-                    <div class="w-100 d-none d-md-flex patient-details">Fill in the patient's details</div>
+                   
                     <div class="col-12 col-md-6 mt-i">
                         <label>Full name<span class="required"> * </span></label>
                         <input type="text" id="name" name="name" class="form-control" placeholder="Full name" required />
