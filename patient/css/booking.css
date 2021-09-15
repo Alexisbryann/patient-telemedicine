@@ -23,8 +23,14 @@
     padding: 10px;
 }
 
+.pad-t {
+    padding: 20px;
+    justify-content: center;
+}
+
 .size {
     flex-wrap: wrap!important;
+    min-width: 33%;
 }
 
 .radio-css {
@@ -70,13 +76,16 @@ p {
     margin-bottom: 1rem;
 }
 
-.telemed-step-one h3, .telemed-step-two h3, .payment h3 {
+.telemed-step-one h3,
+.telemed-step-two h3,
+.payment h3 {
     font-size: 30px !important;
     font-weight: bold;
     font-family: 'Segoe UI';
 }
 
-.telemed-step-one h5, .telemed-step-two h5 {
+.telemed-step-one h5,
+.telemed-step-two h5 {
     font-size: 17px !important;
     font-weight: 400;
     font-family: 'Segoe UI';
@@ -109,7 +118,8 @@ p {
     text-align: center !important;
 }
 
-#permission-info h4, #callback h4 {
+#permission-info h4,
+#callback h4 {
     color: #000000 !important;
     font-family: 'Segoe UI' !important;
     font-size: 19px !important;
@@ -180,11 +190,13 @@ p {
     transform: rotate(45deg);
 }
 
-.error, .required {
+.error,
+.required {
     color: #FF5252;
 }
 
-.preview, .title {
+.preview,
+.title {
     font-weight: bold;
 }
 
@@ -260,6 +272,7 @@ a[href="#previous"] {
         transform: rotate(360deg);
     }
 }
+
 
 /* Patient Telemedicine */
 
@@ -474,7 +487,9 @@ a[href="#previous"] {
     padding-bottom: 40px;
 }
 
+
 /***************Responsive Media Queries**************/
+
 
 /* 
     ##Device = Desktops
@@ -485,6 +500,7 @@ a[href="#previous"] {
     /* CSS */
 }
 
+
 /* 
     ##Device = Laptops, Desktops
     ##Screen = B/w 1025px to 1280px
@@ -493,6 +509,7 @@ a[href="#previous"] {
 @media (min-width: 1025px) and (max-width: 1280px) {
     /* CSS */
 }
+
 
 /* 
     ##Device = Tablets, Ipads (portrait)
@@ -503,6 +520,7 @@ a[href="#previous"] {
     /* CSS */
 }
 
+
 /* 
     ##Device = Tablets, Ipads (landscape)
     ##Screen = B/w 768px to 1024px
@@ -511,6 +529,7 @@ a[href="#previous"] {
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     /* CSS */
 }
+
 
 /* 
     ##Device = Low Resolution Tablets, Mobiles (Landscape)
@@ -521,18 +540,21 @@ a[href="#previous"] {
     /* CSS */
 }
 
+
 /* 
     ##Device = Most of the Smartphones Mobiles (Portrait)
     ##Screen = B/w 320px to 479px
 */
 
 @media (min-width: 320px) and (max-width: 480px) {
-    body, html {
+    body,
+    html {
         overflow-x: hidden;
         margin: 0 auto;
-        height: 100%;
+        height: 95%;
     }
-    #permission-info h4, #callback h4 {
+    #permission-info h4,
+    #callback h4 {
         color: #000000 !important;
         font-family: 'Segoe UI' !important;
         font-size: 19px !important;
@@ -540,12 +562,10 @@ a[href="#previous"] {
         display: inline !important;
         text-align: center !important;
     }
-
     #permission-info p {
         font-family: 'Segoe UI' !important;
         text-align: left !important;
     }
-
     #permission-info button {
         background-color: #0080ff;
         padding: 5px 50px;
@@ -556,7 +576,6 @@ a[href="#previous"] {
         font-size: 14px;
         font-weight: bold;
     }
-
     .telemed-step-two .loader-container {
         margin: 20px;
     }
@@ -571,12 +590,10 @@ a[href="#previous"] {
         -webkit-animation: spin 2s linear infinite;
         animation: spin 2s linear infinite;
     }
-
     .payment {
         border: 1px solid#F7941C;
         background-color: #fff !important;
     }
-
     .payment .loader-container {
         margin: 30px;
     }
@@ -591,7 +608,6 @@ a[href="#previous"] {
         -webkit-animation: spin 2s linear infinite;
         animation: spin 2s linear infinite;
     }
-
     .checkmark {
         display: inline-block;
         height: 100px;
@@ -600,11 +616,12 @@ a[href="#previous"] {
         border-right: 15px solid #F7941C;
         transform: rotate(45deg);
     }
-
-    .error, .required {
+    .error,
+    .required {
         color: #FF5252;
     }
-    .preview, .title {
+    .preview,
+    .title {
         font-weight: bold;
     }
     .title {
@@ -617,48 +634,40 @@ a[href="#previous"] {
         padding: 10px;
         height: fit-content;
     }
-
     .input-group {
         /* border: .5px solid gray; */
         border-right: solid 1px gray;
     }
-    
     .input-grp {
         /* border-right: solid 1px gray; */
         text-align: left;
         padding-bottom: 40px;
         display: contents;
     }
-    
     .preview-div {
         margin-bottom: 15px;
         word-wrap: break-word;
     }
-    
     .cost {
         background-color: #FBC98D;
         margin-top: -10px;
     }
-    
     a[href="#next"] {
         background: #F7941C !important;
         color: #000000 !important;
         border-radius: 4px;
     }
-
     a[href="#finish"] {
         background: #F7941C !important;
         color: #000000 !important;
         border-radius: 4px;
     }
-
     a[href="#previous"] {
         background: none !important;
         color: #000000 !important;
         border: 1px solid;
         border-radius: 4px;
     }
-
     @-webkit-keyframes spin {
         0% {
             -webkit-transform: rotate(0deg);
@@ -667,7 +676,6 @@ a[href="#previous"] {
             -webkit-transform: rotate(360deg);
         }
     }
-
     @keyframes spin {
         0% {
             transform: rotate(0deg);
@@ -677,35 +685,28 @@ a[href="#previous"] {
         }
     }
     /* Patient Telemedicine */
-
     .patient .page-content {
         margin: 50px 100px;
         border: none;
     }
-
     .appt-booking .page-content {
         margin: 50px 50px;
         border: none;
     }
-  
     .booking {
         padding-bottom: 10px !important;
     }
-    
     .wizard>.content {
         border: none;
     }
-    
     .card {
         background-color: white;
         padding-top: 0px;
         padding-bottom: 100px;
     }
-    
     .img-responsive {
         width: 22em;
     }
-    
     .border {
         border-right: solid 1px #e5e5e5;
         width: auto;
@@ -714,14 +715,12 @@ a[href="#previous"] {
         margin-left: 20px;
         margin-right: 20px */
     }
-    
     .bord {
         /* padding-left: 20px; */
         /* padding-right: 20px; */
         margin-left: 20px;
         margin-right: 20px
     }
-    
     .bord1 {
         padding-left: 20px;
         padding-right: 20px;
@@ -729,39 +728,36 @@ a[href="#previous"] {
         margin-right: 20px;
         max-width: 50%;
     }
-    
     .margin {
         margin-left: 100px;
         margin-right: 100px;
     }
-    
     .round {
         border-radius: 50%;
     }
-    
     .waiting {
         margin: 30px;
     }
-    
-    .telemed-step-one h3, .telemed-step-two h3, .payment h3 {
+    .telemed-step-one h3,
+    .telemed-step-two h3,
+    .payment h3 {
         padding-top: 20px;
     }
     .wizard>.content {
         border: none;
     }
-    #callback #reschedule-appointment, #callback #request-callback {
+    #callback #reschedule-appointment,
+    #callback #request-callback {
         float: none;
     }
     .img-responsive {
         width: 22em;
     }
-
     .time {
         color: #0080ff;
         font-family: 'Segoe UI';
         font-weight: bold;
     }
-
     .telemed-step-two .waiting-time {
         background-color: #fff;
         color: #0080ff;
@@ -771,18 +767,15 @@ a[href="#previous"] {
         font-family: 'Segoe UI';
         font-weight: bold;
     }
-
     .loading {
         margin: 30px;
         font-size: 16px;
     }
-
     .loading span {
         font-size: 20px;
         font-weight: bold;
         margin: 2px;
     }
-
     .loading .one {
         opacity: 0;
         -webkit-animation: dot 1.5s infinite;
@@ -790,7 +783,6 @@ a[href="#previous"] {
         animation: dot 1.5s infinite;
         animation-delay: 0.0s;
     }
-
     .loading .two {
         opacity: 0;
         -webkit-animation: dot 1.5s infinite;
@@ -798,7 +790,6 @@ a[href="#previous"] {
         animation: dot 1.5s infinite;
         animation-delay: 0.3s;
     }
-
     .loading .three {
         opacity: 0;
         -webkit-animation: dot 1.5s infinite;
@@ -806,7 +797,6 @@ a[href="#previous"] {
         animation: dot 1.5s infinite;
         animation-delay: 0.4s;
     }
-
     @-webkit-keyframes dot {
         0% {
             opacity: 0;
@@ -829,19 +819,16 @@ a[href="#previous"] {
             opacity: 1;
         }
     }
-
     #callback .modal-dialog {
         max-width: 550px;
         margin: 12rem auto !important;
         text-align: center !important;
     }
-
     #callback p {
         margin-top: 25px;
         text-align: center;
         font-family: 'Segoe UI' !important;
     }
-
     #callback .modal-footer button {
         width: 210px;
         background-color: #0080ff;
@@ -853,7 +840,6 @@ a[href="#previous"] {
         font-weight: bold;
         cursor: pointer;
     }
-
     #callback #request-callback {
         float: left;
     }
@@ -864,6 +850,7 @@ a[href="#previous"] {
         margin-bottom: 3em;
     }
 }
+
 
 /******************TELEMEDICINE SETUP GUIDE******************/
 
@@ -878,6 +865,7 @@ button:hover {
 #prevBtn {
     background-color: #bbbbbb;
 }
+
 
 /* Step indicators */
 
@@ -896,6 +884,7 @@ button:hover {
     opacity: 0.5;
     background: #0080ff;
 }
+
 
 /* Finished steps */
 
@@ -932,7 +921,9 @@ button:hover {
     cursor: pointer;
 }
 
-#allowPermissions, #testMic, #testInternet {
+#allowPermissions,
+#testMic,
+#testInternet {
     background-color: #4CAF50;
     font-family: 'Segoe UI';
     border: none;
@@ -955,6 +946,7 @@ button:focus {
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
 }
+
 
 /****************MICROPHONE TEST *******************/
 
@@ -983,6 +975,7 @@ button:focus {
     font-size: 1em;
 }
 
+
 /****************INTERNET SPEED TEST ***************/
 
 h1 {
@@ -991,7 +984,7 @@ h1 {
 }
 
 .apt {
-    color: #707070;
+    color: #9A9A9A !important;
     font-size: 20px !important;
 }
 
@@ -1043,7 +1036,8 @@ div.meterText {
     color: #309030;
 }
 
-#pingText, #jitText {
+#pingText,
+#jitText {
     color: #AA6060;
 }
 
@@ -1086,11 +1080,13 @@ div.testGroup {
     }
 }
 
+
 /*******************PATIENT ON BOARDING******************/
 
 .alert-danger {
     margin-top: 20px;
 }
+
 
 /*****************PATIENT BOOKING **********************/
 
@@ -1134,6 +1130,7 @@ div.testGroup {
     margin-bottom: -5px;
 }
 
+
 /* pretty radio */
 
 .booking-time label>input[type="radio"] {
@@ -1170,7 +1167,8 @@ div.testGroup {
     padding: 0 32px;
 }
 
-input[type="date"], input[type="time"] {
+input[type="date"],
+input[type="time"] {
     position: relative;
 }
 
@@ -1190,7 +1188,8 @@ input[type="time"]:after {
     padding: 0 5px;
 }
 
-input[type="date"]::-webkit-calendar-picker-indicator, input[type="time"]::-webkit-calendar-picker-indicator {
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
     position: absolute;
     top: 0;
     left: 0;
@@ -1202,11 +1201,13 @@ input[type="date"]::-webkit-calendar-picker-indicator, input[type="time"]::-webk
     background: transparent;
 }
 
-input[type="date"]::-webkit-inner-spin-button, input[type="time"]::-webkit-inner-spin-button {
+input[type="date"]::-webkit-inner-spin-button,
+input[type="time"]::-webkit-inner-spin-button {
     z-index: 1;
 }
 
-input[type="date"]::-webkit-clear-button, input[type="time"]::-webkit-clear-button {
+input[type="date"]::-webkit-clear-button,
+input[type="time"]::-webkit-clear-button {
     z-index: 1;
 }
 
@@ -1215,11 +1216,13 @@ input[type="date"]::-webkit-clear-button, input[type="time"]::-webkit-clear-butt
     border-bottom: 1px solid silver;
 }
 
-#confirm-appointment-details, #confirm-appointment-cost {
+#confirm-appointment-details,
+#confirm-appointment-cost {
     border: 1px solid silver;
 }
 
-#confirm-appointment-details .input-group, #confirm-appointment-cost .input-group {
+#confirm-appointment-details .input-group,
+#confirm-appointment-cost .input-group {
     border-right: none;
 }
 
@@ -1227,6 +1230,7 @@ input[type="date"]::-webkit-clear-button, input[type="time"]::-webkit-clear-butt
     text-align: center;
     margin-top: 10px;
 }
+
 
 /* Mobile display */
 
@@ -1264,7 +1268,8 @@ input[type="date"]::-webkit-clear-button, input[type="time"]::-webkit-clear-butt
     #book-in-person.border {
         border: none;
     }
-    .card-body, .booking-card {
+    .card-body,
+    .booking-card {
         padding: 10px !important;
     }
     .wizard>.actions>ul {
@@ -1341,7 +1346,9 @@ input[type="date"]::-webkit-clear-button, input[type="time"]::-webkit-clear-butt
     .input-group {
         border-right: none;
     }
-    .row, .text-center, .m-t-10 {
+    .row,
+    .text-center,
+    .m-t-10 {
         border: none!important;
         margin-right: 1px;
         margin-left: 1px;
