@@ -57,7 +57,7 @@
         </label>
     </div>
 
-    <form id="book-inperson" data-facility_id="<?php echo $_GET["facility_id"] ?? "" ?>" class="border margin">
+    <form id="book-inperson" data-facility_id="<?php echo $_GET["facility_id"] ?? "33" ?>" class="border margin">
         <h3></h3>
         <fieldset>
             <!--Appointment details step-->
@@ -128,11 +128,11 @@
                             <label>Select facility</label>
                             <select class="form-control" name="facility" id="facility">
                                 <option selected disabled value="">facility</option>
-                                <option>facility</option>
-                                <option>facility</option>
-                                <option>facility</option>
-                                <option>facility</option>
-                                <option>facility</option>
+                                <option value="33">facility</option>
+                                <option value="33">facility</option>
+                                <option value="33">facility</option>
+                                <option value="33">facility</option>
+                                <option value="33">facility</option>
                             </select>
                         </div>
                     </div>
@@ -151,7 +151,7 @@
                             <span>Choose an available time slot <span class="required">*</span></span>
 
                             <section class="d-none">
-                                <div class="d-flex flex-wrap">
+                                <div class="d-flex flex-wrap" id="time-slots-container">
                                     <div class="form-check radio-css align-items-center ml-2">
                                         <input class="form-check-input d-none" type="radio" name="time-slot" value="option1" id="exampleRadios10">
                                         <label class="form-check-label " for="exampleRadios10">
@@ -202,22 +202,22 @@
                                     </div>
                                 </div>
                             </section>
-                            <section class="d-flex flex-column size">
+                            <section class="d-flex flex-column size" id="time-slots-disabled">
                                 <p>Choose a date to see available time slots</p>
                             </section>
-                      </div>
+                        </div>
 
-                    <div class="d-flex flex-column">
-                        <span>Your appointment will be on</span>
-                        <span><strong>text</strong>&nbsp;text&nbsp;<strong>text</strong>&nbsp;at&nbsp;<strong>text</strong></span>
+                        <div class="d-flex flex-column">
+                            <span>Your appointment will be on</span>
+                            <span><strong>text</strong>&nbsp;text&nbsp;<strong>text</strong>&nbsp;at&nbsp;<strong>text</strong></span>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="form-group bord">
-                <label>Describe your medical concern</label>
-                <textarea id="medical-concern-description" class="form-control"></textarea>
-            </div>
+                <div class="form-group bord">
+                    <label>Describe your medical concern</label>
+                    <textarea id="medical-concern-description" class="form-control"></textarea>
+                </div>
             </div>
             </div>
         </fieldset>
