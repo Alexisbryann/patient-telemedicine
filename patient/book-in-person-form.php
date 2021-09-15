@@ -63,7 +63,7 @@
             <!--Appointment details step-->
             <div class="d-flex flex-column">
 
-                <span class="mx-auto pad-t">Fill in the details to schedule the appointment.</span>
+                <span class="mx-auto pad">Fill in the details to schedule the appointment.</span>
                 <div class="d-flex flex-column flex-md-row" style="border-top-width: 10px;margin-top: 20px;">
                     <!-- medical concern + date + time slots row -->
                     <div class="d-flex flex-column size bord">
