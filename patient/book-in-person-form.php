@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- BEGIN HEAD -->
-<?php $inclusions_version = 0 ?>
+<?php $inclusions_version = 1 ?>
 
 <head>
     <meta charset="utf-8" />
@@ -141,7 +141,7 @@
                         <!--Calendar column-->
 
                         <div class="border disabled-element-target" id="in-person-appointment-date" data-required_input="#facility"></div>
-                        <input type="hidden" id="appointment-date">
+                        <input type="hidden" id="appointment-date" name="appointment-date">
                         <span class="disabled-element-error"></span>
                     </div>
 
@@ -151,80 +151,31 @@
                             <span>Choose an available time slot <span class="required">*</span></span>
 
                             <section class="d-none">
-                                <div class="d-flex flex-wrap" id="time-slots-container">
-                                    <div class="form-check radio-css align-items-center ml-2">
-                                        <input class="form-check-input d-none" type="radio" name="time-slot" value="option1" id="exampleRadios10">
-                                        <label class="form-check-label " for="exampleRadios10">
-                                            00:00
-                                        </label>
-                                    </div>
-                                    <div class="form-check radio-css align-items-center ml-2">
-                                        <input class="form-check-input d-none" type="radio" name="time-slot" value="option1" id="exampleRadios11">
-                                        <label class="form-check-label " for="exampleRadios11">
-                                            00:00
-                                        </label>
-                                    </div>
-                                    <div class="form-check radio-css align-items-center ml-2">
-                                        <input class="form-check-input d-none" type="radio" name="time-slot" value="option1" id="exampleRadios12">
-                                        <label class="form-check-label " for="exampleRadios12">
-                                            00:00
-                                        </label>
-                                    </div>
-                                    <div class="form-check radio-css align-items-center ml-2">
-                                        <input class="form-check-input d-none" type="radio" name="time-slot" value="option1" id="exampleRadios13">
-                                        <label class="form-check-label " for="exampleRadios13">
-                                            00:00
-                                        </label>
-                                    </div>
-                                    <div class="form-check radio-css align-items-center ml-2">
-                                        <input class="form-check-input d-none" type="radio" name="time-slot" value="option1" id="exampleRadios14">
-                                        <label class="form-check-label " for="exampleRadios14">
-                                            00:00
-                                        </label>
-                                    </div>
-                                    <div class="form-check radio-css align-items-center ml-2">
-                                        <input class="form-check-input d-none" type="radio" name="time-slot" value="option1" id="exampleRadios15">
-                                        <label class="form-check-label " for="exampleRadios15">
-                                            00:00
-                                        </label>
-                                    </div>
-                                    <div class="form-check radio-css align-items-center ml-2">
-                                        <input class="form-check-input d-none" type="radio" name="time-slot" value="option1" id="exampleRadios16">
-                                        <label class="form-check-label " for="exampleRadios16">
-                                            00:00
-                                        </label>
-                                    </div>
-                                    <div class="form-check radio-css align-items-center ml-2">
-                                        <input class="form-check-input d-none" type="radio" name="time-slot" value="option1" id="exampleRadios17">
-                                        <label class="form-check-label " for="exampleRadios17">
-                                            00:00
-                                        </label>
-                                    </div>
-                                    </div>
-                                </section>
-                                <section class = "d-flex flex-column size apt" id="time-slots-disabled">
-                                    <h1>Choose a date to see available time slots</h1>
-                                </section>
-                            </div>
+                                <div class="d-flex flex-wrap" id="time-slots-container"></div>
+                            </section>
+                            <section class="d-flex flex-column size apt" id="time-slots-disabled">
+                                <h1>Choose a date to see available time slots</h1>
+                            </section>
+                        </div>
 
-                            <div class="d-flex flex-column">
-                                
-                                <span>Your appointment will be on</span>  
-                                <section class = "d-none">
-                                <span><strong>text</strong>&nbsp;text&nbsp;<strong>text</strong>&nbsp;at&nbsp;<strong>text</strong></span>
-                                </section>
-                                <section class = "d-flex flex-column size apt">
+                        <div class="d-flex flex-column">
+
+                            <span>Your appointment will be on</span>
+                            <section class="d-none" id="appointment-date-time-display-container">
+                                <span><strong id="appointment-date-display">text</strong>&nbsp;at&nbsp;<strong id="appointment-time-display">text</strong></span>
+                            </section>
+                            <section class="d-flex flex-column size apt" id="appointment-time-unset">
                                 <h1>Choose date and time</h1>
-                                </section>
-                            </div>
+                            </section>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="form-group bord">
-                    <label>Describe your medical concern</label>
-                    <textarea id="medical-concern-description" class="form-control"></textarea>
-                </div>
+            <div class="form-group bord">
+                <label>Describe your medical concern</label>
+                <textarea id="medical-concern-description" class="form-control"></textarea>
+            </div>
             </div>
             </div>
         </fieldset>
