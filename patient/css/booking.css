@@ -540,10 +540,12 @@ a[href="#previous"] {
         display: inline !important;
         text-align: center !important;
     }
+
     #permission-info p {
         font-family: 'Segoe UI' !important;
         text-align: left !important;
     }
+
     #permission-info button {
         background-color: #0080ff;
         padding: 5px 50px;
@@ -554,6 +556,7 @@ a[href="#previous"] {
         font-size: 14px;
         font-weight: bold;
     }
+
     .telemed-step-two .loader-container {
         margin: 20px;
     }
@@ -568,10 +571,12 @@ a[href="#previous"] {
         -webkit-animation: spin 2s linear infinite;
         animation: spin 2s linear infinite;
     }
+
     .payment {
         border: 1px solid#F7941C;
         background-color: #fff !important;
     }
+
     .payment .loader-container {
         margin: 30px;
     }
@@ -586,6 +591,7 @@ a[href="#previous"] {
         -webkit-animation: spin 2s linear infinite;
         animation: spin 2s linear infinite;
     }
+
     .checkmark {
         display: inline-block;
         height: 100px;
@@ -594,6 +600,7 @@ a[href="#previous"] {
         border-right: 15px solid #F7941C;
         transform: rotate(45deg);
     }
+
     .error, .required {
         color: #FF5252;
     }
@@ -610,35 +617,48 @@ a[href="#previous"] {
         padding: 10px;
         height: fit-content;
     }
+
     .input-group {
         /* border: .5px solid gray; */
         border-right: solid 1px gray;
     }
+    
+    .input-grp {
+        /* border-right: solid 1px gray; */
+        text-align: left;
+        padding-bottom: 40px;
+        display: contents;
+    }
+    
     .preview-div {
         margin-bottom: 15px;
         word-wrap: break-word;
     }
+    
     .cost {
         background-color: #FBC98D;
-        min-width: -webkit-fill-available;
-        height: 80%;
+        margin-top: -10px;
     }
+    
     a[href="#next"] {
         background: #F7941C !important;
         color: #000000 !important;
         border-radius: 4px;
     }
+
     a[href="#finish"] {
         background: #F7941C !important;
         color: #000000 !important;
         border-radius: 4px;
     }
+
     a[href="#previous"] {
         background: none !important;
         color: #000000 !important;
         border: 1px solid;
         border-radius: 4px;
     }
+
     @-webkit-keyframes spin {
         0% {
             -webkit-transform: rotate(0deg);
@@ -647,6 +667,7 @@ a[href="#previous"] {
             -webkit-transform: rotate(360deg);
         }
     }
+
     @keyframes spin {
         0% {
             transform: rotate(0deg);
@@ -656,14 +677,72 @@ a[href="#previous"] {
         }
     }
     /* Patient Telemedicine */
+
     .patient .page-content {
         margin: 50px 100px;
         border: none;
     }
+
     .appt-booking .page-content {
         margin: 50px 50px;
         border: none;
     }
+  
+    .booking {
+        padding-bottom: 10px !important;
+    }
+    
+    .wizard>.content {
+        border: none;
+    }
+    
+    .card {
+        background-color: white;
+        padding-top: 0px;
+        padding-bottom: 100px;
+    }
+    
+    .img-responsive {
+        width: 22em;
+    }
+    
+    .border {
+        border-right: solid 1px #e5e5e5;
+        width: auto;
+        /* padding-left: 20px;
+        padding-right: 20px;
+        margin-left: 20px;
+        margin-right: 20px */
+    }
+    
+    .bord {
+        /* padding-left: 20px; */
+        /* padding-right: 20px; */
+        margin-left: 20px;
+        margin-right: 20px
+    }
+    
+    .bord1 {
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+        max-width: 50%;
+    }
+    
+    .margin {
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+    
+    .round {
+        border-radius: 50%;
+    }
+    
+    .waiting {
+        margin: 30px;
+    }
+    
     .telemed-step-one h3, .telemed-step-two h3, .payment h3 {
         padding-top: 20px;
     }
@@ -676,17 +755,13 @@ a[href="#previous"] {
     .img-responsive {
         width: 22em;
     }
-    .round {
-        border-radius: 50%;
-    }
-    .waiting {
-        margin: 30px;
-    }
+
     .time {
         color: #0080ff;
         font-family: 'Segoe UI';
         font-weight: bold;
     }
+
     .telemed-step-two .waiting-time {
         background-color: #fff;
         color: #0080ff;
@@ -696,15 +771,18 @@ a[href="#previous"] {
         font-family: 'Segoe UI';
         font-weight: bold;
     }
+
     .loading {
         margin: 30px;
         font-size: 16px;
     }
+
     .loading span {
         font-size: 20px;
         font-weight: bold;
         margin: 2px;
     }
+
     .loading .one {
         opacity: 0;
         -webkit-animation: dot 1.5s infinite;
@@ -712,6 +790,7 @@ a[href="#previous"] {
         animation: dot 1.5s infinite;
         animation-delay: 0.0s;
     }
+
     .loading .two {
         opacity: 0;
         -webkit-animation: dot 1.5s infinite;
@@ -719,6 +798,7 @@ a[href="#previous"] {
         animation: dot 1.5s infinite;
         animation-delay: 0.3s;
     }
+
     .loading .three {
         opacity: 0;
         -webkit-animation: dot 1.5s infinite;
@@ -726,6 +806,7 @@ a[href="#previous"] {
         animation: dot 1.5s infinite;
         animation-delay: 0.4s;
     }
+
     @-webkit-keyframes dot {
         0% {
             opacity: 0;
@@ -748,16 +829,19 @@ a[href="#previous"] {
             opacity: 1;
         }
     }
+
     #callback .modal-dialog {
         max-width: 550px;
         margin: 12rem auto !important;
         text-align: center !important;
     }
+
     #callback p {
         margin-top: 25px;
         text-align: center;
         font-family: 'Segoe UI' !important;
     }
+
     #callback .modal-footer button {
         width: 210px;
         background-color: #0080ff;
@@ -769,6 +853,7 @@ a[href="#previous"] {
         font-weight: bold;
         cursor: pointer;
     }
+
     #callback #request-callback {
         float: left;
     }
