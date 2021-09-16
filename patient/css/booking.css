@@ -23,6 +23,10 @@
     padding: 10px;
 }
 
+.left {
+    text-align: left;
+}
+
 .pad-t {
     padding: 20px;
     justify-content: center;
