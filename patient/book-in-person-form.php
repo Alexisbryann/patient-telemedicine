@@ -155,19 +155,19 @@
                                 <div class="form-check radio-css-slots align-items-center ml-2">
                                     <input class="form-check-input d-none" type="radio" name="time-slots" value="option1" id="exampleRadios10">
                                     <label class="form-check-label " for="exampleRadios10">
-                                        condition
+                                        00:21 AM
                                     </label>
                                 </div>
                                 <div class="form-check radio-css-slots align-items-center ml-2">
                                     <input class="form-check-input d-none" type="radio" name="time-slots" value="option1" id="exampleRadios11">
                                     <label class="form-check-label " for="exampleRadios11">
-                                        condition
+                                        09:30 AM
                                     </label>
                                 </div>
                                 <div class="form-check radio-css-slots align-items-center ml-2">
                                     <input class="form-check-input d-none" type="radio" name="time-slots" value="option1" id="exampleRadios12">
                                     <label class="form-check-label " for="exampleRadios12">
-                                        condition
+                                        11:45 AM
                                     </label>
                                 </div>
                                 </div>

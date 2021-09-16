@@ -34,7 +34,7 @@
 }
 
 .radio-css-concern {
-    background-color: #FBC98D;
+    background-color: #FEE9D1;
     border-radius: 16px;
     margin-bottom: 4px;
     padding: 0px !important;
@@ -73,10 +73,13 @@
     position: relative;
     cursor: pointer;
     background-color: white;
-    border-color: orange;
     border-radius: 16px;
     padding: 4px !important;
-    border: solid 2px orange;
+    border: solid 1px orange;
+}
+
+.center {
+    text-align: -webkit-center;
 }
 
 .bg {
