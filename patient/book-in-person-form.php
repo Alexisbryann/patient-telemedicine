@@ -70,7 +70,7 @@
                         <!--Medical concern and facility column-->
                         <div class="form-group size">
 
-                            <span>Medical concern <span class="required">*</span></span>
+                            <span>Medical concern <span class="required"></span></span>
 
                         
 
@@ -124,15 +124,14 @@
 
                         <div class="form-group">
 
-                            <label>Select facility <span class="required">*</span></label>
-n
+                            <label>Select facility<span class="required"></span></label>
                             <select class="form-control" name="facility" id="facility">
-                                <option selected disabled value="">facility</option>
-                                <option value="33">facility</option>
-                                <option value="33">facility</option>
-                                <option value="33">facility</option>
-                                <option value="33">facility</option>
-                                <option value="33">facility</option>
+                                <option selected disabled value="">select facility</option>
+                                <option value="33">facility 1</option>
+                                <option value="34">facility 2</option>
+                                <option value="35">facility 3</option>
+                                <option value="36">facility 4</option>
+                                <option value="37">facility 5</option>
                             </select>
                         </div>
                     </div>
@@ -140,7 +139,7 @@ n
                     <div class="size center bord">
                         <!--Calendar column-->
                         <div>
-                            <div class = "left">Choose a date <span class="required">*</span></div>
+                            <div class = "left">Choose a date <span class="required"></span></div>
                             <div class="border disabled-element-target center" id="in-person-appointment-date" data-required_input="#facility"></div>
                             <input type="hidden" id="appointment-date" name="appointment-date">
                             <span class="disabled-element-error"></span>
@@ -182,12 +181,12 @@ n
                         <div class="d-flex flex-column">
 
                             <span>Your appointment will be on</span>
-                            <section class="" id="appointment-date-time-display-container">
+                            <section class="d-none" id="appointment-date-time-display-container">
                                 <span><strong id="appointment-date-display"></strong>&nbsp;at&nbsp;<strong id="appointment-time-display"></strong></span>
                             </section>
-                            <!-- <section class="d-flex flex-column size apt" id="appointment-time-unset">
+                            <section class="d-flex flex-column size apt" id="appointment-time-unset">
                                 <h2>Choose date and time</h2>
-                            </section> -->
+                            </section>
                         </div>
                     </div>
                 </div>
