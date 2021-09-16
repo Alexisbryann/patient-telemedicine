@@ -36,7 +36,7 @@
 
     </section>
 
-    <div class="d-flex booking-step justify-content-center border-btm ">
+    <div class="d-flex booking-step justify-content-center pad border-btm ">
         <label>
             <input type="radio" id="appointment" name="radio-button" checked />
             <span>Appointment Details</span>
@@ -69,7 +69,7 @@
                     <div class="d-flex flex-column size bord">
                         <!--Medical concern and facility column-->
                         <div class="form-group size">
-                            <span>Medical concern</span>
+                            <span>Medical concern <span class="required">*</span></span>
 
                             <div class="d-flex size">
                                 <div class="form-check radio-css-concern align-items-center ml-2">
@@ -125,7 +125,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label>Select facility</label>
+                            <label>Select facility <span class="required">*</span></label>
                             <select class="form-control" name="facility" id="facility">
                                 <option selected disabled value="">facility</option>
                                 <option value="33">facility</option>
@@ -137,20 +137,22 @@
                         </div>
                     </div>
 
-                    <div class="size">
+                    <div class="size center bord">
                         <!--Calendar column-->
-
-                        <div class="border disabled-element-target center" id="in-person-appointment-date" data-required_input="#facility"></div>
-                        <input type="hidden" id="appointment-date" name="appointment-date">
-                        <span class="disabled-element-error"></span>
+                        <div>
+                            <div class = "left">Choose a date <span class="required">*</span></div>
+                            <div class="border disabled-element-target center" id="in-person-appointment-date" data-required_input="#facility"></div>
+                            <input type="hidden" id="appointment-date" name="appointment-date">
+                            <span class="disabled-element-error"></span>
+                        </div>
                     </div>
 
-                    <div class="d-flex flex-column pad size">
+                    <div class="d-flex flex-column size bord">
                         <!-- time slots column -->
                         <div class="form-group">
                             <span>Choose an available time slot <span class="required">*</span></span>
 
-                            <section class="">
+                            <section class="d-none">
                                 <div class="d-flex flex-wrap" id="time-slots-container">
                                 <div class="form-check radio-css-slots align-items-center ml-2">
                                     <input class="form-check-input d-none" type="radio" name="time-slots" value="option1" id="exampleRadios10">
@@ -172,9 +174,9 @@
                                 </div>
                                 </div>
                             </section>
-                            <!-- <section class="d-flex flex-column size apt" id="time-slots-disabled">
+                            <section class="d-flex flex-column size apt" id="time-slots-disabled">
                                 <h2>Choose a date to see available time slots</h2>
-                            </section> -->
+                            </section>
                         </div>
 
                         <div class="d-flex flex-column">
