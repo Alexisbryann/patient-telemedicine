@@ -70,7 +70,7 @@
                         <!--Medical concern and facility column-->
                         <div class="form-group size">
 
-                            <span>Medical concern <span class="required">*</span></span>
+                            <span>Medical concern <span class="required"></span></span>
 
                         
 
@@ -124,15 +124,14 @@
 
                         <div class="form-group">
 
-                            <label>Select facility <span class="required">*</span></label>
-n
+                            <label>Select facility<span class="required"></span></label>
                             <select class="form-control" name="facility" id="facility">
-                                <option selected disabled value="">facility</option>
-                                <option value="33">facility</option>
-                                <option value="33">facility</option>
-                                <option value="33">facility</option>
-                                <option value="33">facility</option>
-                                <option value="33">facility</option>
+                                <option selected disabled value="">select facility</option>
+                                <option value="33">facility 1</option>
+                                <option value="34">facility 2</option>
+                                <option value="35">facility 3</option>
+                                <option value="36">facility 4</option>
+                                <option value="37">facility 5</option>
                             </select>
                         </div>
                     </div>
@@ -140,7 +139,7 @@ n
                     <div class="size center bord">
                         <!--Calendar column-->
                         <div>
-                            <div class = "left">Choose a date <span class="required">*</span></div>
+                            <div class = "left">Choose a date <span class="required"></span></div>
                             <div class="border disabled-element-target center" id="in-person-appointment-date" data-required_input="#facility"></div>
                             <input type="hidden" id="appointment-date" name="appointment-date">
                             <span class="disabled-element-error"></span>
@@ -182,12 +181,12 @@ n
                         <div class="d-flex flex-column">
 
                             <span>Your appointment will be on</span>
-                            <section class="" id="appointment-date-time-display-container">
+                            <section class="d-none" id="appointment-date-time-display-container">
                                 <span><strong id="appointment-date-display"></strong>&nbsp;at&nbsp;<strong id="appointment-time-display"></strong></span>
                             </section>
-                            <!-- <section class="d-flex flex-column size apt" id="appointment-time-unset">
+                            <section class="d-flex flex-column size apt" id="appointment-time-unset">
                                 <h2>Choose date and time</h2>
-                            </section> -->
+                            </section>
                         </div>
                     </div>
                 </div>
@@ -209,17 +208,17 @@ n
                 <div class="patient-details input-grp col-12 col-md-8">
 
                     <div class="col-12 col-md-6 mt-i">
-                        <label>Full name<span class="required"> * </span></label>
+                        <label>Full name<span class="required"></span></label>
                         <input type="text" id="name" name="name" class="form-control" placeholder="Full name" required />
                         <div id="name-error" class="col-12 col-md-12 error" style="display: none;"></div>
                     </div>
                     <div class="col-12 col-md-6 mt-i">
-                        <label>Email address<span class="required"> * </span></label>
+                        <label>Email address<span class="required"></span></label>
                         <input type="email" id="email" name="email" class="form-control" placeholder="Email address" required />
                         <div id="email-error" class="col-12 col-md-12 error" style="display: none;"></div>
                     </div>
                     <div class="col-12 col-md-6 mt-i">
-                        <label>Gender<span class="required"> * </span></label>
+                        <label>Gender<span class="required"></span></label>
                         <select id="gender" name="gender" class="form-control" required>
                             <option selected disabled value="">Select gender</option>
                             <option value="Male">Male</option>
@@ -228,12 +227,12 @@ n
                         <div id="gender-error" class="col-12 col-md-12 error" style="display: none;"></div>
                     </div>
                     <div class="col-12 col-md-6 mt-i">
-                        <label>Phone number<span class="required"> * </span></label>
+                        <label>Phone number<span class="required"></span></label>
                         <input type="text" id="phone" name="phone" class="form-control" placeholder="Phone number" required />
                         <div id="phone-error" class="col-12 col-md-12 error" style="display: none;"></div>
                     </div>
                     <div class="col-12 col-md-6 mt-i">
-                        <label>Date of birth<span class="required"> * </span></label>
+                        <label>Date of birth<span class="required"></span></label>
                         <input type="date" id="dob" name="dob" class="form-control" placeholder="Date of birth" max="<?php echo date("Y-m-d") ?>" step="1" required />
                         <div id="dob-error" class="col-12 col-md-12 error" style="display: none;"></div>
                     </div>
