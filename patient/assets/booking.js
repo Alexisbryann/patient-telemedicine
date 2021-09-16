@@ -1,12 +1,12 @@
 var appointment_id, onboarding;
 const global_settings = {
-        screen_is_mobile: window.innerWidth < 758,
-        date_now: new Date(),
-        get current_time() { // return current time as an array of [hh,mm,ss]
-            return this.date_now.toTimeString().split(" ").shift().split(":");
-        },
-        minimum_appointment_time: "08:00 AM",
+    screen_is_mobile: window.innerWidth < 758,
+    date_now: new Date(),
+    get current_time() { // return current time as an array of [hh,mm,ss]
+        return this.date_now.toTimeString().split(" ").shift().split(":");
     },
+    minimum_appointment_time: "08:00 AM",
+},
     datepicker_settings = {
         daysOfWeekDisabled: ["0"],
         autoclose: true,
@@ -20,7 +20,7 @@ form.steps({
     headerTag: "h3",
     bodyTag: "fieldset",
     transitionEffect: "slideLeft",
-    onInit: function(event, current) {
+    onInit: function (event, current) {
         $("a[href$='previous']").hide();
     },
     labels: {
@@ -28,7 +28,7 @@ form.steps({
         next: "Next",
         previous: "Back",
     },
-    onStepChanging: function(event, currentIndex, newIndex) {
+    onStepChanging: function (event, currentIndex, newIndex) {
         // Always allow previous action even if the current form is not valid!
         if (currentIndex > newIndex) {
             if (currentIndex === 0) {
@@ -73,7 +73,7 @@ form.steps({
             form.find(".body:eq(" + newIndex + ") .error").removeClass("error");
         }
     },
-    onStepChanged: function(event, currentIndex, priorIndex) {
+    onStepChanged: function (event, currentIndex, priorIndex) {
         if (global_settings.screen_is_mobile) {
             const booking_form_progress = $("#booking-form-progress"),
                 current_progress_value = booking_form_progress.val(),
@@ -83,10 +83,10 @@ form.steps({
             $("#booking-form-step-number").text(new_progress_value);
         }
     },
-    onFinishing: function(event, currentIndex) {
+    onFinishing: function (event, currentIndex) {
         return true;
     },
-    onFinished: function(event, currentIndex) {
+    onFinished: function (event, currentIndex) {
         event.preventDefault();
         var btn = document.querySelectorAll('a[href="#finish"]');
         $(btn).html('<i class="sending fa fa-spinner fa-spin">&nbsp;&nbsp;</i>Sending...');
@@ -104,7 +104,7 @@ form.steps({
             data: new FormData(this),
             contentType: false,
             processData: false,
-            success: function(response) {
+            success: function (response) {
                 var response = JSON.parse(response);
                 if (response.response == 200) {
                     $(btn).html('');
@@ -155,31 +155,31 @@ if (global_settings.screen_is_mobile) { // handler for mobile behavior
         minuteStep: 20,
         snapToStep: true,
         defaultTime: global_settings.minimum_appointment_time, // show default time as 8 am if it is not yet 8 am, and show current time if it is past 8 am
-    }).on("changeTime.timepicker", function(e) {
+    }).on("changeTime.timepicker", function (e) {
         if (e.time.meridian.toLowerCase() === "am" && e.time.hours < 8) $('#set-appointment-time').timepicker('setTime', '08:00 AM');
         if (e.time.meridian.toLowerCase() === "pm" && e.time.hours > 6) $('#set-appointment-time').timepicker('setTime', '06:00 PM');
     });
 }
 
-$("#set-appointment-time").on("focus", function() {
+$("#set-appointment-time").on("focus", function () {
     $(this).closest(".timepicker").find(".input-group-addon").click();
 });
 
-$("[name='appointment-type']").on("change", function() {
+$("[name='appointment-type']").on("change", function () {
     // toggling display of options to schedule appointment
     $("#date-time-picker-container").toggleClass("d-none");
 });
 
 $("#set-appointment-date").datepicker({
     ...datepicker_settings,
-}).on("show", function(e) {
+}).on("show", function (e) {
     if (!global_settings.screen_is_mobile) { // hack to position the datepicker in contact with the input box on desktop
         const date_picker_element = $(".datepicker.datepicker-dropdown.dropdown-menu.datepicker-orient-left.datepicker-orient-top"),
             datepicker_top = date_picker_element.css("top");
 
         date_picker_element.css("top", parseInt(datepicker_top) + 40);
     }
-}).on("changeDate", function(e) {
+}).on("changeDate", function (e) {
     if (e.date.toDateString() == global_settings.date_now.toDateString()) {
         const current_hour = global_settings.current_time[0],
             meridian = current_hour > 12 ? "PM" : "AM",
@@ -193,7 +193,7 @@ $("#set-appointment-date").datepicker({
     $('#set-appointment-time').timepicker('setTime', global_settings.minimum_appointment_time);
 });
 
-$(".datepicker .input-group-addon").on("click", function() {
+$(".datepicker .input-group-addon").on("click", function () {
     $(this).closest(".datepicker").find("input").focus();
 });
 
@@ -217,7 +217,7 @@ function DPO_Payment(PaymentURL, name, email, phone, txRef, appointment_id) {
             phone: phone
         },
         dataType: "json",
-        success: function(endpoint_response) {
+        success: function (endpoint_response) {
             if (endpoint_response.Result == 000) {
                 var TransactionToken = endpoint_response.TransToken;
                 window.location = PaymentURL + TransactionToken;
@@ -347,9 +347,8 @@ function validateInput(step) {
 // in-person appointment booking
 const in_person_settings = {
     facility_id: $("#book-inperson").data("facility_id"),
-    time_slots: timeSlotsList(),
-    time_slot_template: (time) => `<div class="form-check radio-css align-items-center ml-2">
-                                        <input class="form-check-input d-none" type="radio" name="appointment-time" value="${time}" id = "time-slot-${time}" required>
+    time_slot_template: (time) => `<div class="form-check radio-css-slots align-items-center ml-2">
+                                        <input class="form-check-input d-none" type="radio" name="appointment-time" value="${time}" id = "time-slot-${time}" >
                                         <label class="form-check-label " for="time-slot-${time}">
                                             ${time}
                                         </label>
@@ -365,14 +364,70 @@ $("#book-inperson").steps({
         next: "Next",
         previous: "Back",
     },
-    onInit: function(event, current) {
+    onInit: function (event, current) {
         $("a[href$='previous']").hide();
     },
-    onStepChanging: function(event, currentIndex, newIndex) {
-        return true;
+    onStepChanging: function (event, currentIndex, newIndex) {
+        switch (currentIndex) {
+            case 0:
+                const validation_options = {
+                    medical_condition_validity: {
+                        validity: $("[name='medical-concern']:checked").length > 0,
+                        error_message: "Please select a medical condition from the list.",
+                        element: $("#medical-conditions-container"),
+                    },
+                    facility_validity: {
+                        validity: $("#facility").val(),
+                        error_message: "Please select the facility for your appointment.",
+                        element: $("#facility"),
+                    },
+                    date_validity: {
+                        validity: $("#appointment-date").val(),
+                        error_message: "Please select the date for your appointment.",
+                        element: $("#in-person-appointment-date"),
+                    },
+                    time_validity: {
+                        validity: $("input[name='appointment-time']:checked").length > 0,
+                        error_message: "Please select the time for your appointment.",
+                        element: $("#time-slots-container"),
+                    }
+                }
 
+                let all_elements_valid = true;
+
+                for (const key in validation_options) {
+                    if (Object.hasOwnProperty.call(validation_options, key)) {
+                        const validation_element = validation_options[key];
+
+                        if (!validation_element.validity) {
+                            all_elements_valid = false;
+
+
+                            setTimeout(() => {
+                                $("#step-0-error-display").text("");
+                            }, 2000);
+
+                            $("#step-0-error-display").text(validation_element.error_message).insertAfter(validation_element.element);
+
+                            $("body").animate({
+                                scrollTop: validation_element.element[0].offsetTop,
+                            }, 2);
+
+                            validation_element.element.focus();
+
+                            return false;
+                        }
+                    }
+                }
+
+                break;
+
+            default:
+                break;
+        }
+        return true;
     },
-    onStepChanged: function(event, currentIndex, priorIndex) {
+    onStepChanged: function (event, currentIndex, priorIndex) {
 
     },
     onFinished: function (event, currentIndex) {
@@ -424,7 +479,20 @@ $("#in-person-appointment-date").datepicker({
                 return false;
             }
 
-            const available_time_slots = in_person_settings.time_slots.filter(x => !response.includes(x));
+            const month = (global_settings.date_now.getMonth() + 1).toString().length == 1 ? `0${global_settings.date_now.getMonth() + 1}` : global_settings.date_now.getMonth() + 1,
+                date_today = `${global_settings.date_now.getDate()}/${month}/${global_settings.date_now.getFullYear()}`,
+                time_slots = timeSlotsList(date_today == selected_date),
+                available_time_slots = time_slots.filter(x => !response.includes(x));
+
+            if (available_time_slots.length == 0) {
+                $("#time-slots-container")
+                    .empty()
+                    .closest("section").addClass("d-none");
+
+                $("#time-slots-disabled").addClass("d-flex").removeClass("d-none");
+                $("#time-slots-disabled h2").text("No time slots available.");
+                return false;
+            }
 
             $("#time-slots-container")
                 .empty()
@@ -456,10 +524,12 @@ $("#book-inperson #facility").on("change", function () {
     in_person_settings.facility_id = facility_id;
 });
 
-function timeSlotsList() {
+function timeSlotsList(today) {
     /**
      * Generates a list of facility time slots. Starts at 08:00 hrs and adds 20 min intervals until 17:00 hrs
      * 
+     * @param boolean today whether the appointment date is same as current date
+     *
      * @return string[] list of time slots.
      */
     const min_time = 8,
@@ -471,18 +541,24 @@ function timeSlotsList() {
         counter = min_time;
 
     while (counter < max_time) {
-        if (current_hour <= counter) {
-            if (current_hour == counter) {
-                if (current_minutes < 20) {
+        if (today) {
+            if (current_hour <= counter) {
+                if (current_hour == counter) {
+                    if (current_minutes < 20) {
+                        time_slots.push(`${counter}:20`);
+                    } else if (current_minutes < 40) {
+                        time_slots.push(`${counter}:40`);
+                    }
+                } else {
+                    time_slots.push(`${counter}:00`);
                     time_slots.push(`${counter}:20`);
-                } else if (current_minutes < 40) {
                     time_slots.push(`${counter}:40`);
                 }
-            } else {
-                time_slots.push(`${counter}:00`);
-                time_slots.push(`${counter}:20`);
-                time_slots.push(`${counter}:40`);
             }
+        } else {
+            time_slots.push(`${counter}:00`);
+            time_slots.push(`${counter}:20`);
+            time_slots.push(`${counter}:40`);
         }
         counter++;
     }
@@ -543,4 +619,11 @@ $(document).on("change", `[name=appointment-time]`, function () {
 
     $("#appointment-date-display").text(appointment_date_string);
     $("#appointment-time-display").text(`${appointment_time} hrs`);
+});
+
+$("[name=medical-concern]").on("change", function () {
+    $.each($("[name=medical-concern]"), function () {
+        $(this).removeClass("selected");
+    });
+    $(this).addClass("selected");
 });

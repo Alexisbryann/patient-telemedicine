@@ -69,15 +69,13 @@
                     <div class="d-flex flex-column size bord">
                         <!--Medical concern and facility column-->
                         <div class="form-group size">
+
                             <span>Medical concern <span class="required">*</span></span>
 
-                            <div class="d-flex size">
-                                <div class="form-check radio-css-concern align-items-center ml-2">
-                                    <input class="form-check-input d-none" type="radio" name="medical-concern" value="option1" id="exampleRadios1">
-                                    <label class="form-check-label " for="exampleRadios1">
-                                        condition
-                                    </label>
-                                </div>
+                        
+
+
+                            <div class="d-flex size" id="medical-conditions-container">
                                 <div class="form-check radio-css-concern align-items-center ml-2">
                                     <input class="form-check-input d-none" type="radio" name="medical-concern" value="option1" id="exampleRadios2">
                                     <label class="form-check-label " for="exampleRadios2">
@@ -125,7 +123,9 @@
                         </div>
 
                         <div class="form-group">
+
                             <label>Select facility <span class="required">*</span></label>
+n
                             <select class="form-control" name="facility" id="facility">
                                 <option selected disabled value="">facility</option>
                                 <option value="33">facility</option>
@@ -150,28 +150,28 @@
                     <div class="d-flex flex-column size bord">
                         <!-- time slots column -->
                         <div class="form-group">
-                            <span>Choose an available time slot <span class="required">*</span></span>
+                            <span>Choose an available time slot</span>
 
                             <section class="d-none">
                                 <div class="d-flex flex-wrap" id="time-slots-container">
-                                <div class="form-check radio-css-slots align-items-center ml-2">
-                                    <input class="form-check-input d-none" type="radio" name="time-slots" value="option1" id="exampleRadios10">
-                                    <label class="form-check-label " for="exampleRadios10">
-                                        00:21 AM
-                                    </label>
-                                </div>
-                                <div class="form-check radio-css-slots align-items-center ml-2">
-                                    <input class="form-check-input d-none" type="radio" name="time-slots" value="option1" id="exampleRadios11">
-                                    <label class="form-check-label " for="exampleRadios11">
-                                        09:30 AM
-                                    </label>
-                                </div>
-                                <div class="form-check radio-css-slots align-items-center ml-2">
-                                    <input class="form-check-input d-none" type="radio" name="time-slots" value="option1" id="exampleRadios12">
-                                    <label class="form-check-label " for="exampleRadios12">
-                                        11:45 AM
-                                    </label>
-                                </div>
+                                    <div class="form-check radio-css-slots align-items-center ml-2">
+                                        <input class="form-check-input d-none" type="radio" name="time-slots" value="option1" id="exampleRadios10">
+                                        <label class="form-check-label " for="exampleRadios10">
+                                            00:21 AM
+                                        </label>
+                                    </div>
+                                    <div class="form-check radio-css-slots align-items-center ml-2">
+                                        <input class="form-check-input d-none" type="radio" name="time-slots" value="option1" id="exampleRadios11">
+                                        <label class="form-check-label " for="exampleRadios11">
+                                            09:30 AM
+                                        </label>
+                                    </div>
+                                    <div class="form-check radio-css-slots align-items-center ml-2">
+                                        <input class="form-check-input d-none" type="radio" name="time-slots" value="option1" id="exampleRadios12">
+                                        <label class="form-check-label " for="exampleRadios12">
+                                            11:45 AM
+                                        </label>
+                                    </div>
                                 </div>
                             </section>
                             <section class="d-flex flex-column size apt" id="time-slots-disabled">
@@ -183,7 +183,7 @@
 
                             <span>Your appointment will be on</span>
                             <section class="" id="appointment-date-time-display-container">
-                                <span><strong id="appointment-date-display">text</strong>&nbsp;at&nbsp;<strong id="appointment-time-display">text</strong></span>
+                                <span><strong id="appointment-date-display"></strong>&nbsp;at&nbsp;<strong id="appointment-time-display"></strong></span>
                             </section>
                             <!-- <section class="d-flex flex-column size apt" id="appointment-time-unset">
                                 <h2>Choose date and time</h2>
@@ -197,15 +197,17 @@
                 <label>Describe your medical concern</label>
                 <textarea id="medical-concern-description" class="form-control"></textarea>
             </div>
+
+            <span class="error" id="step-0-error-display"></span>
             </div>
             </div>
         </fieldset>
         <h3></h3>
         <fieldset style="text-align:left;" id="patient-details-step-parent">
-        <div class="w-100 d-none d-md-flex pad-t patient-details">Fill in the patient's details</div>
+            <div class="w-100 d-none d-md-flex pad-t patient-details">Fill in the patient's details</div>
             <div class="row md-col" style="margin-left: 15px;margin-right: 15px;margin-bottom: 15px;">
                 <div class="patient-details input-grp col-12 col-md-8">
-                   
+
                     <div class="col-12 col-md-6 mt-i">
                         <label>Full name<span class="required"> * </span></label>
                         <input type="text" id="name" name="name" class="form-control" placeholder="Full name" required />
