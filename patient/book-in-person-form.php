@@ -29,11 +29,8 @@
 <body>
     <section class="d-flex flex-column  align-items-center ">
         <header>
-            <h2>Alternatively, Book An In-Person Appointment</h2>
+            <h2>In-Person Appointment</h2>
         </header>
-
-        <span>Please complete the steps below to book an in-person appointment.</span>
-
     </section>
 
     <div class="d-flex booking-step justify-content-center pad border-btm ">
@@ -64,7 +61,7 @@
             <div class="d-flex flex-column">
 
                 <span class="mx-auto pad">Fill in the details to schedule the appointment.</span>
-                <div class="d-flex flex-column flex-md-row" style="border-top-width: 10px;margin-top: 20px;">
+                <div class="d-flex flex-column flex-md-row" style="border-top-width: 10px;">
                     <!-- medical concern + date + time slots row -->
                     <div class="d-flex flex-column size bord">
                         <!--Medical concern and facility column-->
@@ -146,10 +143,10 @@
                         </div>
                     </div>
 
-                    <div class="d-flex flex-column size bord">
+                    <div class="d-flex flex-column  bord">
                         <!-- time slots column -->
                         <div class="form-group">
-                            <span>Choose an available time slot</span>
+                            <span>Choose an available time slot <span class="required"></span></span>
 
                             <section class="d-none">
                                 <div class="d-flex flex-wrap" id="time-slots-container">
@@ -173,8 +170,8 @@
                                     </div>
                                 </div>
                             </section>
-                            <section class="d-flex flex-column size apt" id="time-slots-disabled">
-                                <h2>Choose a date to see available time slots</h2>
+                            <section class="d-flex flex-column apt" id="time-slots-disabled">
+                                <h5>Choose a date to see available time slots</h5>
                             </section>
                         </div>
 
@@ -185,7 +182,7 @@
                                 <span><strong id="appointment-date-display"></strong>&nbsp;at&nbsp;<strong id="appointment-time-display"></strong></span>
                             </section>
                             <section class="d-flex flex-column size apt" id="appointment-time-unset">
-                                <h2>Choose date and time</h2>
+                                <h5>Choose date and time</h5>
                             </section>
                         </div>
                     </div>
