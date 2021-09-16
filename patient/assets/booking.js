@@ -368,63 +368,92 @@ $("#book-inperson").steps({
         $("a[href$='previous']").hide();
     },
     onStepChanging: function (event, currentIndex, newIndex) {
-        switch (currentIndex) {
-            case 0:
-                const validation_options = {
-                    medical_condition_validity: {
-                        validity: $("[name='medical-concern']:checked").length > 0,
-                        error_message: "Please select a medical condition from the list.",
-                        element: $("#medical-conditions-container"),
-                    },
-                    facility_validity: {
-                        validity: $("#facility").val(),
-                        error_message: "Please select the facility for your appointment.",
-                        element: $("#facility"),
-                    },
-                    date_validity: {
-                        validity: $("#appointment-date").val(),
-                        error_message: "Please select the date for your appointment.",
-                        element: $("#in-person-appointment-date"),
-                    },
-                    time_validity: {
-                        validity: $("input[name='appointment-time']:checked").length > 0,
-                        error_message: "Please select the time for your appointment.",
-                        element: $("#time-slots-container"),
-                    }
-                }
+        if (newIndex < currentIndex) return true;
 
-                let all_elements_valid = true;
-
-                for (const key in validation_options) {
-                    if (Object.hasOwnProperty.call(validation_options, key)) {
-                        const validation_element = validation_options[key];
-
-                        if (!validation_element.validity) {
-                            all_elements_valid = false;
-
-
-                            setTimeout(() => {
-                                $("#step-0-error-display").text("");
-                            }, 2000);
-
-                            $("#step-0-error-display").text(validation_element.error_message).insertAfter(validation_element.element);
-
-                            $("body").animate({
-                                scrollTop: validation_element.element[0].offsetTop,
-                            }, 2);
-
-                            validation_element.element.focus();
-
-                            return false;
-                        }
-                    }
-                }
-
-                break;
-
-            default:
-                break;
+        const validation_options = {
+            medical_condition_validity: {
+                validity: $("[name='medical-concern']:checked").length > 0,
+                error_message: "Please select a medical condition from the list.",
+                element: $("#medical-conditions-container"),
+                step: 0,
+            },
+            facility_validity: {
+                validity: $("#facility").val(),
+                error_message: "Please select the facility for your appointment.",
+                element: $("#facility"),
+                step: 0,
+            },
+            date_validity: {
+                validity: $("#appointment-date").val(),
+                error_message: "Please select the date for your appointment.",
+                element: $("#in-person-appointment-date"),
+                step: 0,
+            },
+            time_validity: {
+                validity: $("input[name='appointment-time']:checked").length > 0,
+                error_message: "Please select the time for your appointment.",
+                element: $("#time-slots-container"),
+                step: 0,
+            },
+            patient_name: {
+                validity: $("#name")[0].checkValidity(),
+                error_message: "Please enter your name",
+                element: $("#name"),
+                step: 1
+            },
+            patient_email: {
+                validity: $("#email")[0].checkValidity(),
+                error_message: "Please enter your email address",
+                element: $("#email"),
+                step: 1
+            },
+            patient_gender: {
+                validity: $("#gender")[0].checkValidity(),
+                error_message: "Please enter your gender",
+                element: $("#gender"),
+                step: 1
+            },
+            patient_phone: {
+                validity: $("#phone")[0].checkValidity(),
+                error_message: "Please enter your phone number",
+                element: $("#phone"),
+                step: 1
+            },
+            patient_dob: {
+                validity: $("#dob")[0].checkValidity(),
+                error_message: "Please select your date of birth",
+                element: $("#dob"),
+                step: 1
+            },
         }
+
+        for (const key in validation_options) {
+            if (Object.hasOwnProperty.call(validation_options, key)) {
+                const validation_element = validation_options[key];
+
+                if (validation_element.step !== currentIndex) continue;
+
+                if (!validation_element.validity) {
+                    all_elements_valid = false;
+
+
+                    setTimeout(() => {
+                        $("#step-0-error-display").text("");
+                    }, 2000);
+
+                    $("#step-0-error-display").insertAfter(validation_element.element).text(validation_element.error_message);
+
+                    $("body").animate({
+                        scrollTop: validation_element.element[0].offsetTop,
+                    }, 2);
+
+                    validation_element.element.focus();
+
+                    return false;
+                }
+            }
+        }
+
         return true;
     },
     onStepChanged: function (event, currentIndex, priorIndex) {
