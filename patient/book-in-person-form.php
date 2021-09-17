@@ -123,6 +123,7 @@
 
                             <label>Select facility<span class="required"></span></label>
                             <select class="form-control" name="facility" id="facility">
+                                
                                 <option selected disabled value="">select facility</option>
                                 <option value="33">facility 1</option>
                                 <option value="34">facility 2</option>
