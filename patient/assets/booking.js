@@ -485,11 +485,25 @@ $("#book-inperson").steps({
             }
         }
 
-        if (medical_condition_description_validity.value.length > 1) {
+        const medical_condition_description = validation_options.medical_condition_description_validity;
 
+        if (medical_condition_description.value.length == 0) {
+            medical_condition_description.preview_element.closest(".preview-details-container").hide();
         } else {
+            description_words = medical_condition_description.value.split(' ');
+            word_count = description_words.length;
 
+            if (word_count > 10) {
+                medical_condition_description.preview_element.html(description_words.splice(0, 10).join(" ").concat("..."));
+                $("#show-more-link").show();
+            } else {
+                $("#show-more-link").hide();
+            }
+
+            medical_condition_description.preview_element.closest(".preview-details-container").show();
         }
+
+        $("#medical-condition-description .modal-body").text(medical_condition_description.value);
 
         return true;
     },

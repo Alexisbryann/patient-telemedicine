@@ -1406,3 +1406,25 @@ input[type="date"]::-webkit-clear-button, input[type="time"]::-webkit-clear-butt
 .bg-dark-orange {
     background-color: #f7941c;
 }
+
+#show-more-link {
+    color: #0080ff;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#medical-condition-description .close {
+    font-size: 1.4rem;
+}
+
+#medical-condition-description .modal-body {
+    color: #707070;
+}
+
+#medical-condition-description .modal-sm {
+    max-width: 400px;
+}
+
+#medical-condition-description .modal-header {
+    border-bottom: 1px solid silver;
+}

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- BEGIN HEAD -->
-<?php $inclusions_version = 1 ?>
+<?php $inclusions_version = 0 ?>
 
 <head>
     <meta charset="utf-8" />
@@ -259,6 +259,7 @@
                         <div class="preview-details-container flex-column">
                             <span class="w-100 preview-detail-label">Medical concern description</span>
                             <span class="preview-detail" id="concern-description-preview">Preview detail</span>
+                            <span id="show-more-link" title="Show more" data-toggle="modal" data-target="#medical-condition-description">show more</span>
                         </div>
                         <div class="preview-details-container">
                             <div class="mr-auto d-flex flex-column">
@@ -310,13 +311,27 @@
                         </div>
                         <div class="d-flex flex-column h-100">
                             <span class="bg-dark-orange px-3 py-2"><strong>Note</strong></span>
-                            <span class="bg-light-orange px-3 py-2">Please note you will be required to pay at the clinic</span>
+                            <span class="bg-light-orange px-3 py-2 h-100">Please note you will be required to pay at the clinic</span>
                         </div>
                     </div>
                 </section>
             </div>
         </fieldset>
     </form>
+
+    <div class="modal fade" id="medical-condition-description" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content rounded-0">
+                <div class="modal-header px-3 py-2">
+                    <strong class="modal-title">Medical Concern Description</strong>
+                    <span type="button" data-dismiss="modal" aria-label="Close" class="close">
+                        <span aria-hidden="true">×</span>
+                    </span>
+                </div>
+                <div class="modal-body"></div>
+            </div>
+        </div>
+    </div>
 
     <?php require "booking-form-javascript.php"; ?>
 </body>
