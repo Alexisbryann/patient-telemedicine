@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- BEGIN HEAD -->
-<?php $inclusions_version = 1 ?>
+<?php $inclusions_version = 0 ?>
 
 <head>
     <meta charset="utf-8" />
@@ -69,7 +69,7 @@
 
                             <span>Medical concern <span class="required"></span></span>
 
-                        
+
 
 
                             <div class="d-flex size" id="medical-conditions-container">
@@ -244,63 +244,91 @@
         <h3></h3>
         <fieldset style="text-align:left;">
             <div id="confirm-details-section">
-                <div class="col-12 col-md-12 col-sm-12" style="text-align:center; margin-bottom: 50px;">Kindly confirm the details you entered to ensure they are correct.</div>
+                <div class="d-flex w-100 justify-content-center my-3 px-3">Kindly confirm the details you entered to ensure they are correct.</div>
 
-                <div class="d-flex flex-column flex-md-row">
-
-                    <div class="input-group w-100 mr-1 pb-0" style="border:1px solid silver" id="confirm-appointment-patient">
-                        <div class="title" style="margin-bottom:10px;">Patient Details</div>
-
-                        <div class="preview-div col-12 col-md-4 col-sm-12">
-                            <span>Full name</span><br />
-                            <span class="preview" id="name-preview"></span>
+                <section class="d-flex mx-0 mx-md-4 flex-column flex-md-row">
+                    <div class="w-100 border d-flex flex-column p-3">
+                        <strong class="mb-2">Appointment Details</strong>
+                        <div class="preview-details-container flex-column">
+                            <span class="w-100 preview-detail-label">Medical concern</span>
+                            <span class="preview-detail" id="concern-preview">Preview detail</span>
                         </div>
-                        <div class="preview-div col-12 col-md-4 col-sm-12">
-                            <span>Gender</span><br>
-                            <span class="preview" id="gender-preview"></span>
+                        <div class="preview-details-container flex-column">
+                            <span class="w-100 preview-detail-label">Medical concern description</span>
+                            <span class="preview-detail" id="concern-description-preview">Preview detail</span>
+                            <span id="show-more-link" title="Show more" data-toggle="modal" data-target="#medical-condition-description">show more</span>
                         </div>
-                        <div class="preview-div col-12 col-md-4 col-sm-12">
-                            <span>Date of birth</span><br>
-                            <span class="preview" id="dob-preview"></span>
-                        </div>
-
-                        <div class="preview-div col-12 col-md-4 col-sm-12">
-                            <span>Email address</span><br>
-                            <span class="preview" id="email-preview"></span>
-                        </div>
-
-                        <div class="preview-div col-12 col-md-4 col-sm-12">
-                            <span>Phone number</span><br>
-                            <span class="preview" id="phone-preview"></span>
-                        </div>
-
-
-                    </div>
-                    <div class="d-flex flex-column-reverse flex-md-row w-100 px-0 pb-0">
-                        <div class="w-100 mx-0 mx-md-1 pb-2 pb-md-0" id="confirm-appointment-details">
-
-                            <div class="title">Appointment Details</div>
-
-                            <div class="col-12 col-md-12 col-sm-12">
-                                <span>Type</span><br>
-                                <span class="preview" id="type-preview">Speak To A Doctor Now</span>
+                        <div class="preview-details-container">
+                            <div class="mr-auto d-flex flex-column">
+                                <span class="preview-detail-label">Date</span>
+                                <span class="preview-detail" id="date-preview">Preview detail</span>
                             </div>
-                            <div class="col-12 px-1 px-md-3 col-sm-12">
-                                <span class="preview" id="time-preview">Date </span><br><span class="preview" id="time-preview">Time</span>
+                            <div class="mr-auto d-flex flex-column">
+                                <span class="preview-detail-label">Time</span>
+                                <span class="preview-detail" id="time-preview">Preview detail</span>
                             </div>
-                        </div>
-                        <div class="d-flex flex-column w-100 mx-0 mx-md-1" id="confirm-appointment-cost">
-                            <div class="title">Appointment Cost</div>
-                            <div class="cost1 h-100 p-2">
-                                <span>Total</span><br>
-                                <span class="preview" id="type-preview">Ksh. 300</span>
+                            <div class="mr-auto d-flex flex-column">
+                                <span class="preview-detail-label">Facility</span>
+                                <span class="preview-detail" id="facility-preview">Preview detail</span>
                             </div>
                         </div>
                     </div>
-                </div>
+                    <div class="w-100 border d-flex flex-column p-3">
+                        <strong class="mb-2">Patient Details</strong>
+                        <div class="preview-details-container flex-wrap">
+                            <div class="mw-25 mr-2 d-flex flex-column">
+                                <span class="preview-detail-label">Full name</span>
+                                <span class="preview-detail" id="name-preview">Preview detail</span>
+                            </div>
+                            <div class="mw-75 d-flex flex-column">
+                                <span class="preview-detail-label">Email</span>
+                                <span class="preview-detail" id="email-preview">Preview detail</span>
+                            </div>
+                        </div>
+                        <div class="preview-details-container flex-wrap">
+                            <div class="mw-25 mr-2 d-flex flex-column">
+                                <span class="preview-detail-label">Gender</span>
+                                <span class="preview-detail" id="gender-preview">Preview detail</span>
+                            </div>
+                            <div class="mw-75 d-flex flex-column">
+                                <span class="preview-detail-label">Phone number</span>
+                                <span class="preview-detail" id="phone-preview">Preview detail</span>
+                            </div>
+                        </div>
+                        <div class="preview-details-container flex-column">
+                            <span class="w-100 preview-detail-label">Date of birth</span>
+                            <span class="preview-detail" id="dob-preview">Preview detail</span>
+                        </div>
+                    </div>
+                    <div class="w-50 w-100-md border d-flex flex-column pt-3">
+                        <strong class="mb-2 px-3">Appointment Cost</strong>
+                        <div class="preview-details-container flex-column h-50 px-3">
+                            <span>Total</span>
+                            <h2>Ksh. ####</h2>
+                        </div>
+                        <div class="d-flex flex-column h-100">
+                            <span class="bg-dark-orange px-3 py-2"><strong>Note</strong></span>
+                            <span class="bg-light-orange px-3 py-2 h-100">Please note you will be required to pay at the clinic</span>
+                        </div>
+                    </div>
+                </section>
             </div>
         </fieldset>
     </form>
+
+    <div class="modal fade" id="medical-condition-description" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content rounded-0">
+                <div class="modal-header px-3 py-2">
+                    <strong class="modal-title">Medical Concern Description</strong>
+                    <span type="button" data-dismiss="modal" aria-label="Close" class="close">
+                        <span aria-hidden="true">×</span>
+                    </span>
+                </div>
+                <div class="modal-body"></div>
+            </div>
+        </div>
+    </div>
 
     <?php require "booking-form-javascript.php"; ?>
 </body>

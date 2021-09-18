@@ -357,10 +357,9 @@ const in_person_settings = {
 
 $("#book-inperson").steps({
     bodyTag: "fieldset",
-    transitionEffect: "slideLeft",
     headerTag: "h3",
     labels: {
-        finish: "Proceed To Pay",
+        finish: "Confirm Booking",
         next: "Next",
         previous: "Back",
     },
@@ -368,61 +367,91 @@ $("#book-inperson").steps({
         $("a[href$='previous']").hide();
     },
     onStepChanging: function (event, currentIndex, newIndex) {
-        if (newIndex < currentIndex) return true;
+        newIndex > 0 ? $("a[href$='previous']").show() : $("a[href$='previous']").hide();
+        if (newIndex < currentIndex) {
+            $(`a[href="#finish"]`).html("Confirm Booking");
+            return true;
+        }
 
         const validation_options = {
             medical_condition_validity: {
                 validity: $("[name='medical-concern']:checked").length > 0,
-                error_message: "Please select a medical condition from the list.",
+                error_message: "Please select a medical concern from the list.",
+                value: $(`[name='medical-concern']:checked`).val(),
                 element: $("#medical-conditions-container"),
+                preview_element: $(`#concern-preview`),
+                step: 0,
+            },
+            medical_condition_description_validity: {
+                validity: $("#medical-concern-description")[0].checkValidity(),
+                value: $(`#medical-concern-description`).val(),
+                error_message: "Please enter a valid medical condition.",
+                element: $("#medical-concern-description"),
+                preview_element: $(`#concern-description-preview`),
                 step: 0,
             },
             facility_validity: {
                 validity: $("#facility").val(),
                 error_message: "Please select the facility for your appointment.",
+                value: $(`#facility`).val(),
                 element: $("#facility"),
+                preview_element: $(`#facility-preview`),
                 step: 0,
             },
             date_validity: {
                 validity: $("#appointment-date").val(),
                 error_message: "Please select the date for your appointment.",
+                value: $(`#appointment-date`).val(),
                 element: $("#in-person-appointment-date"),
+                preview_element: $(`#date-preview`),
                 step: 0,
             },
             time_validity: {
                 validity: $("input[name='appointment-time']:checked").length > 0,
+                value: $(`#input[name='appointment-time']:checked`).val(),
                 error_message: "Please select the time for your appointment.",
                 element: $("#time-slots-container"),
+                preview_element: $(`#time-preview`),
                 step: 0,
             },
             patient_name: {
                 validity: $("#name")[0].checkValidity(),
                 error_message: "Please enter your name",
+                value: $(`#name`).val(),
                 element: $("#name"),
+                preview_element: $(`#name-preview`),
                 step: 1
             },
             patient_email: {
                 validity: $("#email")[0].checkValidity(),
                 error_message: "Please enter your email address",
+                value: $(`#email`).val(),
                 element: $("#email"),
+                preview_element: $(`#email-preview`),
                 step: 1
             },
             patient_gender: {
                 validity: $("#gender")[0].checkValidity(),
                 error_message: "Please enter your gender",
+                value: $(`#gender`).val(),
                 element: $("#gender"),
+                preview_element: $(`#gender-preview`),
                 step: 1
             },
             patient_phone: {
                 validity: $("#phone")[0].checkValidity(),
                 error_message: "Please enter your phone number",
+                value: $(`#phone`).val(),
                 element: $("#phone"),
+                preview_element: $(`#phone-preview`),
                 step: 1
             },
             patient_dob: {
                 validity: $("#dob")[0].checkValidity(),
                 error_message: "Please select your date of birth",
+                value: $(`#dob`).val(),
                 element: $("#dob"),
+                preview_element: $(`#dob-preview`),
                 step: 1
             },
         }
@@ -451,13 +480,34 @@ $("#book-inperson").steps({
 
                     return false;
                 }
+
+                validation_element.preview_element.html(validation_element.value);
             }
         }
+
+        const medical_condition_description = validation_options.medical_condition_description_validity;
+
+        if (medical_condition_description.value.length == 0) {
+            medical_condition_description.preview_element.closest(".preview-details-container").hide();
+        } else {
+            description_words = medical_condition_description.value.split(' ');
+            word_count = description_words.length;
+
+            if (word_count > 10) {
+                medical_condition_description.preview_element.html(description_words.splice(0, 10).join(" ").concat("..."));
+                $("#show-more-link").show();
+            } else {
+                $("#show-more-link").hide();
+            }
+
+            medical_condition_description.preview_element.closest(".preview-details-container").show();
+        }
+
+        $("#medical-condition-description .modal-body").text(medical_condition_description.value);
 
         return true;
     },
     onStepChanged: function (event, currentIndex, priorIndex) {
-
     },
     onFinished: function (event, currentIndex) {
         event.preventDefault();
