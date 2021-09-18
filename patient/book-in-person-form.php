@@ -29,11 +29,8 @@
 <body>
     <section class="d-flex flex-column  align-items-center ">
         <header>
-            <h2>Alternatively, Book An In-Person Appointment</h2>
+            <h2>In-Person Appointment</h2>
         </header>
-
-        <span>Please complete the steps below to book an in-person appointment.</span>
-
     </section>
 
     <div class="d-flex booking-step justify-content-center pad border-btm ">
@@ -64,13 +61,13 @@
             <div class="d-flex flex-column">
 
                 <span class="mx-auto pad">Fill in the details to schedule the appointment.</span>
-                <div class="d-flex flex-column flex-md-row" style="border-top-width: 10px;margin-top: 20px;">
+                <div class="d-flex flex-column flex-md-row" style="border-top-width: 10px;">
                     <!-- medical concern + date + time slots row -->
                     <div class="d-flex flex-column size bord">
                         <!--Medical concern and facility column-->
                         <div class="form-group size">
 
-                            <span>Medical concern <span class="required">*</span></span>
+                            <span>Medical concern <span class="required"></span></span>
 
 
 
@@ -124,15 +121,15 @@
 
                         <div class="form-group">
 
-                            <label>Select facility <span class="required">*</span></label>
-                            n
+                            <label>Select facility<span class="required"></span></label>
                             <select class="form-control" name="facility" id="facility">
-                                <option selected disabled value="">facility</option>
-                                <option value="33">facility</option>
-                                <option value="33">facility</option>
-                                <option value="33">facility</option>
-                                <option value="33">facility</option>
-                                <option value="33">facility</option>
+                                
+                                <option selected disabled value="">select facility</option>
+                                <option value="33">facility 1</option>
+                                <option value="34">facility 2</option>
+                                <option value="35">facility 3</option>
+                                <option value="36">facility 4</option>
+                                <option value="37">facility 5</option>
                             </select>
                         </div>
                     </div>
@@ -140,17 +137,17 @@
                     <div class="size center bord">
                         <!--Calendar column-->
                         <div>
-                            <div class="left">Choose a date <span class="required">*</span></div>
+                            <div class = "left">Choose a date <span class="required"></span></div>
                             <div class="border disabled-element-target center" id="in-person-appointment-date" data-required_input="#facility"></div>
                             <input type="hidden" id="appointment-date" name="appointment-date">
                             <span class="disabled-element-error"></span>
                         </div>
                     </div>
 
-                    <div class="d-flex flex-column size bord">
+                    <div class="d-flex flex-column  bord">
                         <!-- time slots column -->
                         <div class="form-group">
-                            <span>Choose an available time slot</span>
+                            <span>Choose an available time slot <span class="required"></span></span>
 
                             <section class="d-none">
                                 <div class="d-flex flex-wrap" id="time-slots-container">
@@ -174,20 +171,20 @@
                                     </div>
                                 </div>
                             </section>
-                            <section class="d-flex flex-column size apt" id="time-slots-disabled">
-                                <h2>Choose a date to see available time slots</h2>
+                            <section class="d-flex flex-column apt" id="time-slots-disabled">
+                                <h5>Choose a date to see available time slots</h5>
                             </section>
                         </div>
 
                         <div class="d-flex flex-column">
 
                             <span>Your appointment will be on</span>
-                            <section class="" id="appointment-date-time-display-container">
+                            <section class="d-none" id="appointment-date-time-display-container">
                                 <span><strong id="appointment-date-display"></strong>&nbsp;at&nbsp;<strong id="appointment-time-display"></strong></span>
                             </section>
-                            <!-- <section class="d-flex flex-column size apt" id="appointment-time-unset">
-                                <h2>Choose date and time</h2>
-                            </section> -->
+                            <section class="d-flex flex-column size apt" id="appointment-time-unset">
+                                <h5>Choose date and time</h5>
+                            </section>
                         </div>
                     </div>
                 </div>
