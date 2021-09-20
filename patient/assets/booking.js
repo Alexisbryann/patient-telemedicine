@@ -347,12 +347,26 @@ function validateInput(step) {
 // in-person appointment booking
 const in_person_settings = {
     facility_id: $("#book-inperson").data("facility_id"),
-    time_slot_template: (time) => `<div class="form-check radio-css-slots align-items-center ml-2">
+    time_slot_template: (time, display) => `<div class="form-check radio-css-slots align-items-center ml-2">
                                         <input class="form-check-input d-none" type="radio" name="appointment-time" value="${time}" id = "time-slot-${time}" >
                                         <label class="form-check-label " for="time-slot-${time}">
-                                            ${time}
+                                            ${display}
                                         </label>
                                     </div>`,
+    get appointment_cost() {
+        const facility_id = this.facility_id,
+            cost = {
+                127: "1000",
+                120: "200",
+                126: "600",
+                116: "500",
+                121: "300",
+                123: "500",
+                119: "500",
+                122: "400",
+            };
+        return cost[facility_id];
+    }
 };
 
 $("#book-inperson").steps({
@@ -408,7 +422,7 @@ $("#book-inperson").steps({
             },
             time_validity: {
                 validity: $("input[name='appointment-time']:checked").length > 0,
-                value: $(`#input[name='appointment-time']:checked`).val(),
+                value: $(`input[name='appointment-time']:checked`).val(),
                 error_message: "Please select the time for your appointment.",
                 element: $("#time-slots-container"),
                 preview_element: $(`#time-preview`),
@@ -424,7 +438,7 @@ $("#book-inperson").steps({
             },
             patient_email: {
                 validity: $("#email")[0].checkValidity(),
-                error_message: "Please enter your email address",
+                error_message: "Please enter a valid email address",
                 value: $(`#email`).val(),
                 element: $("#email"),
                 preview_element: $(`#email-preview`),
@@ -439,8 +453,8 @@ $("#book-inperson").steps({
                 step: 1
             },
             patient_phone: {
-                validity: $("#phone")[0].checkValidity(),
-                error_message: "Please enter your phone number",
+                validity: validatePhoneNumber($("#phone").val()),
+                error_message: "Please enter a valid phone number",
                 value: $(`#phone`).val(),
                 element: $("#phone"),
                 preview_element: $(`#phone-preview`),
@@ -505,36 +519,56 @@ $("#book-inperson").steps({
 
         $("#medical-condition-description .modal-body").text(medical_condition_description.value);
 
+        $("#appointment-cost-display").text(in_person_settings.appointment_cost)
+
         return true;
     },
     onStepChanged: function (event, currentIndex, priorIndex) {
+        $(`input[name='radio-button'][value='${currentIndex}']`).click();
     },
     onFinished: function (event, currentIndex) {
         event.preventDefault();
         var btn = document.querySelectorAll('a[href="#finish"]');
-        $(btn).html('<i class="sending fa fa-spinner fa-spin">&nbsp;&nbsp;</i>Sending...');
+        $(btn).html('<i class="sending fa fa-spinner fa-spin"></i>&nbsp;&nbsp;Sending...');
         $('.btn-next').css("pointer-events", "none");
+
+        const in_person_form_data = new FormData(this);
+        in_person_form_data.append("location", "");
+        in_person_form_data.append("appointment-type", "");
+        in_person_form_data.append("in-person", 1);
 
         $.ajax({
             url: "operation/bookingOperations.php",
             method: "POST",
-            data: new FormData(this),
+            data: in_person_form_data,
             contentType: false,
             processData: false,
+            dataType: "json",
             success: function (response) {
-                var response = JSON.parse(response);
                 if (response.response == 200) {
-                    $(btn).html('');
-                    $(btn).html('Submitted');
-                    var appointment_id = response.id;
-                    DPO_Payment(PaymentURL, name, email, phone, txRef, appointment_id);
-                } else if (response == 500) {
-                    $(btn).css("pointer-events", "auto");
-                    $(btn).html('');
-                    $(btn).html('Proceed To Pay');
-                    document.getElementById('allergies-error').innerHTML = '';
-                    document.getElementById('allergies-error').innerHTML = 'Sorry, there was a problem with sending your request, please try again.';
-                    $('#allergies-error').show(500);
+                    swal({
+                        title: "Booked",
+                        text: "Your appointment has been booked successfully.",
+                        type: "success",
+                        timer: 4000,
+                        showCloseButton: true,
+                        showConfirmButton: false,
+                        showCancelButton: true,
+                        cancelButtonText: "Close"
+                    });
+
+                    $("#book-inperson")[0].reset();
+                    $("#book-inperson").steps("reset");
+                } else {
+                    swal({
+                        title: "Failed",
+                        text: "There was a problem saving your appointment. Please refresh the page and try again",
+                        type: "error",
+                        timer: 4000,
+                        showCloseButton: true,
+                        showConfirmButton: false,
+                        showCancelButton: true
+                    });
                 }
             },
             async: false
@@ -583,7 +617,13 @@ $("#in-person-appointment-date").datepicker({
             $("#appointment-time-unset").addClass("d-flex").removeClass("d-none")
 
             available_time_slots.forEach(time_slot => {
-                $("#time-slots-container").append(in_person_settings.time_slot_template(time_slot));
+                const time_slot_exploded = time_slot.split(" "),
+                    time = time_slot_exploded[0].split(":"),
+                    meridian = time_slot_exploded[1],
+                    hour = (meridian == "PM" && time[0] !== 12) ? parseInt(time[0]) + 12 : time[0],
+                    full_time = `${hour}:${time[1]}`;
+
+                $("#time-slots-container").append(in_person_settings.time_slot_template(full_time, time_slot));
             });
         },
         error: function (error) {
@@ -620,24 +660,29 @@ function timeSlotsList(today) {
         counter = min_time;
 
     while (counter < max_time) {
+        const meridian = counter >= 12 ? "PM" : "AM";
+        let display_hour = counter > 12 ? counter - 12 : counter;
+
+        if (`${display_hour}`.length == 1) display_hour = `0${display_hour}`;
+
         if (today) {
             if (current_hour <= counter) {
                 if (current_hour == counter) {
                     if (current_minutes < 20) {
-                        time_slots.push(`${counter}:20`);
+                        time_slots.push(`${display_hour}:20 ${meridian}`);
                     } else if (current_minutes < 40) {
-                        time_slots.push(`${counter}:40`);
+                        time_slots.push(`${display_hour}:40 ${meridian}`);
                     }
                 } else {
-                    time_slots.push(`${counter}:00`);
-                    time_slots.push(`${counter}:20`);
-                    time_slots.push(`${counter}:40`);
+                    time_slots.push(`${display_hour}:00 ${meridian}`);
+                    time_slots.push(`${display_hour}:20 ${meridian}`);
+                    time_slots.push(`${display_hour}:40 ${meridian}`);
                 }
             }
         } else {
-            time_slots.push(`${counter}:00`);
-            time_slots.push(`${counter}:20`);
-            time_slots.push(`${counter}:40`);
+            time_slots.push(`${display_hour}:00 ${meridian}`);
+            time_slots.push(`${display_hour}:20 ${meridian}`);
+            time_slots.push(`${display_hour}:40 ${meridian}`);
         }
         counter++;
     }
@@ -705,4 +750,40 @@ $("[name=medical-concern]").on("change", function () {
         $(this).removeClass("selected");
     });
     $(this).addClass("selected");
+});
+
+function validatePhoneNumber(input) {
+    /**
+     * Validates phone number. Allows input starting with +, starting with 254, starting with 0, starting with 1, starting with 7, longer than 10 characters.
+     */
+    let input_sanitized = input.replace(/[\s-]/g, ""); // sanitize input
+
+    if (input_sanitized.startsWith(0)) input_sanitized = input_sanitized.slice(1);
+    if (input_sanitized.startsWith(7) || input_sanitized.startsWith(1)) input_sanitized = `+254${input_sanitized}`;
+
+    if (input_sanitized.length < 10
+        || !input_sanitized.match(/^\+[0-9]{10,14}$/)
+    ) return false;
+
+    return true;
+}
+
+$(`.booking-step [name="radio-button"]`).on("change", function () {
+    let step = $(this).val(),
+        current_step = $("#book-inperson").steps("getCurrentIndex");
+
+    if (current_step == step) {
+        return false;
+    } else if (current_step < step) {
+        while (current_step < step) {
+            $("#book-inperson").steps("next");
+            current_step++;
+        }
+    } else if (current_step > step) {
+        while (current_step > step) {
+            $("#book-inperson").steps("previous");
+            current_step--;
+        }
+    }
+    $(`.booking-step [name="radio-button"][value='${step}']`).prop("checked", true);
 });

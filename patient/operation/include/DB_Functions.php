@@ -81,14 +81,22 @@ class DB_Functions {
         // $time = date('G:i:s', $time);
 
         if ($appointment_type == "inperson") {
-            $user_id = $this->createPatientAccount($email, $name);
-            $user_id_field = ", user";
-            $user_id_value = ", '$user_id'";
-
-            $service = mysqli_fetch_assoc(mysqli_query($db, "SELECT DISTINCT wp_ea_connections.service FROM `wp_ea_services` INNER JOIN `wp_ea_connections` ON wp_ea_connections.service = wp_ea_services.id WHERE wp_ea_services.facility_id = '$facility_id' AND wp_ea_connections.location != 130 GROUP BY wp_ea_connections.service"))["service"]; // in-person service for clinic
+            // $user_id = $this->createPatientAccount($email, $name);
+            $facility_services = [ // facility_id=>in_person_service_id
+                127 => ["service" => 216, "location" => 145, "cost" => 1000],
+                120 => ["service" => 195, "location" => 148, "cost" => 200],
+                126 => ["service" => 213, "location" => 156, "cost" => 600],
+                116 => ["service" => 187, "location" => 144, "cost" => 500],
+                121 => ["service" => 197, "location" => 149, "cost" => 300],
+                123 => ["service" => 203, "location" => 151, "cost" => 500],
+                119 => ["service" => 193, "location" => 147, "cost" => 500],
+                122 => ["service" => 201, "location" => 150, "cost" => 400]
+            ];
 
             $service_field = ", service";
-            $service_value = ", '$service'";
+            $service_value = ", '{$facility_services[$facility_id]['service']}'";
+            $location = $facility_services[$facility_id]['location'];
+            $cost = $facility_services[$facility_id]["cost"];
 
             $worker_field = ", worker";
 
@@ -96,13 +104,37 @@ class DB_Functions {
             $worker_value = $facility_id_value = ", '$facility_id'";
 
             $med_on_demand = 0;
+
+            try {
+                require "{$_SERVER["DOCUMENT_ROOT"]}/mha/wp-config.php";
+                $new_user_id = register_new_user($name, $email);
+                if (!is_wp_error($new_user_id)) {
+                    $user_id_field = ", user";
+                    $user_id_value = ", '$user_id'";
+
+                    add_user_meta($new_user_id, 'phone', $phone);
+                    add_user_meta($new_user_id, 'country', 'Kenya');
+                    add_user_meta($new_user_id, 'dob', $dob);
+                } else {
+                    throw new Exception("User account was not created.", 1);
+                }
+            } catch (\Throwable $e) {
+                $this->logError(
+                    __FUNCTION__,
+                    func_get_args(),
+                    "Failed to create new user account.",
+                    "",
+                    $e->getMessage()
+                );
+            }
         } else {
             $med_on_demand = 1;
+            $location = 130;
             $user_id_field = $user_id_value = $service_field = $service_value = $worker_field = $facility_id_field = $worker_value = $facility_id_value = "";
         }
 
 
-        $query = "INSERT INTO wp_ea_appointments (wp_ea_appointments.location, wp_ea_appointments.date, wp_ea_appointments.start, end_date, wp_ea_appointments.status, created, price, med_on_demand, clinic " . trim("$user_id_field $worker_field $facility_id_field $service_field") . ")  VALUES (130, '$date', '$time', '$date', 'pending payment', '$date $time', '$cost', $med_on_demand, '$clinic' " . trim("$user_id_value $worker_value $facility_id_value $service_value") . ")";
+        $query = "INSERT INTO wp_ea_appointments (wp_ea_appointments.location, wp_ea_appointments.date, wp_ea_appointments.start, end_date, wp_ea_appointments.status, created, price, med_on_demand, clinic " . trim("$user_id_field $worker_field $facility_id_field $service_field") . ")  VALUES ('$location', '$date', '$time', '$date', 'pending payment', '$date $time', '$cost', $med_on_demand, '$clinic' " . trim("$user_id_value $worker_value $facility_id_value $service_value") . ")";
 
         $result = mysqli_query($db, $query) or die(mysqli_error($db));
         $appointment_id = mysqli_insert_id($db);
@@ -808,43 +840,43 @@ class DB_Functions {
         return $response;
     }
 
-    private function createPatientAccount(
-        string $user_email,
-        string $user_name
-    ) {
-        /**
-         * Creates an MHA account for the patient after booking an in-person appointment.
-         * 
-         * @param string $user_email user email address
-         * @param string $user_name user name
-         * 
-         * @return false|int patient's user id if the account gets created successfully, false otherwise
-         */
+    // private function createPatientAccount(
+    //     string $user_email,
+    //     string $user_name
+    // ) {
+    //     /**
+    //      * Creates an MHA account for the patient after booking an in-person appointment.
+    //      * 
+    //      * @param string $user_email user email address
+    //      * @param string $user_name user name
+    //      * 
+    //      * @return false|int patient's user id if the account gets created successfully, false otherwise
+    //      */
 
-        $db = $this->conn;
+    //     $db = $this->conn;
 
-        $user_registered = date("Y-m-d");
+    //     $user_registered = date("Y-m-d");
 
-        $save_user_sql = "INSERT INTO `wp_users`(`user_login`, `user_email`, `user_registered`, `display_name`) VALUES ('$user_email','$user_email','$user_registered','$user_name')";
+    //     $save_user_sql = "INSERT INTO `wp_users`(`user_login`, `user_email`, `user_registered`, `display_name`) VALUES ('$user_email','$user_email','$user_registered','$user_name')";
 
-        mysqli_query($db, $save_user_sql);
+    //     mysqli_query($db, $save_user_sql);
 
-        if (mysqli_error($db)) {
-            $this->logError(__FUNCTION__, func_get_args(), "Failed to add new user.", $save_user_sql, mysqli_error($db));
-            return ["error" => "Failed to add new user", "error_code" => 3];
-        }
+    //     if (mysqli_error($db)) {
+    //         $this->logError(__FUNCTION__, func_get_args(), "Failed to add new user.", $save_user_sql, mysqli_error($db));
+    //         return ["error" => "Failed to add new user", "error_code" => 3];
+    //     }
 
-        $user_id = mysqli_insert_id($db);
-        $user_name_split = explode(" ", $user_name);
-        $first_name = $user_name_split[0];
-        $last_name = $user_name_split[1] ?? "";
+    //     $user_id = mysqli_insert_id($db);
+    //     $user_name_split = explode(" ", $user_name);
+    //     $first_name = $user_name_split[0];
+    //     $last_name = $user_name_split[1] ?? "";
 
-        $save_user_meta_error = $this->saveUserMeta($first_name, $last_name, $user_email, $user_id);
+    //     $save_user_meta_error = $this->saveUserMeta($first_name, $last_name, $user_email, $user_id);
 
-        if ($save_user_meta_error) return $save_user_meta_error;
+    //     if ($save_user_meta_error) return $save_user_meta_error;
 
-        return $user_id;
-    }
+    //     return $user_id;
+    // }
 
     private function saveUserMeta(
         string $first_name,

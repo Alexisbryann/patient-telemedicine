@@ -34,52 +34,49 @@
 
 .size {
     flex-wrap: wrap!important;
-    min-width: 33%;
+    min-width: 25%;
 }
 
 .radio-css-concern {
     background-color: #FEE9D1;
     border-radius: 16px;
-    margin-bottom: 4px;
+    margin-bottom: 1rem;
     padding: 0px !important;
+    display: flex;
 }
 
 .radio-css-concern input[type="radio"]+label {
     position: relative;
     cursor: pointer;
     border-radius: 16px;
-    padding: 4px !important;
+    padding: .2rem .6rem;
+    font-size: .7rem;
+    font-weight: 500;
 }
 
 .radio-css-concern input[type="radio"]:checked+label {
-    position: relative;
-    cursor: pointer;
     background-color: orange;
-    border-radius: 16px;
-    padding: 4px !important;
 }
 
 .radio-css-slots {
-    background-color: #FBC98D;
+    background-color: #FEE9D1;
     border-radius: 16px;
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
     padding: 0px !important;
+    display: flex;
 }
 
 .radio-css-slots input[type="radio"]+label {
     position: relative;
     cursor: pointer;
     border-radius: 16px;
-    padding: 4px !important;
+    padding: .2rem .6rem;
+    font-size: .7rem;
+    font-weight: 500;
 }
 
 .radio-css-slots input[type="radio"]:checked+label {
-    position: relative;
-    cursor: pointer;
     background-color: white;
-    border-radius: 16px;
-    padding: 4px !important;
-    border: solid 1px orange;
 }
 
 .center {
@@ -107,16 +104,13 @@ p {
     margin-bottom: 1rem;
 }
 
-.telemed-step-one h3,
-.telemed-step-two h3,
-.payment h3 {
+.telemed-step-one h3, .telemed-step-two h3, .payment h3 {
     font-size: 30px !important;
     font-weight: bold;
     font-family: 'Segoe UI';
 }
 
-.telemed-step-one h5,
-.telemed-step-two h5 {
+.telemed-step-one h5, .telemed-step-two h5 {
     font-size: 17px !important;
     font-weight: 400;
     font-family: 'Segoe UI';
@@ -149,8 +143,7 @@ p {
     text-align: center !important;
 }
 
-#permission-info h4,
-#callback h4 {
+#permission-info h4, #callback h4 {
     color: #000000 !important;
     font-family: 'Segoe UI' !important;
     font-size: 19px !important;
@@ -221,13 +214,11 @@ p {
     transform: rotate(45deg);
 }
 
-.error,
-.required {
+.error, .required {
     color: #FF5252;
 }
 
-.preview,
-.title {
+.preview, .title {
     font-weight: bold;
 }
 
@@ -268,7 +259,7 @@ p {
 }
 
 a[href="#next"] {
-    background: #F7941C !important;
+    background: #e5e5e5 !important;
     color: #000000 !important;
     border: 1px solid silver;
 }
@@ -302,7 +293,6 @@ a[href="#previous"] {
         transform: rotate(360deg);
     }
 }
-
 
 /* Patient Telemedicine */
 
@@ -517,9 +507,7 @@ a[href="#previous"] {
     padding-bottom: 40px;
 }
 
-
 /***************Responsive Media Queries**************/
-
 
 /* 
     ##Device = Desktops
@@ -530,7 +518,6 @@ a[href="#previous"] {
     /* CSS */
 }
 
-
 /* 
     ##Device = Laptops, Desktops
     ##Screen = B/w 1025px to 1280px
@@ -539,7 +526,6 @@ a[href="#previous"] {
 @media (min-width: 1025px) and (max-width: 1280px) {
     /* CSS */
 }
-
 
 /* 
     ##Device = Tablets, Ipads (portrait)
@@ -550,7 +536,6 @@ a[href="#previous"] {
     /* CSS */
 }
 
-
 /* 
     ##Device = Tablets, Ipads (landscape)
     ##Screen = B/w 768px to 1024px
@@ -559,7 +544,6 @@ a[href="#previous"] {
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     /* CSS */
 }
-
 
 /* 
     ##Device = Low Resolution Tablets, Mobiles (Landscape)
@@ -570,21 +554,18 @@ a[href="#previous"] {
     /* CSS */
 }
 
-
 /* 
     ##Device = Most of the Smartphones Mobiles (Portrait)
     ##Screen = B/w 320px to 479px
 */
 
 @media (min-width: 320px) and (max-width: 480px) {
-    body,
-    html {
+    body, html {
         overflow-x: hidden;
         margin: 0 auto;
         height: 95%;
     }
-    #permission-info h4,
-    #callback h4 {
+    #permission-info h4, #callback h4 {
         color: #000000 !important;
         font-family: 'Segoe UI' !important;
         font-size: 19px !important;
@@ -646,12 +627,10 @@ a[href="#previous"] {
         border-right: 15px solid #F7941C;
         transform: rotate(45deg);
     }
-    .error,
-    .required {
+    .error, .required {
         color: #FF5252;
     }
-    .preview,
-    .title {
+    .preview, .title {
         font-weight: bold;
     }
     .title {
@@ -768,16 +747,13 @@ a[href="#previous"] {
     .waiting {
         margin: 30px;
     }
-    .telemed-step-one h3,
-    .telemed-step-two h3,
-    .payment h3 {
+    .telemed-step-one h3, .telemed-step-two h3, .payment h3 {
         padding-top: 20px;
     }
     .wizard>.content {
         border: none;
     }
-    #callback #reschedule-appointment,
-    #callback #request-callback {
+    #callback #reschedule-appointment, #callback #request-callback {
         float: none;
     }
     .img-responsive {
@@ -881,7 +857,6 @@ a[href="#previous"] {
     }
 }
 
-
 /******************TELEMEDICINE SETUP GUIDE******************/
 
 .tab {
@@ -895,7 +870,6 @@ button:hover {
 #prevBtn {
     background-color: #bbbbbb;
 }
-
 
 /* Step indicators */
 
@@ -914,7 +888,6 @@ button:hover {
     opacity: 0.5;
     background: #0080ff;
 }
-
 
 /* Finished steps */
 
@@ -951,9 +924,7 @@ button:hover {
     cursor: pointer;
 }
 
-#allowPermissions,
-#testMic,
-#testInternet {
+#allowPermissions, #testMic, #testInternet {
     background-color: #4CAF50;
     font-family: 'Segoe UI';
     border: none;
@@ -976,7 +947,6 @@ button:focus {
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
 }
-
 
 /****************MICROPHONE TEST *******************/
 
@@ -1004,7 +974,6 @@ button:focus {
 #test-result {
     font-size: 1em;
 }
-
 
 /****************INTERNET SPEED TEST ***************/
 
@@ -1066,8 +1035,7 @@ div.meterText {
     color: #309030;
 }
 
-#pingText,
-#jitText {
+#pingText, #jitText {
     color: #AA6060;
 }
 
@@ -1110,13 +1078,11 @@ div.testGroup {
     }
 }
 
-
 /*******************PATIENT ON BOARDING******************/
 
 .alert-danger {
     margin-top: 20px;
 }
-
 
 /*****************PATIENT BOOKING **********************/
 
@@ -1152,14 +1118,10 @@ div.testGroup {
 
 .booking-step label>hr {
     background-color: #F7941C;
-    height: 0px;
     width: 40px;
-    text-align: left;
     margin-left: -15px;
     margin-right: -15px;
-    margin-bottom: -5px;
 }
-
 
 /* pretty radio */
 
@@ -1197,8 +1159,7 @@ div.testGroup {
     padding: 0 32px;
 }
 
-input[type="date"],
-input[type="time"] {
+input[type="date"], input[type="time"] {
     position: relative;
 }
 
@@ -1218,8 +1179,7 @@ input[type="time"]:after {
     padding: 0 5px;
 }
 
-input[type="date"]::-webkit-calendar-picker-indicator,
-input[type="time"]::-webkit-calendar-picker-indicator {
+input[type="date"]::-webkit-calendar-picker-indicator, input[type="time"]::-webkit-calendar-picker-indicator {
     position: absolute;
     top: 0;
     left: 0;
@@ -1231,13 +1191,11 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     background: transparent;
 }
 
-input[type="date"]::-webkit-inner-spin-button,
-input[type="time"]::-webkit-inner-spin-button {
+input[type="date"]::-webkit-inner-spin-button, input[type="time"]::-webkit-inner-spin-button {
     z-index: 1;
 }
 
-input[type="date"]::-webkit-clear-button,
-input[type="time"]::-webkit-clear-button {
+input[type="date"]::-webkit-clear-button, input[type="time"]::-webkit-clear-button {
     z-index: 1;
 }
 
@@ -1246,13 +1204,11 @@ input[type="time"]::-webkit-clear-button {
     border-bottom: 1px solid silver;
 }
 
-#confirm-appointment-details,
-#confirm-appointment-cost {
+#confirm-appointment-details, #confirm-appointment-cost {
     border: 1px solid silver;
 }
 
-#confirm-appointment-details .input-group,
-#confirm-appointment-cost .input-group {
+#confirm-appointment-details .input-group, #confirm-appointment-cost .input-group {
     border-right: none;
 }
 
@@ -1260,7 +1216,6 @@ input[type="time"]::-webkit-clear-button {
     text-align: center;
     margin-top: 10px;
 }
-
 
 /* Mobile display */
 
@@ -1295,8 +1250,7 @@ input[type="time"]::-webkit-clear-button {
     #book-in-person.border {
         border: none;
     }
-    .card-body,
-    .booking-card {
+    .card-body, .booking-card {
         padding: 10px !important;
     }
     .wizard>.actions>ul {
@@ -1373,9 +1327,7 @@ input[type="time"]::-webkit-clear-button {
     .input-group {
         border-right: none;
     }
-    .row,
-    .text-center,
-    .m-t-10 {
+    .row, .text-center, .m-t-10 {
         border: none!important;
         margin-right: 1px;
         margin-left: 1px;
@@ -1470,4 +1422,12 @@ input[type="time"]::-webkit-clear-button {
 
 .mw-25 {
     min-width: 25%;
+}
+
+a[href="#next"]:hover {
+    background-color: #F7941C!important;
+}
+
+#facility option i {
+    font-style: italic;
 }

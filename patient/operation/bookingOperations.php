@@ -30,10 +30,10 @@ if (isset($_POST["operation"])) {
 		$clinic = $_POST['clinic'];
 
         if ($_POST["in-person"] == 1) {
-            $facility_id = $_POST["facility_id"];
-            $date = $_POST["appointment-date"];
-            $time = $_POST["appointment-time"];
-            $medical_concern = $_POST["medical-concern"];
+            $facility_id = $_POST["facility"];
+            $date = implode("-", array_reverse(explode("/", $_POST["appointment-date"])));
+            $time = date("H:i", strtotime($_POST["appointment-time"]));
+            $medical_concern = $_POST["medical-concern-description"] ?? $_POST["medical-concern"];
         }
 
 		$user = $db->TunzaClinicTelemedicineAppointmentBooking(
