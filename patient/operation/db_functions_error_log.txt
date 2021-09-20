@@ -1,0 +1,252 @@
+[2021-09-20 8:02:17]=>	Failed to create new user account.
+Function: TunzaClinicTelemedicineAppointmentBooking
+Params: Array
+(
+    [0] => Angelo Karugo
+    [1] => angelo@myhealthafrica.com
+    [2] => Female
+    [3] => 0703-398-416
+    [4] => 2021-09-09
+    [5] => 
+    [6] => 24/09/2021
+    [7] => 11:40
+    [8] => 300
+    [9] => psi
+    [10] => inperson
+    [11] => 126
+    [12] => Family planning
+)
+
+Call to a member function add_global_groups() on null
+
+[2021-09-20 8:03:02]=>	Failed to create new user account.
+Function: TunzaClinicTelemedicineAppointmentBooking
+Params: Array
+(
+    [0] => Angelo Karugo
+    [1] => angelo@myhealthafrica.com
+    [2] => Female
+    [3] => 0703-398-416
+    [4] => 2021-09-09
+    [5] => 
+    [6] => 1970-01-01
+    [7] => 11:40
+    [8] => 300
+    [9] => psi
+    [10] => inperson
+    [11] => 126
+    [12] => Family planning
+)
+
+Call to a member function add_global_groups() on null
+
+[2021-09-20 9:15:10]=>	Failed to create new user account.
+Function: TunzaClinicTelemedicineAppointmentBooking
+Params: Array
+(
+    [0] => asdf
+    [1] => angelo@myhealthafrica.com
+    [2] => Female
+    [3] => 0703-398-416
+    [4] => 2021-09-03
+    [5] => 
+    [6] => 1970-01-01
+    [7] => 12:00 PM
+    [8] => 300
+    [9] => psi
+    [10] => inperson
+    [11] => 123
+    [12] => 
+)
+
+Call to a member function add_global_groups() on null
+
+[2021-09-20 9:16:17]=>	Failed to create new user account.
+Function: TunzaClinicTelemedicineAppointmentBooking
+Params: Array
+(
+    [0] => asdf
+    [1] => angelo@myhealthafrica.com
+    [2] => Female
+    [3] => 0703-398-416
+    [4] => 2021-09-03
+    [5] => 
+    [6] => 1970-01-01
+    [7] => 12:00
+    [8] => 300
+    [9] => psi
+    [10] => inperson
+    [11] => 123
+    [12] => 
+)
+
+Call to a member function add_global_groups() on null
+
+[2021-09-20 9:23:12]=>	Failed to create new user account.
+Function: TunzaClinicTelemedicineAppointmentBooking
+Params: Array
+(
+    [0] => Angelo Karugo
+    [1] => angelo@myhealthafrica.com
+    [2] => Female
+    [3] => 0703-398-416
+    [4] => 2021-09-02
+    [5] => 
+    [6] => 1970-01-01
+    [7] => 04:20
+    [8] => 300
+    [9] => psi
+    [10] => inperson
+    [11] => 126
+    [12] => 
+)
+
+Call to a member function add_global_groups() on null
+
+[2021-09-20 9:40:26]=>	Failed to create new user account.
+Function: TunzaClinicTelemedicineAppointmentBooking
+Params: Array
+(
+    [0] => Angelo Karugo
+    [1] => angelo@myhealthafrica.com
+    [2] => Male
+    [3] => 0703-398-416
+    [4] => 2021-09-02
+    [5] => 
+    [6] => 1970-01-01
+    [7] => 04:20
+    [8] => 300
+    [9] => psi
+    [10] => inperson
+    [11] => 126
+    [12] => 
+)
+
+Call to a member function add_global_groups() on null
+
+[2021-09-20 9:42:26]=>	Failed to create new user account.
+Function: TunzaClinicTelemedicineAppointmentBooking
+Params: Array
+(
+    [0] => Angelo Karugo
+    [1] => angelo@myhealthafrica.com
+    [2] => Female
+    [3] => 0703-398-416
+    [4] => 2021-09-04
+    [5] => 
+    [6] => 1970-01-01
+    [7] => 04:40
+    [8] => 300
+    [9] => psi
+    [10] => inperson
+    [11] => 123
+    [12] => 
+)
+
+Call to a member function add_global_groups() on null
+
+[2021-09-20 9:47:30]=>	Failed to create new user account.
+Function: TunzaClinicTelemedicineAppointmentBooking
+Params: Array
+(
+    [0] => Angelo Karugo
+    [1] => angelo@myhealthafrica.com
+    [2] => Female
+    [3] => 0703-398-416
+    [4] => 2021-09-04
+    [5] => 
+    [6] => 2021-09-22
+    [7] => 04:40
+    [8] => 300
+    [9] => psi
+    [10] => inperson
+    [11] => 123
+    [12] => 
+)
+
+Call to a member function add_global_groups() on null
+
+[2021-09-20 9:48:03]=>	Failed to create new user account.
+Function: TunzaClinicTelemedicineAppointmentBooking
+Params: Array
+(
+    [0] => Angelo Karugo
+    [1] => angelo@myhealthafrica.com
+    [2] => Female
+    [3] => 0703-398-416
+    [4] => 2021-09-04
+    [5] => 
+    [6] => 2021-09-22
+    [7] => 16:40
+    [8] => 300
+    [9] => psi
+    [10] => inperson
+    [11] => 123
+    [12] => 
+)
+
+Call to a member function add_global_groups() on null
+
+[2021-09-20 9:52:03]=>	Failed to create new user account.
+Function: TunzaClinicTelemedicineAppointmentBooking
+Params: Array
+(
+    [0] => Angelo Karugo
+    [1] => angelo@myhealthafrica.com
+    [2] => Female
+    [3] => 0703-398-416
+    [4] => 2021-09-04
+    [5] => 151
+    [6] => 2021-09-22
+    [7] => 16:40
+    [8] => 300
+    [9] => psi
+    [10] => inperson
+    [11] => 123
+    [12] => 
+)
+
+Call to a member function add_global_groups() on null
+
+[2021-09-20 10:16:32]=>	Failed to create new user account.
+Function: TunzaClinicTelemedicineAppointmentBooking
+Params: Array
+(
+    [0] => Angelo Karugo
+    [1] => angelo@myhealthafrica.com
+    [2] => Female
+    [3] => 0703-398-416
+    [4] => 2021-09-05
+    [5] => 156
+    [6] => 2021-09-24
+    [7] => 00:00
+    [8] => 600
+    [9] => psi
+    [10] => inperson
+    [11] => 126
+    [12] => 
+)
+
+Call to a member function add_global_groups() on null
+
+[2021-09-20 10:24:58]=>	Failed to create new user account.
+Function: TunzaClinicTelemedicineAppointmentBooking
+Params: Array
+(
+    [0] => test-script.php
+    [1] => angelo@myhealthafrica.com
+    [2] => Male
+    [3] => 0703-398-416
+    [4] => 2021-09-11
+    [5] => 151
+    [6] => 2021-09-23
+    [7] => 16:00
+    [8] => 500
+    [9] => psi
+    [10] => inperson
+    [11] => 123
+    [12] => 
+)
+
+Call to a member function add_global_groups() on null
+

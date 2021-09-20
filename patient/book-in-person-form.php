@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- BEGIN HEAD -->
-<?php $inclusions_version = 0 ?>
+<?php $inclusions_version = 1 ?>
 
 <head>
     <meta charset="utf-8" />
@@ -12,8 +12,10 @@
     <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <!--bootstrap -->
     <link href="assets/bundles/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <!-- wizard -->
+    <!-- steps wizard -->
     <link href="assets/bundles/steps/steps.css" rel="stylesheet">
+    <!-- sweet alert -->
+    <link rel="stylesheet" href="https://myhealthafrica.com/myonemedpro/assets/bundles/sweet-alert/sweetalert.min.css?v=<?php echo $inclusions_version; ?>">
     <link rel="stylesheet" type="text/css" href="assets/bundles/bootstrap-timepicker/css/bootstrap-timepicker.css" />
     <link rel="stylesheet" type="text/css" href="assets/bundles/bootstrap-datepicker/css/bootstrap-datepicker.css" />
     <link href="css/booking.css?v=<?php echo $inclusions_version ?>" rel="stylesheet" type="text/css" />
@@ -35,21 +37,21 @@
 
     <div class="d-flex booking-step justify-content-center pad border-btm ">
         <label>
-            <input type="radio" id="appointment" name="radio-button" checked />
+            <input type="radio" id="appointment" name="radio-button" value="0" checked />
             <span>Appointment Details</span>
         </label>
-        <label>
+        <label class="d-flex align-items-center">
             <hr>
         </label>
         <label>
-            <input type="radio" id="patient" name="radio-button" />
+            <input type="radio" id="patient" name="radio-button" value="1" />
             <span>Patient details</span>
         </label>
-        <label>
+        <label class="d-flex align-items-center">
             <hr>
         </label>
         <label>
-            <input type="radio" id="confirm" name="radio-button" />
+            <input type="radio" id="confirm" name="radio-button" value="2" />
             <span>Confirm details</span>
         </label>
     </div>
@@ -63,56 +65,53 @@
                 <span class="mx-auto pad">Fill in the details to schedule the appointment.</span>
                 <div class="d-flex flex-column flex-md-row" style="border-top-width: 10px;">
                     <!-- medical concern + date + time slots row -->
-                    <div class="d-flex flex-column size bord">
+                    <div class="d-flex flex-column size bord justify-content-between">
                         <!--Medical concern and facility column-->
                         <div class="form-group size">
 
                             <span>Medical concern <span class="required"></span></span>
 
-
-
-
                             <div class="d-flex size" id="medical-conditions-container">
                                 <div class="form-check radio-css-concern align-items-center ml-2">
-                                    <input class="form-check-input d-none" type="radio" name="medical-concern" value="option1" id="exampleRadios2">
+                                    <input class="form-check-input d-none" type="radio" name="medical-concern" value="Family planning" id="exampleRadios2">
                                     <label class="form-check-label " for="exampleRadios2">
-                                        condition
+                                        Family planning
                                     </label>
                                 </div>
                                 <div class="form-check radio-css-concern align-items-center ml-2">
-                                    <input class="form-check-input d-none" type="radio" name="medical-concern" value="option1" id="exampleRadios3">
+                                    <input class="form-check-input d-none" type="radio" name="medical-concern" value="Non-communicable diseases" id="exampleRadios3">
                                     <label class="form-check-label " for="exampleRadios3">
-                                        condition
+                                        Non-communicable diseases
                                     </label>
                                 </div>
                                 <div class="form-check radio-css-concern align-items-center ml-2">
-                                    <input class="form-check-input d-none" type="radio" name="medical-concern" value="option1" id="exampleRadios4">
+                                    <input class="form-check-input d-none" type="radio" name="medical-concern" value="Maternal care" id="exampleRadios4">
                                     <label class="form-check-label " for="exampleRadios4">
-                                        condition
+                                        Maternal care
                                     </label>
                                 </div>
                                 <div class="form-check radio-css-concern align-items-center ml-2">
-                                    <input class="form-check-input d-none" type="radio" name="medical-concern" value="option1" id="exampleRadios5">
+                                    <input class="form-check-input d-none" type="radio" name="medical-concern" value="Child care" id="exampleRadios5">
                                     <label class="form-check-label " for="exampleRadios5">
-                                        condition
+                                        Child care
                                     </label>
                                 </div>
                                 <div class="form-check radio-css-concern align-items-center ml-2">
-                                    <input class="form-check-input d-none" type="radio" name="medical-concern" value="option1" id="exampleRadios6">
+                                    <input class="form-check-input d-none" type="radio" name="medical-concern" value="Tuberculosis" id="exampleRadios6">
                                     <label class="form-check-label " for="exampleRadios6">
-                                        condition
+                                        Tuberculosis
                                     </label>
                                 </div>
                                 <div class="form-check radio-css-concern align-items-center ml-2">
-                                    <input class="form-check-input d-none" type="radio" name="medical-concern" value="option1" id="exampleRadios7">
+                                    <input class="form-check-input d-none" type="radio" name="medical-concern" value="HIV" id="exampleRadios7">
                                     <label class="form-check-label " for="exampleRadios7">
-                                        condition
+                                        HIV
                                     </label>
                                 </div>
                                 <div class="form-check radio-css-concern align-items-center ml-2">
-                                    <input class="form-check-input d-none" type="radio" name="medical-concern" value="option1" id="exampleRadios8">
+                                    <input class="form-check-input d-none" type="radio" name="medical-concern" value="Other" id="exampleRadios8">
                                     <label class="form-check-label " for="exampleRadios8">
-                                        condition
+                                        Other
                                     </label>
                                 </div>
 
@@ -123,13 +122,17 @@
 
                             <label>Select facility<span class="required"></span></label>
                             <select class="form-control" name="facility" id="facility">
-                                
-                                <option selected disabled value="">select facility</option>
-                                <option value="33">facility 1</option>
-                                <option value="34">facility 2</option>
-                                <option value="35">facility 3</option>
-                                <option value="36">facility 4</option>
-                                <option value="37">facility 5</option>
+
+                                <option selected disabled value=""></option>
+                                <option value="123">Meditrust Healthcare Services - Mombasa</option>
+                                <option value="126">Ukunda Medical Centre - Ukunda</option>
+                                <option value="121">Zamzam Medical Services - Ngong'</option>
+                                <option value="127">Watamu Hospital - Watamu</option>
+                                <option value="116">Shepherds Hospital - Narok</option>
+                                <option value="120">Watamu Community Healthcare - Watamu</option>
+                                <option value="122">Wama Nursing Home - Ongata Rongai</option>
+                                <option value="119">Topcare Nursing Home - Kitengela</option>
+                                <!-- <option value="34">Wankam Medical Centre - Juja</option> -->
                             </select>
                         </div>
                     </div>
@@ -137,14 +140,14 @@
                     <div class="size center bord">
                         <!--Calendar column-->
                         <div>
-                            <div class = "left">Choose a date <span class="required"></span></div>
+                            <div class="left">Choose a date <span class="required"></span></div>
                             <div class="border disabled-element-target center" id="in-person-appointment-date" data-required_input="#facility"></div>
                             <input type="hidden" id="appointment-date" name="appointment-date">
                             <span class="disabled-element-error"></span>
                         </div>
                     </div>
 
-                    <div class="d-flex flex-column  bord">
+                    <div class="d-flex flex-column w-100 bord justify-content-between">
                         <!-- time slots column -->
                         <div class="form-group">
                             <span>Choose an available time slot <span class="required"></span></span>
@@ -192,7 +195,7 @@
 
             <div class="form-group bord">
                 <label>Describe your medical concern</label>
-                <textarea id="medical-concern-description" class="form-control"></textarea>
+                <textarea id="medical-concern-description" name="medical-concern-description" class="form-control"></textarea>
             </div>
 
             <span class="error" id="step-0-error-display"></span>
@@ -304,7 +307,7 @@
                         <strong class="mb-2 px-3">Appointment Cost</strong>
                         <div class="preview-details-container flex-column h-50 px-3">
                             <span>Total</span>
-                            <h2>Ksh. ####</h2>
+                            <h2>Ksh. <span id="appointment-cost-display"></span></h2>
                         </div>
                         <div class="d-flex flex-column h-100">
                             <span class="bg-dark-orange px-3 py-2"><strong>Note</strong></span>
