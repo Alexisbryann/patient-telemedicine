@@ -1,0 +1,873 @@
+[2021-06-14 13:57:47]=>	Function: activatePatientExperience
+Params: array (
+  0 => 423,
+  1 => 5000,
+  2 => 1000,
+  3 => NULL,
+  4 => NULL,
+)
+Failed to activate patient experience
+SQL: UPDATE patient_engagement_subscriptions SET active = 1, emails_balance = '5000' + emails_balance, free_sms_balance = '1000' + free_sms_balance, last_subscription_date = '', subscription_expiry_date = '' WHERE omp_facility_id = '423'
+Error: Incorrect datetime value: '' for column 'last_subscription_date' at row 1
+
+[2021-06-14 14:53:37]=>	Function: activatePatientExperience
+Params: array (
+  0 => 423,
+  1 => 5000,
+  2 => 1000,
+  3 => NULL,
+  4 => NULL,
+)
+Failed to activate patient experience
+SQL: UPDATE patient_engagement_subscriptions SET active = 1, emails_balance = '5000' + emails_balance, free_sms_balance = '1000' + free_sms_balance, last_subscription_date = '', subscription_expiry_date = '' WHERE omp_facility_id = '423'
+Error: Incorrect datetime value: '' for column 'last_subscription_date' at row 1
+
+[2021-06-14 14:55:02]=>	Function: activatePatientExperience
+Params: array (
+  0 => 423,
+  1 => 5000,
+  2 => 1000,
+  3 => NULL,
+  4 => NULL,
+)
+Failed to activate patient experience
+SQL: UPDATE patient_engagement_subscriptions SET active = 1, emails_balance = '5000' + emails_balance, free_sms_balance = '1000' + free_sms_balance, last_subscription_date = '', subscription_expiry_date = '' WHERE omp_facility_id = '423'
+Error: Incorrect datetime value: '' for column 'last_subscription_date' at row 1
+
+[2021-06-14 14:55:28]=>	Function: activatePatientExperience
+Params: array (
+  0 => 423,
+  1 => 5000,
+  2 => 1000,
+  3 => NULL,
+  4 => NULL,
+)
+Failed to activate patient experience
+SQL: UPDATE patient_engagement_subscriptions SET active = 1, emails_balance = '5000' + emails_balance, free_sms_balance = '1000' + free_sms_balance, last_subscription_date = '', subscription_expiry_date = '' WHERE omp_facility_id = '423'
+Error: Incorrect datetime value: '' for column 'last_subscription_date' at row 1
+
+[2021-09-20 13:44:48]=>	Failed to create new user account.
+Function: TunzaClinicTelemedicineAppointmentBooking
+Params: Array
+(
+    [0] => script.php
+    [1] => angelo@myhealthafrica.com
+    [2] => Male
+    [3] => +254703398416
+    [4] => 2021-09-04
+    [5] => 156
+    [6] => 2021-09-22
+    [7] => 08:20
+    [8] => 600
+    [9] => psi
+    [10] => inperson
+    [11] => 126
+    [12] => Non-communicable diseases
+)
+
+Call to a member function add_global_groups() on null
+
+[2021-09-20 13:44:48]=>	Failed to send confirmation messages.
+Function: TunzaClinicTelemedicineAppointmentBooking
+Params: Array
+(
+    [0] => script.php
+    [1] => angelo@myhealthafrica.com
+    [2] => Male
+    [3] => +254703398416
+    [4] => 2021-09-04
+    [5] => 156
+    [6] => 2021-09-22
+    [7] => 08:20
+    [8] => 600
+    [9] => psi
+    [10] => inperson
+    [11] => 126
+    [12] => Non-communicable diseases
+)
+
+Call to a member function add_global_groups() on null
+
+[2021-09-20 13:46:59]=>	Failed to create new user account.
+Function: TunzaClinicTelemedicineAppointmentBooking
+Params: Array
+(
+    [0] => script.php
+    [1] => angelo@myhealthafrica.com
+    [2] => Male
+    [3] => +254703398416
+    [4] => 2021-09-04
+    [5] => 156
+    [6] => 2021-09-22
+    [7] => 08:20
+    [8] => 600
+    [9] => psi
+    [10] => inperson
+    [11] => 126
+    [12] => Non-communicable diseases
+)
+
+Call to a member function add_global_groups() on null
+
+[2021-09-20 13:46:59]=>	Failed to send confirmation messages.
+Function: TunzaClinicTelemedicineAppointmentBooking
+Params: Array
+(
+    [0] => script.php
+    [1] => angelo@myhealthafrica.com
+    [2] => Male
+    [3] => +254703398416
+    [4] => 2021-09-04
+    [5] => 156
+    [6] => 2021-09-22
+    [7] => 08:20
+    [8] => 600
+    [9] => psi
+    [10] => inperson
+    [11] => 126
+    [12] => Non-communicable diseases
+)
+
+Call to a member function add_global_groups() on null
+
+[2021-09-20 13:51:51]=>	Failed to create new user account.
+Function: TunzaClinicTelemedicineAppointmentBooking
+Params: Array
+(
+    [0] => test-script.php
+    [1] => angelo@myhealthafrica.com
+    [2] => Female
+    [3] => +254703398416
+    [4] => 2021-09-04
+    [5] => 156
+    [6] => 2021-09-23
+    [7] => 13:40
+    [8] => 600
+    [9] => psi
+    [10] => inperson
+    [11] => 126
+    [12] => HIV
+)
+
+Call to a member function add_global_groups() on null
+
+[2021-09-20 13:53:09]=>	Failed to create new user account.
+Function: TunzaClinicTelemedicineAppointmentBooking
+Params: Array
+(
+    [0] => test-script.php
+    [1] => angelo@myhealthafrica.com
+    [2] => Female
+    [3] => +254703398416
+    [4] => 2021-09-04
+    [5] => 156
+    [6] => 2021-09-23
+    [7] => 13:40
+    [8] => 600
+    [9] => psi
+    [10] => inperson
+    [11] => 126
+    [12] => HIV
+)
+
+Call to a member function add_global_groups() on null
+
+[2021-09-20 13:54:17]=>	Failed to create new user account.
+Function: TunzaClinicTelemedicineAppointmentBooking
+Params: Array
+(
+    [0] => test-script.php
+    [1] => angelo@myhealthafrica.com
+    [2] => Female
+    [3] => +254703398416
+    [4] => 2021-09-04
+    [5] => 156
+    [6] => 2021-09-23
+    [7] => 13:40
+    [8] => 600
+    [9] => psi
+    [10] => inperson
+    [11] => 126
+    [12] => HIV
+)
+
+Call to a member function add_global_groups() on null
+
+[2021-09-20 13:54:17]=>	Failed to send confirmation email message to doctor.
+Function: sendConfirmationMessages
+Params: Array
+(
+    [0] => test-script.php
+    [1] => angelo@myhealthafrica.com
+    [2] => +254703398416
+    [3] =>  Ukunda Medical Centre
+    [4] =>  Ukunda Medical Centre
+    [5] => 
+    [6] => Near Main Road, Ukunda-Ramisi Rd
+    [7] => 
+    [8] => Ukunda
+    [9] => Kenya
+    [10] => +254733820562
+    [11] => Ukunda Medical Centre - In-person Consultation
+    [12] => KES
+    [13] => 600.00
+    [14] => Thursday
+    [15] => 2021-09-23
+    [16] => 13:40
+    [17] => HIV
+    [18] => ukundamedicalcentre@gmail.com
+)
+
+Message body empty
+
+[2021-09-20 13:54:17]=>	Failed to send facility confirmation SMS.
+Function: sendConfirmationMessages
+Params: Array
+(
+    [0] => test-script.php
+    [1] => angelo@myhealthafrica.com
+    [2] => +254703398416
+    [3] =>  Ukunda Medical Centre
+    [4] =>  Ukunda Medical Centre
+    [5] => 
+    [6] => Near Main Road, Ukunda-Ramisi Rd
+    [7] => 
+    [8] => Ukunda
+    [9] => Kenya
+    [10] => +254733820562
+    [11] => Ukunda Medical Centre - In-person Consultation
+    [12] => KES
+    [13] => 600.00
+    [14] => Thursday
+    [15] => 2021-09-23
+    [16] => 13:40
+    [17] => HIV
+    [18] => ukundamedicalcentre@gmail.com
+)
+
+InvalidSenderId
+
+[2021-09-20 13:58:16]=>	Failed to create new user account.
+Function: TunzaClinicTelemedicineAppointmentBooking
+Params: Array
+(
+    [0] => test-script.php
+    [1] => angelo@myhealthafrica.com
+    [2] => Female
+    [3] => +254703398416
+    [4] => 2021-09-04
+    [5] => 156
+    [6] => 2021-09-23
+    [7] => 13:40
+    [8] => 600
+    [9] => psi
+    [10] => inperson
+    [11] => 126
+    [12] => HIV
+)
+
+Call to a member function add_global_groups() on null
+
+[2021-09-20 13:58:16]=>	Failed to send confirmation email message to doctor.
+Function: sendConfirmationMessages
+Params: Array
+(
+    [0] => test-script.php
+    [1] => angelo@myhealthafrica.com
+    [2] => +254703398416
+    [3] =>  Ukunda Medical Centre
+    [4] =>  Ukunda Medical Centre
+    [5] => 
+    [6] => Near Main Road, Ukunda-Ramisi Rd
+    [7] => 
+    [8] => Ukunda
+    [9] => Kenya
+    [10] => +254733820562
+    [11] => Ukunda Medical Centre - In-person Consultation
+    [12] => KES
+    [13] => 600.00
+    [14] => Thursday
+    [15] => 2021-09-23
+    [16] => 13:40
+    [17] => HIV
+    [18] => ukundamedicalcentre@gmail.com
+)
+
+Message body empty
+
+[2021-09-20 13:58:16]=>	Failed to send facility confirmation SMS.
+Function: sendConfirmationMessages
+Params: Array
+(
+    [0] => test-script.php
+    [1] => angelo@myhealthafrica.com
+    [2] => +254703398416
+    [3] =>  Ukunda Medical Centre
+    [4] =>  Ukunda Medical Centre
+    [5] => 
+    [6] => Near Main Road, Ukunda-Ramisi Rd
+    [7] => 
+    [8] => Ukunda
+    [9] => Kenya
+    [10] => +254733820562
+    [11] => Ukunda Medical Centre - In-person Consultation
+    [12] => KES
+    [13] => 600.00
+    [14] => Thursday
+    [15] => 2021-09-23
+    [16] => 13:40
+    [17] => HIV
+    [18] => ukundamedicalcentre@gmail.com
+)
+
+InvalidSenderId
+
+[2021-09-20 14:20:20]=>	Failed to create new user account.
+Function: TunzaClinicTelemedicineAppointmentBooking
+Params: Array
+(
+    [0] => test-script.php
+    [1] => angelo@myhealthafrica.com
+    [2] => Female
+    [3] => +254703398416
+    [4] => 2021-09-04
+    [5] => 156
+    [6] => 2021-09-23
+    [7] => 13:40
+    [8] => 600
+    [9] => psi
+    [10] => inperson
+    [11] => 126
+    [12] => HIV
+)
+
+Call to a member function add_global_groups() on null
+
+[2021-09-20 14:20:20]=>	Failed to send confirmation email message to doctor.
+Function: sendConfirmationMessages
+Params: Array
+(
+    [0] => test-script.php
+    [1] => angelo@myhealthafrica.com
+    [2] => +254703398416
+    [3] =>  Ukunda Medical Centre
+    [4] =>  Ukunda Medical Centre
+    [5] => 
+    [6] => Near Main Road, Ukunda-Ramisi Rd
+    [7] => 
+    [8] => Ukunda
+    [9] => Kenya
+    [10] => +254733820562
+    [11] => Ukunda Medical Centre - In-person Consultation
+    [12] => KES
+    [13] => 600.00
+    [14] => Thursday
+    [15] => 2021-09-23
+    [16] => 13:40
+    [17] => HIV
+    [18] => ukundamedicalcentre@gmail.com
+)
+
+Message body empty
+
+[2021-09-20 14:20:20]=>	Failed to send facility confirmation SMS.
+Function: sendConfirmationMessages
+Params: Array
+(
+    [0] => test-script.php
+    [1] => angelo@myhealthafrica.com
+    [2] => +254703398416
+    [3] =>  Ukunda Medical Centre
+    [4] =>  Ukunda Medical Centre
+    [5] => 
+    [6] => Near Main Road, Ukunda-Ramisi Rd
+    [7] => 
+    [8] => Ukunda
+    [9] => Kenya
+    [10] => +254733820562
+    [11] => Ukunda Medical Centre - In-person Consultation
+    [12] => KES
+    [13] => 600.00
+    [14] => Thursday
+    [15] => 2021-09-23
+    [16] => 13:40
+    [17] => HIV
+    [18] => ukundamedicalcentre@gmail.com
+)
+
+InvalidSenderId
+
+[2021-09-20 14:25:34]=>	Failed to create new user account.
+Function: TunzaClinicTelemedicineAppointmentBooking
+Params: Array
+(
+    [0] => Sylvia
+    [1] => sylvia@intmedicaltreatment.com
+    [2] => Female
+    [3] => +254704647295
+    [4] => 2001-02-15
+    [5] => 151
+    [6] => 2021-09-21
+    [7] => 08:00
+    [8] => 500
+    [9] => psi
+    [10] => inperson
+    [11] => 123
+    [12] => ohgfcghbkl;kjb
+)
+
+Call to a member function add_global_groups() on null
+
+[2021-09-20 14:25:34]=>	Failed to send confirmation email message to doctor.
+Function: sendConfirmationMessages
+Params: Array
+(
+    [0] => Sylvia
+    [1] => sylvia@intmedicaltreatment.com
+    [2] => +254704647295
+    [3] => Meditrust Healthcare Services
+    [4] => Meditrust Healthcare Services
+    [5] => 
+    [6] => New Malindi Road
+    [7] => Bombolulu Estate
+    [8] => Mombasa
+    [9] => Kenya
+    [10] => +254720034709
+    [11] => Meditrust - In-person Consultation
+    [12] => KES
+    [13] => 500.00
+    [14] => Tuesday
+    [15] => 2021-09-21
+    [16] => 08:00
+    [17] => ohgfcghbkl;kjb
+    [18] => meditrust2002@yahoo.com
+)
+
+Message body empty
+
+[2021-09-20 14:25:34]=>	Failed to send facility confirmation SMS.
+Function: sendConfirmationMessages
+Params: Array
+(
+    [0] => Sylvia
+    [1] => sylvia@intmedicaltreatment.com
+    [2] => +254704647295
+    [3] => Meditrust Healthcare Services
+    [4] => Meditrust Healthcare Services
+    [5] => 
+    [6] => New Malindi Road
+    [7] => Bombolulu Estate
+    [8] => Mombasa
+    [9] => Kenya
+    [10] => +254720034709
+    [11] => Meditrust - In-person Consultation
+    [12] => KES
+    [13] => 500.00
+    [14] => Tuesday
+    [15] => 2021-09-21
+    [16] => 08:00
+    [17] => ohgfcghbkl;kjb
+    [18] => meditrust2002@yahoo.com
+)
+
+InvalidSenderId
+
+[2021-09-20 14:47:46]=>	Failed to create new user account.
+Function: TunzaClinicTelemedicineAppointmentBooking
+Params: Array
+(
+    [0] => test-script.php
+    [1] => angelo@myhealthafrica.com
+    [2] => Female
+    [3] => +254703398416
+    [4] => 2021-09-04
+    [5] => 156
+    [6] => 2021-09-23
+    [7] => 13:40
+    [8] => 600
+    [9] => psi
+    [10] => inperson
+    [11] => 126
+    [12] => HIV
+)
+
+Argument 3 passed to DB_Functions::saveUserMeta() must be of the type string, null given, called in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 123
+
+[2021-09-20 14:47:46]=>	Failed to send confirmation email message to doctor.
+Function: sendConfirmationMessages
+Params: Array
+(
+    [0] => test-script.php
+    [1] => angelo@myhealthafrica.com
+    [2] => +254703398416
+    [3] =>  Ukunda Medical Centre
+    [4] =>  Ukunda Medical Centre
+    [5] => 
+    [6] => Near Main Road, Ukunda-Ramisi Rd
+    [7] => 
+    [8] => Ukunda
+    [9] => Kenya
+    [10] => +254733820562
+    [11] => Ukunda Medical Centre - In-person Consultation
+    [12] => KES
+    [13] => 600.00
+    [14] => Thursday
+    [15] => 2021-09-23
+    [16] => 13:40
+    [17] => HIV
+    [18] => ukundamedicalcentre@gmail.com
+)
+
+Message body empty
+
+[2021-09-20 14:47:46]=>	Failed to send facility confirmation SMS.
+Function: sendConfirmationMessages
+Params: Array
+(
+    [0] => test-script.php
+    [1] => angelo@myhealthafrica.com
+    [2] => +254703398416
+    [3] =>  Ukunda Medical Centre
+    [4] =>  Ukunda Medical Centre
+    [5] => 
+    [6] => Near Main Road, Ukunda-Ramisi Rd
+    [7] => 
+    [8] => Ukunda
+    [9] => Kenya
+    [10] => +254733820562
+    [11] => Ukunda Medical Centre - In-person Consultation
+    [12] => KES
+    [13] => 600.00
+    [14] => Thursday
+    [15] => 2021-09-23
+    [16] => 13:40
+    [17] => HIV
+    [18] => ukundamedicalcentre@gmail.com
+)
+
+InvalidSenderId
+
+[2021-09-20 14:49:08]=>	Failed to send confirmation email message to doctor.
+Function: sendConfirmationMessages
+Params: Array
+(
+    [0] => test-script.php
+    [1] => angelo@myhealthafrica.com
+    [2] => +254703398416
+    [3] =>  Ukunda Medical Centre
+    [4] =>  Ukunda Medical Centre
+    [5] => 
+    [6] => Near Main Road, Ukunda-Ramisi Rd
+    [7] => 
+    [8] => Ukunda
+    [9] => Kenya
+    [10] => +254733820562
+    [11] => Ukunda Medical Centre - In-person Consultation
+    [12] => KES
+    [13] => 600.00
+    [14] => Thursday
+    [15] => 2021-09-23
+    [16] => 13:40
+    [17] => HIV
+    [18] => ukundamedicalcentre@gmail.com
+)
+
+Message body empty
+
+[2021-09-20 14:49:08]=>	Failed to send facility confirmation SMS.
+Function: sendConfirmationMessages
+Params: Array
+(
+    [0] => test-script.php
+    [1] => angelo@myhealthafrica.com
+    [2] => +254703398416
+    [3] =>  Ukunda Medical Centre
+    [4] =>  Ukunda Medical Centre
+    [5] => 
+    [6] => Near Main Road, Ukunda-Ramisi Rd
+    [7] => 
+    [8] => Ukunda
+    [9] => Kenya
+    [10] => +254733820562
+    [11] => Ukunda Medical Centre - In-person Consultation
+    [12] => KES
+    [13] => 600.00
+    [14] => Thursday
+    [15] => 2021-09-23
+    [16] => 13:40
+    [17] => HIV
+    [18] => ukundamedicalcentre@gmail.com
+)
+
+InvalidSenderId
+
+[2021-09-20 14:50:49]=>	Failed to send confirmation email message to doctor.
+Function: sendConfirmationMessages
+Params: Array
+(
+    [0] => test-script.php
+    [1] => angelo@myhealthafrica.com
+    [2] => +254703398416
+    [3] =>  Ukunda Medical Centre
+    [4] =>  Ukunda Medical Centre
+    [5] => 
+    [6] => Near Main Road, Ukunda-Ramisi Rd
+    [7] => 
+    [8] => Ukunda
+    [9] => Kenya
+    [10] => +254733820562
+    [11] => Ukunda Medical Centre - In-person Consultation
+    [12] => KES
+    [13] => 600.00
+    [14] => Thursday
+    [15] => 2021-09-23
+    [16] => 13:40
+    [17] => HIV
+    [18] => ukundamedicalcentre@gmail.com
+)
+
+Message body empty
+
+[2021-09-20 14:50:49]=>	Failed to send facility confirmation SMS.
+Function: sendConfirmationMessages
+Params: Array
+(
+    [0] => test-script.php
+    [1] => angelo@myhealthafrica.com
+    [2] => +254703398416
+    [3] =>  Ukunda Medical Centre
+    [4] =>  Ukunda Medical Centre
+    [5] => 
+    [6] => Near Main Road, Ukunda-Ramisi Rd
+    [7] => 
+    [8] => Ukunda
+    [9] => Kenya
+    [10] => +254733820562
+    [11] => Ukunda Medical Centre - In-person Consultation
+    [12] => KES
+    [13] => 600.00
+    [14] => Thursday
+    [15] => 2021-09-23
+    [16] => 13:40
+    [17] => HIV
+    [18] => ukundamedicalcentre@gmail.com
+)
+
+InvalidSenderId
+
+[2021-09-20 14:52:45]=>	Failed to send confirmation email message to doctor.
+Function: sendConfirmationMessages
+Params: Array
+(
+    [0] => test-script.php
+    [1] => angelo@myhealthafrica.com
+    [2] => +254703398416
+    [3] =>  Ukunda Medical Centre
+    [4] =>  Ukunda Medical Centre
+    [5] => 
+    [6] => Near Main Road, Ukunda-Ramisi Rd
+    [7] => 
+    [8] => Ukunda
+    [9] => Kenya
+    [10] => +254733820562
+    [11] => Ukunda Medical Centre - In-person Consultation
+    [12] => KES
+    [13] => 600.00
+    [14] => Thursday
+    [15] => 2021-09-23
+    [16] => 13:40
+    [17] => HIV
+    [18] => ukundamedicalcentre@gmail.com
+)
+
+Message body empty
+
+[2021-09-20 14:52:45]=>	Failed to send facility confirmation SMS.
+Function: sendConfirmationMessages
+Params: Array
+(
+    [0] => test-script.php
+    [1] => angelo@myhealthafrica.com
+    [2] => +254703398416
+    [3] =>  Ukunda Medical Centre
+    [4] =>  Ukunda Medical Centre
+    [5] => 
+    [6] => Near Main Road, Ukunda-Ramisi Rd
+    [7] => 
+    [8] => Ukunda
+    [9] => Kenya
+    [10] => +254733820562
+    [11] => Ukunda Medical Centre - In-person Consultation
+    [12] => KES
+    [13] => 600.00
+    [14] => Thursday
+    [15] => 2021-09-23
+    [16] => 13:40
+    [17] => HIV
+    [18] => ukundamedicalcentre@gmail.com
+)
+
+InvalidSenderId
+
+[2021-09-20 14:54:51]=>	Failed to send confirmation email message to doctor.
+Function: sendConfirmationMessages
+Params: Array
+(
+    [0] => test-script.php
+    [1] => angelo@myhealthafrica.com
+    [2] => +254703398416
+    [3] =>  Ukunda Medical Centre
+    [4] =>  Ukunda Medical Centre
+    [5] => 
+    [6] => Near Main Road, Ukunda-Ramisi Rd
+    [7] => 
+    [8] => Ukunda
+    [9] => Kenya
+    [10] => +254733820562
+    [11] => Ukunda Medical Centre - In-person Consultation
+    [12] => KES
+    [13] => 600.00
+    [14] => Thursday
+    [15] => 2021-09-23
+    [16] => 13:40
+    [17] => HIV
+    [18] => ukundamedicalcentre@gmail.com
+)
+
+Message body empty
+
+[2021-09-20 14:54:51]=>	Failed to send facility confirmation SMS.
+Function: sendConfirmationMessages
+Params: Array
+(
+    [0] => test-script.php
+    [1] => angelo@myhealthafrica.com
+    [2] => +254703398416
+    [3] =>  Ukunda Medical Centre
+    [4] =>  Ukunda Medical Centre
+    [5] => 
+    [6] => Near Main Road, Ukunda-Ramisi Rd
+    [7] => 
+    [8] => Ukunda
+    [9] => Kenya
+    [10] => +254733820562
+    [11] => Ukunda Medical Centre - In-person Consultation
+    [12] => KES
+    [13] => 600.00
+    [14] => Thursday
+    [15] => 2021-09-23
+    [16] => 13:40
+    [17] => HIV
+    [18] => ukundamedicalcentre@gmail.com
+)
+
+InvalidSenderId
+
+[2021-09-20 14:55:13]=>	Failed to send confirmation email message to doctor.
+Function: sendConfirmationMessages
+Params: Array
+(
+    [0] => test-script.php
+    [1] => angelo@myhealthafrica.com
+    [2] => +254703398416
+    [3] =>  Ukunda Medical Centre
+    [4] =>  Ukunda Medical Centre
+    [5] => 
+    [6] => Near Main Road, Ukunda-Ramisi Rd
+    [7] => 
+    [8] => Ukunda
+    [9] => Kenya
+    [10] => +254733820562
+    [11] => Ukunda Medical Centre - In-person Consultation
+    [12] => KES
+    [13] => 600.00
+    [14] => Thursday
+    [15] => 2021-09-23
+    [16] => 13:40
+    [17] => HIV
+    [18] => ukundamedicalcentre@gmail.com
+)
+
+Message body empty
+
+[2021-09-20 14:55:13]=>	Failed to send facility confirmation SMS.
+Function: sendConfirmationMessages
+Params: Array
+(
+    [0] => test-script.php
+    [1] => angelo@myhealthafrica.com
+    [2] => +254703398416
+    [3] =>  Ukunda Medical Centre
+    [4] =>  Ukunda Medical Centre
+    [5] => 
+    [6] => Near Main Road, Ukunda-Ramisi Rd
+    [7] => 
+    [8] => Ukunda
+    [9] => Kenya
+    [10] => +254733820562
+    [11] => Ukunda Medical Centre - In-person Consultation
+    [12] => KES
+    [13] => 600.00
+    [14] => Thursday
+    [15] => 2021-09-23
+    [16] => 13:40
+    [17] => HIV
+    [18] => ukundamedicalcentre@gmail.com
+)
+
+InvalidSenderId
+
+[2021-09-20 14:56:54]=>	Failed to send confirmation email message to doctor.
+Function: sendConfirmationMessages
+Params: Array
+(
+    [0] => test-script.php
+    [1] => angelo@myhealthafrica.com
+    [2] => +254703398416
+    [3] =>  Ukunda Medical Centre
+    [4] =>  Ukunda Medical Centre
+    [5] => 
+    [6] => Near Main Road, Ukunda-Ramisi Rd
+    [7] => 
+    [8] => Ukunda
+    [9] => Kenya
+    [10] => +254733820562
+    [11] => Ukunda Medical Centre - In-person Consultation
+    [12] => KES
+    [13] => 600.00
+    [14] => Thursday
+    [15] => 2021-09-23
+    [16] => 13:40
+    [17] => HIV
+    [18] => ukundamedicalcentre@gmail.com
+)
+
+Message body empty
+
+[2021-09-20 14:56:54]=>	Failed to send facility confirmation SMS.
+Function: sendConfirmationMessages
+Params: Array
+(
+    [0] => test-script.php
+    [1] => angelo@myhealthafrica.com
+    [2] => +254703398416
+    [3] =>  Ukunda Medical Centre
+    [4] =>  Ukunda Medical Centre
+    [5] => 
+    [6] => Near Main Road, Ukunda-Ramisi Rd
+    [7] => 
+    [8] => Ukunda
+    [9] => Kenya
+    [10] => +254733820562
+    [11] => Ukunda Medical Centre - In-person Consultation
+    [12] => KES
+    [13] => 600.00
+    [14] => Thursday
+    [15] => 2021-09-23
+    [16] => 13:40
+    [17] => HIV
+    [18] => ukundamedicalcentre@gmail.com
+)
+
+InvalidSenderId
+

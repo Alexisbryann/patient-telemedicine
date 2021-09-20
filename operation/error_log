@@ -1,0 +1,226 @@
+[13-Sep-2021 16:44:56 Africa/Nairobi] PHP Notice:  Undefined offset: 1 in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 103
+[13-Sep-2021 13:49:10 UTC] PHP Notice:  Undefined index: id in /home/myhealthafrica/public_html/coldroom/psi/operation/updatePatientInfo.php on line 9
+[13-Sep-2021 13:49:10 UTC] PHP Notice:  Undefined index: medical-concern in /home/myhealthafrica/public_html/coldroom/psi/operation/updatePatientInfo.php on line 10
+[13-Sep-2021 13:49:10 UTC] PHP Notice:  Undefined index: medical-concern-desc in /home/myhealthafrica/public_html/coldroom/psi/operation/updatePatientInfo.php on line 11
+[13-Sep-2021 13:49:10 UTC] PHP Notice:  Undefined index: medication in /home/myhealthafrica/public_html/coldroom/psi/operation/updatePatientInfo.php on line 12
+[13-Sep-2021 13:49:10 UTC] PHP Notice:  Undefined index: allergies in /home/myhealthafrica/public_html/coldroom/psi/operation/updatePatientInfo.php on line 13
+[13-Sep-2021 14:29:14 UTC] PHP Notice:  Undefined index: id in /home/myhealthafrica/public_html/coldroom/psi/operation/updatePatientInfo.php on line 9
+[13-Sep-2021 14:29:14 UTC] PHP Notice:  Undefined index: medical-concern in /home/myhealthafrica/public_html/coldroom/psi/operation/updatePatientInfo.php on line 10
+[13-Sep-2021 14:29:14 UTC] PHP Notice:  Undefined index: medical-concern-desc in /home/myhealthafrica/public_html/coldroom/psi/operation/updatePatientInfo.php on line 11
+[13-Sep-2021 14:29:14 UTC] PHP Notice:  Undefined index: medication in /home/myhealthafrica/public_html/coldroom/psi/operation/updatePatientInfo.php on line 12
+[13-Sep-2021 14:29:14 UTC] PHP Notice:  Undefined index: allergies in /home/myhealthafrica/public_html/coldroom/psi/operation/updatePatientInfo.php on line 13
+[13-Sep-2021 14:48:20 UTC] PHP Notice:  Undefined index: id in /home/myhealthafrica/public_html/coldroom/psi/operation/updatePatientInfo.php on line 9
+[13-Sep-2021 14:48:20 UTC] PHP Notice:  Undefined index: medical-concern in /home/myhealthafrica/public_html/coldroom/psi/operation/updatePatientInfo.php on line 10
+[13-Sep-2021 14:48:20 UTC] PHP Notice:  Undefined index: medical-concern-desc in /home/myhealthafrica/public_html/coldroom/psi/operation/updatePatientInfo.php on line 11
+[13-Sep-2021 14:48:20 UTC] PHP Notice:  Undefined index: medication in /home/myhealthafrica/public_html/coldroom/psi/operation/updatePatientInfo.php on line 12
+[13-Sep-2021 14:48:20 UTC] PHP Notice:  Undefined index: allergies in /home/myhealthafrica/public_html/coldroom/psi/operation/updatePatientInfo.php on line 13
+[14-Sep-2021 05:25:49 UTC] PHP Warning:  date() expects at least 1 parameter, 0 given in /home/myhealthafrica/public_html/coldroom/psi/operation/test.php on line 5
+[14-Sep-2021 05:26:56 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function date_default_timezone() in /home/myhealthafrica/public_html/coldroom/psi/operation/test.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/myhealthafrica/public_html/coldroom/psi/operation/test.php on line 5
+[17-Sep-2021 15:59:30 Africa/Nairobi] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 282
+[17-Sep-2021 16:01:35 Africa/Nairobi] PHP Notice:  Undefined variable: service in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 225
+[17-Sep-2021 16:01:35 Africa/Nairobi] PHP Notice:  Undefined variable: body_text in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 825
+[17-Sep-2021 16:03:24 Africa/Nairobi] PHP Notice:  Undefined variable: body_text in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 825
+[17-Sep-2021 13:34:10 UTC] PHP Notice:  Undefined variable: output in /home/myhealthafrica/public_html/coldroom/psi/operation/checkStatus.php on line 11
+[17-Sep-2021 13:34:11 UTC] PHP Notice:  Undefined variable: output in /home/myhealthafrica/public_html/coldroom/psi/operation/checkStatus.php on line 11
+[17-Sep-2021 13:34:15 UTC] PHP Notice:  Undefined variable: output in /home/myhealthafrica/public_html/coldroom/psi/operation/checkStatus.php on line 11
+[17-Sep-2021 13:34:16 UTC] PHP Notice:  Undefined variable: output in /home/myhealthafrica/public_html/coldroom/psi/operation/checkStatus.php on line 11
+[17-Sep-2021 13:34:20 UTC] PHP Notice:  Undefined variable: output in /home/myhealthafrica/public_html/coldroom/psi/operation/checkStatus.php on line 11
+[17-Sep-2021 13:34:21 UTC] PHP Notice:  Undefined variable: output in /home/myhealthafrica/public_html/coldroom/psi/operation/checkStatus.php on line 11
+[17-Sep-2021 13:34:25 UTC] PHP Notice:  Undefined variable: output in /home/myhealthafrica/public_html/coldroom/psi/operation/checkStatus.php on line 11
+[17-Sep-2021 13:34:26 UTC] PHP Notice:  Undefined variable: output in /home/myhealthafrica/public_html/coldroom/psi/operation/checkStatus.php on line 11
+[17-Sep-2021 13:34:30 UTC] PHP Notice:  Undefined variable: output in /home/myhealthafrica/public_html/coldroom/psi/operation/checkStatus.php on line 11
+[17-Sep-2021 13:34:31 UTC] PHP Notice:  Undefined variable: output in /home/myhealthafrica/public_html/coldroom/psi/operation/checkStatus.php on line 11
+[17-Sep-2021 13:34:35 UTC] PHP Notice:  Undefined variable: output in /home/myhealthafrica/public_html/coldroom/psi/operation/checkStatus.php on line 11
+[17-Sep-2021 13:34:36 UTC] PHP Notice:  Undefined variable: output in /home/myhealthafrica/public_html/coldroom/psi/operation/checkStatus.php on line 11
+[17-Sep-2021 13:34:40 UTC] PHP Notice:  Undefined variable: output in /home/myhealthafrica/public_html/coldroom/psi/operation/checkStatus.php on line 11
+[17-Sep-2021 13:34:41 UTC] PHP Notice:  Undefined variable: output in /home/myhealthafrica/public_html/coldroom/psi/operation/checkStatus.php on line 11
+[17-Sep-2021 13:34:45 UTC] PHP Notice:  Undefined variable: output in /home/myhealthafrica/public_html/coldroom/psi/operation/checkStatus.php on line 11
+[17-Sep-2021 13:34:46 UTC] PHP Notice:  Undefined variable: output in /home/myhealthafrica/public_html/coldroom/psi/operation/checkStatus.php on line 11
+[17-Sep-2021 13:34:50 UTC] PHP Notice:  Undefined variable: output in /home/myhealthafrica/public_html/coldroom/psi/operation/checkStatus.php on line 11
+[17-Sep-2021 13:34:51 UTC] PHP Notice:  Undefined variable: output in /home/myhealthafrica/public_html/coldroom/psi/operation/checkStatus.php on line 11
+[17-Sep-2021 13:34:55 UTC] PHP Notice:  Undefined variable: output in /home/myhealthafrica/public_html/coldroom/psi/operation/checkStatus.php on line 11
+[17-Sep-2021 13:34:56 UTC] PHP Notice:  Undefined variable: output in /home/myhealthafrica/public_html/coldroom/psi/operation/checkStatus.php on line 11
+[17-Sep-2021 13:35:00 UTC] PHP Notice:  Undefined variable: output in /home/myhealthafrica/public_html/coldroom/psi/operation/checkStatus.php on line 11
+[17-Sep-2021 13:35:01 UTC] PHP Notice:  Undefined variable: output in /home/myhealthafrica/public_html/coldroom/psi/operation/checkStatus.php on line 11
+[17-Sep-2021 13:35:05 UTC] PHP Notice:  Undefined variable: output in /home/myhealthafrica/public_html/coldroom/psi/operation/checkStatus.php on line 11
+[17-Sep-2021 13:35:06 UTC] PHP Notice:  Undefined variable: output in /home/myhealthafrica/public_html/coldroom/psi/operation/checkStatus.php on line 11
+[18-Sep-2021 10:28:54 Africa/Nairobi] PHP Notice:  Undefined offset: 1 in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 103
+[18-Sep-2021 10:52:15 Africa/Nairobi] PHP Notice:  Undefined offset: 1 in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 103
+[18-Sep-2021 10:53:52 Africa/Nairobi] PHP Notice:  Undefined offset: 1 in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 103
+[18-Sep-2021 10:54:17 Africa/Nairobi] PHP Notice:  Undefined offset: 1 in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 103
+[18-Sep-2021 10:54:50 Africa/Nairobi] PHP Notice:  Undefined offset: 1 in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 103
+[18-Sep-2021 10:55:12 Africa/Nairobi] PHP Notice:  Undefined offset: 1 in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 103
+[18-Sep-2021 11:44:18 Africa/Nairobi] PHP Notice:  Undefined offset: 1 in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 103
+[18-Sep-2021 11:44:25 Africa/Nairobi] PHP Notice:  Undefined offset: 1 in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 103
+[18-Sep-2021 11:44:42 Africa/Nairobi] PHP Notice:  Undefined offset: 1 in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 103
+[18-Sep-2021 11:45:25 Africa/Nairobi] PHP Notice:  Undefined offset: 1 in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 103
+[18-Sep-2021 11:45:40 Africa/Nairobi] PHP Notice:  Undefined offset: 1 in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 103
+[18-Sep-2021 11:53:34 Africa/Nairobi] PHP Notice:  Undefined offset: 1 in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 103
+[18-Sep-2021 12:01:05 Africa/Nairobi] PHP Notice:  Undefined offset: 1 in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 103
+[18-Sep-2021 12:01:38 Africa/Nairobi] PHP Notice:  Undefined offset: 1 in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 103
+[18-Sep-2021 12:09:47 Africa/Nairobi] PHP Notice:  Undefined offset: 1 in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 103
+[18-Sep-2021 12:11:58 Africa/Nairobi] PHP Notice:  Undefined offset: 1 in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 103
+[18-Sep-2021 12:20:52 Africa/Nairobi] PHP Notice:  Undefined offset: 1 in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 103
+[18-Sep-2021 12:21:01 Africa/Nairobi] PHP Notice:  Undefined offset: 1 in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 103
+[18-Sep-2021 12:22:20 Africa/Nairobi] PHP Notice:  Undefined offset: 1 in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 103
+[18-Sep-2021 12:23:32 Africa/Nairobi] PHP Notice:  Undefined offset: 1 in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 103
+[18-Sep-2021 12:39:44 Africa/Nairobi] PHP Notice:  Undefined offset: 1 in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 103
+[20-Sep-2021 13:02:01 Africa/Nairobi] PHP Fatal error:  Uncaught Error: Call to undefined method DB_Functions::getTakenTimeSlots() in /home/myhealthafrica/public_html/coldroom/psi/operation/getTakenTimeSlots.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/myhealthafrica/public_html/coldroom/psi/operation/getTakenTimeSlots.php on line 18
+[20-Sep-2021 13:02:03 Africa/Nairobi] PHP Fatal error:  Uncaught Error: Call to undefined method DB_Functions::getTakenTimeSlots() in /home/myhealthafrica/public_html/coldroom/psi/operation/getTakenTimeSlots.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/myhealthafrica/public_html/coldroom/psi/operation/getTakenTimeSlots.php on line 18
+[20-Sep-2021 13:02:04 Africa/Nairobi] PHP Fatal error:  Uncaught Error: Call to undefined method DB_Functions::getTakenTimeSlots() in /home/myhealthafrica/public_html/coldroom/psi/operation/getTakenTimeSlots.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/myhealthafrica/public_html/coldroom/psi/operation/getTakenTimeSlots.php on line 18
+[20-Sep-2021 13:02:04 Africa/Nairobi] PHP Fatal error:  Uncaught Error: Call to undefined method DB_Functions::getTakenTimeSlots() in /home/myhealthafrica/public_html/coldroom/psi/operation/getTakenTimeSlots.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/myhealthafrica/public_html/coldroom/psi/operation/getTakenTimeSlots.php on line 18
+[20-Sep-2021 13:02:05 Africa/Nairobi] PHP Fatal error:  Uncaught Error: Call to undefined method DB_Functions::getTakenTimeSlots() in /home/myhealthafrica/public_html/coldroom/psi/operation/getTakenTimeSlots.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/myhealthafrica/public_html/coldroom/psi/operation/getTakenTimeSlots.php on line 18
+[20-Sep-2021 13:02:05 Africa/Nairobi] PHP Fatal error:  Uncaught Error: Call to undefined method DB_Functions::getTakenTimeSlots() in /home/myhealthafrica/public_html/coldroom/psi/operation/getTakenTimeSlots.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/myhealthafrica/public_html/coldroom/psi/operation/getTakenTimeSlots.php on line 18
+[20-Sep-2021 13:02:05 Africa/Nairobi] PHP Fatal error:  Uncaught Error: Call to undefined method DB_Functions::getTakenTimeSlots() in /home/myhealthafrica/public_html/coldroom/psi/operation/getTakenTimeSlots.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/myhealthafrica/public_html/coldroom/psi/operation/getTakenTimeSlots.php on line 18
+[20-Sep-2021 13:02:05 Africa/Nairobi] PHP Fatal error:  Uncaught Error: Call to undefined method DB_Functions::getTakenTimeSlots() in /home/myhealthafrica/public_html/coldroom/psi/operation/getTakenTimeSlots.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/myhealthafrica/public_html/coldroom/psi/operation/getTakenTimeSlots.php on line 18
+[20-Sep-2021 13:02:05 Africa/Nairobi] PHP Fatal error:  Uncaught Error: Call to undefined method DB_Functions::getTakenTimeSlots() in /home/myhealthafrica/public_html/coldroom/psi/operation/getTakenTimeSlots.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/myhealthafrica/public_html/coldroom/psi/operation/getTakenTimeSlots.php on line 18
+[20-Sep-2021 13:02:05 Africa/Nairobi] PHP Fatal error:  Uncaught Error: Call to undefined method DB_Functions::getTakenTimeSlots() in /home/myhealthafrica/public_html/coldroom/psi/operation/getTakenTimeSlots.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/myhealthafrica/public_html/coldroom/psi/operation/getTakenTimeSlots.php on line 18
+[20-Sep-2021 13:02:06 Africa/Nairobi] PHP Fatal error:  Uncaught Error: Call to undefined method DB_Functions::getTakenTimeSlots() in /home/myhealthafrica/public_html/coldroom/psi/operation/getTakenTimeSlots.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/myhealthafrica/public_html/coldroom/psi/operation/getTakenTimeSlots.php on line 18
+[20-Sep-2021 13:02:06 Africa/Nairobi] PHP Fatal error:  Uncaught Error: Call to undefined method DB_Functions::getTakenTimeSlots() in /home/myhealthafrica/public_html/coldroom/psi/operation/getTakenTimeSlots.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/myhealthafrica/public_html/coldroom/psi/operation/getTakenTimeSlots.php on line 18
+[20-Sep-2021 13:02:08 Africa/Nairobi] PHP Fatal error:  Uncaught Error: Call to undefined method DB_Functions::getTakenTimeSlots() in /home/myhealthafrica/public_html/coldroom/psi/operation/getTakenTimeSlots.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/myhealthafrica/public_html/coldroom/psi/operation/getTakenTimeSlots.php on line 18
+[20-Sep-2021 13:08:14 Africa/Nairobi] PHP Notice:  Undefined variable: appointment_type in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 80
+[20-Sep-2021 13:08:14 Africa/Nairobi] PHP Notice:  Undefined variable: appointment_type in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 135
+[20-Sep-2021 13:44:13 Africa/Nairobi] PHP Warning:  require(/home/myhealthafrica/public_html/mha/wp-config.php): failed to open stream: No such file or directory in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 109
+[20-Sep-2021 13:44:13 Africa/Nairobi] PHP Fatal error:  require(): Failed opening required '/home/myhealthafrica/public_html/mha/wp-config.php' (include_path='.:/opt/cpanel/ea-php72/root/usr/share/pear') in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 109
+[20-Sep-2021 10:51:52 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function dateToCal() in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php:1310
+Stack trace:
+#0 /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php(175): DB_Functions->sendConfirmationMessages('test-script.php', 'angelo@myhealth...', '+254703398416', ' Ukunda Medical...', ' Ukunda Medical...', NULL, 'Near Main Road,...', '', 'Ukunda', 'Kenya', '+254733820562', 'Ukunda Medical ...', 'KES', '600.00', 'Thursday', '2021-09-23', '13:40', 'HIV', 'ukundamedicalce...')
+#1 /home/myhealthafrica/public_html/coldroom/psi/operation/bookingOperations.php(52): DB_Functions->TunzaClinicTelemedicineAppointmentBooking('test-script.php', 'angelo@myhealth...', 'Female', '+254703398416', '2021-09-04', 156, '2021-09-23', '13:40', 600, 'psi', 'inperson', '126', 'HIV')
+#2 {main}
+  thrown in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 1310
+[20-Sep-2021 10:53:09 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function dateToCal() in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php:1310
+Stack trace:
+#0 /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php(175): DB_Functions->sendConfirmationMessages('test-script.php', 'angelo@myhealth...', '+254703398416', ' Ukunda Medical...', ' Ukunda Medical...', NULL, 'Near Main Road,...', '', 'Ukunda', 'Kenya', '+254733820562', 'Ukunda Medical ...', 'KES', '600.00', 'Thursday', '2021-09-23', '13:40', 'HIV', 'ukundamedicalce...')
+#1 /home/myhealthafrica/public_html/coldroom/psi/operation/bookingOperations.php(52): DB_Functions->TunzaClinicTelemedicineAppointmentBooking('test-script.php', 'angelo@myhealth...', 'Female', '+254703398416', '2021-09-04', 156, '2021-09-23', '13:40', 600, 'psi', 'inperson', '126', 'HIV')
+#2 {main}
+  thrown in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 1310
+[20-Sep-2021 11:03:31 UTC] PHP Fatal error:  Uncaught Error: Call to a member function add_global_groups() on null in /home/myhealthafrica/public_html/wp-includes/cache.php:233
+Stack trace:
+#0 /home/myhealthafrica/public_html/wp-includes/load.php(521): wp_cache_add_global_groups(Array)
+#1 /home/myhealthafrica/public_html/wp-settings.php(113): wp_start_object_cache()
+#2 /home/myhealthafrica/public_html/wp-config.php(93): require_once('/home/myhealtha...')
+#3 /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php(109): require('/home/myhealtha...')
+#4 /home/myhealthafrica/public_html/coldroom/psi/operation/bookingOperations.php(52): DB_Functions->TunzaClinicTelemedicineAppointmentBooking('test-script.php', 'angelo@myhealth...', 'Female', '+254703398416', '2021-09-04', 156, '2021-09-23', '13:40', 600, 'psi', 'inperson', '126', 'HIV')
+#5 {main}
+  thrown in /home/myhealthafrica/public_html/wp-includes/cache.php on line 233
+[20-Sep-2021 14:11:01 Africa/Nairobi] PHP Warning:  require(/home/myhealthafrica/public_html/wp-includes/wp-config.php): failed to open stream: No such file or directory in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 109
+[20-Sep-2021 14:11:01 Africa/Nairobi] PHP Fatal error:  require(): Failed opening required '/home/myhealthafrica/public_html/wp-includes/wp-config.php' (include_path='.:/opt/cpanel/ea-php72/root/usr/share/pear') in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 109
+[20-Sep-2021 14:11:15 Africa/Nairobi] PHP Fatal error:  Uncaught Error: Class 'WP_Error' not found in /home/myhealthafrica/public_html/wp-includes/user.php:2335
+Stack trace:
+#0 /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php(110): register_new_user('test-script.php', 'angelo@myhealth...')
+#1 /home/myhealthafrica/public_html/coldroom/psi/operation/bookingOperations.php(52): DB_Functions->TunzaClinicTelemedicineAppointmentBooking('test-script.php', 'angelo@myhealth...', 'Female', '+254703398416', '2021-09-04', 156, '2021-09-23', '13:40', 600, 'psi', 'inperson', '126', 'HIV')
+#2 {main}
+  thrown in /home/myhealthafrica/public_html/wp-includes/user.php on line 2335
+[20-Sep-2021 11:37:57 UTC] PHP Fatal error:  Uncaught Error: Call to a member function add_global_groups() on null in /home/myhealthafrica/public_html/wp-includes/cache.php:233
+Stack trace:
+#0 /home/myhealthafrica/public_html/wp-includes/load.php(521): wp_cache_add_global_groups(Array)
+#1 /home/myhealthafrica/public_html/wp-settings.php(113): wp_start_object_cache()
+#2 /home/myhealthafrica/public_html/wp-config.php(93): require_once('/home/myhealtha...')
+#3 /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php(109): require('/home/myhealtha...')
+#4 /home/myhealthafrica/public_html/coldroom/psi/operation/bookingOperations.php(52): DB_Functions->TunzaClinicTelemedicineAppointmentBooking('test-script.php', 'angelo@myhealth...', 'Female', '+254703398416', '2021-09-04', 156, '2021-09-23', '13:40', 600, 'psi', 'inperson', '126', 'HIV')
+#5 {main}
+  thrown in /home/myhealthafrica/public_html/wp-includes/cache.php on line 233
+[20-Sep-2021 14:39:19 Africa/Nairobi] PHP Fatal error:  Uncaught Error: Class 'WP_Error' not found in /home/myhealthafrica/public_html/wp-includes/user.php:2335
+Stack trace:
+#0 /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php(110): register_new_user('test-script.php', 'angelo@myhealth...')
+#1 /home/myhealthafrica/public_html/coldroom/psi/operation/bookingOperations.php(52): DB_Functions->TunzaClinicTelemedicineAppointmentBooking('test-script.php', 'angelo@myhealth...', 'Female', '+254703398416', '2021-09-04', 156, '2021-09-23', '13:40', 600, 'psi', 'inperson', '126', 'HIV')
+#2 {main}
+  thrown in /home/myhealthafrica/public_html/wp-includes/user.php on line 2335
+[20-Sep-2021 14:39:53 Africa/Nairobi] PHP Fatal error:  Uncaught Error: Call to undefined function sanitize_user() in /home/myhealthafrica/public_html/wp-includes/user.php:2337
+Stack trace:
+#0 /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php(111): register_new_user('test-script.php', 'angelo@myhealth...')
+#1 /home/myhealthafrica/public_html/coldroom/psi/operation/bookingOperations.php(52): DB_Functions->TunzaClinicTelemedicineAppointmentBooking('test-script.php', 'angelo@myhealth...', 'Female', '+254703398416', '2021-09-04', 156, '2021-09-23', '13:40', 600, 'psi', 'inperson', '126', 'HIV')
+#2 {main}
+  thrown in /home/myhealthafrica/public_html/wp-includes/user.php on line 2337
+[20-Sep-2021 14:40:29 Africa/Nairobi] PHP Fatal error:  Uncaught Error: Call to undefined function apply_filters() in /home/myhealthafrica/public_html/wp-includes/formatting.php:1887
+Stack trace:
+#0 /home/myhealthafrica/public_html/wp-includes/user.php(2337): sanitize_user('test-script.php')
+#1 /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php(112): register_new_user('test-script.php', 'angelo@myhealth...')
+#2 /home/myhealthafrica/public_html/coldroom/psi/operation/bookingOperations.php(52): DB_Functions->TunzaClinicTelemedicineAppointmentBooking('test-script.php', 'angelo@myhealth...', 'Female', '+254703398416', '2021-09-04', 156, '2021-09-23', '13:40', 600, 'psi', 'inperson', '126', 'HIV')
+#3 {main}
+  thrown in /home/myhealthafrica/public_html/wp-includes/formatting.php on line 1887
+[20-Sep-2021 14:41:01 Africa/Nairobi] PHP Fatal error:  Uncaught Error: Call to undefined function get_user_by() in /home/myhealthafrica/public_html/wp-includes/user.php:1351
+Stack trace:
+#0 /home/myhealthafrica/public_html/wp-includes/user.php(2372): email_exists('angelo@myhealth...')
+#1 /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php(113): register_new_user('test-script.php', 'angelo@myhealth...')
+#2 /home/myhealthafrica/public_html/coldroom/psi/operation/bookingOperations.php(52): DB_Functions->TunzaClinicTelemedicineAppointmentBooking('test-script.php', 'angelo@myhealth...', 'Female', '+254703398416', '2021-09-04', 156, '2021-09-23', '13:40', 600, 'psi', 'inperson', '126', 'HIV')
+#3 {main}
+  thrown in /home/myhealthafrica/public_html/wp-includes/user.php on line 1351
+[20-Sep-2021 14:41:31 Africa/Nairobi] PHP Fatal error:  Uncaught Error: Class 'WP_User' not found in /home/myhealthafrica/public_html/wp-includes/pluggable.php:99
+Stack trace:
+#0 /home/myhealthafrica/public_html/wp-includes/user.php(1351): get_user_by('email', 'angelo@myhealth...')
+#1 /home/myhealthafrica/public_html/wp-includes/user.php(2372): email_exists('angelo@myhealth...')
+#2 /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php(114): register_new_user('test-script.php', 'angelo@myhealth...')
+#3 /home/myhealthafrica/public_html/coldroom/psi/operation/bookingOperations.php(52): DB_Functions->TunzaClinicTelemedicineAppointmentBooking('test-script.php', 'angelo@myhealth...', 'Female', '+254703398416', '2021-09-04', 156, '2021-09-23', '13:40', 600, 'psi', 'inperson', '126', 'HIV')
+#4 {main}
+  thrown in /home/myhealthafrica/public_html/wp-includes/pluggable.php on line 99
+[20-Sep-2021 14:42:00 Africa/Nairobi] PHP Fatal error:  Uncaught Error: Call to undefined function wp_cache_get() in /home/myhealthafrica/public_html/wp-includes/class-wp-user.php:224
+Stack trace:
+#0 /home/myhealthafrica/public_html/wp-includes/pluggable.php(99): WP_User::get_data_by('email', 'angelo@myhealth...')
+#1 /home/myhealthafrica/public_html/wp-includes/user.php(1351): get_user_by('email', 'angelo@myhealth...')
+#2 /home/myhealthafrica/public_html/wp-includes/user.php(2372): email_exists('angelo@myhealth...')
+#3 /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php(115): register_new_user('test-script.php', 'angelo@myhealth...')
+#4 /home/myhealthafrica/public_html/coldroom/psi/operation/bookingOperations.php(52): DB_Functions->TunzaClinicTelemedicineAppointmentBooking('test-script.php', 'angelo@myhealth...', 'Female', '+254703398416', '2021-09-04', 156, '2021-09-23', '13:40', 600, 'psi', 'inperson', '126', 'HIV')
+#5 {main}
+  thrown in /home/myhealthafrica/public_html/wp-includes/class-wp-user.php on line 224
+[20-Sep-2021 14:42:41 Africa/Nairobi] PHP Fatal error:  Uncaught Error: Call to a member function get() on null in /home/myhealthafrica/public_html/wp-includes/cache.php:123
+Stack trace:
+#0 /home/myhealthafrica/public_html/wp-includes/class-wp-user.php(224): wp_cache_get('angelo@myhealth...', 'useremail')
+#1 /home/myhealthafrica/public_html/wp-includes/pluggable.php(99): WP_User::get_data_by('email', 'angelo@myhealth...')
+#2 /home/myhealthafrica/public_html/wp-includes/user.php(1351): get_user_by('email', 'angelo@myhealth...')
+#3 /home/myhealthafrica/public_html/wp-includes/user.php(2372): email_exists('angelo@myhealth...')
+#4 /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php(116): register_new_user('test-script.php', 'angelo@myhealth...')
+#5 /home/myhealthafrica/public_html/coldroom/psi/operation/bookingOperations.php(52): DB_Functions->TunzaClinicTelemedicineAppointmentBooking('test-script.php', 'angelo@myhealth...', 'Female', '+254703398416', '2021-09-04', 156, '2021-09-23', '13:40', 600, 'psi', 'inperson', '126', 'HIV')
+#6 {main} in /home/myhealthafrica/public_html/wp-includes/cache.php on line 123
+[20-Sep-2021 14:47:46 Africa/Nairobi] PHP Notice:  Undefined offset: 1 in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 122
+[20-Sep-2021 14:47:46 Africa/Nairobi] PHP Notice:  Undefined variable: billing_email in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 123
+[20-Sep-2021 14:47:46 Africa/Nairobi] PHP Notice:  Undefined variable: user_id_field in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 139
+[20-Sep-2021 14:47:46 Africa/Nairobi] PHP Notice:  Undefined variable: user_id_value in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 139
+[20-Sep-2021 14:47:46 Africa/Nairobi] PHP Notice:  Undefined variable: facility_address in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 165
+[20-Sep-2021 14:47:50 Africa/Nairobi] PHP Notice:  Undefined offset: 1 in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 206
+[20-Sep-2021 14:49:08 Africa/Nairobi] PHP Notice:  Undefined variable: facility_address in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 167
+[20-Sep-2021 14:49:13 Africa/Nairobi] PHP Notice:  Undefined offset: 1 in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 208
+[20-Sep-2021 14:50:49 Africa/Nairobi] PHP Notice:  Undefined index: address in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 154
+[20-Sep-2021 14:52:45 Africa/Nairobi] PHP Notice:  Undefined index: address in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 154

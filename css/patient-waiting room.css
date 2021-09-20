@@ -1,0 +1,561 @@
+body{
+    background-color: #f5f5f5 !important;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+.profile-sidebar img {
+    display: inline;
+}
+
+p {
+    margin-top: 2em;
+    margin-bottom: 1rem;
+}
+
+.telemed-step-one h3, .telemed-step-two h3, .telemed-step-two h4, .payment h3 {
+    font-size: 30px !important;
+    font-weight: bold;
+    font-family: 'Segoe UI';
+}
+
+.telemed-step-one h5, .telemed-step-two h5 {
+    font-size: 17px !important;
+    font-weight: 400;
+    font-family: 'Segoe UI';
+}
+
+.telemed-step-one .btn-proceed #no {
+    background-color: #fff;
+    font-family: 'Segoe UI';
+    border: 1.5px solid #0080ff;
+    color: #000;
+    padding: 5px 40px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+.telemed-step-one .btn-proceed #yes {
+    background-color: #0080ff;
+    font-family: 'Segoe UI';
+    border: none;
+    color: #fff;
+    padding: 5px 40px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#permission-info {
+    padding: 0;
+}
+
+#permission-info .modal-dialog {
+    max-width: 600px;
+    margin: 10rem auto !important;
+    text-align: center !important;
+}
+
+#permission-info .modal-header {
+    display: inline !important;
+    text-align: center !important;
+}
+
+#permission-info h4, #callback h4 {
+    color: #000000 !important;
+    font-family: 'Segoe UI' !important;
+    font-size: 19px !important;
+    font-weight: 700;
+    display: inline !important;
+    text-align: center !important;
+}
+
+#permission-info p {
+    font-family: 'Segoe UI' !important;
+    text-align: left !important;
+}
+
+#permission-info button {
+    background-color: #0080ff;
+    padding: 5px 50px;
+    color: #fff;
+    border: none;
+    font-family: 'Segoe UI';
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.telemed-step-two .loader-container {
+    margin: 20px;
+}
+
+.telemed-step-two .loader {
+    border: 10px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 8px solid #0080ff;
+    border-right: 8px solid #0080ff;
+    border-bottom: 8px solid #0080ff;
+    width: 70px;
+    height: 70px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+.payment {
+    border: 1px solid#F7941C;
+    background-color: #fff !important;
+}
+
+.payment .loader-container {
+    margin: 30px;
+}
+
+.payment .loader {
+    border: 10px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 8px solid#F7941C;
+    border-right: 8px solid #F7941C;
+    border-bottom: 8px solid #F7941C;
+    width: 70px;
+    height: 70px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+.checkmark {
+    display: inline-block;
+    height: 100px;
+    width: 40px;
+    border-bottom: 15px solid #F7941C;
+    border-right: 15px solid #F7941C;
+    transform: rotate(45deg);
+}
+
+.error, .required {
+    color: #FF5252;
+}
+span p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.preview, .title {
+    font-weight: bold;
+}
+
+.title {
+    font-weight: bold;
+    color: #F7941C;
+    font-size: 14px;
+    margin-bottom: 10px;
+    border: 1px solid gray;
+    width: -webkit-fill-available;
+    padding: 10px;
+    height: fit-content;
+}
+
+.input-group {
+    border: .5px solid gray;
+}
+
+.preview-div {
+    margin-bottom: 15px;
+}
+
+.cost {
+    background-color: #FBC98D;
+    min-width: -webkit-fill-available;
+    height: 80%;
+}
+
+a[href="#next"] {
+    background: #F7941C !important;
+    color: #000000 !important;
+    border-radius: 4px;
+}
+
+a[href="#finish"] {
+    background: #F7941C !important;
+    color: #000000 !important;
+    border-radius: 4px;
+}
+
+a[href="#previous"] {
+    background: none !important;
+    color: #000000 !important;
+    border: 1px solid;
+    border-radius: 4px;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Patient Telemedicine */
+
+/* .patient .page-content {
+    margin: 50px 100px;
+    border: none;
+} */
+
+.appt-booking .page-content {
+    margin: 50px 50px;
+    border: none;
+}
+
+.booking {
+    padding-bottom: 10px !important;
+}
+
+.wizard>.content {
+    border: none;
+}
+
+.card {
+    background-color: #f5f5f5 !important;
+    padding-top: 20px;
+    border: none;
+    /* padding-bottom: 100px; */
+}
+
+.img-responsive{
+    display: block;
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    width:22em;
+    left: 50%;
+    transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    -webkit-transform: translate(-50%, 0);
+}
+.fa-long-arrow-right{
+    color: #0080ff;
+    margin-left: 20px;
+    
+}
+.round {
+    border-radius: 50%;
+}
+
+.waiting {
+    margin: 30px;
+}
+
+.time {
+    color: #0080ff;
+    font-family: 'Segoe UI';
+    font-weight: bold;
+}
+
+.telemed-step-three .waiting-time {
+    background-color: #fff;
+    color: #0080ff;
+    border: 1px solid #0080ff;
+    border-radius: 3px;
+    padding: 5px;
+    font-size: 13px;
+    font-family: 'Segoe UI';
+    font-weight: bold;
+}
+
+.loading {
+    margin: 30px;
+    font-size: 16px;
+}
+
+.loading span {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 2px;
+}
+
+.loading .one {
+    opacity: 0;
+    -webkit-animation: dot 1.5s infinite;
+    -webkit-animation-delay: 0.0s;
+    animation: dot 1.5s infinite;
+    animation-delay: 0.0s;
+}
+
+.loading .two {
+    opacity: 0;
+    -webkit-animation: dot 1.5s infinite;
+    -webkit-animation-delay: 0.2s;
+    animation: dot 1.5s infinite;
+    animation-delay: 0.3s;
+}
+
+.loading .three {
+    opacity: 0;
+    -webkit-animation: dot 1.5s infinite;
+    -webkit-animation-delay: 0.3s;
+    animation: dot 1.5s infinite;
+    animation-delay: 0.4s;
+}
+
+@-webkit-keyframes dot {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes dot {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+#callback .modal-dialog {
+    max-width: 550px;
+    margin: 12rem auto !important;
+    text-align: center !important;
+}
+
+#callback p {
+    margin-top: 25px;
+    text-align: center;
+    font-family: 'Segoe UI' !important;
+}
+
+#callback .modal-footer button {
+    width: 210px;
+    background-color: #0080ff;
+    padding: 5px 20px;
+    color: #fff;
+    border: none;
+    font-family: 'Segoe UI';
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#callback #request-callback {
+    float: left;
+}
+
+#callback #reschedule-appointment {
+    float: right;
+}
+
+#callback .modal-header {
+    border: none;
+}
+
+#callback .modal-header button {
+    margin-top: -15px !important;
+    padding: 0 !important;
+    margin-right: -10px;
+    padding: 0 !important;
+}
+
+#callback .close {
+    background-color: #fff;
+    color: #000000;
+    font-size: 30px;
+    border: none;
+    font-family: 'Segoe UI';
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#callback .modal-body {
+    padding: 0 3em;
+}
+
+#callback .modal-footer {
+    border: none;
+    display: inline;
+    padding: 2em 3em;
+}
+
+#callback .callback-success {
+    height: 15em;
+}
+
+#callback .callback-success h5 {
+    color: #000000;
+    font-size: 20px;
+    font-family: 'Segoe UI';
+    font-weight: bold;
+    margin: 1.5em 0;
+}
+
+#callback .callback-success .fa-check {
+    color: #0080ff;
+    font-size: 3em;
+    padding-top: .5em;
+}
+
+.input-group {
+    text-align: left;
+    padding-bottom: 40px;
+    /* padding-left: 10px; */
+    /* padding-right: 10px; */
+}
+
+/***************Responsive Media Queries**************/
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+    /* CSS */
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+    /* CSS */
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    /* CSS */
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    /* CSS */
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+    /* CSS */
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+    body, html {
+        overflow-x: hidden;
+        margin: 0 auto;
+        height: 100%;
+    }
+    .profile-sidebar img {
+        margin: auto;
+    }
+    .patient .page-content {
+        margin: 0 auto;
+    }
+    .card {
+        margin: 0;
+        padding-top: 0 !important;
+        padding-bottom: 0;
+        border: none;
+    }
+    
+    .telemed-step-two{
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+    }
+    .telemed-step-one h3, .telemed-step-two h3, .payment h3 {
+        padding-top: 20px;
+    }
+    .telemed-step-three{
+        padding-left: 1.5em;
+        padding-right: 1.5em;
+    }
+    div.conv-form-wrapper div.wrapper-messages {
+        position: relative;
+        height: 100vh;
+        max-height: 71vh;
+        overflow-y: scroll;
+        transition: margin 0.1s;
+    }
+    #callback .modal-footer button {
+        width: 210px;
+        margin: 10px;
+    }
+    #callback #reschedule-appointment, #callback #request-callback {
+        float: none;
+    }
+    #permission-info .modal-dialog {
+        max-width: 600px;
+        margin: 1rem !important;
+        text-align: center !important;
+    }
+    .waiting {
+        margin: 20px;
+    }
+    .col-sm-12{
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+    }
+    .chat-info{
+        display: none !important;
+    }
+    .chat-card {
+        width: 100% !important;
+        background: #fff;
+        box-shadow: 13px 13px 28px 2px rgb(0 0 0 / 4%);
+        padding: 10px 3em;
+    }
+    #callback .modal-dialog {
+        max-width: 600px;
+        margin: 1rem !important;
+        text-align: center !important;
+    }
+}
+
+@media all and (max-width:65em) {
+    body {
+        font-size: 1.5vw;
+    }
+}
+
+@media all and (max-width:40em) {
+    body {
+        font-size: 0.8em;
+    }
+    div.testGroup {
+        display: block;
+        margin: 0 auto;
+    }
+}

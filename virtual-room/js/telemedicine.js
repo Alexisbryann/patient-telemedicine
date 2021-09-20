@@ -14,7 +14,7 @@ $(function () {
                 3: "One or more files uploaded was corrupted. Please try again.",
                 4: "One or more files uploaded has an unsupported extension. Only documents and images are allowed.",
             },
-            domain_name: "localhost",
+            domain_name: "myhealthafrica.com/coldroom",
             mobile_screen: window.innerWidth < 758,
         };
     let uploaded_files = {
@@ -87,7 +87,7 @@ $(function () {
     });
 
     // websocket connection and event handlers
-    var conn = new WebSocket(`ws://${chat_app_settings.domain_name}:8080?user_type=${chat_app_settings.user_type}&id=${chat_app_settings.user_id}&appointment_id=${chat_app_settings.appointment_id}`);
+    var conn = new WebSocket(`wss://https://${chat_app_settings.domain_name}:8080?user_type=${chat_app_settings.user_type}&id=${chat_app_settings.user_id}&appointment_id=${chat_app_settings.appointment_id}`);
 
     // conn.onopen = function (e) {
     // };

@@ -1,0 +1,191 @@
+.container {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    border: 1px solid gray;
+    padding: 10px;
+    background-color: #bbbbbb;
+}
+p {
+    margin-top: 2em;
+    margin-bottom: 1rem;
+}
+.payment h3 {
+    font-size: 30px !important;
+    font-weight: bold;
+    font-family: 'Segoe UI';
+}
+.payment {
+    border: 1px solid#F7941C;
+    background-color: #fff !important;
+}
+
+.payment .loader-container {
+    margin: 30px;
+}
+
+.payment .loader {
+    border: 10px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 8px solid#F7941C;
+    border-right: 8px solid #F7941C;
+    border-bottom: 8px solid #F7941C;
+    width: 70px;
+    height: 70px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+.checkmark {
+    display: inline-block;
+    height: 100px;
+    width: 40px;
+    border-bottom: 15px solid #F7941C;
+    border-right: 15px solid #F7941C;
+    transform: rotate(45deg);
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Patient Telemedicine */
+
+.patient .page-content {
+    margin: 50px 100px;
+    border: none;
+}
+.page-content {
+    margin: 50px 50px;
+    border: none;
+}
+.card {
+    background-color: white;
+    padding-top: 0px;
+    padding-bottom: 100px;
+}
+
+.img-responsive {
+    width: 22em;
+}
+
+/***************Responsive Media Queries**************/
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+    /* CSS */
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+    /* CSS */
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    /* CSS */
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    /* CSS */
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+    /* CSS */
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+    body, html {
+        overflow-x: hidden;
+        margin: 0 auto;
+        height: 100%;
+    }
+    .profile-sidebar img {
+        margin: auto;
+    }
+    .patient .page-content {
+        margin: 0 auto;
+    }
+    .card {
+        margin: 0;
+        padding-top: 0 !important;
+        padding-bottom: 0;
+        border: none;
+    }
+    .payment h3 {
+        padding-top: 20px;
+    }
+}
+
+/* Mobile display */
+
+@media screen and (max-width: 758px) {
+    .page-content {
+        margin: 0;
+    }
+    .card-body {
+        margin-top: 4.5em;
+    }
+    .card-body, .booking-card {
+        padding-top: 10px;
+    }
+    .col-md-12 {
+        padding: .3rem;
+    }
+    .patient-details .col-12 {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .md-col {
+        flex-direction: column;
+    }
+    .form-control {
+        border-radius: 0;
+    }
+    .patient-details {
+        border: none;
+        padding: 0;
+        margin-bottom: 2em;
+    }
+}
