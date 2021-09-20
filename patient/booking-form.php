@@ -19,17 +19,17 @@
                 <div class="patient-details input-group col-12 col-md-8">
                     <div class="w-100 d-none d-md-flex" style="margin-bottom: 30px; margin-top: 30px; font-weight: bold;">Fill in the patient's details</div>
                     <div class="col-12 col-md-6 mt-i">
-                        <label>Full name<span class="required"> * </span></label>
+                        <label>Full name<span class="required"></span></label>
                         <input type="text" id="name" name="name" class="form-control" placeholder="Full name" required />
                         <div id="name-error" class="col-12 col-md-12 error" style="display: none;"></div>
                     </div>
                     <div class="col-12 col-md-6 mt-i">
-                        <label>Email address<span class="required"> * </span></label>
+                        <label>Email address<span class="required"></span></label>
                         <input type="email" id="email" name="email" class="form-control" placeholder="Email address" required />
                         <div id="email-error" class="col-12 col-md-12 error" style="display: none;"></div>
                     </div>
                     <div class="col-12 col-md-6 mt-i">
-                        <label>Gender<span class="required"> * </span></label>
+                        <label>Gender<span class="required"></span></label>
                         <select id="gender" name="gender" class="form-control" required>
                             <option selected disabled value="">Select gender</option>
                             <option value="Male">Male</option>
@@ -38,67 +38,68 @@
                         <div id="gender-error" class="col-12 col-md-12 error" style="display: none;"></div>
                     </div>
                     <div class="col-12 col-md-6 mt-i">
-                        <label>Phone number<span class="required"> * </span></label>
+                        <label>Phone number<span class="required"></span></label>
                         <input type="text" id="phone" name="phone" class="form-control" placeholder="Phone number" required />
                         <div id="phone-error" class="col-12 col-md-12 error" style="display: none;"></div>
                     </div>
                     <div class="col-12 col-md-6 mt-i">
-                        <label>Date of birth<span class="required"> * </span></label>
+                        <label>Date of birth<span class="required"></span></label>
                         <input type="date" id="dob" name="dob" class="form-control" placeholder="Date of birth" max="<?php echo date("Y-m-d") ?>" step="1" required />
                         <div id="dob-error" class="col-12 col-md-12 error" style="display: none;"></div>
                     </div>
                     <div class="col-12 col-md-6 mt-i">
-                        <label>Location<span class="required"> * </span></label>
-                        <select id="location" name="location" class="form-control" required>
-                            <option selected disabled value="">Select location</option>
-                            <option value='Baringo'>Baringo</option>
-                            <option value='Bomet'>Bomet</option>
-                            <option value='Bungoma'>Bungoma</option>
-                            <option value='Busia'>Busia</option>
-                            <option value='Elgeyo-Marakwet'>Elgeyo-Marakwet</option>
-                            <option value='Embu'>Embu</option>
-                            <option value='Garissa'>Garissa</option>
-                            <option value='Homa Bay'>Homa Bay</option>
-                            <option value='Isiolo'>Isiolo</option>
-                            <option value='Kajiado'>Kajiado</option>
-                            <option value='Kakamega'>Kakamega</option>
-                            <option value='Kericho'>Kericho</option>
-                            <option value='Kiambu'>Kiambu</option>
-                            <option value='Kilifi'>Kilifi</option>
-                            <option value='Kirinyaga'>Kirinyaga</option>
-                            <option value='Kisii'>Kisii</option>
-                            <option value='Kisumu'>Kisumu</option>
-                            <option value='Kitui'>Kitui</option>
-                            <option value='Kwale'>Kwale</option>
-                            <option value='Laikipia'>Laikipia</option>
-                            <option value='Lamu'>Lamu</option>
-                            <option value='Machakos'>Machakos</option>
-                            <option value='Makueni'>Makueni</option>
-                            <option value='Mandera'>Mandera</option>
-                            <option value='Marsabit'>Marsabit</option>
-                            <option value='Meru'>Meru</option>
-                            <option value='Migori'>Migori</option>
-                            <option value='Mombasa'>Mombasa</option>
-                            <option value="Murang'a">Murang'a</option>
-                            <option value='Nairobi City'>Nairobi City</option>
-                            <option value='Nakuru'>Nakuru</option>
-                            <option value='Nandi'>Nandi</option>
-                            <option value='Narok'>Narok</option>
-                            <option value='Nyamira'>Nyamira</option>
-                            <option value='Nyandarua'>Nyandarua</option>
-                            <option value='Nyeri'>Nyeri</option>
-                            <option value='Samburu'>Samburu</option>
-                            <option value='Siaya'>Siaya</option>
-                            <option value='Taita-Taveta'>Taita-Taveta</option>
-                            <option value='Tana River'>Tana River</option>
-                            <option value='Tharaka-Nithi'>Tharaka-Nithi</option>
-                            <option value='Trans Nzoia'>Trans Nzoia</option>
-                            <option value='Turkana'>Turkana</option>
-                            <option value='Uasin Gishu'>Uasin Gishu</option>
-                            <option value='Vihiga'>Vihiga</option>
-                            <option value='West Pokot'>West Pokot</option>
-                            <option value='Wajir'>Wajir</option>
-                            <option value='Others'>Others</option>
+                        <label>Location<span class="required"></span></label>
+                        <input list = "location" class = "form-control" placeholder = "Select location">
+                    
+                            <datalist id = "location">
+                            <option value='Baringo'>
+                            <option value='Bomet'>
+                            <option value='Bungoma'>
+                            <option value='Busia'>
+                            <option value='Elgeyo-Marakwet'>
+                            <option value='Embu'>
+                            <option value='Garissa'>
+                            <option value='Homa Bay'>
+                            <option value='Isiolo'>
+                            <option value='Kajiado'>
+                            <option value='Kakamega'>
+                            <option value='Kericho'>
+                            <option value='Kiambu'>
+                            <option value='Kilifi'>
+                            <option value='Kirinyaga'>
+                            <option value='Kisii'>
+                            <option value='Kisumu'>
+                            <option value='Kitui'>
+                            <option value='Kwale'>
+                            <option value='Laikipia'>
+                            <option value='Lamu'>
+                            <option value='Machakos'>
+                            <option value='Makueni'>
+                            <option value='Mandera'>
+                            <option value='Marsabit'>
+                            <option value='Meru'>
+                            <option value='Migori'>
+                            <option value='Mombasa'>
+                            <option value="Murang'a">
+                            <option value='Nairobi City'>
+                            <option value='Nakuru'>
+                            <option value='Nandi'>
+                            <option value='Narok'>
+                            <option value='Nyamira'>
+                            <option value='Nyandarua'>
+                            <option value='Nyeri'>
+                            <option value='Samburu'>
+                            <option value='Siaya'>
+                            <option value='Taita-Taveta'>
+                            <option value='Tana River'>
+                            <option value='Tharaka-Nithi'>
+                            <option value='Trans Nzoia'>
+                            <option value='Turkana'>
+                            <option value='Uasin Gishu'>
+                            <option value='Vihiga'>
+                            <option value='West Pokot'>
+                            <option value='Wajir'>
+                            <option value='Others'>
                         </select>
                         <div id="location-error" class="col-12 col-md-12 error" style="display: none;"></div>
                     </div>
