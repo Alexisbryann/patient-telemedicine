@@ -54,7 +54,7 @@
     </section>
 
     <?php
-    require "booking-form-javascript.html";
+    require "booking-form-javascript.php";
     ?>
 </body>
 
