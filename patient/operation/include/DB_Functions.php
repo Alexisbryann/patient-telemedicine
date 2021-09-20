@@ -182,6 +182,48 @@ class DB_Functions {
                 $i++;
             }
             if (!empty($statement)) {
+                if ($appointment_type == "inperson") {
+                    $facility_details = mysqli_fetch_assoc(mysqli_query($db, "SELECT name, email, phone FROM wp_ea_staff WHERE id = $facility_id"));
+                    $service_details = mysqli_fetch_assoc(mysqli_query($db, "SELECT name, currency, price FROM wp_ea_services WHERE id = {$facility_services[$facility_id]['service']}"));
+                    $location_details = mysqli_fetch_assoc(mysqli_query($db, "SELECT name, street, district, city, country FROM wp_ea_locations WHERE id = {$facility_services[$facility_id]['location']}"));
+
+                    $facility_name = $facility_details["name"];
+                    $facility_email = $facility_details["email"];
+                    $facility_location = $location_details["name"];
+                    $facility_street = $location_details["street"];
+                    $facility_district = $location_details["district"];
+                    $facility_city = $location_details["city"];
+                    $facility_country = $location_details["country"];
+                    $facility_phone = $facility_details["phone"];
+                    $service_name = $service_details["name"];
+                    $service_currency = $service_details["currency"];
+                    $service_price = $service_details["price"];
+                    try {
+                        $this->sendConfirmationMessages(
+                            $name,
+                            $email,
+                            $phone,
+                            $facility_name,
+                            $facility_location,
+                            $facility_address,
+                            $facility_street,
+                            $facility_district,
+                            $facility_city,
+                            $facility_country,
+                            $facility_phone,
+                            $service_name,
+                            $service_currency,
+                            $service_price,
+                            $weekday,
+                            $date,
+                            $time,
+                            $medical_concern,
+                            $facility_email
+                        );
+                    } catch (\Throwable $th) {
+                        $this->logError(__FUNCTION__, func_get_args(), "Failed to send confirmation messages.", "", $e->getMessage());
+                    }
+                }
                 $response['response'] = 200;
                 $response['id'] = $appointment_id;
                 return $response;
@@ -840,43 +882,43 @@ class DB_Functions {
         return $response;
     }
 
-    // private function createPatientAccount(
-    //     string $user_email,
-    //     string $user_name
-    // ) {
-    //     /**
-    //      * Creates an MHA account for the patient after booking an in-person appointment.
-    //      * 
-    //      * @param string $user_email user email address
-    //      * @param string $user_name user name
-    //      * 
-    //      * @return false|int patient's user id if the account gets created successfully, false otherwise
-    //      */
+    private function createPatientAccount(
+        string $user_email,
+        string $user_name
+    ) {
+        /**
+         * Creates an MHA account for the patient after booking an in-person appointment.
+         * 
+         * @param string $user_email user email address
+         * @param string $user_name user name
+         * 
+         * @return false|int patient's user id if the account gets created successfully, false otherwise
+         */
 
-    //     $db = $this->conn;
+        $db = $this->conn;
 
-    //     $user_registered = date("Y-m-d");
+        $user_registered = date("Y-m-d");
 
-    //     $save_user_sql = "INSERT INTO `wp_users`(`user_login`, `user_email`, `user_registered`, `display_name`) VALUES ('$user_email','$user_email','$user_registered','$user_name')";
+        $save_user_sql = "INSERT INTO `wp_users`(`user_login`, `user_email`, `user_registered`, `display_name`) VALUES ('$user_email','$user_email','$user_registered','$user_name')";
 
-    //     mysqli_query($db, $save_user_sql);
+        mysqli_query($db, $save_user_sql);
 
-    //     if (mysqli_error($db)) {
-    //         $this->logError(__FUNCTION__, func_get_args(), "Failed to add new user.", $save_user_sql, mysqli_error($db));
-    //         return ["error" => "Failed to add new user", "error_code" => 3];
-    //     }
+        if (mysqli_error($db)) {
+            $this->logError(__FUNCTION__, func_get_args(), "Failed to add new user.", $save_user_sql, mysqli_error($db));
+            return ["error" => "Failed to add new user", "error_code" => 3];
+        }
 
-    //     $user_id = mysqli_insert_id($db);
-    //     $user_name_split = explode(" ", $user_name);
-    //     $first_name = $user_name_split[0];
-    //     $last_name = $user_name_split[1] ?? "";
+        $user_id = mysqli_insert_id($db);
+        $user_name_split = explode(" ", $user_name);
+        $first_name = $user_name_split[0];
+        $last_name = $user_name_split[1] ?? "";
 
-    //     $save_user_meta_error = $this->saveUserMeta($first_name, $last_name, $user_email, $user_id);
+        $save_user_meta_error = $this->saveUserMeta($first_name, $last_name, $user_email, $user_id);
 
-    //     if ($save_user_meta_error) return $save_user_meta_error;
+        if ($save_user_meta_error) return $save_user_meta_error;
 
-    //     return $user_id;
-    // }
+        return $user_id;
+    }
 
     private function saveUserMeta(
         string $first_name,
@@ -939,6 +981,323 @@ class DB_Functions {
         if (mysqli_error($db)) $this->logError(__FUNCTION__, func_get_args(), "Failed to insert activation token.", $insert_key_sql, mysqli_error($db));
 
         return "https://myhealthafrica.com/patient-reset-password?action=rp&login=$user_email&key=$key";
+    }
+
+    private function patientConfirmationEmail(
+        $patient_name,
+        $patient_email,
+        $facility_name,
+        $facility_location,
+        $facility_address,
+        $facility_street,
+        $facility_district,
+        $facility_city,
+        $facility_country,
+        $facility_phone,
+        $service_name,
+        $service_currency,
+        $service_price,
+        $weekday,
+        $appointment_date,
+        $appointment_time,
+        $medical_concern
+    ) {
+        $eol = PHP_EOL;
+        $body = "<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><title>My Health Africa</title></head><body>" . $eol;
+
+        $body .= "<body style='height: 100%; margin: 0; -webkit-text-size-adjust: none; font-family: Helvetica, Arial, sans-serif; background-color: #F4F4F7; color: #51545E; width: 100%;'>" . $eol;
+        $body .=  '<table class="email-wrapper" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="width: 100%; margin: 0; padding: 0; -premailer-width: 100%; -premailer-cellpadding: 0; -premailer-cellspacing: 0; background-color: #F4F4F7;" bgcolor="#F4F4F7">' . $eol;
+        $body .=  "<tr><td class='email-body' width='100%' cellpadding='0' cellspacing='0' style='word-break: break-word; font-family: Helvetica, Arial, sans-serif; font-size: 16px; width: 100%; margin: 0; padding: 0; -premailer-width: 100%; -premailer-cellpadding: 0; -premailer-cellspacing: 0; background-color: #FFFFFF;' bgcolor='#FFFFFF'>
+                        <table class='email-body_inner' cellpadding='0' cellspacing='0' role='presentation' style='margin: 0 auto; padding: 0; -premailer-cellpadding: 0; -premailer-cellspacing: 0; background-color: #FFFFFF;' bgcolor='FFFFFF'>
+                          <tr>
+                                <td class='content-cell' style='word-break: break-word; font-family: Helvetica, Arial, sans-serif; font-size: 16px; padding: 15px;'>
+                                    <div class='f-fallback'>
+                                    	<p style='margin: .4em 0 1.1875em; font-size: 13px; line-height: 1.625; color: #51545E;'>Dear {$patient_name},</p>
+                                        <p style='margin: .4em 0 1.1875em; font-size: 13px; line-height: 1.625; color: #51545E;'>This email is to inform you that your appointment with {$facility_name} has been confirmed.The Doctor will be waiting for you.</p>
+                                        <h5 style='margin-top: 0; text-decoration: underline; color: #333333; font-size: 14px; font-weight: bold; text-align: left;'>Appointment Details</h5>
+                                        
+                                    </div>
+                                    <div class='f-fallback'>
+                                        <p style=' font-size: 13px; line-height: 1.625; color: #51545E;'><b>Location:</b> {$facility_location}</p>
+                                        <p style=' font-size: 13px; line-height: 1.625; color: #51545E;'><b>Details:</b> {$facility_address}</p>
+                                        <p style=' font-size: 13px; line-height: 1.625; color: #51545E;'><b>Address:</b> {$facility_street}{$facility_district}{$facility_city}{$facility_country}</p>
+                                        <p style=' font-size: 13px; line-height: 1.625; color: #51545E;'><b>Phone:</b> {$facility_phone}</p>
+                                        <p style=' font-size: 13px; line-height: 1.625; color: #51545E;'><b>Provider:</b> {$facility_name}</p>
+                                        <p style=' font-size: 13px; line-height: 1.625; color: #51545E;'><b>Service:</b> {$service_name}, {$service_currency} {$service_price}</p>
+                                        <p style=' font-size: 13px; line-height: 1.625; color: #51545E;'><b>Payment mode:</b> Cash</p>
+                                        <p style=' font-size: 13px; line-height: 1.625; color: #51545E;'><b>When:</b> {$weekday}, {$appointment_date} at {$appointment_time}</p>
+                                        
+                                    </div>
+                                    <div class='f-fallback'>
+                                        <h5 style='margin-top: 20px; text-decoration: underline; color: #333333; font-size: 14px; font-weight: bold; text-align: left;'>Patient Details</h5>
+                                        <p style=' font-size: 13px; line-height: 1.625; color: #51545E;'><b>Name:</b> {$patient_name}</p>
+                                        <p style=' font-size: 13px; line-height: 1.625; color: #51545E;'><b>Notes:</b> {$medical_concern}</p>
+                                        <p style=' font-size: 13px; line-height: 1.625; color: #51545E;'><b>Please Note:</b></p>
+                                        <p style=' font-size: 13px; line-height: 1.625; color: #51545E;'><b>1. The cost for your consultation is not inclusive of any tests or medication that the doctor may recommend.</b></p>
+                                        <p style=' font-size: 13px; line-height: 1.625; color: #51545E;'><b>2. On arrival at the facility, kindly notify the staff that you booked through this platform to easily find your advanced booking. </b></p>
+                                        <p style=' font-size: 13px; line-height: 1.625; color: #51545E;'><b>3. For first time visits, remember to carry any medical reports you have.</b></p>
+                                        <p style=' font-size: 13px; line-height: 1.625; color: #51545E;'><b>4. Please arrive to the appointment destination 15 minutes before your appointment to register.</b></p>
+                                        <p style=' font-size: 13px; line-height: 1.625; color: #51545E;'><b>5. Considering the busy schedules that doctors have, please ensure you reschedule your appointment at least 24 hours prior, to allow another patient to take your time slot. To reschedule your appointment, login to your <a href='https://myhealthafrica.com/patient-login'>patient account</a></b></p>
+                                        <p style=' font-size: 13px; line-height: 1.625; color: #51545E;'>Thank you,</p>
+                                        <p style=' font-size: 13px; line-height: 1.625; color: #51545E;'>My Health Africa Booking Team.</p>
+                                        <p style=' font-size: 13px; line-height: 1.625; color: #51545E;'>Appointment services provided by <a href='https://myhealthafrica.com'>myhealthafrica.com</a></p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>" . $eol;
+        $body .= '<tr><td align="center" style="word-break: break-word; font-family: Helvetica, Arial, sans-serif; font-size: 16px;">
+                            <table class="email-content" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="width: 100%; margin: 0; padding: 0; -premailer-width: 100%; -premailer-cellpadding: 0; -premailer-cellspacing: 0;">
+                            <tr><td class="email-masthead" style="word-break: break-word; font-family: Helvetica, Arial, sans-serif; font-size: 16px; padding: 25px 0; text-align: center;" align="center">
+                                <img src="https://www.myhealthafrica.com/wp-content/uploads/2018/08/MyHealthAfrica_sd3-final-300x113.png" alt="MyHealthAfrica logo" width="100" height:"50" style="border: 0; width: 10rem;"></td></tr>' . $eol;
+        $body .= '</table>' . $eol;
+        $body .= '</td>' . $eol;
+        $body .= '</tr>' . $eol;
+        $body .= '</table>' . $eol;
+        $body .= "</body></html>.$eol";
+
+        return $body;
+    }
+
+    private function patientConfirmationSMS(
+        $facility_name,
+        $weekday,
+        $appointment_date,
+        $appointment_time
+    ) {
+        return "Appointment confirmed with {$facility_name} on {$weekday}, {$appointment_date} at {$appointment_time}. Check your email/click https://www.myhealthafrica.com/patient-login to login to your account for details or cancel/reschedule.";
+    }
+
+    private function doctorConfirmationEmail(
+        $patient_name,
+        $patient_email,
+        $patient_phone,
+        $facility_name,
+        $facility_location,
+        $facility_address,
+        $facility_street,
+        $facility_district,
+        $facility_city,
+        $facility_country,
+        $facility_phone,
+        $service_name,
+        $service_currency,
+        $service_price,
+        $weekday,
+        $appointment_date,
+        $appointment_time,
+        $medical_concern
+    ) {
+        $eol = PHP_EOL;
+        $body = "<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><title>My Health Africa</title></head><body>" . $eol;
+
+        $body .= "<body style='height: 100%; margin: 0; -webkit-text-size-adjust: none; font-family: Helvetica, Arial, sans-serif; background-color: #F4F4F7; color: #51545E; width: 100%;'>" . $eol;
+        $body .=  '<table class="email-wrapper" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="width: 100%; margin: 0; padding: 0; -premailer-width: 100%; -premailer-cellpadding: 0; -premailer-cellspacing: 0; background-color: #F4F4F7;" bgcolor="#F4F4F7">' . $eol;
+        $body .=  "<tr><td class='email-body' width='100%' cellpadding='0' cellspacing='0' style='word-break: break-word; font-family: Helvetica, Arial, sans-serif; font-size: 16px; width: 100%; margin: 0; padding: 0; -premailer-width: 100%; -premailer-cellpadding: 0; -premailer-cellspacing: 0; background-color: #FFFFFF;' bgcolor='#FFFFFF'>
+                        <table class='email-body_inner' cellpadding='0' cellspacing='0' role='presentation' style='margin: 0 auto; padding: 0; -premailer-cellpadding: 0; -premailer-cellspacing: 0; background-color: #FFFFFF;' bgcolor='FFFFFF'>
+                          <tr>
+                                <td class='content-cell' style='word-break: break-word; font-family: Helvetica, Arial, sans-serif; font-size: 16px; padding: 15px;'>
+                                    <div class='f-fallback'>
+                                    	<p style='margin: .4em 0 1.1875em; font-size: 13px; line-height: 1.625; color: #51545E;'>Dear {$facility_name},</p>
+                                        <p style='margin: .4em 0 1.1875em; font-size: 13px; line-height: 1.625; color: #51545E;'>This email is to inform you that your appointment with {$patient_name} has been confirmed.</p>
+                                        <h5 style='margin-top: 0; text-decoration: underline; color: #333333; font-size: 14px; font-weight: bold; text-align: left;'>Appointment Details</h5>
+                                        
+                                    </div>
+                                    <div class='f-fallback'>
+                                        <p style=' font-size: 13px; line-height: 1.625; color: #51545E;'><b>Location:</b> {$facility_location}</p>
+                                        <p style=' font-size: 13px; line-height: 1.625; color: #51545E;'><b>Details:</b> {$facility_address}</p>
+                                        <p style=' font-size: 13px; line-height: 1.625; color: #51545E;'><b>Address:</b> {$facility_street}{$facility_district}{$facility_city}{$facility_country}</p>
+                                        <p style=' font-size: 13px; line-height: 1.625; color: #51545E;'><b>Phone:</b> {$facility_phone}</p>
+                                        <p style=' font-size: 13px; line-height: 1.625; color: #51545E;'><b>Provider:</b> {$facility_name}</p>
+                                        <p style=' font-size: 13px; line-height: 1.625; color: #51545E;'><b>Service:</b> {$service_name}, {$service_currency} {$service_price}</p>
+                                        <p style=' font-size: 13px; line-height: 1.625; color: #51545E;'><b>Payment mode:</b> Cash</p>
+                                        <p style=' font-size: 13px; line-height: 1.625; color: #51545E;'><b>When:</b> {$weekday}, {$appointment_date} at {$appointment_time}</p>
+                                        
+                                    </div>
+                                    <div class='f-fallback'>
+                                        <h5 style='margin-top: 20px; text-decoration: underline; color: #333333; font-size: 14px; font-weight: bold; text-align: left;'>Patient Details</h5>
+                                        <p style=' font-size: 13px; line-height: 1.625; color: #51545E;'><b>Name:</b> {$patient_name}</p>
+                                        <p style=' font-size: 13px; line-height: 1.625; color: #51545E;'><b>Phone:</b> {$patient_phone}</p>
+                                        <p style=' font-size: 13px; line-height: 1.625; color: #51545E;'><b>Email:</b> {$patient_phone}</p>
+                                        <p style=' font-size: 13px; line-height: 1.625; color: #51545E;'><b>Notes:</b> {$medical_concern}</p>
+                                        <p style=' font-size: 13px; line-height: 1.625; color: #51545E;'><b>Please Note:</b></p>
+                                        <p style=' font-size: 13px; line-height: 1.625; color: #51545E;'><b>If you need to reschedule the appointment for any reason, please login into your MHA account <a href='https://www.myhealthafrica.com/doctor-clinic-login'>here</a> and find the appointment under Upcoming Appointments. Set the appointment to rescheduled and load available dates and times. Please contact the patient first to agree on a new date and time and click save to reschedule. </b></p>
+                                        <p style=' font-size: 13px; line-height: 1.625; color: #51545E;'>Please also note:</p>
+                                        <p style=' font-size: 13px; line-height: 1.625; color: #51545E;'>1. We have informed the patient that the cost for the consultation is not inclusive of any tests or medication that the doctor may recommend.</p>
+                                        <p style=' font-size: 13px; line-height: 1.625; color: #51545E;'>2. For first time visits, we have informed the patient to carry any medical reports they have.</p>
+                                        <p style=' font-size: 13px; line-height: 1.625; color: #51545E;'>3. We have asked the patient to arrive at least 15 minutes before their appointment to register.</p>
+                                        <p style=' font-size: 13px; line-height: 1.625; color: #51545E;'>Thank you,</p>
+                                        <p style=' font-size: 13px; line-height: 1.625; color: #51545E;'>My Health Africa Booking Team.</p>
+                                        <p style=' font-size: 13px; line-height: 1.625; color: #51545E;'>Appointment services provided by <a href='https://myhealthafrica.com'>myhealthafrica.com</a></p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>" . $eol;
+        $body .= '<tr><td align="center" style="word-break: break-word; font-family: Helvetica, Arial, sans-serif; font-size: 16px;">
+                            <table class="email-content" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="width: 100%; margin: 0; padding: 0; -premailer-width: 100%; -premailer-cellpadding: 0; -premailer-cellspacing: 0;">
+                            <tr><td class="email-masthead" style="word-break: break-word; font-family: Helvetica, Arial, sans-serif; font-size: 16px; padding: 25px 0; text-align: center;" align="center">
+                                <img src="https://www.myhealthafrica.com/wp-content/uploads/2018/08/MyHealthAfrica_sd3-final-300x113.png" alt="MyHealthAfrica logo" width="100" height:"50" style="border: 0; width: 10rem;"></td></tr>' . $eol;
+        $body .= '</table>' . $eol;
+        $body .= '</td>' . $eol;
+        $body .= '</tr>' . $eol;
+        $body .= '</table>' . $eol;
+        $body .= "</body></html>.$eol";
+
+        return $body;
+    }
+
+    private function facilityConfirmationSMS(
+        $patient_name,
+        $weekday,
+        $appointment_date,
+        $appointment_time
+    ) {
+        return "Appointment confirmed with {$patient_name} on {$weekday}, {$appointment_date} at {$appointment_time}. Check your email or click https://www.myhealthafrica.com/doctor-clinic-login/ to login to your account for details or cancel/reschedule.";
+    }
+
+    private function sendConfirmationMessages(
+        $patient_name,
+        $patient_email,
+        $patient_phone,
+        $facility_name,
+        $facility_location,
+        $facility_address,
+        $facility_street,
+        $facility_district,
+        $facility_city,
+        $facility_country,
+        $facility_phone,
+        $service_name,
+        $service_currency,
+        $service_price,
+        $weekday,
+        $appointment_date,
+        $appointment_time,
+        $medical_concern,
+        $facility_email
+    ) {
+        $event = array(
+            'id' => $service_name,
+            'title' => "New Appointment",
+            'address' => $facility_location,
+            'description' => 'New appointment via My Health Africa',
+            'datestart' => strtotime($appointment_date),
+            'dateend' => strtotime($appointment_date),
+            'address' => $facility_address . ' ' . $facility_street
+        );
+
+        $ical = 'BEGIN:VCALENDAR' . PHP_EOL;
+        $ical .= 'VERSION:2.0' . PHP_EOL;
+        $ical .= 'PRODID:-//My Health Africa/Appointments//Booking Platform//EN' . PHP_EOL;
+        $ical .= 'CALSCALE:GREGORIAN' . PHP_EOL;
+        $ical .= 'BEGIN:VEVENT' . PHP_EOL;
+        $ical .= 'DTSTART:' . dateToCal($event["datestart"]) . '' . PHP_EOL;
+        $ical .= 'DTEND:' . dateToCal($event["dateend"]) . '' . PHP_EOL;
+        $ical .= 'UID:' . md5($event["title"]) . '' . PHP_EOL;
+        $ical .= 'DTSTAMP:' . time() . '' . PHP_EOL;
+        $ical .= 'LOCATION:' . addslashes($event['address']) . '' . PHP_EOL;
+        $ical .= 'ORGANIZER;CN="My Health Africa":mailto:noreply@myhealthafrica.com' . PHP_EOL;
+        $ical .= 'DESCRIPTION:' . addslashes($event['description']) . '' . PHP_EOL;
+        $ical .= 'URL;VALUE=URI:http://myhealthafrica.com/events/' . $event['id'] . '' . PHP_EOL;
+        $ical .= 'SUMMARY:' . addslashes($event['title']) . '' . PHP_EOL;
+        $ical .= 'END:VEVENT' . PHP_EOL;
+        $ical .= 'END:VCALENDAR';
+
+        $ical_name = "New Appointment.ics";
+
+        $mail = mailer();
+        $mail->isHTML();
+        $mail->setFrom("noreply@myhealthafrica.com", "My Health Africa");
+        $mail->addReplyTo("support@myhealthafrica.com", "My Health Africa Support");
+        // doctor email notification
+        $mail->Subject = "Your appointment with {$patient_name} is confirmed.";
+        $mail->Body = $this->doctorConfirmationEmail(
+            $patient_name,
+            $patient_email,
+            $patient_phone,
+            $facility_name,
+            $facility_location,
+            $facility_address,
+            $facility_street,
+            $facility_district,
+            $facility_city,
+            $facility_country,
+            $facility_phone,
+            $service_name,
+            $service_currency,
+            $service_price,
+            $weekday,
+            $appointment_date,
+            $appointment_time,
+            $medical_concern
+        );
+
+        try {
+            $mail->addAddress($facility_email, $facility_name);
+            $mail->addStringAttachment($ical, $ical_name, "base64", "text/calendar");
+            $mail->send();
+            $mail->clearAddresses();
+        } catch (\Throwable $e) {
+            $this->logError(__FUNCTION__, func_get_args(), "Failed to send confirmation email message to doctor.", "", $e->getMessage());
+        }
+
+        $mail->Subject = "Your appointment with $facility_name is confirmed";
+        $mail->Body = $this->patientConfirmationEmail(
+            $patient_name,
+            $patient_email,
+            $facility_name,
+            $facility_location,
+            $facility_address,
+            $facility_street,
+            $facility_district,
+            $facility_city,
+            $facility_country,
+            $facility_phone,
+            $service_name,
+            $service_currency,
+            $service_price,
+            $weekday,
+            $appointment_date,
+            $appointment_time,
+            $medical_concern
+        );
+
+        try {
+            $mail->addAddress($facility_email, $facility_name);
+            $mail->addStringAttachment($ical, $ical_name, "base64", "text/calendar");
+            $mail->send();
+            $mail->clearAddresses();
+        } catch (\Throwable $e) {
+            $this->logError(__FUNCTION__, func_get_args(), "Failed to send confirmation email message to patient.", "", $e->getMessage());
+        }
+
+        $username = "myhealthafrica";
+        $api_key = "b1ee6f54b3673bd569f422c1662219e2ad648975a72d27dd1ff5db0fa1d5349b";
+        $gateway = new AfricasTalkingGateway($username, $api_key);
+        $sender_name = 'Myhealthafr';
+
+        try {
+            $gateway->sendMessage(
+                $patient_phone,
+                $this->patientConfirmationSMS($facility_name, $weekday, $appointment_date, $appointment_time),
+                $sender_name
+            );
+        } catch (AfricasTalkingGatewayException $e) {
+            $this->logError(__FUNCTION__, func_get_args(), "Failed to send patient confirmation SMS.", "", $e->getMessage());
+        }
+
+        try {
+            $gateway->sendMessage(
+                $patient_phone,
+                $this->facilityConfirmationSMS($patient_name, $weekday, $appointment_date, $appointment_time),
+                $sender_name
+            );
+        } catch (AfricasTalkingGatewayException $e) {
+            $this->logError(__FUNCTION__, func_get_args(), "Failed to send facility confirmation SMS.", "", $e->getMessage());
+        }
     }
 }
  

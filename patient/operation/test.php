@@ -17,4 +17,23 @@ $clinic = "clinic";
 // $db->TunzaClinicTelemedicineAppointmentBooking($name, $email, $gender, $phone, $dob, $location, $date, $time, $cost, $clinic, "inperson", 33, "foobaring");
 
 // echo date("Y-m-d", strtotime(str_replace("-", "/", "22/09/2021")));
-echo implode("-", array_reverse(explode("/", "22/09/2021")));
+echo $db->doctorConfirmationEmail(
+    $name,
+    $email,
+    $phone,
+    "facility",
+    "location",
+    "address",
+    "street",
+    "district",
+    "city",
+    "country",
+    "phone",
+    "service",
+    "currency",
+    "price",
+    "weekday",
+    "date",
+    "time",
+    "concern"
+);
