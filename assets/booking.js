@@ -1,6 +1,10 @@
 var appointment_id, onboarding;
 const global_settings = {
-    screen_is_mobile: window.innerWidth < 758,
+    window_width: window.innerWidth,
+    get screen_is_mobile () {
+        // return this.window_width < 768
+        return false;
+    },
     date_now: new Date(),
     get current_time() { // return current time as an array of [hh,mm,ss]
         return this.date_now.toTimeString().split(" ").shift().split(":");
@@ -74,14 +78,21 @@ form.steps({
         }
     },
     onStepChanged: function (event, currentIndex, priorIndex) {
-        if (global_settings.screen_is_mobile) {
+        $(`input[name='radio-button'][value='${currentIndex}']`).click();
+        const step_titles = {
+            0: "Patient Details",
+            1: "Appointment Details",
+            2: "Confirm Details"
+        };
+        // if (global_settings.screen_is_mobile) {
             const booking_form_progress = $("#booking-form-progress"),
                 current_progress_value = booking_form_progress.val(),
                 new_progress_value = priorIndex < currentIndex ? current_progress_value + 1 : current_progress_value - 1;
 
             booking_form_progress.val(new_progress_value);
             $("#booking-form-step-number").text(new_progress_value);
-        }
+            $("#step-title").text(step_titles[currentIndex]);
+        // }
     },
     onFinishing: function (event, currentIndex) {
         return true;
@@ -170,7 +181,7 @@ $("[name='appointment-type']").on("change", function () {
     $("#date-time-picker-container").toggleClass("d-none");
 });
 
-$("#set-appointment-date").datepicker({
+$("#set-appointment-dates").datepicker({
     ...datepicker_settings,
 }).on("show", function (e) {
     if (!global_settings.screen_is_mobile) { // hack to position the datepicker in contact with the input box on desktop
@@ -181,6 +192,22 @@ $("#set-appointment-date").datepicker({
     }
 }).on("changeDate", function (e) {
     if (e.date.toDateString() == global_settings.date_now.toDateString()) {
+        const current_hour = global_settings.current_time[0],
+            meridian = current_hour > 12 ? "PM" : "AM",
+            hour = current_hour > 12 ? current_hour - 12 : current_hour;
+
+        global_settings.minimum_appointment_time = `${global_settings.current_time[1] > 40 ? parseInt(hour) + 1 : hour}:${global_settings.current_time[1]} ${meridian}`;
+    } else {
+        global_settings.minimum_appointment_time = "08:00 AM";
+    }
+
+    $('#set-appointment-time').timepicker('setTime', global_settings.minimum_appointment_time);
+});
+
+$("#set-appointment-date").on("change", function () {
+    const date = new Date($(this).val());
+
+    if (date.toDateString() == global_settings.date_now.toDateString()) {
         const current_hour = global_settings.current_time[0],
             meridian = current_hour > 12 ? "PM" : "AM",
             hour = current_hour > 12 ? current_hour - 12 : current_hour;
@@ -220,7 +247,7 @@ function DPO_Payment(PaymentURL, name, email, phone, txRef, appointment_id) {
         success: function (endpoint_response) {
             if (endpoint_response.Result == 000) {
                 var TransactionToken = endpoint_response.TransToken;
-                window.location = PaymentURL + TransactionToken;
+                window.top.location = PaymentURL + TransactionToken;
             } else {
                 var tokenError = endpoint_response.ResultExplanation;
                 swal({
@@ -330,14 +357,20 @@ function validateInput(step) {
             document.getElementById('location-preview').innerHTML = location;
             if (!global_settings['screen_is_mobile']) {
                 if (type == 'schedule') {
+                    document.getElementById('date-time-preview').style.display = "flex";
                     document.getElementById('date-preview').innerHTML = date;
                     document.getElementById('time-preview').innerHTML = time;
+                } else {
+                    document.getElementById('date-time-preview').style.display = "none";
                 }
             }
         } else if (step == 2) {
             if (type == 'schedule') {
+                document.getElementById('date-time-preview').style.display = "flex";
                 document.getElementById('date-preview').innerHTML = date;
                 document.getElementById('time-preview').innerHTML = time;
+            } else {
+                document.getElementById('date-time-preview').style.display = "none";
             }
         }
         return true;
@@ -463,7 +496,7 @@ $("#book-inperson").steps({
             patient_dob: {
                 validity: $("#dob")[0].checkValidity(),
                 error_message: "Please select your date of birth",
-                value: $(`#dob`).val(),
+                value: $(`#dob`).val().split("-").reverse().join("/"),
                 element: $("#dob"),
                 preview_element: $(`#dob-preview`),
                 step: 1
@@ -521,10 +554,25 @@ $("#book-inperson").steps({
 
         $("#appointment-cost-display").text(in_person_settings.appointment_cost)
 
+        $(`input[name='radio-button'][value='${currentIndex}']`).addClass("visited-step");
         return true;
     },
     onStepChanged: function (event, currentIndex, priorIndex) {
         $(`input[name='radio-button'][value='${currentIndex}']`).click();
+        const step_titles = {
+            0: "Appointment Details",
+            1: "Patient Details",
+            2: "Confirm Details"
+        };
+        // if (global_settings.screen_is_mobile) {
+            const booking_form_progress = $("#booking-form-progress"),
+                current_progress_value = booking_form_progress.val(),
+                new_progress_value = priorIndex < currentIndex ? current_progress_value + 1 : current_progress_value - 1;
+
+            booking_form_progress.val(new_progress_value);
+            $("#booking-form-step-number").text(new_progress_value);
+            $("#step-title").text(step_titles[currentIndex]);
+        // }
     },
     onFinished: function (event, currentIndex) {
         event.preventDefault();
@@ -621,7 +669,7 @@ $("#in-person-appointment-date").datepicker({
                 const time_slot_exploded = time_slot.split(" "),
                     time = time_slot_exploded[0].split(":"),
                     meridian = time_slot_exploded[1],
-                    hour = (meridian == "PM" && time[0] !== 12) ? parseInt(time[0]) + 12 : time[0],
+                    hour = (meridian == "PM" && parseInt(time[0]) !== 12) ? parseInt(time[0]) + 12 : time[0],
                     full_time = `${hour}:${time[1]}`;
 
                 $("#time-slots-container").append(in_person_settings.time_slot_template(full_time, time_slot));
@@ -771,7 +819,7 @@ function validatePhoneNumber(input) {
     return input_sanitized;
 }
 
-$(`.booking-step [name="radio-button"]`).on("change", function () {
+$(`.booking-step.in-person-steps [name="radio-button"]`).on("change", function () {
     let step = $(this).val(),
         current_step = $("#book-inperson").steps("getCurrentIndex");
 
@@ -790,3 +838,27 @@ $(`.booking-step [name="radio-button"]`).on("change", function () {
     }
     $(`.booking-step [name="radio-button"][value='${step}']`).prop("checked", true);
 });
+
+$(`.booking-step.telemed-steps [name="radio-button"]`).on("change", function () {
+    let step = $(this).val(),
+        current_step = $("#booking-form").steps("getCurrentIndex");
+
+    if (current_step == step) {
+        return false;
+    } else if (current_step < step) {
+        while (current_step < step) {
+            $("#booking-form").steps("next");
+            current_step++;
+        }
+    } else if (current_step > step) {
+        while (current_step > step) {
+            $("#booking-form").steps("previous");
+            current_step--;
+        }
+    }
+    $(`.booking-step.telemed-steps [name="radio-button"][value='${step}']`).prop("checked", true);
+});
+
+if (in_person_settings.facility_id) {
+    $("#facility").val(in_person_settings.facility_id).trigger("change").closest(".form-group").hide();
+}

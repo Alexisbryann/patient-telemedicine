@@ -1,0 +1,29 @@
+[20-Sep-2021 15:17:11 UTC] PHP Fatal error:  Interface 'Ratchet\MessageComponentInterface' not found in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/app/ChatApp.php on line 11
+[20-Sep-2021 15:17:43 UTC] PHP Fatal error:  Interface 'Ratchet\MessageComponentInterface' not found in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/app/ChatApp.php on line 11
+[20-Sep-2021 15:17:44 UTC] PHP Fatal error:  Interface 'Ratchet\MessageComponentInterface' not found in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/app/ChatApp.php on line 11
+[20-Sep-2021 15:18:09 UTC] PHP Fatal error:  Interface 'Ratchet\MessageComponentInterface' not found in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/app/ChatApp.php on line 11
+[20-Sep-2021 15:22:50 UTC] PHP Fatal error:  Interface 'Ratchet\MessageComponentInterface' not found in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/app/ChatApp.php on line 11
+[20-Sep-2021 15:22:53 UTC] PHP Fatal error:  Interface 'Ratchet\MessageComponentInterface' not found in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/app/ChatApp.php on line 11
+[20-Sep-2021 15:24:18 UTC] PHP Warning:  require(/home/myhealthafrica/public_html/coldroom/psi/myonemedpro/vendor/autoload.php): failed to open stream: No such file or directory in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/app/server.php on line 9
+[20-Sep-2021 15:24:18 UTC] PHP Fatal error:  require(): Failed opening required '/home/myhealthafrica/public_html/coldroom/psi/myonemedpro/vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php72/root/usr/share/pear') in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/app/server.php on line 9
+[20-Sep-2021 15:27:34 UTC] PHP Fatal error:  Uncaught RuntimeException: Failed to listen on "tcp://0.0.0.0:8080": Address already in use in /home/myhealthafrica/public_html/coldroom/psi/vendor/react/socket/src/TcpServer.php:172
+Stack trace:
+#0 /home/myhealthafrica/public_html/coldroom/psi/vendor/react/socket/src/Server.php(77): React\Socket\TcpServer->__construct('tcp://0.0.0.0:8...', Object(React\EventLoop\StreamSelectLoop), Array)
+#1 /home/myhealthafrica/public_html/coldroom/psi/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(59): React\Socket\Server->__construct('0.0.0.0:8080', Object(React\EventLoop\StreamSelectLoop))
+#2 /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/app/server.php(18): Ratchet\Server\IoServer::factory(Object(Ratchet\Http\HttpServer), 8080)
+#3 {main}
+  thrown in /home/myhealthafrica/public_html/coldroom/psi/vendor/react/socket/src/TcpServer.php on line 172
+[20-Sep-2021 15:49:07 UTC] PHP Fatal error:  Uncaught RuntimeException: Failed to listen on "tcp://0.0.0.0:8080": Address already in use in /home/myhealthafrica/public_html/coldroom/psi/vendor/react/socket/src/TcpServer.php:172
+Stack trace:
+#0 /home/myhealthafrica/public_html/coldroom/psi/vendor/react/socket/src/Server.php(77): React\Socket\TcpServer->__construct('tcp://0.0.0.0:8...', Object(React\EventLoop\StreamSelectLoop), Array)
+#1 /home/myhealthafrica/public_html/coldroom/psi/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(59): React\Socket\Server->__construct('0.0.0.0:8080', Object(React\EventLoop\StreamSelectLoop))
+#2 /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/app/server.php(18): Ratchet\Server\IoServer::factory(Object(Ratchet\Http\HttpServer), 8080)
+#3 {main}
+  thrown in /home/myhealthafrica/public_html/coldroom/psi/vendor/react/socket/src/TcpServer.php on line 172
+[20-Sep-2021 15:57:14 UTC] PHP Fatal error:  Uncaught RuntimeException: Failed to listen on "tcp://0.0.0.0:8080": Address already in use in /home/myhealthafrica/public_html/coldroom/psi/vendor/react/socket/src/TcpServer.php:172
+Stack trace:
+#0 /home/myhealthafrica/public_html/coldroom/psi/vendor/react/socket/src/Server.php(77): React\Socket\TcpServer->__construct('tcp://0.0.0.0:8...', Object(React\EventLoop\StreamSelectLoop), Array)
+#1 /home/myhealthafrica/public_html/coldroom/psi/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(59): React\Socket\Server->__construct('0.0.0.0:8080', Object(React\EventLoop\StreamSelectLoop))
+#2 /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/app/server.php(18): Ratchet\Server\IoServer::factory(Object(Ratchet\Http\HttpServer), 8080)
+#3 {main}
+  thrown in /home/myhealthafrica/public_html/coldroom/psi/vendor/react/socket/src/TcpServer.php on line 172

@@ -77,3 +77,216 @@
 [18-Sep-2021 08:54:53 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/Chat.php on line 10
 [18-Sep-2021 09:56:57 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/Chat.php on line 10
 [18-Sep-2021 09:57:36 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/Chat.php on line 10
+[20-Sep-2021 14:18:58 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/Chat.php on line 10
+[20-Sep-2021 15:16:12 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/Chat.php on line 10
+[20-Sep-2021 15:25:18 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/Chat.php on line 10
+[20-Sep-2021 15:25:39 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/Chat.php on line 10
+[20-Sep-2021 15:26:47 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/Chat.php on line 10
+[20-Sep-2021 15:27:48 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/Chat.php on line 10
+[20-Sep-2021 15:29:07 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/Chat.php on line 10
+[20-Sep-2021 15:29:24 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/Chat.php on line 10
+[20-Sep-2021 15:29:41 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/Chat.php on line 10
+[20-Sep-2021 15:32:19 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/Chat.php on line 10
+[20-Sep-2021 15:32:41 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/Chat.php on line 10
+[20-Sep-2021 15:34:08 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/Chat.php on line 10
+[20-Sep-2021 15:40:00 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/Chat.php on line 10
+[20-Sep-2021 16:33:13 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to MhaChat::getChatMessages() must be of the type integer, string given, called in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/operations.php on line 60 and defined in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/Chat.php:134
+Stack trace:
+#0 /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/operations.php(60): MhaChat->getChatMessages('')
+#1 {main}
+  thrown in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/Chat.php on line 134
+[20-Sep-2021 16:33:19 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to MhaChat::getChatMessages() must be of the type integer, string given, called in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/operations.php on line 60 and defined in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/Chat.php:134
+Stack trace:
+#0 /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/operations.php(60): MhaChat->getChatMessages('')
+#1 {main}
+  thrown in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/Chat.php on line 134
+[20-Sep-2021 16:34:55 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to MhaChat::getChatMessages() must be of the type integer, string given, called in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/operations.php on line 60 and defined in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/Chat.php:134
+Stack trace:
+#0 /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/operations.php(60): MhaChat->getChatMessages('')
+#1 {main}
+  thrown in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/Chat.php on line 134
+[20-Sep-2021 16:36:54 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to MhaChat::getChatMessages() must be of the type integer, string given, called in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/operations.php on line 60 and defined in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/Chat.php:134
+Stack trace:
+#0 /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/operations.php(60): MhaChat->getChatMessages('')
+#1 {main}
+  thrown in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/Chat.php on line 134
+[20-Sep-2021 16:49:10 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to MhaChat::getChatMessages() must be of the type integer, string given, called in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/operations.php on line 60 and defined in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/Chat.php:134
+Stack trace:
+#0 /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/operations.php(60): MhaChat->getChatMessages('')
+#1 {main}
+  thrown in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/Chat.php on line 134
+[21-Sep-2021 08:52:50 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to MhaChat::getChatMessages() must be of the type integer, string given, called in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/operations.php on line 60 and defined in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/Chat.php:134
+Stack trace:
+#0 /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/operations.php(60): MhaChat->getChatMessages('')
+#1 {main}
+  thrown in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/Chat.php on line 134
+[21-Sep-2021 08:52:56 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to MhaChat::getChatMessages() must be of the type integer, string given, called in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/operations.php on line 60 and defined in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/Chat.php:134
+Stack trace:
+#0 /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/operations.php(60): MhaChat->getChatMessages('')
+#1 {main}
+  thrown in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/Chat.php on line 134
+[21-Sep-2021 08:59:00 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to MhaChat::getChatMessages() must be of the type integer, string given, called in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/operations.php on line 60 and defined in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/Chat.php:134
+Stack trace:
+#0 /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/operations.php(60): MhaChat->getChatMessages('')
+#1 {main}
+  thrown in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/Chat.php on line 134
+[21-Sep-2021 09:08:49 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to MhaChat::getChatMessages() must be of the type integer, string given, called in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/operations.php on line 60 and defined in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/Chat.php:134
+Stack trace:
+#0 /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/operations.php(60): MhaChat->getChatMessages('')
+#1 {main}
+  thrown in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/Chat.php on line 134
+[21-Sep-2021 09:09:03 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to MhaChat::getChatMessages() must be of the type integer, string given, called in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/operations.php on line 60 and defined in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/Chat.php:134
+Stack trace:
+#0 /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/operations.php(60): MhaChat->getChatMessages('')
+#1 {main}
+  thrown in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/Chat.php on line 134
+[21-Sep-2021 09:09:31 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to MhaChat::getChatMessages() must be of the type integer, string given, called in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/operations.php on line 60 and defined in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/Chat.php:134
+Stack trace:
+#0 /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/operations.php(60): MhaChat->getChatMessages('')
+#1 {main}
+  thrown in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/Chat.php on line 134
+[21-Sep-2021 09:10:25 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to MhaChat::getChatMessages() must be of the type integer, string given, called in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/operations.php on line 60 and defined in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/Chat.php:134
+Stack trace:
+#0 /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/operations.php(60): MhaChat->getChatMessages('')
+#1 {main}
+  thrown in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/Chat.php on line 134
+[21-Sep-2021 09:13:33 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to MhaChat::getChatMessages() must be of the type integer, string given, called in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/operations.php on line 60 and defined in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/Chat.php:134
+Stack trace:
+#0 /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/operations.php(60): MhaChat->getChatMessages('')
+#1 {main}
+  thrown in /home/myhealthafrica/public_html/coldroom/psi/virtual-room/MHAChat/Chat.php on line 134
+[21-Sep-2021 09:56:55 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to MhaChat::getChatMessages() must be of the type integer, string given, called in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php on line 60 and defined in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php:134
+Stack trace:
+#0 /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php(60): MhaChat->getChatMessages('')
+#1 {main}
+  thrown in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php on line 134
+[21-Sep-2021 10:22:11 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to MhaChat::getChatMessages() must be of the type integer, string given, called in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php on line 60 and defined in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php:134
+Stack trace:
+#0 /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php(60): MhaChat->getChatMessages('')
+#1 {main}
+  thrown in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php on line 134
+[21-Sep-2021 10:24:11 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to MhaChat::getChatMessages() must be of the type integer, string given, called in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php on line 60 and defined in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php:134
+Stack trace:
+#0 /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php(60): MhaChat->getChatMessages('')
+#1 {main}
+  thrown in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php on line 134
+[21-Sep-2021 10:24:24 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to MhaChat::getChatMessages() must be of the type integer, string given, called in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php on line 60 and defined in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php:134
+Stack trace:
+#0 /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php(60): MhaChat->getChatMessages('')
+#1 {main}
+  thrown in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php on line 134
+[21-Sep-2021 10:26:11 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to MhaChat::getChatMessages() must be of the type integer, string given, called in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php on line 60 and defined in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php:134
+Stack trace:
+#0 /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php(60): MhaChat->getChatMessages('')
+#1 {main}
+  thrown in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php on line 134
+[21-Sep-2021 11:19:52 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to MhaChat::getChatMessages() must be of the type integer, string given, called in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php on line 60 and defined in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php:134
+Stack trace:
+#0 /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php(60): MhaChat->getChatMessages('')
+#1 {main}
+  thrown in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php on line 134
+[21-Sep-2021 11:19:55 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to MhaChat::getChatMessages() must be of the type integer, string given, called in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php on line 60 and defined in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php:134
+Stack trace:
+#0 /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php(60): MhaChat->getChatMessages('')
+#1 {main}
+  thrown in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php on line 134
+[21-Sep-2021 11:23:08 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to MhaChat::getChatMessages() must be of the type integer, string given, called in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php on line 60 and defined in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php:134
+Stack trace:
+#0 /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php(60): MhaChat->getChatMessages('')
+#1 {main}
+  thrown in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php on line 134
+[21-Sep-2021 11:23:25 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to MhaChat::getChatMessages() must be of the type integer, string given, called in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php on line 60 and defined in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php:134
+Stack trace:
+#0 /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php(60): MhaChat->getChatMessages('')
+#1 {main}
+  thrown in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php on line 134
+[21-Sep-2021 11:23:30 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to MhaChat::getChatMessages() must be of the type integer, string given, called in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php on line 60 and defined in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php:134
+Stack trace:
+#0 /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php(60): MhaChat->getChatMessages('')
+#1 {main}
+  thrown in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php on line 134
+[21-Sep-2021 11:26:31 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to MhaChat::getChatMessages() must be of the type integer, string given, called in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php on line 60 and defined in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php:134
+Stack trace:
+#0 /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php(60): MhaChat->getChatMessages('')
+#1 {main}
+  thrown in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php on line 134
+[21-Sep-2021 11:27:40 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to MhaChat::getChatMessages() must be of the type integer, string given, called in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php on line 60 and defined in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php:134
+Stack trace:
+#0 /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php(60): MhaChat->getChatMessages('')
+#1 {main}
+  thrown in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php on line 134
+[21-Sep-2021 11:28:24 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to MhaChat::getChatMessages() must be of the type integer, string given, called in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php on line 60 and defined in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php:134
+Stack trace:
+#0 /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php(60): MhaChat->getChatMessages('')
+#1 {main}
+  thrown in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php on line 134
+[21-Sep-2021 11:29:25 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to MhaChat::getChatMessages() must be of the type integer, string given, called in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php on line 60 and defined in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php:134
+Stack trace:
+#0 /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php(60): MhaChat->getChatMessages('')
+#1 {main}
+  thrown in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php on line 134
+[21-Sep-2021 11:33:26 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to MhaChat::getChatMessages() must be of the type integer, string given, called in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php on line 60 and defined in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php:134
+Stack trace:
+#0 /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php(60): MhaChat->getChatMessages('')
+#1 {main}
+  thrown in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php on line 134
+[21-Sep-2021 11:35:03 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to MhaChat::getChatMessages() must be of the type integer, string given, called in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php on line 60 and defined in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php:134
+Stack trace:
+#0 /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php(60): MhaChat->getChatMessages('')
+#1 {main}
+  thrown in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php on line 134
+[21-Sep-2021 11:35:24 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to MhaChat::getChatMessages() must be of the type integer, string given, called in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php on line 60 and defined in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php:134
+Stack trace:
+#0 /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php(60): MhaChat->getChatMessages('')
+#1 {main}
+  thrown in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php on line 134
+[21-Sep-2021 13:32:40 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to MhaChat::getChatMessages() must be of the type integer, string given, called in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php on line 60 and defined in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php:134
+Stack trace:
+#0 /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php(60): MhaChat->getChatMessages('')
+#1 {main}
+  thrown in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php on line 134
+[21-Sep-2021 13:38:27 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to MhaChat::getChatMessages() must be of the type integer, string given, called in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php on line 60 and defined in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php:134
+Stack trace:
+#0 /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php(60): MhaChat->getChatMessages('')
+#1 {main}
+  thrown in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php on line 134
+[21-Sep-2021 13:39:42 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to MhaChat::getChatMessages() must be of the type integer, string given, called in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php on line 60 and defined in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php:134
+Stack trace:
+#0 /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php(60): MhaChat->getChatMessages('')
+#1 {main}
+  thrown in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php on line 134
+[21-Sep-2021 13:47:06 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to MhaChat::getChatMessages() must be of the type integer, string given, called in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php on line 60 and defined in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php:134
+Stack trace:
+#0 /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php(60): MhaChat->getChatMessages('')
+#1 {main}
+  thrown in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php on line 134
+[21-Sep-2021 14:55:20 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to MhaChat::getChatMessages() must be of the type integer, string given, called in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php on line 60 and defined in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php:134
+Stack trace:
+#0 /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php(60): MhaChat->getChatMessages('')
+#1 {main}
+  thrown in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php on line 134
+[21-Sep-2021 14:57:29 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to MhaChat::getChatMessages() must be of the type integer, string given, called in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php on line 60 and defined in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php:134
+Stack trace:
+#0 /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php(60): MhaChat->getChatMessages('')
+#1 {main}
+  thrown in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php on line 134
+[21-Sep-2021 14:58:10 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to MhaChat::getChatMessages() must be of the type integer, string given, called in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php on line 60 and defined in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php:134
+Stack trace:
+#0 /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php(60): MhaChat->getChatMessages('')
+#1 {main}
+  thrown in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php on line 134
+[22-Sep-2021 05:17:30 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to MhaChat::getChatMessages() must be of the type integer, string given, called in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php on line 60 and defined in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php:134
+Stack trace:
+#0 /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php(60): MhaChat->getChatMessages('')
+#1 {main}
+  thrown in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php on line 134
+[22-Sep-2021 05:58:47 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to MhaChat::getChatMessages() must be of the type integer, string given, called in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php on line 60 and defined in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php:134
+Stack trace:
+#0 /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php(60): MhaChat->getChatMessages('')
+#1 {main}
+  thrown in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php on line 134
+[22-Sep-2021 06:46:20 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to MhaChat::getChatMessages() must be of the type integer, string given, called in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php on line 60 and defined in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php:134
+Stack trace:
+#0 /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/operations.php(60): MhaChat->getChatMessages('')
+#1 {main}
+  thrown in /home/myhealthafrica/public_html/psi/virtual-room/MHAChat/Chat.php on line 134

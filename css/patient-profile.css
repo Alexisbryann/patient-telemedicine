@@ -1,0 +1,119 @@
+.cn-patient-details-group{
+    font-size: 1rem;
+    /* background-color: rgb(240, 240, 240); */
+    margin-bottom: .5rem;
+    margin-right: 1rem;
+    padding: .25rem .5rem;
+    border-radius: .3rem;
+    width: 100%;
+}
+
+hr{
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cn-patient-details-data {
+    font-weight: bold;
+}
+
+.cn-remove-input {
+    white-space: nowrap;
+    margin-left: .5rem;
+    font-size: 1.4rem;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.cn-remove-input:hover {
+    color: rgb(255, 34, 0);
+}
+
+.border-bottom-only {
+    border: none;
+    border-bottom: 1px solid silver;
+    border-radius: 0%;
+}
+
+.cn-add-input {
+    font-size: 1.4rem;
+    font-weight: 900;
+    line-height: 1px;
+    cursor: pointer;
+}
+
+.cn-add-input:hover {
+    color: rgb(5, 171, 5);
+}
+
+.multiple-inputs-container {
+    margin-bottom: .5rem;
+}
+
+#newCaseNotes {
+    padding: 0rem 2rem .5rem;
+}
+
+#newCaseNotes .form-group {
+    margin-bottom: .3rem;
+}
+
+.modal-header-logo {
+    height: 40px;
+    position: absolute;
+    left: 1rem;
+}
+
+.modal-title {
+    width: 100%;
+    text-align: center;
+    margin-top: 0;
+}
+
+#newCaseNotes label {
+    font-size: 1.2rem;
+    margin-bottom: 0;
+}
+
+.sweet-alert {
+    border: 1px solid silver;
+    box-shadow: 0.2rem 0.2rem 0.5rem silver;
+}
+
+.section-header {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.notes-data-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    margin-bottom: .3rem;
+}
+
+.case-notes-data-label{
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-right: 1rem;
+    color: #3f3f3f;
+}
+
+.view-case-notes-section {
+    border-bottom: 1px solid rgb(220, 220, 220);
+    padding-bottom: .4rem;
+    margin-bottom: .5rem;
+}
+
+.notes-data-group ol {
+    padding-left: 1.5rem;
+    margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+    .br-md {
+        border-right: 1px solid #f0f0f0;
+    }
+}

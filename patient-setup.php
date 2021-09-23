@@ -2,6 +2,7 @@
 include('functions.php');
 $logo = 'images/psi/mha-psi-logo.png';
 $appointment_id = (isset($_GET['caseappid'])) ? $_GET['caseappid'] : '';
+$caseapp_id = $appointment_id;
 if (!empty($appointment_id)) {
     $appointment_id = base64_decode($appointment_id);
     $result = mysqli_query($db, "SELECT wp_ea_fields.field_id, wp_ea_fields.value FROM wp_ea_fields WHERE app_id = '$appointment_id' AND field_id IN (2,7) ");
@@ -42,6 +43,7 @@ if (!empty($appointment_id)) {
             <div class="col-md-12">
                 <input type="hidden" id="patient_first_name" value="<?php echo $patient_first_name; ?>" />
                 <input type="hidden" id="appointment_id" value="<?php echo $appointment_id; ?>" />
+                <input type="hidden" id="caseapp_id" value="<?php echo $caseapp_id; ?>" />
                 <div class="card">
                     <div class="card-body no-padding height-12">
                         <div class="row text-center m-t-10">
@@ -51,7 +53,7 @@ if (!empty($appointment_id)) {
                             <div class="tab setup-1 col-md-12">
                                 <h3>Telemedicine Consultation Set-up Guide</h3>
                                 <p><span>Hello <?php echo $patient_first_name.' '.$patient_last_name; ?></span>, I am the MHA Tech Bot here to help you get set up for your online video consultation with Tunza clinic Daktari. I will guide you through some steps to ensure you are ready to go for your online consultation.</p>
-                                <p><b>For the best user experience, we always recommend using Chrome browser.</b></p>
+                                <p><b>For best user experience we recommend using Chrome, Opera Mini or Microsoft Edge browsers. For Firefox, allow microphone on all pages.</b></p>
                                 <div class="step-buttons">
                                     <button type="button" id="prevBtn" class="prevBtn">Previous</button>
                                     <button type="button" id="nextBtn" class="nextBtn">Get Started</button>
@@ -72,15 +74,17 @@ if (!empty($appointment_id)) {
                                 <p class="test-vid"> <span>Hey <b><?php echo $patient_first_name; ?></b></span>, can you see yourself below?</p>
                                 <div class="row col-sm-12 col-md-12 col-lg-12" style="align-items: center;">
                                     <div class="col-sm-12 col-md-5 col-lg-5">
-                                        <video id="v" autoplay></video>
+                                        <video id="v" autoplay muted="muted"></video>
                                     </div>
                                     <div class="camera-tips col-sm-12 col-md-7 col-lg-7">
-                                        <p style="text-align: left;font-size: 16px;"><i>Tip: If you can't see your preview and you have allowed microphone and camera;<br>
-                                            - Ensure your camera is not covered by anything.<br>
-                                            - Close any other application that could be using microphone and camera.<br>
-                                            - Ensure your computer/phone or external camera is working fine.<br>
-                                            - Make sure your drivers are up to date.<br>
-                                            - If all of the above issues have been met, please restart your device or use a different device.</i></p>
+                                        <p><i>Tip: If you can't see your preview and you have allowed microphone and camera;</i></p>
+                                        <ul class="row col-md-12 dashed">
+                                            <li><i>Ensure your camera is not covered by anything.</i></li>
+                                            <li><i>Close any other application that could be using microphone and camera.</i></li>
+                                            <li><i>Ensure your computer/phone or external camera is working fine.</i></li>
+                                            <li><i>Make sure your drivers are up to date.</i></li>
+                                            <li><i>If all of the above issues have been met, please restart your device or use a different device.</i></li>
+                                        </ul>
                                     </div>
                                 </div>
                                 <div class="step-buttons">
@@ -165,8 +169,8 @@ if (!empty($appointment_id)) {
 	<script src="assets/safari.js"></script>
     <script src="assets/microphone.js"></script>
     <script src="assets/patient-setup.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/eruda"></script>
-    <script>eruda.init();</script>
+    <!--<script src="//cdn.jsdelivr.net/npm/eruda"></script>-->
+    <!--<script>eruda.init();</script>-->
 	<!-- end js include path -->
 </body>
 

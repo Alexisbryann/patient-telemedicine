@@ -86,7 +86,24 @@ p {
     -webkit-animation: spin 2s linear infinite;
     animation: spin 2s linear infinite;
 }
-
+.camera-tips p {
+    float: left;
+    text-align: left;
+}
+.camera-tips ul li {
+    list-style-position: outside;
+    text-align: left;
+}
+ul.dashed {
+    list-style-type: none;
+}
+ul.dashed > li {
+    text-indent: -5px;
+}
+ul.dashed > li:before {
+    content: "-";
+    text-indent: -5px;
+}
 .payment {
     border: 1px solid#F7941C;
     background-color: #fff !important;
@@ -473,6 +490,9 @@ a[href="#previous"] {
     }
     .camera-tips{
         margin-left: 20px;
+    }
+    ul.dashed {
+        margin-left: 0!important;
     }
     .microphone-step{
         margin-left: 15px;

@@ -28,30 +28,6 @@ $(document).ready(function() {
             dataType: "json",
             success: function(response) {
                 if (response.Result == '000') { 
-                    var TransactionRef = response.TransactionRef,
-                        ResultExplanation = response.ResultExplanation,
-                        CustomerCreditType = response.CustomerCreditType,
-                        TransactionCurrency = response.TransactionCurrency,
-                        TransactionAmount = response.TransactionAmount,
-                        TransactionNetAmount = response.TransactionFinalAmount,
-                        TransactionSettlementDate = response.TransactionSettlementDate,
-                        TransactionFinalCurrency = response.TransactionFinalCurrency,
-                        CustomerName = response.CustomerName,
-                        CustomerPhone = response.CustomerPhone,
-                        CustomerEmail = response.CustomerEmail,
-                        FraudAlert = response.TransactionFraudAlert,
-                        FraudExplanation = response.TransactionFraudExplanation,
-                        CustomerCity = response.CustomerCity,
-                        AccRef = response.AccRef,
-                        TransactionCreatedDate = response.TransactionCreatedDate,
-                        TransactionExpiryDate = response.TransactionExpiryDate,
-                        TransactionPaymentDate = response.TransactionPaymentDate,
-                        CardType =  response.CardType,
-                        ApprovalNumber =  response.ApprovalNumber,
-                        ServiceDescription =  response.ServiceDescription,
-                        CustomerCountry = response.CustomerCountry,
-                        TransactionRollingReserveAmount = response.TransactionRollingReserveAmount,
-                        TransactionRollingReserveDate =response.TransactionRollingReserveDate;
                     $.ajax({
                         url: "operation/bookingOperations.php",
                         method: "POST",
@@ -60,38 +36,39 @@ $(document).ready(function() {
                             id: appointment_id,
                             type: type,
                             TransactionToken: TransactionToken,
-                            TransactionRef: TransactionRef,
-                            ResultExplanation: ResultExplanation,
-                            CustomerCreditType: CustomerCreditType,
-                            TransactionCurrency: TransactionCurrency,
-                            TransactionAmount: TransactionAmount,
-                            TransactionNetAmount: TransactionNetAmount,
-                            TransactionSettlementDate: TransactionSettlementDate,
-                            TransactionFinalCurrency: TransactionFinalCurrency,
-                            CustomerName: CustomerName,
-                            CustomerPhone: CustomerPhone,
-                            CustomerEmail: CustomerEmail,
-                            FraudAlert: FraudAlert,
-                            FraudExplanation: FraudExplanation,
-                            CustomerCity: CustomerCity,
-                            AccRef: AccRef,
-                            TransactionCreatedDate: TransactionCreatedDate,
-                            TransactionExpiryDate: TransactionExpiryDate,
-                            TransactionPaymentDate: TransactionPaymentDate,
-                            CardType: CardType,
-                            ApprovalNumber: ApprovalNumber,
-                            ServiceDescription: ServiceDescription,
-                            CustomerCountry: CustomerCountry,
-                            TransactionRollingReserveAmount: TransactionRollingReserveDate,
-                            TransactionRollingReserveDate: TransactionRollingReserveDate
+                            TransactionRef: response.TransactionRef,
+                            ResultExplanation: response.ResultExplanation,
+                            CustomerCreditType: response.CustomerCreditType,
+                            TransactionCurrency: response.TransactionCurrency,
+                            TransactionAmount: response.TransactionAmount,
+                            TransactionNetAmount: response.TransactionNetAmount,
+                            TransactionFinalAmount: response.TransactionFinalAmount,
+                            TransactionSettlementDate: response.TransactionSettlementDate,
+                            TransactionFinalCurrency: response.TransactionFinalCurrency,
+                            CustomerName: response.CustomerName,
+                            CustomerPhone: response.CustomerPhone,
+                            CustomerEmail: response.CustomerEmail,
+                            FraudAlert: response.TransactionFraudAlert,
+                            FraudExplanation: response.TransactionFraudExplanation,
+                            CustomerCity: response.CustomerCity,
+                            AccRef: response.AccRef,
+                            TransactionCreatedDate: response.TransactionCreatedDate,
+                            TransactionExpiryDate: response.TransactionExpiryDate,
+                            TransactionPaymentDate: response.TransactionPaymentDate,
+                            CardType: response.CardType,
+                            ApprovalNumber: response.ApprovalNumber,
+                            ServiceDescription: response.ServiceDescription,
+                            CustomerCountry: response.CustomerCountry,
+                            TransactionRollingReserveAmount: response.TransactionRollingReserveDate,
+                            TransactionRollingReserveDate: response.TransactionRollingReserveDate
                         },
                         dataType: "json",
-                        success: function(response) {
-                            if (response == 200) {
+                        success: function(result) {
+                            if (result.response == 200) {
                                 $('.payment-step-one').hide();
                                 $('.payment-step-two').show(500);
                                 setInterval(function () {
-                                    window.location.href = 'https://myhealthafrica.com/coldroom/psi/patient-setup.php?caseappid=' + appointment_id + '';
+                                    window.location.href = 'https://www.myhealthafrica.com/psi/patient-setup.php?caseappid=' + result.id + '';
                                 }, 5000);
                             } else if (response == 500) {
                                 document.getElementById('error').innerHTML = '';

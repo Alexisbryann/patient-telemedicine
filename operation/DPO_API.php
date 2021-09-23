@@ -51,10 +51,10 @@ if (isset($_POST["operation"])) {
         $email = $_POST["email"];
         $country = 'KE';
         $SELECTED_COUNTRY_CODE = 'KE';
-        $phone = $_POST["phone"];
+        $phone = str_replace(' ', '', $_POST['phone']);
         $amount = (integer) 1;
 
-        $redirectURL = 'https://myhealthafrica.com/coldroom/psi/verify-payment.php?id='.$appointment_id.'&type='.$type.'';
+        $redirectURL = 'https://myhealthafrica.com/psi/verify-payment.php?id='.$appointment_id.'&type='.$type.'';
         $xml_request = '<?xml version="1.0" encoding="utf-8"?>
                         <API3G>
                             <CompanyToken>'.$CompanyToken.'</CompanyToken>

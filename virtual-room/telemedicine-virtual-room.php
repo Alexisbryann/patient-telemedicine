@@ -1,7 +1,7 @@
 <?php
 include('../../myonemedpro/functions.php');
 
-$inclusions_version = 0;
+$inclusions_version = 2;
 function clean_str($string)
 {
     $remove_single_ap = str_replace("'", "_", $string);
@@ -98,8 +98,8 @@ switch ($user_type) {
                         <div class="text-center">
                             <div class="mb-3"><strong id="leave-room-text">Are you sure you want to end this call?</strong></div>
                             <div class="d-flex w-100 justify-content-around">
-                                <span class="modal-button ml-auto mr-2 btn-danger btn leave">No</span>
-                                <span class="modal-button mr-auto ml-2 btn-success btn stay">Yes</span>
+                                <span class="modal-button ml-auto mr-2 btn-danger btn stay">No</span>
+                                <span class="modal-button mr-auto ml-2 btn-success btn leave">Yes</span>
                             </div>
                         </div>
                     </div>
@@ -113,7 +113,7 @@ switch ($user_type) {
 
         <?php
         if ($user_type == "Doc") require_once("virtual-room-notes.html"); // only display case notes if user is a doctor
-        require_once("virtual-room-chat.html");
+        require_once("virtual-room-chat.php");
         ?>
 
     </main>

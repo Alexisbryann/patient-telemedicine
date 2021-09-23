@@ -26,8 +26,6 @@ $logo = 'images/psi/mha-psi-logo.png';
     <div class="page-content">
         <div class="row">
             <div class="col-md-12">
-                <input type="hidden" id="appointment_id" value="<?php echo $appointment_id; ?>" />
-                <input type="hidden" id="onboarding" value="<?php echo $onboarding; ?>" />
                 <div class="payment card">
                     <div class="card-body no-padding height-12">
                         <div class="row text-center m-t-10">

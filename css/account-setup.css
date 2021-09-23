@@ -1,0 +1,112 @@
+#account-setup {
+    background-color: white;
+    padding: 15px;
+    border-radius: 5px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.wizard .steps.clearfix {
+    display: none;
+}
+
+[role="separator"] {
+    width: 80%;
+    margin: 1.4em auto;
+}
+
+.form-control {
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-radius: 0%;
+    width: 100%!important;
+    margin-right: 1.5rem;
+}
+
+.form-inline label{
+    margin-right: .5rem;
+    white-space: nowrap;
+}
+
+.step-header .d-flex:first-child {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #28A745;
+}
+
+.step-number,
+.step-title {
+    margin-right: .5rem;
+}
+
+.step-icon {
+    text-align: center;
+    font-size: 2rem;
+    margin: 1rem 0;
+}
+
+.actions.clearfix {
+    display: none;
+}
+
+form button[type="submit"] {
+    margin: 2em .5rem 0 2rem;
+    padding: .3rem 3rem;
+    border-radius: 55px;
+    cursor: pointer;
+    background-color: transparent;
+    border: 1px solid silver;
+    box-shadow: 2px 2px 4px silver;
+    transition: .2s;
+    background-color: rgb(29, 191, 48);
+    color: white;
+}
+
+form button[type="submit"]:hover {
+    background-color: rgb(29, 191, 48);
+    color: white;
+    box-shadow: 4px 4px 6px silver;
+}
+
+button:focus {
+    outline: none;
+}
+
+.select2-container--default .select2-selection--single, .select2-selection .select2-selection--single {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 0px!important;
+}
+
+.info-icon {
+    margin-left: .1em;
+    padding-top: .2rem;
+    color: #555;
+}
+
+.skip-step-btn {
+    background-color: #78787880;
+    text-align: center;
+    border-radius: 55px;
+    cursor: pointer;
+    margin: 2em .5rem 0 auto;
+    padding: .3rem 3rem;
+    color: white;
+    font-weight: 100;
+    transition: .2s;
+    font-size: 1rem;
+}
+
+.skip-step-btn:hover {
+    background-color: #555;
+    box-shadow: 4px 4px 6px silver;
+    z-index: 1;
+}
+
+.select2-selection.select2-selection--single {
+    border-bottom: 1px solid silver;
+    border-radius: 0px!important;
+    margin-right: 1.5rem;
+}
