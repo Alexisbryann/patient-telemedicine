@@ -3,8 +3,9 @@ const global_settings = {
 }
 $(document).ready( function () {
     var appointment_id = $('#appointment_id').val();
+    var caseapp_id = $('#caseapp_id').val();
     $('#finishSetup').click(function(){
-       window.location = 'https://www.myhealthafrica.com/coldroom/psi/patient-waiting-room.php?caseappid='+appointment_id; 
+       window.location = 'https://www.myhealthafrica.com/psi/patient-waiting-room.php?caseappid='+caseapp_id; 
     });
     var patient_name = $('#patient_first_name').val();
     if (navigator.mediaDevices && navigator.mediaDevices.enumerateDevices) {
@@ -189,13 +190,15 @@ $(document).ready( function () {
     }
 
     function vidOff(n) {
-        var videoEl = document.getElementById('v');
-        stream = videoEl.srcObject;
-        tracks = stream.getTracks();
-        tracks.forEach(function(track) {
-            track.stop();
-        });
-        videoEl.srcObject = null;
+        // var videoEl = document.getElementById('v');
+        // stream = videoEl.srcObject;
+        // if(stream){
+        //     tracks = stream.getTracks();
+        //     tracks.forEach(function(track) {
+        //         track.stop();
+        //     });
+        // } 
+        // videoEl.srcObject = null;
         var x = document.getElementsByClassName("tab");
         x[currentTab].style.display = "none";
         currentTab = currentTab + n;
@@ -214,26 +217,18 @@ $(document).ready( function () {
 
     /****************ALLOW CAMERA AND MICROPHONE START*********************/
     function allowPermissions() {
-        
-        var config = { audio: true,video: { width: 50/*320-640-1280*/ } };
-        
-        var start = () => navigator.mediaDevices.getUserMedia(config)
-              .then(stream => v.srcObject = stream)
-              .then(() => new Promise(resolve => v.onloadedmetadata = resolve))
-              .then(() => log("Successfully Allowed: " + v.videoWidth + "x" + v.videoHeight))
-              .catch(log);
-        
-        
-        
-        
+        video = document.getElementById('v');
+        video.setAttribute('autoplay', '');
+        video.setAttribute('muted', '');
+        video.setAttribute('playsinline', '');
         if (location.protocol === 'https:') {
-            //navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+            navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
             var constraints = {audio: true, video: { facingMode: 'user', width: 50 }};
             if(global_settings['screen_is_mobile']) {
                 window.navigator.mediaDevices.enumerateDevices().then(devices => {
                     if (devices.filter(device => device.kind === 'videoinput').length > 1) {
-                        navigator.mediaDevices.getUserMedia(constraints).then(stream => v.srcObject = stream)
-                        .then(() => new Promise(resolve => v.onloadedmetadata = resolve))
+                        navigator.mediaDevices.getUserMedia(constraints).then(stream => video.srcObject = stream)
+                        .then(() => new Promise(resolve => video.onloadedmetadata = resolve))
                         .then(() => {
                             $('.permissions').css("opacity", "1");
                             $('.permissions').css("pointer-events", "auto");
@@ -244,8 +239,8 @@ $(document).ready( function () {
                 });
             } else{
                 //navigator.mediaDevices.getUserMedia({video: {facingMode: 'user' /*'environment'*/}}).then(console.log.bind(this))
-                navigator.mediaDevices.getUserMedia(constraints).then(stream => v.srcObject = stream)
-                .then(() => new Promise(resolve => v.onloadedmetadata = resolve))
+                navigator.mediaDevices.getUserMedia(constraints).then(stream => video.srcObject = stream)
+                .then(() => new Promise(resolve => video.onloadedmetadata = resolve))
                 .then(() => {
                     $('.permissions').css("opacity", "1");
                     $('.permissions').css("pointer-events", "auto");

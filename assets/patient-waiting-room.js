@@ -8,7 +8,6 @@ jQuery(document).ready(function () {
     if (onboarding == 1) {
         $('.telemed-step-one,.telemed-step-two').hide();
         $('.telemed-step-three').show(500);
-        //setInterval(checkStatus,5000);
         interval = setInterval(function(){
             checkStatus();
         }, 5000);
@@ -18,13 +17,7 @@ jQuery(document).ready(function () {
         $('.telemed-step-one').show(500);
     }
     $('.btn-proceed #no').click( function () {
-        $('.telemed-step-one').hide();
-        $('.telemed-step-three').show(500);
-        //setInterval(checkStatus,5000);
-        interval = setInterval(function(){
-            checkStatus();
-        }, 5000);
-        countdown('countdown', 10, 0);
+        updatePatientStatus();
     });
     $('.btn-proceed #yes').click( function () {
         $('.telemed-step-one,.logo').hide();
@@ -133,6 +126,26 @@ jQuery(document).ready(function () {
             });
         }
     });
+    
+    function updatePatientStatus() {
+        $.ajax({
+            url: "operation/updatePatientInfo.php",
+            method: 'POST',
+            data: { operation: 'update-status', id: appointment_id },
+            dataType: "json",
+            success: function(response) {
+                if (response == 200) {
+                    $('.telemed-step-one').hide();
+                    $('.telemed-step-three').show(500);
+                    setInterval(function(){
+                        checkStatus();
+                    }, 5000);
+                    countdown('countdown', 10, 0);
+                }
+            },
+            async: false
+        });
+    }
 
     function checkStatus() {
         $.ajax({

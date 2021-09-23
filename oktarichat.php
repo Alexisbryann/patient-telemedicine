@@ -10,6 +10,7 @@
                 <option value="Child Care">Child Care</option>
                 <option value="Tuberculosis">Tuberculosis</option>
                 <option value="HIV & Aids">HIV & Aids</option>
+                <option value="Others">Others</option>
             </select>
             <select data-conv-question="<?php echo $patient_first_name; ?>, would you like to briefly describe your medical condition?" name="second-question">
                 <option value="yes">Yes</option>

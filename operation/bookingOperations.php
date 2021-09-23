@@ -22,6 +22,8 @@ if (isset($_POST["operation"])) {
 		if ($type == 'schedule') {
 			$date = $_POST["appointment-date"];
 			$time = $_POST["appointment-time"];
+			$time = DateTime::createFromFormat('g:i a', $time);
+			$time = $time->format('G:i:s');
 		} else {
 			$date = $currentDate;
 			$time = $currentTime;
@@ -29,12 +31,13 @@ if (isset($_POST["operation"])) {
 		$cost = 300;
 		$clinic = $_POST['clinic'];
 
-        if ($_POST["in-person"] == 1) {
+        if (isset($_POST["in-person"]) && $_POST["in-person"] == 1) {
             $facility_id = $_POST["facility"];
             $date = implode("-", array_reverse(explode("/", $_POST["appointment-date"])));
             $time = date("H:i", strtotime($_POST["appointment-time"]));
             $medical_concern = empty($_POST["medical-concern-description"]) ? $_POST["medical-concern"] : $_POST["medical-concern-description"];
-        }
+            $service = 'inperson';
+        } else $service = 'telemedicine';
 
 		$user = $db->TunzaClinicTelemedicineAppointmentBooking(
 			$name, 
@@ -47,7 +50,7 @@ if (isset($_POST["operation"])) {
 			$time,
 			$cost,
             $clinic,
-            $_POST["in-person"] ? "inperson" : "telemedicine",
+            $service,
             $facility_id ?? null,
             $medical_concern ?? null
 		);
@@ -65,7 +68,7 @@ if (isset($_POST["operation"])) {
 		$ResultExplanation = $_POST["ResultExplanation"];
 		$TransactionCurrency = $_POST["TransactionCurrency"];
 		$TransactionFinalCurrency = $_POST["TransactionFinalCurrency"];
-		$TransactionNetAmount = $_POST["TransactionNetAmount"];
+		$TransactionNetAmount = (isset($_POST["TransactionNetAmount"])) ? $_POST["TransactionNetAmount"]: $_POST["TransactionFinalAmount"];
 		$CustomerName = $_POST["CustomerName"];
 		$CustomerPhone = $_POST["CustomerPhone"];
 		$CustomerEmail = $_POST["CustomerEmail"];
@@ -136,7 +139,10 @@ if (isset($_POST["operation"])) {
 			$FraudExplanation
 		);
 		if ($user != false) {
-			echo json_encode($user);
+		    $output = array();
+		    $output['response'] = $user;
+		    $output['id'] = urlencode(base64_encode($appointment_id));
+			echo json_encode($output);
 		}
 	} else if ($_POST['operation'] == 'reschedule-appointment') {
 		$appointment_id = $_POST['appointment_id'];

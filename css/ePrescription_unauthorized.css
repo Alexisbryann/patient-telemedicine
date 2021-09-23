@@ -1,0 +1,9 @@
+#unauthorized {
+    background-color: rgba(70,70,70);
+    position: fixed;
+    z-index: 1000;
+    display: none;
+    border-radius: 4px;
+    padding: 5px;
+    color: rgba(220,220,220);
+}

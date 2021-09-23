@@ -871,3 +871,219 @@ Params: Array
 
 InvalidSenderId
 
+[2021-09-20 17:16:18]=>	Failed to send confirmation email message to doctor.
+Function: sendConfirmationMessages
+Params: Array
+(
+    [0] => Einstein Wafula
+    [1] => einstein.myhealth@gmail.com
+    [2] => +254700895053
+    [3] => Zamzam Medical Services
+    [4] => Zamzam Medical Services
+    [5] => next to Chali Plaza 
+    [6] => Opp SDA Church Ngong 
+    [7] => Kajiado
+    [8] => Ngong
+    [9] => Kenya
+    [10] => +254722254433
+    [11] => Zamzam Medical - In-person Consultation
+    [12] => KES
+    [13] => 300.00
+    [14] => Wednesday
+    [15] => 2021-09-22
+    [16] => 13:20
+    [17] => I have TB it isbjb jnkvaskcnan cbjbfjcnlkfnkwjobvjbcj;qkfgcwvdnjsknaseqhfiqev  hiehvih vhv khivhi hh ihvwsh u huihi u  hiwhih uviqh bu guiqch buov i oh iv ihqiqihvuufgfuhviowhoqhfiv0yifhqiofhwuhqhv i o j  kj  oj ojoj oj o j o jo j po kp kp  jo ip i p iieq0fui9wu9-uw-u30f2u-9uuwwugw9bwuuwg
+    [18] => medicalzamzam@yahoo.com
+)
+
+Message body empty
+
+[2021-09-20 17:16:18]=>	Failed to send facility confirmation SMS.
+Function: sendConfirmationMessages
+Params: Array
+(
+    [0] => Einstein Wafula
+    [1] => einstein.myhealth@gmail.com
+    [2] => +254700895053
+    [3] => Zamzam Medical Services
+    [4] => Zamzam Medical Services
+    [5] => next to Chali Plaza 
+    [6] => Opp SDA Church Ngong 
+    [7] => Kajiado
+    [8] => Ngong
+    [9] => Kenya
+    [10] => +254722254433
+    [11] => Zamzam Medical - In-person Consultation
+    [12] => KES
+    [13] => 300.00
+    [14] => Wednesday
+    [15] => 2021-09-22
+    [16] => 13:20
+    [17] => I have TB it isbjb jnkvaskcnan cbjbfjcnlkfnkwjobvjbcj;qkfgcwvdnjsknaseqhfiqev  hiehvih vhv khivhi hh ihvwsh u huihi u  hiwhih uviqh bu guiqch buov i oh iv ihqiqihvuufgfuhviowhoqhfiv0yifhqiofhwuhqhv i o j  kj  oj ojoj oj o j o jo j po kp kp  jo ip i p iieq0fui9wu9-uw-u30f2u-9uuwwugw9bwuuwg
+    [18] => medicalzamzam@yahoo.com
+)
+
+InvalidSenderId
+
+[2021-09-20 17:20:48]=>	Failed to send confirmation email message to doctor.
+Function: sendConfirmationMessages
+Params: Array
+(
+    [0] => Einstein Wafula
+    [1] => einstein.myhealth@gmail.com
+    [2] => +254700895053
+    [3] => Watamu Community </br> Healthcare Ltd 
+    [4] => Watamu Community Healthcare
+    [5] => 
+    [6] => 
+    [7] => 
+    [8] => Watamu
+    [9] => Kenya
+    [10] => +254724713567
+    [11] => WCH Ltd - In-person Consultation (Locals)
+    [12] => KES
+    [13] => 200.00
+    [14] => Wednesday
+    [15] => 2021-09-22
+    [16] => 16:40
+    [17] => jaccccccccccccccccccccccccccccccccccccccccccccdl dddddddddddddddddddddddddddddddddddddddd klskhhhhhhhhhhhhhhhhhhhhhhhh nuuuuuuuuuuuuuuuuuuuuu yu uuuuuuuuuuuuuuuuuuuu uuuuuuuuuuuuu uuuuuuuuuuuuuuuu uuuuuuuuuu uuu uuuuuuuuuuuuuuuu uuuuuuuuuuuuuuuuuuuuuuuu u   u u u u         uuuuuuuuuuuuuuuuuuuuuu
+    [18] => 64ngoi@gmail.com
+)
+
+Message body empty
+
+[2021-09-20 17:20:48]=>	Failed to send facility confirmation SMS.
+Function: sendConfirmationMessages
+Params: Array
+(
+    [0] => Einstein Wafula
+    [1] => einstein.myhealth@gmail.com
+    [2] => +254700895053
+    [3] => Watamu Community </br> Healthcare Ltd 
+    [4] => Watamu Community Healthcare
+    [5] => 
+    [6] => 
+    [7] => 
+    [8] => Watamu
+    [9] => Kenya
+    [10] => +254724713567
+    [11] => WCH Ltd - In-person Consultation (Locals)
+    [12] => KES
+    [13] => 200.00
+    [14] => Wednesday
+    [15] => 2021-09-22
+    [16] => 16:40
+    [17] => jaccccccccccccccccccccccccccccccccccccccccccccdl dddddddddddddddddddddddddddddddddddddddd klskhhhhhhhhhhhhhhhhhhhhhhhh nuuuuuuuuuuuuuuuuuuuuu yu uuuuuuuuuuuuuuuuuuuu uuuuuuuuuuuuu uuuuuuuuuuuuuuuu uuuuuuuuuu uuu uuuuuuuuuuuuuuuu uuuuuuuuuuuuuuuuuuuuuuuu u   u u u u         uuuuuuuuuuuuuuuuuuuuuu
+    [18] => 64ngoi@gmail.com
+)
+
+InvalidSenderId
+
+[2021-09-20 18:34:06]=>	Failed to send confirmation email message to doctor.
+Function: sendConfirmationMessages
+Params: Array
+(
+    [0] => Sylvia
+    [1] => sylvia95nkuene@gmail.com
+    [2] => +254704647295
+    [3] =>  Ukunda Medical Centre
+    [4] =>  Ukunda Medical Centre
+    [5] => 
+    [6] => Near Main Road, Ukunda-Ramisi Rd
+    [7] => 
+    [8] => Ukunda
+    [9] => Kenya
+    [10] => +254733820562
+    [11] => Ukunda Medical Centre - In-person Consultation
+    [12] => KES
+    [13] => 600.00
+    [14] => Tuesday
+    [15] => 2021-09-21
+    [16] => 08:00
+    [17] => Not sure
+    [18] => ukundamedicalcentre@gmail.com
+)
+
+Message body empty
+
+[2021-09-20 18:34:06]=>	Failed to send facility confirmation SMS.
+Function: sendConfirmationMessages
+Params: Array
+(
+    [0] => Sylvia
+    [1] => sylvia95nkuene@gmail.com
+    [2] => +254704647295
+    [3] =>  Ukunda Medical Centre
+    [4] =>  Ukunda Medical Centre
+    [5] => 
+    [6] => Near Main Road, Ukunda-Ramisi Rd
+    [7] => 
+    [8] => Ukunda
+    [9] => Kenya
+    [10] => +254733820562
+    [11] => Ukunda Medical Centre - In-person Consultation
+    [12] => KES
+    [13] => 600.00
+    [14] => Tuesday
+    [15] => 2021-09-21
+    [16] => 08:00
+    [17] => Not sure
+    [18] => ukundamedicalcentre@gmail.com
+)
+
+InvalidSenderId
+
+[2021-09-21 11:52:39]=>	Failed to send confirmation email message to doctor.
+Function: sendConfirmationMessages
+Params: Array
+(
+    [0] => Sylvia
+    [1] => sylvia95nkuene@gmail.com
+    [2] => +254794647089
+    [3] => Watamu Community </br> Healthcare Ltd 
+    [4] => Watamu Community Healthcare
+    [5] => 
+    [6] => 
+    [7] => 
+    [8] => Watamu
+    [9] => Kenya
+    [10] => +254724713567
+    [11] => WCH Ltd - In-person Consultation (Locals)
+    [12] => KES
+    [13] => 200.00
+    [14] => Tuesday
+    [15] => 2021-09-21
+    [16] => 12:00
+    [17] => Testing on mobile
+    [18] => 64ngoi@gmail.com
+)
+
+Message body empty
+
+[2021-09-21 11:52:39]=>	Failed to send facility confirmation SMS.
+Function: sendConfirmationMessages
+Params: Array
+(
+    [0] => Sylvia
+    [1] => sylvia95nkuene@gmail.com
+    [2] => +254794647089
+    [3] => Watamu Community </br> Healthcare Ltd 
+    [4] => Watamu Community Healthcare
+    [5] => 
+    [6] => 
+    [7] => 
+    [8] => Watamu
+    [9] => Kenya
+    [10] => +254724713567
+    [11] => WCH Ltd - In-person Consultation (Locals)
+    [12] => KES
+    [13] => 200.00
+    [14] => Tuesday
+    [15] => 2021-09-21
+    [16] => 12:00
+    [17] => Testing on mobile
+    [18] => 64ngoi@gmail.com
+)
+
+InvalidSenderId
+

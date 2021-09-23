@@ -1,6 +1,6 @@
 <?php
 // php mailer
-require_once $_SERVER['DOCUMENT_ROOT'] . '/coldroom/patientexperience/operation/include/my_mail.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/patientexperience/operation/include/my_mail.php';
 require_once('AfricasTalkingGateway.php');
 date_default_timezone_set('Africa/Nairobi');
 $current_date = date('Y-m-d', time());
@@ -330,6 +330,10 @@ class DB_Functions {
                     $sms1 = $this->sendBookingSMSToPatient($type, $appointment_id, $first_name.' '.$last_name, $phone, $date, $time);
                     $paymentInvoice = $this->paymentInvoice('telemedicine',$first_name.' '.$last_name,$email,$TransactionAmount,$TransactionRef,$ResultExplanation,$TransactionPaymentDate,$CardType);
                     //$sms2 = $this->sendBookingSMSToFacility($type, $appointment_id, $first_name.' '.$last_name, $phone, $date, $time);
+                } else if($type == 'schedule'){
+                    $email1 = $this->sendBookingConfirmationEmailToPatient($type, $appointment_id, $date, $time, $email, $first_name.' '.$last_name, $phone, $gender, $location);
+                    $sms1 = $this->sendBookingSMSToPatient($type, $appointment_id, $first_name.' '.$last_name, $phone, $date, $time);
+                    $paymentInvoice = $this->paymentInvoice('telemedicine',$first_name.' '.$last_name,$email,$TransactionAmount,$TransactionRef,$ResultExplanation,$TransactionPaymentDate,$CardType);
                 }
                 ($email1 && $sms1) ? $response = 200 : $response = 500;
                 return $response;
@@ -432,10 +436,10 @@ class DB_Functions {
         $location
         ) {
         $appointment_id = urlencode(base64_encode($appointment_id));
-        $button = "<a href='https://myhealthafrica.com/coldroom/psi/patient-setup.php?caseappid={$appointment_id}' target='_blank'><button class='button button4' style='border-radius: 12px;background-color: #28A745;border: none; color: white;
+        $button = "<a href='https://myhealthafrica.com/psi/patient-setup.php?caseappid={$appointment_id}' target='_blank'><button class='button button4' style='border-radius: 12px;background-color: #28A745;border: none; color: white;
                 padding: 13px;text-align: center;text-decoration: none;display: inline-block;
                 font-size: 16px;margin: 4px 2px;cursor: pointer;color:white;'>Start Session</button></a>";
-        $url = "<a href='https://myhealthafrica.com/coldroom/psi/patient-setup.php?caseappid={$appointment_id}' target='_blank'>here</a>";
+        $url = "<a href='https://myhealthafrica.com/psi/patient-setup.php?caseappid={$appointment_id}' target='_blank'>here</a>";
 
         $separator = md5(time());
 
@@ -577,10 +581,10 @@ class DB_Functions {
         $location
         ) {
         $appointment_id = urlencode(base64_encode($appointment_id));
-        $button = "<a href='https://myhealthafrica.com/coldroom/myonemedpro/my-waiting-room?appid={$appointment_id}' target='_blank'><button class='button button4' style='border-radius: 12px;background-color: #28A745;border: none; color: white;
+        $button = "<a href='https://myhealthafrica.com/myonemedpro/my-waiting-room?appid={$appointment_id}' target='_blank'><button class='button button4' style='border-radius: 12px;background-color: #28A745;border: none; color: white;
                 padding: 13px;text-align: center;text-decoration: none;display: inline-block;
                 font-size: 16px;margin: 4px 2px;cursor: pointer;color:white;'>Start Session</button></a>";
-        $url = "<a href='https://myhealthafrica.com/coldroom/myonemedpro/my-waiting-room?appid={$appointment_id}' target='_blank'>here</a>";
+        $url = "<a href='https://myhealthafrica.com/myonemedpro/my-waiting-room?appid={$appointment_id}' target='_blank'>here</a>";
 
         $separator = md5(time());
         $eol = PHP_EOL;
@@ -762,10 +766,10 @@ class DB_Functions {
         $location
         ) {
         $appointment_id = urlencode(base64_encode($appointment_id));
-        $button = "<a href='https://myhealthafrica.com/coldroom/psi/patient-setup.php?caseappid={$appointment_id}' target='_blank'><button class='button button4' style='border-radius: 12px;background-color: #28A745;border: none; color: white;
+        $button = "<a href='https://myhealthafrica.com/psi/patient-setup.php?caseappid={$appointment_id}' target='_blank'><button class='button button4' style='border-radius: 12px;background-color: #28A745;border: none; color: white;
                 padding: 13px;text-align: center;text-decoration: none;display: inline-block;
                 font-size: 16px;margin: 4px 2px;cursor: pointer;color:white;'>Start Session</button></a>";
-        $url = "<a href='https://myhealthafrica.com/coldroom/psi/patient-setup.php?caseappid={$appointment_id}' target='_blank'>here</a>";
+        $url = "<a href='https://myhealthafrica.com/psi/patient-setup.php?caseappid={$appointment_id}' target='_blank'>here</a>";
 
         $separator = md5(time());
 
@@ -983,8 +987,9 @@ class DB_Functions {
         $date, 
         $time
         ) {
+        $phone = str_replace(' ', '', $phone);
         $appointment_id = urlencode(base64_encode($appointment_id));
-        $url = "https://myhealthafrica.com/coldroom/psi/patient-setup.php?caseappid={$appointment_id}.";
+        $url = "https://myhealthafrica.com/psi/patient-setup.php?caseappid={$appointment_id}.";
         if ($type == 'schedule') {
             $message = 'Your telemedicine appointment with Tunza Clinic on '.$date.' '.$time.' is confirmed. Start your session on the scheduled date & time by clicking this url '.$url.' or check your email.';
         } else if ($type == 'now') {
@@ -1009,8 +1014,9 @@ class DB_Functions {
         $date, 
         $appointment_time
         ) {
+        $phone = str_replace(' ', '', $phone);
         $appointment_id = urlencode(base64_encode($appointment_id));
-        $url = "https://myhealthafrica.com/coldroom/psi/patient-setup.php?caseappid={$appointment_id}.";
+        $url = "https://myhealthafrica.com/psi/patient-setup.php?caseappid={$appointment_id}.";
         $message = 'Your telemedicine appointment with Tunza clinic has been rescheduled to '.$date.' '.$appointment_time.'. Start your session on the scheduled date & time by clicking this URL '.$url.' or check your email.';
         try {
             $result = $GLOBALS['gateway']->sendMessage($phone, $message, $GLOBALS['from']);
@@ -1042,7 +1048,7 @@ class DB_Functions {
             '+254720855084',
         ];
         
-        $url = "https://myhealthafrica.com/coldroom/myonemedpro/my-waiting-room?appid={$appointment_id}.";
+        $url = "https://myhealthafrica.com/myonemedpro/my-waiting-room?appid={$appointment_id}.";
         if ($type == 'schedule') {
             $message = 'Your telemedicine appointment with '.$name.' on '.$date.' '.$time.' is confirmed. Start your session by clicking this url '.$url.'. Check your email/login to your account for details or to cancel/reschedule.';
         } else if ($type == 'now') {
@@ -1079,7 +1085,7 @@ class DB_Functions {
         */
         return "<footer style='font-size: 7pt; width:100%; font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif; padding:0px 0px;'>
                     <div style='text-align:center;background-color:#F5F5F5; font-size:7pt;' ><br>
-                    <img src='https://www.myhealthafrica.com/coldroom/psi/images/psi/mha-psi-logo.png' alt='PSI logo' width='100' height:'50' style='border: 0; width: 10rem;'><br>
+                    <img src='https://www.myhealthafrica.com/psi/images/psi/mha-psi-logo.png' alt='PSI logo' width='100' height:'50' style='border: 0; width: 10rem;'><br>
                     <span>This email was sent to you through the My Health Africa Booking platform</span><br>
                     </div>
                     <div style='text-align:center;background-color:#dedede;margin-top:0px;'><br>

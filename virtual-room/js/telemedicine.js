@@ -14,7 +14,7 @@ $(function () {
                 3: "One or more files uploaded was corrupted. Please try again.",
                 4: "One or more files uploaded has an unsupported extension. Only documents and images are allowed.",
             },
-            domain_name: "myhealthafrica.com/coldroom",
+            domain_name: "myhealthafrica.com",
             mobile_screen: window.innerWidth < 758,
         };
     let uploaded_files = {
@@ -87,7 +87,7 @@ $(function () {
     });
 
     // websocket connection and event handlers
-    var conn = new WebSocket(`wss://https://${chat_app_settings.domain_name}:8080?user_type=${chat_app_settings.user_type}&id=${chat_app_settings.user_id}&appointment_id=${chat_app_settings.appointment_id}`);
+    var conn = new WebSocket(`wss://${chat_app_settings.domain_name}:8080?user_type=${chat_app_settings.user_type}&id=${chat_app_settings.user_id}&appointment_id=${chat_app_settings.appointment_id}`);
 
     // conn.onopen = function (e) {
     // };
@@ -417,7 +417,7 @@ function leaveVirtualRoom(settings) {
      */
 
     const user_type = settings.user_type,
-        redirect_url = user_type.toLowerCase() === "doc" ? "https://myhealthafrica.com/myonemedpro/telemedicine" : "https://myhealthafrica.com/psi-patient-thank-you-page",
+        redirect_url = user_type.toLowerCase() === "doc" ? "https://myhealthafrica.com/myonemedpro/medondemand" : "https://myhealthafrica.com/psi/thank-you/thank-you.php",
         time = new Date().getTime(),
         consultation_start_time = settings.consultation_start_time,
         consultation_duration = Math.ceil((time - consultation_start_time) / (1000 * 60)),

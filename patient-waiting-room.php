@@ -3,7 +3,7 @@ include('functions.php');
 $logo = 'images/psi/mha-psi-logo.png';
 $appointment_id = (isset($_GET['caseappid'])) ? $_GET['caseappid'] : '';
 if (!empty($appointment_id)) {
-    $appointment_id = base64_decode($appointment_id);
+    $appointment_id = str_replace(' ', '', base64_decode($appointment_id));
     $result = mysqli_query($db, "SELECT wp_ea_fields.field_id, wp_ea_fields.value FROM wp_ea_fields WHERE app_id = '$appointment_id' AND field_id IN (2,7) ");
     while ($row = mysqli_fetch_array($result)) {
         $field_id = $row['field_id'];
@@ -45,7 +45,7 @@ if (!empty($appointment_id)) {
                 <input type="hidden" id="appointment_id" value="<?php echo $appointment_id; ?>" />
                 <input type="hidden" id="first_name" value="<?php echo $patient_first_name; ?>" />
                 <input type="hidden" id="last_name" value="<?php echo $patient_last_name; ?>" />
-                <input type="hidden" id="onboarding" value="0" />
+                <input type="hidden" id="onboarding" value="<?php echo $onboarding; ?>" />
                 <div class="card">
                     <div class="card-body no-padding height-12">
                         <div class="row text-center m-t-10">
@@ -84,7 +84,7 @@ if (!empty($appointment_id)) {
                                 <h3>Please wait, a Tunza Clinic doctor will let you in soon.</h3>
                                 <div class="waiting"><h5>Estimated waiting time <span class="waiting-time"><span id="countdown"></span><span>min</span></span></h5></div>
                                 <div><h5 class="loading">Connecting you to the next available doctor<span class="one">.</span><span class="two">.</span><span class="three">.</span></h5></div>
-                                <div><img class="round" width="120" height="120" avatar="<?php echo $patient_first_name.' '.$patient_last_name; ?>"> </div>
+                                <div style="display:none;"><img class="round" width="120" height="120" avatar="<?php echo $patient_first_name.' '.$patient_last_name; ?>"> </div>
                             </div>
                         </div>
                     </div>

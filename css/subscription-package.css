@@ -1,0 +1,61 @@
+:root {
+	--ribbon-width: 23px;
+	--ribbon-height: 33px;
+	--ribbon-right: 8px;
+	/* --ribbon-top: 0; */
+	--ribbon-color: rgb(173, 210, 43);
+}
+
+#NavbarAddEPrescription {
+    position: relative;
+}
+
+.ribbon {
+	position: absolute;
+    display: inline-block;
+	right: var(--ribbon-right, 0px);
+	top: var(--ribbon-top, 0px);
+	filter: drop-shadow(2px 3px 2px rgba(0, 0, 0, 0.5));
+}
+
+#NavbarAddEPrescription .ribbon {
+	position: relative;
+	right: -5px;
+	top: 7px;
+}
+
+.ribbon > .content {
+	color: white;
+	font-size: .8rem;
+	text-align: center;
+	font-weight: 400;
+	background: var(--ribbon-color, #2ca7d8) linear-gradient(45deg, transparent 0%, rgba(255, 255, 255, 0.25) 100%);
+	padding: 3px 2px 4px;
+	clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%, 0 100%);
+	width: var(--ribbon-width, 32px);
+	min-height: var(--ribbon-height, 36px);
+	transition: clip-path 1s, padding 1s, background 1s;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.ribbon.slant-up > .content {
+	clip-path: polygon(0 0, 100% 0, 100% calc(100% - 12px), 50% calc(100% - 6px), 0 100%);
+}
+
+.ribbon.slant-down > .content {
+	clip-path: polygon(0 0, 100% 0, 100% 100%, 50% calc(100% - 6px), 0 calc(100% - 12px));
+}
+
+.ribbon.down > .content {
+	clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), 50% 100%, 0 calc(100% - 8px));
+}
+
+.ribbon.up > .content {
+	clip-path: polygon(0 0, 100% 0, 100% 100%, 50% calc(100% - 8px), 0 100%);
+}
+
+.ribbon.check > .content {
+	clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), 40% 100%, 0 calc(100% - 12px));
+}

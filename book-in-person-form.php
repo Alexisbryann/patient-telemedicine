@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- BEGIN HEAD -->
-<?php $inclusions_version = 4 ?>
+<?php $inclusions_version = 7 ?>
 
 <head>
     <meta charset="utf-8" />
@@ -21,21 +21,18 @@
     <link href="css/booking.css?v=<?php echo $inclusions_version ?>" rel="stylesheet" type="text/css" />
     <!-- favicon -->
     <link rel="shortcut icon" href="images/my-health-africa.png" />
-
-    <script></script>
-    <script></script>
-    <script></script>
 </head>
 <!-- END HEAD -->
 
 <body>
-    <section class="d-flex flex-column  align-items-center ">
-        <header>
-            <h2>In-Person Appointment</h2>
+    <section class="d-none d-md-flex flex-column  align-items-center ">
+        <header class="text-center mb-3">
+            <h2 class="h1"><strong>Alternatively, Book An In-Person Appointment</strong></h2>
+            <h4 class="text-muted">Please complete the steps below to book an in-person appointment.</h4>
         </header>
     </section>
 
-    <div class="d-flex booking-step justify-content-center pad border-btm ">
+    <div class="d-none d-md-flex booking-step justify-content-center pad border ">
         <label>
             <input type="radio" id="appointment" name="radio-button" value="0" checked />
             <span>Appointment Details</span>
@@ -45,18 +42,33 @@
         </label>
         <label>
             <input type="radio" id="patient" name="radio-button" value="1" />
-            <span>Patient details</span>
+            <span>Patient Details</span>
         </label>
         <label class="d-flex align-items-center">
             <hr>
         </label>
         <label>
             <input type="radio" id="confirm" name="radio-button" value="2" />
-            <span>Confirm details</span>
+            <span>Confirm Details</span>
         </label>
     </div>
+    
+    <div class="sticky-top bg-white pb-2 pb-md-0">
+        <div class="d-flex d-md-none w-100 justify-content-between align-items-center px-3">
+            <img src="images/psi/mha-psi-logo.png" id="mobile-page-logo">
+            <!--<span id="mobile-page-close" title="Close">&#x2715;</span>-->
+        </div>
+    
+        <div class="d-flex px-3 flex-column d-md-none" id="mobile-booking-progress-container">
+            <div class="d-flex justify-content-between">
+                <strong id="step-title">Appointment Details</strong>
+                <span>Step <span id="booking-form-step-number">1</span> of 3</span>
+            </div>
+            <progress class="w-100" max="3" value="1" id="booking-form-progress"></progress>
+        </div>
+    </div>
 
-    <form id="book-inperson" data-facility_id="<?php echo $_GET["facility_id"] ?? "33" ?>" class="border margin">
+    <form id="book-inperson" data-facility_id="<?php echo $_GET["facility_id"] ?? "" ?>" class="border">
         <h3></h3>
         <fieldset>
             <!--Appointment details step-->
@@ -73,43 +85,43 @@
 
                             <div class="d-flex size" id="medical-conditions-container">
                                 <div class="form-check radio-css-concern align-items-center ml-2">
-                                    <input class="form-check-input d-none" type="radio" name="medical-concern" value="Family planning" id="exampleRadios2">
+                                    <input class="form-check-input d-none" type="checkbox" name="medical-concern" value="Family planning" id="exampleRadios2">
                                     <label class="form-check-label " for="exampleRadios2">
                                         Family planning
                                     </label>
                                 </div>
                                 <div class="form-check radio-css-concern align-items-center ml-2">
-                                    <input class="form-check-input d-none" type="radio" name="medical-concern" value="Non-communicable diseases" id="exampleRadios3">
+                                    <input class="form-check-input d-none" type="checkbox" name="medical-concern" value="Non-communicable diseases" id="exampleRadios3">
                                     <label class="form-check-label " for="exampleRadios3">
                                         Non-communicable diseases
                                     </label>
                                 </div>
                                 <div class="form-check radio-css-concern align-items-center ml-2">
-                                    <input class="form-check-input d-none" type="radio" name="medical-concern" value="Maternal care" id="exampleRadios4">
+                                    <input class="form-check-input d-none" type="checkbox" name="medical-concern" value="Maternal care" id="exampleRadios4">
                                     <label class="form-check-label " for="exampleRadios4">
                                         Maternal care
                                     </label>
                                 </div>
                                 <div class="form-check radio-css-concern align-items-center ml-2">
-                                    <input class="form-check-input d-none" type="radio" name="medical-concern" value="Child care" id="exampleRadios5">
+                                    <input class="form-check-input d-none" type="checkbox" name="medical-concern" value="Child care" id="exampleRadios5">
                                     <label class="form-check-label " for="exampleRadios5">
                                         Child care
                                     </label>
                                 </div>
                                 <div class="form-check radio-css-concern align-items-center ml-2">
-                                    <input class="form-check-input d-none" type="radio" name="medical-concern" value="Tuberculosis" id="exampleRadios6">
+                                    <input class="form-check-input d-none" type="checkbox" name="medical-concern" value="Tuberculosis" id="exampleRadios6">
                                     <label class="form-check-label " for="exampleRadios6">
                                         Tuberculosis
                                     </label>
                                 </div>
                                 <div class="form-check radio-css-concern align-items-center ml-2">
-                                    <input class="form-check-input d-none" type="radio" name="medical-concern" value="HIV" id="exampleRadios7">
+                                    <input class="form-check-input d-none" type="checkbox" name="medical-concern" value="HIV" id="exampleRadios7">
                                     <label class="form-check-label " for="exampleRadios7">
                                         HIV
                                     </label>
                                 </div>
                                 <div class="form-check radio-css-concern align-items-center ml-2">
-                                    <input class="form-check-input d-none" type="radio" name="medical-concern" value="Other" id="exampleRadios8">
+                                    <input class="form-check-input d-none" type="checkbox" name="medical-concern" value="Other" id="exampleRadios8">
                                     <label class="form-check-label " for="exampleRadios8">
                                         Other
                                     </label>
@@ -149,7 +161,7 @@
 
                     <div class="d-flex flex-column w-100 bord justify-content-between">
                         <!-- time slots column -->
-                        <div class="form-group">
+                        <div class="form-group h-100">
                             <span>Choose an available time slot <span class="required"></span></span>
 
                             <section class="d-none">
@@ -175,7 +187,7 @@
                                 </div>
                             </section>
                             <section class="d-flex flex-column apt" id="time-slots-disabled">
-                                <h5>Choose a date to see available time slots</h5>
+                                <h5 class="mt-2">Choose a date to see available time slots</h5>
                             </section>
                         </div>
 
@@ -270,6 +282,8 @@
                                 <span class="preview-detail-label">Time</span>
                                 <span class="preview-detail" id="time-preview">Preview detail</span>
                             </div>
+                        </div>
+                        <div class="preview-details-container">
                             <div class="mr-auto d-flex flex-column">
                                 <span class="preview-detail-label">Facility</span>
                                 <span class="preview-detail" id="facility-preview">Preview detail</span>

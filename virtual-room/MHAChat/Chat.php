@@ -7,7 +7,7 @@ class MhaChat
 
     public function __construct($appointment_id, $user_type)
     {
-        $db_connection = mysqli_connect("localhost", "root", "", "myhealt1_database");
+        $db_connection = mysqli_connect("localhost", "myhealth_db", "g0%kVgZgex6W", "myhealth_database");
 
         $this->appointment_id = $appointment_id;
         $this->user_type = $user_type;
