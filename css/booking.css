@@ -1165,43 +1165,71 @@ div.testGroup {
 }
 
 /*input[type="date"], input[type="time"] {*/
+
 /*    position: relative;*/
+
 /*}*/
 
 /*input[type="date"]:after {*/
+
 /*    font-family: 'FontAwesome';*/
+
 /*    font-weight: 900;*/
+
 /*    content: "\f073";*/
+
 /*    color: #212529;*/
+
 /*    padding: 0 5px;*/
+
 /*}*/
 
 /*input[type="time"]:after {*/
+
 /*    font-family: 'FontAwesome';*/
+
 /*    font-weight: 900;*/
+
 /*    content: "\f017";*/
+
 /*    color: #212529;*/
+
 /*    padding: 0 5px;*/
+
 /*}*/
 
 /*input[type="date"]::-webkit-calendar-picker-indicator, input[type="time"]::-webkit-calendar-picker-indicator {*/
+
 /*    position: absolute;*/
+
 /*    top: 0;*/
+
 /*    left: 0;*/
+
 /*    right: 0;*/
+
 /*    bottom: 0;*/
+
 /*    width: auto;*/
+
 /*    height: auto;*/
+
 /*    color: transparent;*/
+
 /*    background: transparent;*/
+
 /*}*/
 
 /*input[type="date"]::-webkit-inner-spin-button, input[type="time"]::-webkit-inner-spin-button {*/
+
 /*    z-index: 1;*/
+
 /*}*/
 
 /*input[type="date"]::-webkit-clear-button, input[type="time"]::-webkit-clear-button {*/
+
 /*    z-index: 1;*/
+
 /*}*/
 
 #confirm-details-section .title {
@@ -1452,10 +1480,16 @@ a[href="#next"]:hover {
     width: auto;
 }
 
-
-#book-inperson .actions.clearfix::after {
+#disclaimer-text {
     padding-bottom: 1em;
     color: gray;
     font-size: smaller;
-    content: "Please note that a My Health Africa account will be created for you after completing this form to help you better manage your appointments.";
+    display: flex;
+    margin: auto;
+    align-items: center;
+    flex-direction: column;
+}
+
+#booking-form #account-creation-info {
+    display: none;
 }

@@ -99,6 +99,16 @@ form.steps({
     },
     onFinished: function (event, currentIndex) {
         event.preventDefault();
+
+        if (!$(`[name="terms-conditions-consent"]`).prop("checked")) {
+            $(`[name="terms-conditions-consent"]`).closest(".form-check").siblings(".error").text("Please confirm that you have read and agreed to our consent form.");
+
+            setTimeout(() => {
+                $(`[name="terms-conditions-consent"]`).closest(".form-check").siblings(".error").empty();
+            }, 3000);
+            return false;
+        }
+
         var btn = document.querySelectorAll('a[href="#finish"]');
         $(btn).html('<i class="sending fa fa-spinner fa-spin">&nbsp;&nbsp;</i>Sending...');
         $('.btn-next').css("pointer-events", "none");
@@ -386,6 +396,10 @@ const in_person_settings = {
                                             ${display}
                                         </label>
                                     </div>`,
+    disclaimer_text: `<span id="disclaimer-text">
+                        <span id="account-creation-info">Please note that a My Health Africa account will be created for you after completing this form to help you better manage your appointments.</span>
+                        <span>By proceeding to book an appointment, you agree with our <strong><a href='https://www.myhealthafrica.com/terms-of-use/'>terms of use.</a><strong></span>
+                    </span>`,
 };
 
 // in person form steps wizard
@@ -577,13 +591,24 @@ $("#book-inperson").steps({
     },
     onFinished: function (event, currentIndex) {
         event.preventDefault();
+
+        if (!$(`[name="terms-conditions-consent"]`).prop("checked")) {
+            $(`[name="terms-conditions-consent"]`).closest(".form-check").siblings(".error").text("Please confirm that you have read and agreed to our consent form.");
+
+            setTimeout(() => {
+                $(`[name="terms-conditions-consent"]`).closest(".form-check").siblings(".error").empty();
+            }, 3000);
+            return false;
+        }
+
         var btn = document.querySelectorAll('a[href="#finish"]');
         $(btn).html('<i class="sending fa fa-spinner fa-spin"></i>&nbsp;&nbsp;Sending...');
-        $('.btn-next').css("pointer-events", "none");
+        $(`a[href="#finish"]`).css("pointer-events", "none");
 
         const in_person_form_data = new FormData(this);
         in_person_form_data.append("location", "");
         in_person_form_data.append("manual-booking", 1);
+
 
         $.ajax({
             url: "operation/bookingOperations.php",
@@ -947,3 +972,5 @@ function flutterWavePayment(
         },
     });
 }
+
+$(in_person_settings.disclaimer_text).insertAfter(`.actions.clearfix`);
