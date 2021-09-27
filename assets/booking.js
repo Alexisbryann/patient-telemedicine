@@ -583,8 +583,7 @@ $("#book-inperson").steps({
 
         const in_person_form_data = new FormData(this);
         in_person_form_data.append("location", "");
-        in_person_form_data.append("appointment-type", "");
-        in_person_form_data.append("in-person", 1);
+        in_person_form_data.append("manual-booking", 1);
 
         $.ajax({
             url: "operation/bookingOperations.php",
@@ -597,7 +596,7 @@ $("#book-inperson").steps({
                 if (response.response == 200) {
 
                     if (in_person_settings.appointment_type == "telemedicine_service") {
-                        flutterWavePayment(response.id, $("#name").val(), $("#phone").val(), $("#email").val());
+                        flutterWavePayment(response.id, $("#name").val(), $("#phone").val(), $("#email").val(), in_person_settings.appointment_cost);
                     } else {
                         swal({
                             title: "Booked",
@@ -626,7 +625,6 @@ $("#book-inperson").steps({
                 }
                 $(btn).html("Confirm Appointment");
             },
-            async: false
         });
     }
 });
@@ -927,12 +925,14 @@ function flutterWavePayment(
 
             // saves all transactions, even failed/cancelled ones
             $.ajax({
-                url: "operation/addonPaymentHandler.php",
+                url: "operation/flutterwavePayment.php",
                 method: "POST",
-                data: { addon_item: addon_item, wave: wave, rate: rate, number_of_accounts: number_of_accounts },
+                data: { wave: wave, appointment_id: appointment_id },
                 dataType: "json",
                 success: function (response) {
-
+                    if (response.error) {
+                        alert(response.error);
+                    }
                 },
                 error: function (error) {
                     $.toast({

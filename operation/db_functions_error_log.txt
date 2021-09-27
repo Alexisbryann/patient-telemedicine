@@ -1252,3 +1252,165 @@ Params: Array
 SQL: SELECT id, facility_id, price, currency, slot_step FROM wp_ea_services WHERE id = 
 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
 
+[2021-09-27 8:59:29]=>	Failed to send confirmation email message to doctor.
+Function: sendConfirmationMessages
+Params: Array
+(
+    [0] => Angelo Karugo
+    [1] => angelo@myhealthafrica.com
+    [2] => +254703398416
+    [3] => Watamu Hospital
+    [4] => Watamu Hospital
+    [5] => Opp Turtle Bay Beach Club
+    [6] => Turtle Bay Road
+    [7] => 
+    [8] => Watamu
+    [9] => Kenya
+    [10] => 0
+    [11] => Watamu Hospital - In-person Consultation
+    [12] => KES
+    [13] => 1000.00
+    [14] => Friday
+    [15] => 2021-10-29
+    [16] => 16:00
+    [17] => Tuberculosis
+    [18] => info@testcom
+)
+
+Invalid address:  (to): info@testcom
+
+[2021-09-27 8:59:29]=>	Failed to send confirmation email message to patient.
+Function: sendConfirmationMessages
+Params: Array
+(
+    [0] => Angelo Karugo
+    [1] => angelo@myhealthafrica.com
+    [2] => +254703398416
+    [3] => Watamu Hospital
+    [4] => Watamu Hospital
+    [5] => Opp Turtle Bay Beach Club
+    [6] => Turtle Bay Road
+    [7] => 
+    [8] => Watamu
+    [9] => Kenya
+    [10] => 0
+    [11] => Watamu Hospital - In-person Consultation
+    [12] => KES
+    [13] => 1000.00
+    [14] => Friday
+    [15] => 2021-10-29
+    [16] => 16:00
+    [17] => Tuberculosis
+    [18] => info@testcom
+)
+
+Invalid address:  (to): info@testcom
+
+[2021-09-27 8:59:29]=>	Failed to send facility confirmation SMS.
+Function: sendConfirmationMessages
+Params: Array
+(
+    [0] => Angelo Karugo
+    [1] => angelo@myhealthafrica.com
+    [2] => +254703398416
+    [3] => Watamu Hospital
+    [4] => Watamu Hospital
+    [5] => Opp Turtle Bay Beach Club
+    [6] => Turtle Bay Road
+    [7] => 
+    [8] => Watamu
+    [9] => Kenya
+    [10] => 0
+    [11] => Watamu Hospital - In-person Consultation
+    [12] => KES
+    [13] => 1000.00
+    [14] => Friday
+    [15] => 2021-10-29
+    [16] => 16:00
+    [17] => Tuberculosis
+    [18] => info@testcom
+)
+
+InvalidSenderId
+
+[2021-09-27 9:03:32]=>	Failed to send confirmation email message to doctor.
+Function: sendConfirmationMessages
+Params: Array
+(
+    [0] => Angelo Karugo
+    [1] => angelo@myhealthafrica.com
+    [2] => +254703398416
+    [3] => Watamu Hospital
+    [4] => Watamu Hospital
+    [5] => Opp Turtle Bay Beach Club
+    [6] => Turtle Bay Road
+    [7] => 
+    [8] => Watamu
+    [9] => Kenya
+    [10] => 0
+    [11] => Watamu Hospital - In-person Consultation
+    [12] => KES
+    [13] => 1000.00
+    [14] => Tuesday
+    [15] => 2021-09-28
+    [16] => 10:20
+    [17] => Tuberculosis
+    [18] => info@testcom
+)
+
+Invalid address:  (to): info@testcom
+
+[2021-09-27 9:03:32]=>	Failed to send confirmation email message to patient.
+Function: sendConfirmationMessages
+Params: Array
+(
+    [0] => Angelo Karugo
+    [1] => angelo@myhealthafrica.com
+    [2] => +254703398416
+    [3] => Watamu Hospital
+    [4] => Watamu Hospital
+    [5] => Opp Turtle Bay Beach Club
+    [6] => Turtle Bay Road
+    [7] => 
+    [8] => Watamu
+    [9] => Kenya
+    [10] => 0
+    [11] => Watamu Hospital - In-person Consultation
+    [12] => KES
+    [13] => 1000.00
+    [14] => Tuesday
+    [15] => 2021-09-28
+    [16] => 10:20
+    [17] => Tuberculosis
+    [18] => info@testcom
+)
+
+Invalid address:  (to): info@testcom
+
+[2021-09-27 9:03:32]=>	Failed to send facility confirmation SMS.
+Function: sendConfirmationMessages
+Params: Array
+(
+    [0] => Angelo Karugo
+    [1] => angelo@myhealthafrica.com
+    [2] => +254703398416
+    [3] => Watamu Hospital
+    [4] => Watamu Hospital
+    [5] => Opp Turtle Bay Beach Club
+    [6] => Turtle Bay Road
+    [7] => 
+    [8] => Watamu
+    [9] => Kenya
+    [10] => 0
+    [11] => Watamu Hospital - In-person Consultation
+    [12] => KES
+    [13] => 1000.00
+    [14] => Tuesday
+    [15] => 2021-09-28
+    [16] => 10:20
+    [17] => Tuberculosis
+    [18] => info@testcom
+)
+
+InvalidSenderId
+
