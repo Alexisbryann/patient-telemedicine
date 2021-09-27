@@ -77,6 +77,28 @@ class DB_Functions {
         fclose($error_log);
     }
 
+    private function decrypt_data($data, $iv, $enc_key)
+    {
+        /**
+         * checks if data is encrypted, and if yes, decrypts data encrypted using AES-256-CBC encryption algorithm, and converts it from base64 format.
+         * 
+         * @param string $data base64 encoded data to be decrypted
+         * @param string $iv base64 encoded encryption initialization vector used for encryption
+         * @param string $enc_key base64 encoded encryption key used for encryption
+         * 
+         * @return string decrypted data or original input data if encryption key and iv are blank
+         */
+
+        if (empty("{$iv}{$enc_key}")) return $data;
+
+        $data = base64_decode($data);
+        $iv = base64_decode($iv);
+        $enc_key = base64_decode($enc_key);
+
+        $data = openssl_decrypt($data, "AES-256-CBC", $enc_key, 0, $iv);
+        return substr($data, 0, -ord($data[strlen($data) - 1]));
+    }
+
     public function TunzaClinicTelemedicineAppointmentBooking(
         $name, 
         $email,
@@ -90,29 +112,29 @@ class DB_Functions {
         $clinic,
         $appointment_type = "telemedicine",
         $facility_id = null,
-        $medical_concern = null
+        $medical_concern = null,
+        $manual_booking = 0
         ) {
         $db = $this->conn;
         // $date = date('Y-m-d', $date);
         // $time = date('G:i:s', $time);
 
-        if ($appointment_type == "inperson") {
+        if ($manual_booking) {
+            $service_type = $appointment_type == "in-person" ? "in_person_service" : "telemedicine_service";
             $service_field = ", service";
-            $service_value = ", '{$this->facility_data[$facility_id]['in_person_service']}'";
-            $location = $this->facility_data[$facility_id]['location'];
-            $cost = $this->getServiceDetails($facility_id, "in_person_service")["price"];
+            $service_value = ", '{$this->facility_data[$facility_id][$service_type]}'";
+            $cost = $this->getServiceDetails($facility_id, $service_type)["price"];
 
             $worker_field = ", worker";
-
             $facility_id_field = ", facility_id";
             $worker_value = $facility_id_value = ", '$facility_id'";
 
             $med_on_demand = 0;
-
+            
             try {
                 // $new_user_id = register_new_user($name, $email);
                 // if (!is_wp_error($new_user_id)) {
-                
+
 
                 //     add_user_meta($new_user_id, 'phone', $phone);
                 //     add_user_meta($new_user_id, 'country', 'Kenya');
@@ -125,7 +147,7 @@ class DB_Functions {
                 $first_name = $name_exploded[0];
                 $last_name = $name_exploded[1] ?? "";
                 $this->saveUserMeta($first_name, $last_name, $email, $user_id);
-                
+
                 $user_id_field = ", user";
                 $user_id_value = ", '$user_id'";
             } catch (\Throwable $e) {
@@ -137,6 +159,8 @@ class DB_Functions {
                     $e->getMessage()
                 );
             }
+
+            $location = $appointment_type == "inperson" ? $this->facility_data[$facility_id]['location'] : 130;
         } else {
             $med_on_demand = 1;
             $location = 130;
@@ -225,7 +249,7 @@ class DB_Functions {
                         $field_value = $value;
                     }
                 }
-                if (in_array($field, [1, 2, 7, 15, 16, 20]) || $appointment_type == "in-person") {
+                if (in_array($field, [1, 2, 7, 15, 16, 20]) || $manual_booking) {
                     $enc_iv = ''; $enc_key = '';
                 } else{
                     $enc_iv = $ivBase64; $enc_key = $keyBase64;
@@ -1708,13 +1732,13 @@ class DB_Functions {
             return ["error" => "Failed to save transaction to database.", "error_code" => 6];
         }
 
-        $appointment_details = mysqli_fetch_assoc(mysqli_query($db, "SELECT service, date, start, name, phone FROM wp_ea_appointments, wp_ea_staff WHERE wp_ea_appointments.worker = wp_ea_staff.id AND wp_ea_appointments.id = '$appointment_id'"));
+        $appointment_details = mysqli_fetch_assoc(mysqli_query($db, "SELECT service, date, start, wp_ea_staff.name, wp_ea_staff.phone FROM wp_ea_appointments, wp_ea_staff WHERE wp_ea_appointments.worker = wp_ea_staff.id AND wp_ea_appointments.id = '$appointment_id'"));
 
         $service_details = mysqli_fetch_assoc(mysqli_query($db, "SELECT price, currency FROM wp_ea_services WHERE id = '{$appointment_details["service"]}'"));
 
         if ($service_details["price"] < $rave["amount"]) {
             $this->logError(__FUNCTION__, func_get_args(), "Insufficient amount paid.");
-            return ["error" => "Insufficient amount paid.", "error_code" => 7];
+            // return ["error" => "Insufficient amount paid.", "error_code" => 7];
         }
 
         // mark appointment as paid
@@ -1725,7 +1749,7 @@ class DB_Functions {
         }
 
         // get patient name
-        $patient_names_qry = mysqli_query($db, "SELECT field_id, value FROM wp_ea_fields WHERE app_id = '$appointment_id' AND field_id IN (2, 7, 8)");
+        $patient_names_qry = mysqli_query($db, "SELECT field_id, value, iv, enc_key FROM wp_ea_fields WHERE app_id = '$appointment_id' AND field_id IN (2, 7, 8)");
         $first_name = $last_name = $patient_phone = "";
         while ($patient_details = mysqli_fetch_assoc($patient_names_qry)) {
             switch ($patient_details["field_id"]) {
@@ -1736,7 +1760,7 @@ class DB_Functions {
                     $last_name = $patient_details["value"];
                     break;
                 case '8':
-                    $patient_phone = $patient_details["value"];
+                    $patient_phone = $this->decrypt_data($patient_details["value"], $patient_details["iv"], $patient_details["enc_key"]);
                     break;
             }
         }
@@ -1766,7 +1790,7 @@ class DB_Functions {
 
         $appointment_date = date("d/m/Y", strtotime($appointment_date));
 
-        $patient_message = "$doctor_name has confirmed your telemedicine appointment on $appointment_date at $appointment_time. Log in to your account at https://myhealthafrica.com/patient-login to manage your appointments.";
+        $patient_message = "$facility_name has confirmed your telemedicine appointment on $appointment_date at $appointment_time. Log in to your account at https://myhealthafrica.com/patient-login to manage your appointments.";
 
         $facility_message = "Your telemedicine appointment with $patient_name on $appointment_date at $appointment_time has been confirmed. Log in to your account at https://myhealthafrica.com/myonemedpro/login to manage your appointments.";
 

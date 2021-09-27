@@ -55,7 +55,8 @@ if (isset($_POST["operation"])) {
             $clinic,
             $service,
             $facility_id ?? null,
-            $medical_concern ?? null
+            $medical_concern ?? null,
+            $_POST["manual-booking"] ?? 0
 		);
         
 		if ($user != false) {
