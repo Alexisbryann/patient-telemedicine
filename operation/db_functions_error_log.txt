@@ -1627,3 +1627,113 @@ Params: Array
 
 InvalidSenderId
 
+[2021-09-27 16:02:54]=>	Failed to fetch service data for facility_id: 127.
+Function: getServiceDetails
+Params: Array
+(
+    [0] => 127
+    [1] => undefined
+)
+
+SQL: SELECT id, facility_id, price, currency, slot_step FROM wp_ea_services WHERE id = 
+You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+
+[2021-09-27 16:02:54]=>	Failed to fetch service data for facility_id: 127.
+Function: getServiceDetails
+Params: Array
+(
+    [0] => 127
+    [1] => undefined
+)
+
+SQL: SELECT id, facility_id, price, currency, slot_step FROM wp_ea_services WHERE id = 
+You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+
+[2021-09-27 16:02:59]=>	Failed to fetch service data for facility_id: 127.
+Function: getServiceDetails
+Params: Array
+(
+    [0] => 127
+    [1] => undefined
+)
+
+SQL: SELECT id, facility_id, price, currency, slot_step FROM wp_ea_services WHERE id = 
+You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+
+[2021-09-27 16:02:59]=>	Failed to fetch service data for facility_id: 127.
+Function: getServiceDetails
+Params: Array
+(
+    [0] => 127
+    [1] => undefined
+)
+
+SQL: SELECT id, facility_id, price, currency, slot_step FROM wp_ea_services WHERE id = 
+You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+
+[2021-09-27 16:03:00]=>	Failed to fetch service data for facility_id: 127.
+Function: getServiceDetails
+Params: Array
+(
+    [0] => 127
+    [1] => undefined
+)
+
+SQL: SELECT id, facility_id, price, currency, slot_step FROM wp_ea_services WHERE id = 
+You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+
+[2021-09-27 16:03:00]=>	Failed to fetch service data for facility_id: 127.
+Function: getServiceDetails
+Params: Array
+(
+    [0] => 127
+    [1] => undefined
+)
+
+SQL: SELECT id, facility_id, price, currency, slot_step FROM wp_ea_services WHERE id = 
+You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+
+[2021-09-27 16:03:02]=>	Failed to fetch service data for facility_id: 127.
+Function: getServiceDetails
+Params: Array
+(
+    [0] => 127
+    [1] => undefined
+)
+
+SQL: SELECT id, facility_id, price, currency, slot_step FROM wp_ea_services WHERE id = 
+You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+
+[2021-09-27 16:03:02]=>	Failed to fetch service data for facility_id: 127.
+Function: getServiceDetails
+Params: Array
+(
+    [0] => 127
+    [1] => undefined
+)
+
+SQL: SELECT id, facility_id, price, currency, slot_step FROM wp_ea_services WHERE id = 
+You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+
+[2021-09-27 16:03:03]=>	Failed to fetch service data for facility_id: 127.
+Function: getServiceDetails
+Params: Array
+(
+    [0] => 127
+    [1] => undefined
+)
+
+SQL: SELECT id, facility_id, price, currency, slot_step FROM wp_ea_services WHERE id = 
+You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+
+[2021-09-27 16:03:03]=>	Failed to fetch service data for facility_id: 127.
+Function: getServiceDetails
+Params: Array
+(
+    [0] => 127
+    [1] => undefined
+)
+
+SQL: SELECT id, facility_id, price, currency, slot_step FROM wp_ea_services WHERE id = 
+You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+

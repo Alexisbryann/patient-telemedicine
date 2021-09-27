@@ -447,9 +447,9 @@ $("#book-inperson").steps({
                 step: 0,
             },
             appointment_type_validity: {
-                validity: $("[name='appointment-type']:checked").length > 0,
+                validity: $("[name='appointment-type']")[0].checkValidity,
                 error_message: "Please select the type of appointment you wish to book.",
-                value: $(`[name='appointment-type']:checked`).val() == "in_person_service" ? "In person" : "Telemedicine",
+                value: $(`[name='appointment-type']`).val() == "in_person_service" ? "In person" : "Telemedicine",
                 element: $("#appointment-type-container"),
                 preview_element: $(`#appointment-type-preview`),
                 step: 0,
@@ -659,7 +659,7 @@ $("#in-person-appointment-date").datepicker({
     ...datepicker_settings,
 }).on("changeDate", function () {
     const selected_date = $('#in-person-appointment-date').datepicker('getFormattedDate'),
-        appointment_type = $(`[name="appointment-type"]:checked`).val();
+        appointment_type = $(`[name="appointment-type"]`).val();
 
     $('#appointment-date').val(selected_date);
 
@@ -915,9 +915,12 @@ if (in_person_settings.facility_id) {
     $("input#in-person-appointment").prop("checked", true);
 }
 
-// set app setting appointment type
+// set app setting appointment type, clear time slots, clear calendar date
 $(`[name="appointment-type"]`).on("change", function () {
-    if ($(this).prop("checked")) in_person_settings["appointment_type"] = $(this).val();
+    in_person_settings["appointment_type"] = $(this).val();
+    $("#in-person-appointment-date").datepicker("clearDates");
+    $("#time-slots-disabled").toggleClass("d-none");
+    $("#time-slots-container").closest("section").toggleClass("d-none");
 });
 
 function flutterWavePayment(
