@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- BEGIN HEAD -->
-<?php $inclusions_version = 7 ?>
+<?php $inclusions_version = 0 ?>
 
 <head>
     <meta charset="utf-8" />
@@ -28,7 +28,7 @@
     <section class="d-none d-md-flex flex-column  align-items-center ">
         <header class="text-center mb-3">
             <h2 class="h1"><strong>Alternatively, Book An In-Person Appointment</strong></h2>
-            <h4 class="text-muted">Please complete the steps below to book an in-person appointment.</h4>
+            <h4 class="text-muted">Please complete the steps below to book an appointment.</h4>
         </header>
     </section>
 
@@ -52,13 +52,13 @@
             <span>Confirm Details</span>
         </label>
     </div>
-    
+
     <div class="sticky-top bg-white pb-2 pb-md-0">
         <div class="d-flex d-md-none w-100 justify-content-between align-items-center px-3">
             <img src="images/psi/mha-psi-logo.png" id="mobile-page-logo">
             <!--<span id="mobile-page-close" title="Close">&#x2715;</span>-->
         </div>
-    
+
         <div class="d-flex px-3 flex-column d-md-none" id="mobile-booking-progress-container">
             <div class="d-flex justify-content-between">
                 <strong id="step-title">Appointment Details</strong>
@@ -147,6 +147,19 @@
                                 <!-- <option value="34">Wankam Medical Centre - Juja</option> -->
                             </select>
                         </div>
+
+                        <div class="d-flex flex-column" id="appointment-type-container">
+                            <span class="mb-2">Select appointment type<span class="required"></span></span>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="appointment-type" value="in_person_service" id="in-person-appointment" checked>
+                                <label class="form-check-label" for="in-person-appointment">In person appointment</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="appointment-type" value="telemedicine_service" id="telemedicine-appointment">
+                                <label class="form-check-label" for="telemedicine-appointment">Telemedicine appointment</label>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="size center bord">
@@ -205,7 +218,7 @@
                 </div>
             </div>
 
-            <div class="form-group bord">
+            <div class="form-group bord mt-2">
                 <label>Describe your medical concern</label>
                 <textarea id="medical-concern-description" name="medical-concern-description" class="form-control"></textarea>
             </div>
@@ -236,6 +249,7 @@
                             <option selected disabled value="">Select gender</option>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
+                            <option value="Other">Other</option>
                         </select>
                         <div id="gender-error" class="col-12 col-md-12 error" style="display: none;"></div>
                     </div>
@@ -323,7 +337,7 @@
                             <span>Total</span>
                             <h2>Ksh. <span id="appointment-cost-display"></span></h2>
                         </div>
-                        <div class="d-flex flex-column h-100">
+                        <div class="d-flex flex-column h-100" id="payment-disclaimer">
                             <span class="bg-dark-orange px-3 py-2"><strong>Note</strong></span>
                             <span class="bg-light-orange px-3 py-2 h-100">Please note you will be required to pay at the clinic</span>
                         </div>

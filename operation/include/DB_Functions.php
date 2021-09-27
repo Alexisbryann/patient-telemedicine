@@ -23,12 +23,24 @@ class DB_Functions {
 
     private $conn;
     public function __construct(){
-        $this->conn = mysqli_connect('localhost', 'myhealth_db', 'g0%kVgZgex6W', 'myhealth_database');
+        $this->conn = mysqli_connect('localhost', 'root', '', 'myhealt1_database');
         if (!$this->conn) {
             die("Connection failed: " . mysqli_connect_error());
           }
 
     }
+
+    private $facility_data =
+    [
+        127 => ["in_person_service" => 216, "location" => 145, "telemedicine_service" => 218],
+        120 => ["in_person_service" => 195, "location" => 148, "telemedicine_service" => 209],
+        126 => ["in_person_service" => 213, "location" => 156, "telemedicine_service" => 215],
+        116 => ["in_person_service" => 187, "location" => 144, "telemedicine_service" => 200],
+        121 => ["in_person_service" => 197, "location" => 149, "telemedicine_service" => 198],
+        123 => ["in_person_service" => 203, "location" => 151, "telemedicine_service" => 205],
+        119 => ["in_person_service" => 193, "location" => 147, "telemedicine_service" => 199],
+        122 => ["in_person_service" => 201, "location" => 150, "telemedicine_service" => 202]
+    ];
     
     private function logError(
         string $function_name, 
@@ -81,21 +93,10 @@ class DB_Functions {
         // $time = date('G:i:s', $time);
 
         if ($appointment_type == "inperson") {
-            $facility_services = [ // facility_id=>in_person_service_id
-                127 => ["service" => 216, "location" => 145, "cost" => 1000],
-                120 => ["service" => 195, "location" => 148, "cost" => 200],
-                126 => ["service" => 213, "location" => 156, "cost" => 600],
-                116 => ["service" => 187, "location" => 144, "cost" => 500],
-                121 => ["service" => 197, "location" => 149, "cost" => 300],
-                123 => ["service" => 203, "location" => 151, "cost" => 500],
-                119 => ["service" => 193, "location" => 147, "cost" => 500],
-                122 => ["service" => 201, "location" => 150, "cost" => 400]
-            ];
-
             $service_field = ", service";
-            $service_value = ", '{$facility_services[$facility_id]['service']}'";
-            $location = $facility_services[$facility_id]['location'];
-            $cost = $facility_services[$facility_id]["cost"];
+            $service_value = ", '{$this->facility_data[$facility_id]['in_person_service']}'";
+            $location = $this->facility_data[$facility_id]['location'];
+            $cost = $this->getServiceDetails($facility_id, "in_person_service")["price"];
 
             $worker_field = ", worker";
 
@@ -1107,8 +1108,8 @@ class DB_Functions {
     public function pkcs7_unpad($data){
         return substr($data, 0, -ord($data[strlen($data) - 1]));
     }
-    
-        private function createPatientAccount(
+
+    private function createPatientAccount(
         string $user_email,
         string $user_name
     ) {
@@ -1545,6 +1546,119 @@ class DB_Functions {
     private function dateToCal($time)
     {
         return gmdate('Ymd\This', $time) . 'Z';
+    }
+
+    public function getServiceDetails(
+        int $facility_id,
+        string $service_type
+    ) {
+        /**
+         * Gets the cost and currency of a service
+         * 
+         * @param int $facility_id facility id
+         * @param string $service_type service type, either telemedicine or in person
+         * 
+         * @return array Array of data for the input facility's selected service, or containing error message
+         */
+
+        $db = $this->conn;
+
+        $service_id = $this->facility_data[$facility_id][$service_type];
+        $service_data_sql = "SELECT id, facility_id, price, currency, slot_step FROM wp_ea_services WHERE id = $service_id";
+
+        $service_data_res = mysqli_query($db, $service_data_sql);
+
+        if (mysqli_error($db)) {
+            $this->logError(__FUNCTION__, func_get_args(), "Failed to fetch service data for facility_id: $facility_id.", $service_data_sql, mysqli_error($db));
+            return ["error" => "Failed to fetch service data", "error_code" => 4];
+        }
+
+        return mysqli_fetch_assoc($service_data_res);
+    }
+
+    public function getAvailableTimeSlots(
+        int $facility_id,
+        string $service_type,
+        string $selected_date
+    ) {
+        /**
+         * Fetches the available time slots for a selected service
+         * 
+         * @param int $facility_id facility id
+         * @param string $service_type service type
+         * @param string $selected_date selected date
+         * 
+         * @return array array of available time slots or error message
+         */
+
+        $db = $this->conn;
+        $service_details = $this->getServiceDetails($facility_id, $service_type);
+        $serviceId = $service_details["id"];
+        $doctorId = $service_details["facility_id"];
+        date_default_timezone_set('Africa/Nairobi');
+        $dayOfWeek = date("l", strtotime($selected_date));
+
+        $output = array();
+        $data = array();
+        $array_of_time = array();
+        $blocked_data = array();
+        $booked_data = array();
+
+        $duration = " SELECT DISTINCT duration FROM `wp_ea_services` WHERE id = '$serviceId'  ";
+        $durationResult = mysqli_query($db, $duration) or die(mysqli_error($db));
+        $doc_slots = mysqli_fetch_array($durationResult);
+        $slot_duration = $doc_slots["duration"];
+
+        $booking = " SELECT DISTINCT booking_advance_hrs FROM `wp_ea_staff` WHERE id = '$doctorId' ";
+        $bookingResult = mysqli_query($db, $booking) or die(mysqli_error($db));
+        $bookingHrs = mysqli_fetch_array($bookingResult);
+        $booking_advance_hrs = $bookingHrs["booking_advance_hrs"];
+        $advancedHrs = ("$booking_advance_hrs hours");
+        $add_mins  = $slot_duration * 60;
+
+        $booked = "SELECT wp_ea_appointments.start FROM `wp_ea_appointments` where worker = '$doctorId' AND wp_ea_appointments.date = '$selected_date' ";
+        $bookedResult = mysqli_query($db, $booked) or die(mysqli_error($db));
+        while ($row = mysqli_fetch_array($bookedResult)) {
+            $sub_array = array();
+            $sub_array["time_slot"] = date('h:i A', strtotime($row["start"]));
+            $booked_data[] = $sub_array;
+        }
+
+        $statement = " SELECT DISTINCT time_from, time_to FROM `wp_ea_connections` WHERE worker = '$doctorId' AND service='$serviceId' AND day_from <= '$selected_date' AND day_of_week LIKE '%$dayOfWeek%' AND is_working = 1 GROUP BY time_from ";
+        $result = mysqli_query($db, $statement) or die(mysqli_error($db));
+        while ($row = mysqli_fetch_array($result)) {
+            $start_time = strtotime($row["time_from"]);
+            $end_time = strtotime($row["time_to"]);
+        }
+        if (!empty($start_time) && !empty($end_time)) {
+            while ($start_time <= $end_time) {
+                $array_of_time["time_slot"] = date('h:i A', $start_time);
+                $start_time += $add_mins;
+                $data[] = $array_of_time;
+            }
+        }
+
+        array_pop($data);
+
+        $blockedTimeSlots = " SELECT DISTINCT time_from FROM `wp_ea_connections` WHERE worker = '$doctorId' AND is_working = 0 AND day_of_week LIKE '%$dayOfWeek%' AND day_from >= '$selected_date' AND day_to <= '$selected_date' ";
+        $blockedTimeSlotsResult = mysqli_query($db, $blockedTimeSlots) or die(mysqli_error($db));
+        while ($row = mysqli_fetch_array($blockedTimeSlotsResult)) {
+            $sub_array = array();
+            $sub_array["time_slot"] = date('h:i A', strtotime($row["time_from"]));
+            $blocked_data[] = $sub_array;
+        }
+
+        $GLOBALS['allowedBookingTime'] = date('h:i A', strtotime($advancedHrs));
+        $filtered = array_diff(array_column($data, 'time_slot'), array_column($blocked_data, 'time_slot'), array_column($booked_data, 'time_slot'));
+        if (date('Ymd') == date('Ymd', strtotime($selected_date))) {
+            $filteredTimeSlots = array_filter($filtered, function ($x) {
+                return strtotime($x) >= strtotime($GLOBALS['allowedBookingTime']);
+            });
+        } else {
+            $filteredTimeSlots = array_diff(array_column($data, 'time_slot'), array_column($blocked_data, 'time_slot'), array_column($booked_data, 'time_slot'));
+        }
+
+        return $filteredTimeSlots;
     }
 }
  
