@@ -15,7 +15,7 @@ if (isset($_POST)) {
     } else {
         $data = $_POST["chat"];
     	$appointment_id = $_POST["appointment_id"];
-    	$medical_concern = implode(',', $data["medical-concern"]);
+    	$medical_concern = implode(', ', $data["medical-concern"]);
         if (isset($data['medical-condition-desc'])) {
             $medical_concern_desc = $data['medical-condition-desc']['value'];
         } else $medical_concern_desc = '';
@@ -66,14 +66,10 @@ if (isset($_POST)) {
         $ivBase64 = base64_encode($iv);
         $keyBase64 = base64_encode($encryption_key);
     
-        $medical_concern = ($medical_concern) ? openssl_encrypt(pkcs7_pad($medical_concern, 16), 'AES-256-CBC', $encryption_key, 0, $iv) : '';
-        $medical_concern = base64_encode($medical_concern);
-        $medical_concern_desc = ($medical_concern_desc) ? openssl_encrypt(pkcs7_pad($medical_concern_desc, 16), 'AES-256-CBC', $encryption_key, 0, $iv) : '';
-        $medical_concern_desc = base64_encode($medical_concern_desc);
-        $medication = ($medication) ? openssl_encrypt(pkcs7_pad($medication, 16), 'AES-256-CBC', $encryption_key, 0, $iv) : '';
-        $medication = base64_encode($medication);
-        $allergies = ($allergies) ? openssl_encrypt(pkcs7_pad($allergies, 16), 'AES-256-CBC', $encryption_key, 0, $iv) : '';
-        $allergies = base64_encode($allergies);
+        $medical_concern = !empty($medical_concern) ? base64_encode(openssl_encrypt(pkcs7_pad($medical_concern, 16), 'AES-256-CBC', $encryption_key, 0, $iv)) : '';
+        $medical_concern_desc = !empty($medical_concern_desc) ? base64_encode(openssl_encrypt(pkcs7_pad($medical_concern_desc, 16), 'AES-256-CBC', $encryption_key, 0, $iv)) : '';
+        $medication = !empty($medication) ? base64_encode(openssl_encrypt(pkcs7_pad($medication, 16), 'AES-256-CBC', $encryption_key, 0, $iv)) : '';
+        $allergies = !empty($allergies) ? base64_encode(openssl_encrypt(pkcs7_pad($allergies, 16), 'AES-256-CBC', $encryption_key, 0, $iv)) : '';
     
         $result = mysqli_query($db, "INSERT INTO case_notes (appointment_id, iv, enc_key, medical_concern, medical_concern_description, medication, allergies) VALUES ('$appointment_id', '$ivBase64', '$keyBase64', '$medical_concern', '$medical_concern_desc', '$medication', '$allergies')");
         $case_notes_id = mysqli_insert_id($db);

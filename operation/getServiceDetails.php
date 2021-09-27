@@ -22,7 +22,7 @@
             if (empty($_REQUEST["facility_id"]) || empty($_REQUEST["selected_date"]) || empty($_REQUEST["appointment_type"])) die(json_encode(["error" => "missing request data", "error_code" => 1]));
             die(json_encode([
                 "service_details" => $db->getServiceDetails($_REQUEST["facility_id"], $_REQUEST["appointment_type"]),
-                "time_slots" => $db->getAvailableTimeSlots($_REQUEST["facility_id"], $_REQUEST["appointment_type"], $_REQUEST["selected_date"])
+                "time_slots" => $db->getAvailableTimeSlots($_REQUEST["facility_id"], $_REQUEST["appointment_type"], implode("-", array_reverse(explode("/",$_REQUEST["selected_date"]))))
                 // "time_slots" => ["08:00", "10:30", "19:00"]
             ]));
             break;

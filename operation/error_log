@@ -259,3 +259,13 @@ Stack trace:
 [21-Sep-2021 08:38:56 UTC] PHP Notice:  Undefined index: appointment_id in /home/myhealthafrica/public_html/coldroom/psi/operation/updatePatientInfo.php on line 16
 [21-Sep-2021 08:38:56 UTC] PHP Warning:  implode(): Invalid arguments passed in /home/myhealthafrica/public_html/coldroom/psi/operation/updatePatientInfo.php on line 17
 [21-Sep-2021 16:49:58 Africa/Nairobi] PHP Notice:  Array to string conversion in /home/myhealthafrica/public_html/psi/operation/include/DB_Functions.php on line 1005
+[25-Sep-2021 13:55:57 Africa/Nairobi] PHP Notice:  Undefined variable: facility_services in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 146
+[25-Sep-2021 13:55:57 Africa/Nairobi] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 146
+[25-Sep-2021 13:55:57 Africa/Nairobi] PHP Notice:  Undefined variable: facility_services in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 147
+[25-Sep-2021 13:55:57 Africa/Nairobi] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 147
+[25-Sep-2021 13:57:31 Africa/Nairobi] PHP Notice:  Undefined variable: facility_data in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 146
+[25-Sep-2021 13:57:31 Africa/Nairobi] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 146
+[25-Sep-2021 13:57:31 Africa/Nairobi] PHP Notice:  Undefined variable: facility_data in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 147
+[25-Sep-2021 13:57:31 Africa/Nairobi] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 147
+[25-Sep-2021 13:58:00 Africa/Nairobi] PHP Notice:  Undefined index: service in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 146
+[25-Sep-2021 13:58:00 Africa/Nairobi] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 146
