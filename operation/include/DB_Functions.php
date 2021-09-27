@@ -23,13 +23,13 @@ class DB_Functions {
 
     private $conn;
     public function __construct(){
-        $this->conn = mysqli_connect('localhost', 'root', '', 'myhealt1_database');
+        $this->conn = mysqli_connect('localhost', 'myhealth_db', 'g0%kVgZgex6W', 'myhealth_database');
         if (!$this->conn) {
             die("Connection failed: " . mysqli_connect_error());
           }
 
     }
-
+    
     private $africastalking_username = "myhealthafrica";
     private $africastalking_api_key = "2a058bb5b78798effe6f25520b10f3fc518798e800b07d0e5afff887a3c766c4";
     private $africastalking_sender_name = "MyHealthAfr";
@@ -75,28 +75,6 @@ class DB_Functions {
         $error_log = fopen("db_functions_error_log.txt", 'a');
         fwrite($error_log, "[$time]=>\t" . $msg . "\n\n");
         fclose($error_log);
-    }
-
-    private function decrypt_data($data, $iv, $enc_key)
-    {
-        /**
-         * checks if data is encrypted, and if yes, decrypts data encrypted using AES-256-CBC encryption algorithm, and converts it from base64 format.
-         * 
-         * @param string $data base64 encoded data to be decrypted
-         * @param string $iv base64 encoded encryption initialization vector used for encryption
-         * @param string $enc_key base64 encoded encryption key used for encryption
-         * 
-         * @return string decrypted data or original input data if encryption key and iv are blank
-         */
-
-        if (empty("{$iv}{$enc_key}")) return $data;
-
-        $data = base64_decode($data);
-        $iv = base64_decode($iv);
-        $enc_key = base64_decode($enc_key);
-
-        $data = openssl_decrypt($data, "AES-256-CBC", $enc_key, 0, $iv);
-        return substr($data, 0, -ord($data[strlen($data) - 1]));
     }
 
     public function TunzaClinicTelemedicineAppointmentBooking(
@@ -272,6 +250,7 @@ class DB_Functions {
         }
         mysqli_close($db);
     }
+
 
     /**************************
     *************************** DIRECT PAY ONLINE  ********************************* 
@@ -1136,8 +1115,8 @@ class DB_Functions {
     public function pkcs7_unpad($data){
         return substr($data, 0, -ord($data[strlen($data) - 1]));
     }
-
-    private function createPatientAccount(
+    
+        private function createPatientAccount(
         string $user_email,
         string $user_name
     ) {
@@ -1575,8 +1554,8 @@ class DB_Functions {
     {
         return gmdate('Ymd\This', $time) . 'Z';
     }
-
-    public function getServiceDetails(
+    
+     public function getServiceDetails(
         int $facility_id,
         string $service_type
     ) {
@@ -1653,7 +1632,7 @@ class DB_Functions {
             $booked_data[] = $sub_array;
         }
 
-        $statement = " SELECT DISTINCT time_from, time_to FROM `wp_ea_connections` WHERE worker = '$doctorId' AND service='$serviceId' AND day_from <= '$selected_date' AND day_of_week LIKE '%$dayOfWeek%' AND is_working = 1 GROUP BY time_from ";
+        $statement = " SELECT DISTINCT Any_VALUE(time_from) AS time_from, Any_VALUE(time_to) AS time_to FROM `wp_ea_connections` WHERE worker = '$doctorId' AND service='$serviceId' AND day_from <= '$selected_date' AND day_of_week LIKE '%$dayOfWeek%' AND is_working = 1 GROUP BY time_from ";
         $result = mysqli_query($db, $statement) or die(mysqli_error($db));
         while ($row = mysqli_fetch_array($result)) {
             $start_time = strtotime($row["time_from"]);
@@ -1689,7 +1668,7 @@ class DB_Functions {
 
         return $filteredTimeSlots;
     }
-
+    
     public function processFlutterwavePayment(
         int $appointment_id,
         array $rave
@@ -1732,7 +1711,7 @@ class DB_Functions {
             return ["error" => "Failed to save transaction to database.", "error_code" => 6];
         }
 
-        $appointment_details = mysqli_fetch_assoc(mysqli_query($db, "SELECT service, date, start, wp_ea_staff.name, wp_ea_staff.phone FROM wp_ea_appointments, wp_ea_staff WHERE wp_ea_appointments.worker = wp_ea_staff.id AND wp_ea_appointments.id = '$appointment_id'"));
+        $appointment_details = mysqli_fetch_assoc(mysqli_query($db, "SELECT service, date, start, name, phone FROM wp_ea_appointments, wp_ea_staff WHERE wp_ea_appointments.worker = wp_ea_staff.id AND wp_ea_appointments.id = '$appointment_id'"));
 
         $service_details = mysqli_fetch_assoc(mysqli_query($db, "SELECT price, currency FROM wp_ea_services WHERE id = '{$appointment_details["service"]}'"));
 
@@ -1745,11 +1724,11 @@ class DB_Functions {
         mysqli_query($db, "UPDATE wp_ea_appointments SET status = 'pending' WHERE id = '$appointment_id'");
 
         if (mysqli_error($db)) {
-            $this->logError(__FUNCTION__, func_get_args(), "Failed to update appointment to paid.", "UPDATE wp_ea_appointments SET status = 'panding' WHERE id = '$appointment_id'", mysqli_error($db));
+            $this->logError(__FUNCTION__, func_get_args(), "Failed to update appointment to paid.", "UPDATE wp_ea_appointments SET status = 'pending' WHERE id = '$appointment_id'", mysqli_error($db));
         }
 
         // get patient name
-        $patient_names_qry = mysqli_query($db, "SELECT field_id, value, iv, enc_key FROM wp_ea_fields WHERE app_id = '$appointment_id' AND field_id IN (2, 7, 8)");
+        $patient_names_qry = mysqli_query($db, "SELECT field_id, value FROM wp_ea_fields WHERE app_id = '$appointment_id' AND field_id IN (2, 7, 8)");
         $first_name = $last_name = $patient_phone = "";
         while ($patient_details = mysqli_fetch_assoc($patient_names_qry)) {
             switch ($patient_details["field_id"]) {
@@ -1760,7 +1739,7 @@ class DB_Functions {
                     $last_name = $patient_details["value"];
                     break;
                 case '8':
-                    $patient_phone = $this->decrypt_data($patient_details["value"], $patient_details["iv"], $patient_details["enc_key"]);
+                    $patient_phone = $patient_details["value"];
                     break;
             }
         }
@@ -1815,3 +1794,5 @@ class DB_Functions {
         // }
     }
 }
+ 
+?>

@@ -1087,172 +1087,7 @@ Params: Array
 
 InvalidSenderId
 
-[2021-09-25 11:42:53]=>	Failed to fetch service data for facility_id: 33.
-Function: getServiceDetails
-Params: Array
-(
-    [0] => 33
-    [1] => telemedicine
-)
-
-SQL: SELECT facility_id, price, currency, slot_step FROM wp_ea_services WHERE id = 
-You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
-
-[2021-09-25 11:43:22]=>	Failed to fetch service data for facility_id: 33.
-Function: getServiceDetails
-Params: Array
-(
-    [0] => 33
-    [1] => telemedicine
-)
-
-SQL: SELECT facility_id, price, currency, slot_step FROM wp_ea_services WHERE id = 
-You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
-
-[2021-09-25 11:43:37]=>	Failed to fetch service data for facility_id: 33.
-Function: getServiceDetails
-Params: Array
-(
-    [0] => 33
-    [1] => telemedicine_service
-)
-
-SQL: SELECT facility_id, price, currency, slot_step FROM wp_ea_services WHERE id = 
-You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
-
-[2021-09-25 12:06:26]=>	Failed to fetch service data for facility_id: 127.
-Function: getServiceDetails
-Params: Array
-(
-    [0] => 127
-    [1] => undefined
-)
-
-SQL: SELECT id, facility_id, price, currency, slot_step FROM wp_ea_services WHERE id = 
-You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
-
-[2021-09-25 12:06:26]=>	Failed to fetch service data for facility_id: 127.
-Function: getServiceDetails
-Params: Array
-(
-    [0] => 127
-    [1] => undefined
-)
-
-SQL: SELECT id, facility_id, price, currency, slot_step FROM wp_ea_services WHERE id = 
-You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
-
-[2021-09-25 12:24:17]=>	Failed to fetch service data for facility_id: 127.
-Function: getServiceDetails
-Params: Array
-(
-    [0] => 127
-    [1] => telemedicine_service
-)
-
-SQL: SELECT id, facility_id, price, currency, slot_step FROM wp_ea_services WHERE id = 
-You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
-
-[2021-09-25 12:24:32]=>	Failed to fetch service data for facility_id: 127.
-Function: getServiceDetails
-Params: Array
-(
-    [0] => 127
-    [1] => telemedicine_service
-)
-
-SQL: SELECT id, facility_id, price, currency, slot_step FROM wp_ea_services WHERE id = 
-You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
-
-[2021-09-25 12:24:33]=>	Failed to fetch service data for facility_id: 127.
-Function: getServiceDetails
-Params: Array
-(
-    [0] => 127
-    [1] => telemedicine_service
-)
-
-SQL: SELECT id, facility_id, price, currency, slot_step FROM wp_ea_services WHERE id = 
-You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
-
-[2021-09-25 12:24:34]=>	Failed to fetch service data for facility_id: 127.
-Function: getServiceDetails
-Params: Array
-(
-    [0] => 127
-    [1] => telemedicine_service
-)
-
-SQL: SELECT id, facility_id, price, currency, slot_step FROM wp_ea_services WHERE id = 
-You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
-
-[2021-09-25 12:24:35]=>	Failed to fetch service data for facility_id: 127.
-Function: getServiceDetails
-Params: Array
-(
-    [0] => 127
-    [1] => telemedicine_service
-)
-
-SQL: SELECT id, facility_id, price, currency, slot_step FROM wp_ea_services WHERE id = 
-You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
-
-[2021-09-25 12:49:43]=>	Failed to fetch service data for facility_id: 127.
-Function: getServiceDetails
-Params: Array
-(
-    [0] => 127
-    [1] => telemedicine_service
-)
-
-SQL: SELECT id, facility_id, price, currency, slot_step FROM wp_ea_services WHERE id = 
-You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
-
-[2021-09-25 12:49:45]=>	Failed to fetch service data for facility_id: 127.
-Function: getServiceDetails
-Params: Array
-(
-    [0] => 127
-    [1] => telemedicine_service
-)
-
-SQL: SELECT id, facility_id, price, currency, slot_step FROM wp_ea_services WHERE id = 
-You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
-
-[2021-09-25 12:49:46]=>	Failed to fetch service data for facility_id: 127.
-Function: getServiceDetails
-Params: Array
-(
-    [0] => 127
-    [1] => telemedicine_service
-)
-
-SQL: SELECT id, facility_id, price, currency, slot_step FROM wp_ea_services WHERE id = 
-You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
-
-[2021-09-25 12:49:47]=>	Failed to fetch service data for facility_id: 127.
-Function: getServiceDetails
-Params: Array
-(
-    [0] => 127
-    [1] => telemedicine_service
-)
-
-SQL: SELECT id, facility_id, price, currency, slot_step FROM wp_ea_services WHERE id = 
-You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
-
-[2021-09-27 8:23:46]=>	Failed to fetch service data for facility_id: 13.
-Function: getServiceDetails
-Params: Array
-(
-    [0] => 13
-    [1] => in_person_service
-)
-
-SQL: SELECT id, facility_id, price, currency, slot_step FROM wp_ea_services WHERE id = 
-You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
-
-[2021-09-27 8:59:29]=>	Failed to send confirmation email message to doctor.
+[2021-09-25 13:55:57]=>	Failed to send confirmation email message to doctor.
 Function: sendConfirmationMessages
 Params: Array
 (
@@ -1260,26 +1095,26 @@ Params: Array
     [1] => angelo@myhealthafrica.com
     [2] => +254703398416
     [3] => Watamu Hospital
-    [4] => Watamu Hospital
-    [5] => Opp Turtle Bay Beach Club
-    [6] => Turtle Bay Road
+    [4] => 
+    [5] => 
+    [6] => 
     [7] => 
-    [8] => Watamu
+    [8] => 
     [9] => Kenya
-    [10] => 0
-    [11] => Watamu Hospital - In-person Consultation
-    [12] => KES
-    [13] => 1000.00
-    [14] => Friday
-    [15] => 2021-10-29
-    [16] => 16:00
+    [10] => +254720838318
+    [11] => 
+    [12] => 
+    [13] => 
+    [14] => Thursday
+    [15] => 2021-09-30
+    [16] => 16:30
     [17] => Tuberculosis
-    [18] => info@testcom
+    [18] => watamuhospitallimited@gmail.com
 )
 
-Invalid address:  (to): info@testcom
+Message body empty
 
-[2021-09-27 8:59:29]=>	Failed to send confirmation email message to patient.
+[2021-09-25 13:55:57]=>	Failed to send facility confirmation SMS.
 Function: sendConfirmationMessages
 Params: Array
 (
@@ -1287,53 +1122,26 @@ Params: Array
     [1] => angelo@myhealthafrica.com
     [2] => +254703398416
     [3] => Watamu Hospital
-    [4] => Watamu Hospital
-    [5] => Opp Turtle Bay Beach Club
-    [6] => Turtle Bay Road
+    [4] => 
+    [5] => 
+    [6] => 
     [7] => 
-    [8] => Watamu
+    [8] => 
     [9] => Kenya
-    [10] => 0
-    [11] => Watamu Hospital - In-person Consultation
-    [12] => KES
-    [13] => 1000.00
-    [14] => Friday
-    [15] => 2021-10-29
-    [16] => 16:00
+    [10] => +254720838318
+    [11] => 
+    [12] => 
+    [13] => 
+    [14] => Thursday
+    [15] => 2021-09-30
+    [16] => 16:30
     [17] => Tuberculosis
-    [18] => info@testcom
-)
-
-Invalid address:  (to): info@testcom
-
-[2021-09-27 8:59:29]=>	Failed to send facility confirmation SMS.
-Function: sendConfirmationMessages
-Params: Array
-(
-    [0] => Angelo Karugo
-    [1] => angelo@myhealthafrica.com
-    [2] => +254703398416
-    [3] => Watamu Hospital
-    [4] => Watamu Hospital
-    [5] => Opp Turtle Bay Beach Club
-    [6] => Turtle Bay Road
-    [7] => 
-    [8] => Watamu
-    [9] => Kenya
-    [10] => 0
-    [11] => Watamu Hospital - In-person Consultation
-    [12] => KES
-    [13] => 1000.00
-    [14] => Friday
-    [15] => 2021-10-29
-    [16] => 16:00
-    [17] => Tuberculosis
-    [18] => info@testcom
+    [18] => watamuhospitallimited@gmail.com
 )
 
 InvalidSenderId
 
-[2021-09-27 9:03:32]=>	Failed to send confirmation email message to doctor.
+[2021-09-25 13:57:31]=>	Failed to send confirmation email message to doctor.
 Function: sendConfirmationMessages
 Params: Array
 (
@@ -1341,26 +1149,26 @@ Params: Array
     [1] => angelo@myhealthafrica.com
     [2] => +254703398416
     [3] => Watamu Hospital
-    [4] => Watamu Hospital
-    [5] => Opp Turtle Bay Beach Club
-    [6] => Turtle Bay Road
+    [4] => 
+    [5] => 
+    [6] => 
     [7] => 
-    [8] => Watamu
+    [8] => 
     [9] => Kenya
-    [10] => 0
-    [11] => Watamu Hospital - In-person Consultation
-    [12] => KES
-    [13] => 1000.00
-    [14] => Tuesday
-    [15] => 2021-09-28
-    [16] => 10:20
+    [10] => +254720838318
+    [11] => 
+    [12] => 
+    [13] => 
+    [14] => Thursday
+    [15] => 2021-09-30
+    [16] => 16:30
     [17] => Tuberculosis
-    [18] => info@testcom
+    [18] => watamuhospitallimited@gmail.com
 )
 
-Invalid address:  (to): info@testcom
+Message body empty
 
-[2021-09-27 9:03:32]=>	Failed to send confirmation email message to patient.
+[2021-09-25 13:57:31]=>	Failed to send facility confirmation SMS.
 Function: sendConfirmationMessages
 Params: Array
 (
@@ -1368,364 +1176,454 @@ Params: Array
     [1] => angelo@myhealthafrica.com
     [2] => +254703398416
     [3] => Watamu Hospital
-    [4] => Watamu Hospital
-    [5] => Opp Turtle Bay Beach Club
-    [6] => Turtle Bay Road
+    [4] => 
+    [5] => 
+    [6] => 
     [7] => 
-    [8] => Watamu
+    [8] => 
     [9] => Kenya
-    [10] => 0
-    [11] => Watamu Hospital - In-person Consultation
-    [12] => KES
-    [13] => 1000.00
-    [14] => Tuesday
-    [15] => 2021-09-28
-    [16] => 10:20
+    [10] => +254720838318
+    [11] => 
+    [12] => 
+    [13] => 
+    [14] => Thursday
+    [15] => 2021-09-30
+    [16] => 16:30
     [17] => Tuberculosis
-    [18] => info@testcom
-)
-
-Invalid address:  (to): info@testcom
-
-[2021-09-27 9:03:32]=>	Failed to send facility confirmation SMS.
-Function: sendConfirmationMessages
-Params: Array
-(
-    [0] => Angelo Karugo
-    [1] => angelo@myhealthafrica.com
-    [2] => +254703398416
-    [3] => Watamu Hospital
-    [4] => Watamu Hospital
-    [5] => Opp Turtle Bay Beach Club
-    [6] => Turtle Bay Road
-    [7] => 
-    [8] => Watamu
-    [9] => Kenya
-    [10] => 0
-    [11] => Watamu Hospital - In-person Consultation
-    [12] => KES
-    [13] => 1000.00
-    [14] => Tuesday
-    [15] => 2021-09-28
-    [16] => 10:20
-    [17] => Tuberculosis
-    [18] => info@testcom
+    [18] => watamuhospitallimited@gmail.com
 )
 
 InvalidSenderId
 
-[2021-09-27 11:03:23]=>	Insufficient amount paid.
-Function: processFlutterwavePayment
+[2021-09-25 13:58:00]=>	Failed to send confirmation email message to doctor.
+Function: sendConfirmationMessages
 Params: Array
 (
-    [0] => 11590
-    [1] => Array
-        (
-            [id] => 505764044
-            [txRef] => 11590
-            [orderRef] => 0998319748
-            [flwRef] => 0998319748
-            [redirectUrl] => http://127.0.0
-            [device_fingerprint] => f89b8211ba81d550819a8ed4652d5aa4kjgvhjbjhbjnkj
-            [settlement_token] => 
-            [cycle] => one-time
-            [amount] => 1
-            [charged_amount] => 1
-            [appfee] => 0.03
-            [merchantfee] => 0
-            [merchantbearsfee] => 0
-            [chargeResponseCode] => 00
-            [raveRef] => PIR5G37351
-            [chargeResponseMessage] =>  Successful, pending customer validation
-            [authModelUsed] => LIPA_MPESA
-            [currency] => KES
-            [IP] => 154.79.179.249
-            [narration] => FLW-PBF MPESA Transaction 
-            [status] => successful
-            [modalauditid] => f26225509a023f0c320e25e31544ca98
-            [vbvrespmessage] => N/A
-            [authurl] => N/A
-            [vbvrespcode] => N/A
-            [acctvalrespmsg] => The service request is processed successfully.
-            [acctvalrespcode] => 00
-            [paymentType] => mpesa
-            [paymentPlan] => 
-            [paymentPage] => 
-            [paymentId] => N/A
-            [fraud_status] => ok
-            [charge_type] => normal
-            [is_live] => 1
-            [retry_attempt] => 
-            [getpaidBatchId] => 
-            [createdAt] => 2021-09-27T08:02:02.000Z
-            [updatedAt] => 2021-09-27T08:02:16.000Z
-            [deletedAt] => 
-            [customerId] => 268502230
-            [AccountId] => 98956
-            [customer.id] => 268502230
-            [customer.phone] => 254703398416
-            [customer.fullName] => Angelo Karugo
-            [customer.customertoken] => 
-            [customer.email] => angelo@myhealthafrica.com
-            [customer.createdAt] => 2021-06-24T13:57:58.000Z
-            [customer.updatedAt] => 2021-06-24T13:57:58.000Z
-            [customer.deletedAt] => 
-            [customer.AccountId] => 98956
-        )
-
+    [0] => Angelo Karugo
+    [1] => angelo@myhealthafrica.com
+    [2] => +254703398416
+    [3] => Watamu Hospital
+    [4] => Watamu Hospital
+    [5] => Opp Turtle Bay Beach Club
+    [6] => Turtle Bay Road
+    [7] => 
+    [8] => Watamu
+    [9] => Kenya
+    [10] => +254720838318
+    [11] => 
+    [12] => 
+    [13] => 
+    [14] => Thursday
+    [15] => 2021-09-30
+    [16] => 16:30
+    [17] => Tuberculosis
+    [18] => watamuhospitallimited@gmail.com
 )
 
+Message body empty
 
-
-[2021-09-27 11:05:28]=>	Insufficient amount paid.
-Function: processFlutterwavePayment
+[2021-09-25 13:58:00]=>	Failed to send facility confirmation SMS.
+Function: sendConfirmationMessages
 Params: Array
 (
-    [0] => 11590
-    [1] => Array
-        (
-            [id] => 505764044
-            [txRef] => 11590
-            [orderRef] => 0998319748
-            [flwRef] => 0998319748
-            [redirectUrl] => http://127.0.0
-            [device_fingerprint] => f89b8211ba81d550819a8ed4652d5aa4kjgvhjbjhbjnkj
-            [settlement_token] => 
-            [cycle] => one-time
-            [amount] => 1
-            [charged_amount] => 1
-            [appfee] => 0.03
-            [merchantfee] => 0
-            [merchantbearsfee] => 0
-            [chargeResponseCode] => 00
-            [raveRef] => PIR5G37351
-            [chargeResponseMessage] =>  Successful, pending customer validation
-            [authModelUsed] => LIPA_MPESA
-            [currency] => KES
-            [IP] => 154.79.179.249
-            [narration] => FLW-PBF MPESA Transaction 
-            [status] => successful
-            [modalauditid] => f26225509a023f0c320e25e31544ca98
-            [vbvrespmessage] => N/A
-            [authurl] => N/A
-            [vbvrespcode] => N/A
-            [acctvalrespmsg] => The service request is processed successfully.
-            [acctvalrespcode] => 00
-            [paymentType] => mpesa
-            [paymentPlan] => 
-            [paymentPage] => 
-            [paymentId] => N/A
-            [fraud_status] => ok
-            [charge_type] => normal
-            [is_live] => 1
-            [retry_attempt] => 
-            [getpaidBatchId] => 
-            [createdAt] => 2021-09-27T08:02:02.000Z
-            [updatedAt] => 2021-09-27T08:02:16.000Z
-            [deletedAt] => 
-            [customerId] => 268502230
-            [AccountId] => 98956
-            [customer.id] => 268502230
-            [customer.phone] => 254703398416
-            [customer.fullName] => Angelo Karugo
-            [customer.customertoken] => 
-            [customer.email] => angelo@myhealthafrica.com
-            [customer.createdAt] => 2021-06-24T13:57:58.000Z
-            [customer.updatedAt] => 2021-06-24T13:57:58.000Z
-            [customer.deletedAt] => 
-            [customer.AccountId] => 98956
-        )
-
+    [0] => Angelo Karugo
+    [1] => angelo@myhealthafrica.com
+    [2] => +254703398416
+    [3] => Watamu Hospital
+    [4] => Watamu Hospital
+    [5] => Opp Turtle Bay Beach Club
+    [6] => Turtle Bay Road
+    [7] => 
+    [8] => Watamu
+    [9] => Kenya
+    [10] => +254720838318
+    [11] => 
+    [12] => 
+    [13] => 
+    [14] => Thursday
+    [15] => 2021-09-30
+    [16] => 16:30
+    [17] => Tuberculosis
+    [18] => watamuhospitallimited@gmail.com
 )
 
+InvalidSenderId
 
-
-[2021-09-27 11:05:58]=>	Insufficient amount paid.
-Function: processFlutterwavePayment
+[2021-09-25 14:00:20]=>	Failed to send confirmation email message to doctor.
+Function: sendConfirmationMessages
 Params: Array
 (
-    [0] => 11590
-    [1] => Array
-        (
-            [id] => 505764044
-            [txRef] => 11590
-            [orderRef] => 0998319748
-            [flwRef] => 0998319748
-            [redirectUrl] => http://127.0.0
-            [device_fingerprint] => f89b8211ba81d550819a8ed4652d5aa4kjgvhjbjhbjnkj
-            [settlement_token] => 
-            [cycle] => one-time
-            [amount] => 1
-            [charged_amount] => 1
-            [appfee] => 0.03
-            [merchantfee] => 0
-            [merchantbearsfee] => 0
-            [chargeResponseCode] => 00
-            [raveRef] => PIR5G37351
-            [chargeResponseMessage] =>  Successful, pending customer validation
-            [authModelUsed] => LIPA_MPESA
-            [currency] => KES
-            [IP] => 154.79.179.249
-            [narration] => FLW-PBF MPESA Transaction 
-            [status] => successful
-            [modalauditid] => f26225509a023f0c320e25e31544ca98
-            [vbvrespmessage] => N/A
-            [authurl] => N/A
-            [vbvrespcode] => N/A
-            [acctvalrespmsg] => The service request is processed successfully.
-            [acctvalrespcode] => 00
-            [paymentType] => mpesa
-            [paymentPlan] => 
-            [paymentPage] => 
-            [paymentId] => N/A
-            [fraud_status] => ok
-            [charge_type] => normal
-            [is_live] => 1
-            [retry_attempt] => 
-            [getpaidBatchId] => 
-            [createdAt] => 2021-09-27T08:02:02.000Z
-            [updatedAt] => 2021-09-27T08:02:16.000Z
-            [deletedAt] => 
-            [customerId] => 268502230
-            [AccountId] => 98956
-            [customer.id] => 268502230
-            [customer.phone] => 254703398416
-            [customer.fullName] => Angelo Karugo
-            [customer.customertoken] => 
-            [customer.email] => angelo@myhealthafrica.com
-            [customer.createdAt] => 2021-06-24T13:57:58.000Z
-            [customer.updatedAt] => 2021-06-24T13:57:58.000Z
-            [customer.deletedAt] => 
-            [customer.AccountId] => 98956
-        )
-
+    [0] => Angelo Karugo
+    [1] => angelo@myhealthafrica.com
+    [2] => +254703398416
+    [3] => Watamu Hospital
+    [4] => Watamu Hospital
+    [5] => Opp Turtle Bay Beach Club
+    [6] => Turtle Bay Road
+    [7] => 
+    [8] => Watamu
+    [9] => Kenya
+    [10] => +254720838318
+    [11] => Watamu Hospital - In-person Consultation
+    [12] => KES
+    [13] => 1000.00
+    [14] => Thursday
+    [15] => 2021-09-30
+    [16] => 16:30
+    [17] => Tuberculosis
+    [18] => watamuhospitallimited@gmail.com
 )
 
+Message body empty
 
-
-[2021-09-27 11:06:28]=>	Insufficient amount paid.
-Function: processFlutterwavePayment
+[2021-09-25 14:00:20]=>	Failed to send facility confirmation SMS.
+Function: sendConfirmationMessages
 Params: Array
 (
-    [0] => 11590
-    [1] => Array
-        (
-            [id] => 505764044
-            [txRef] => 11590
-            [orderRef] => 0998319748
-            [flwRef] => 0998319748
-            [redirectUrl] => http://127.0.0
-            [device_fingerprint] => f89b8211ba81d550819a8ed4652d5aa4kjgvhjbjhbjnkj
-            [settlement_token] => 
-            [cycle] => one-time
-            [amount] => 1
-            [charged_amount] => 1
-            [appfee] => 0.03
-            [merchantfee] => 0
-            [merchantbearsfee] => 0
-            [chargeResponseCode] => 00
-            [raveRef] => PIR5G37351
-            [chargeResponseMessage] =>  Successful, pending customer validation
-            [authModelUsed] => LIPA_MPESA
-            [currency] => KES
-            [IP] => 154.79.179.249
-            [narration] => FLW-PBF MPESA Transaction 
-            [status] => successful
-            [modalauditid] => f26225509a023f0c320e25e31544ca98
-            [vbvrespmessage] => N/A
-            [authurl] => N/A
-            [vbvrespcode] => N/A
-            [acctvalrespmsg] => The service request is processed successfully.
-            [acctvalrespcode] => 00
-            [paymentType] => mpesa
-            [paymentPlan] => 
-            [paymentPage] => 
-            [paymentId] => N/A
-            [fraud_status] => ok
-            [charge_type] => normal
-            [is_live] => 1
-            [retry_attempt] => 
-            [getpaidBatchId] => 
-            [createdAt] => 2021-09-27T08:02:02.000Z
-            [updatedAt] => 2021-09-27T08:02:16.000Z
-            [deletedAt] => 
-            [customerId] => 268502230
-            [AccountId] => 98956
-            [customer.id] => 268502230
-            [customer.phone] => 254703398416
-            [customer.fullName] => Angelo Karugo
-            [customer.customertoken] => 
-            [customer.email] => angelo@myhealthafrica.com
-            [customer.createdAt] => 2021-06-24T13:57:58.000Z
-            [customer.updatedAt] => 2021-06-24T13:57:58.000Z
-            [customer.deletedAt] => 
-            [customer.AccountId] => 98956
-        )
-
+    [0] => Angelo Karugo
+    [1] => angelo@myhealthafrica.com
+    [2] => +254703398416
+    [3] => Watamu Hospital
+    [4] => Watamu Hospital
+    [5] => Opp Turtle Bay Beach Club
+    [6] => Turtle Bay Road
+    [7] => 
+    [8] => Watamu
+    [9] => Kenya
+    [10] => +254720838318
+    [11] => Watamu Hospital - In-person Consultation
+    [12] => KES
+    [13] => 1000.00
+    [14] => Thursday
+    [15] => 2021-09-30
+    [16] => 16:30
+    [17] => Tuberculosis
+    [18] => watamuhospitallimited@gmail.com
 )
 
+InvalidSenderId
 
-
-[2021-09-27 11:09:57]=>	Insufficient amount paid.
-Function: processFlutterwavePayment
+[2021-09-25 14:00:47]=>	Failed to send confirmation email message to doctor.
+Function: sendConfirmationMessages
 Params: Array
 (
-    [0] => 11590
-    [1] => Array
-        (
-            [id] => 505764044
-            [txRef] => 11590
-            [orderRef] => 0998319748
-            [flwRef] => 0998319748
-            [redirectUrl] => http://127.0.0
-            [device_fingerprint] => f89b8211ba81d550819a8ed4652d5aa4kjgvhjbjhbjnkj
-            [settlement_token] => 
-            [cycle] => one-time
-            [amount] => 1
-            [charged_amount] => 1
-            [appfee] => 0.03
-            [merchantfee] => 0
-            [merchantbearsfee] => 0
-            [chargeResponseCode] => 00
-            [raveRef] => PIR5G37351
-            [chargeResponseMessage] =>  Successful, pending customer validation
-            [authModelUsed] => LIPA_MPESA
-            [currency] => KES
-            [IP] => 154.79.179.249
-            [narration] => FLW-PBF MPESA Transaction 
-            [status] => successful
-            [modalauditid] => f26225509a023f0c320e25e31544ca98
-            [vbvrespmessage] => N/A
-            [authurl] => N/A
-            [vbvrespcode] => N/A
-            [acctvalrespmsg] => The service request is processed successfully.
-            [acctvalrespcode] => 00
-            [paymentType] => mpesa
-            [paymentPlan] => 
-            [paymentPage] => 
-            [paymentId] => N/A
-            [fraud_status] => ok
-            [charge_type] => normal
-            [is_live] => 1
-            [retry_attempt] => 
-            [getpaidBatchId] => 
-            [createdAt] => 2021-09-27T08:02:02.000Z
-            [updatedAt] => 2021-09-27T08:02:16.000Z
-            [deletedAt] => 
-            [customerId] => 268502230
-            [AccountId] => 98956
-            [customer.id] => 268502230
-            [customer.phone] => 254703398416
-            [customer.fullName] => Angelo Karugo
-            [customer.customertoken] => 
-            [customer.email] => angelo@myhealthafrica.com
-            [customer.createdAt] => 2021-06-24T13:57:58.000Z
-            [customer.updatedAt] => 2021-06-24T13:57:58.000Z
-            [customer.deletedAt] => 
-            [customer.AccountId] => 98956
-        )
-
+    [0] => Angelo Karugo
+    [1] => angelo@myhealthafrica.com
+    [2] => +254703398416
+    [3] => Watamu Hospital
+    [4] => Watamu Hospital
+    [5] => Opp Turtle Bay Beach Club
+    [6] => Turtle Bay Road
+    [7] => 
+    [8] => Watamu
+    [9] => Kenya
+    [10] => +254720838318
+    [11] => Watamu Hospital - In-person Consultation
+    [12] => KES
+    [13] => 1000.00
+    [14] => Thursday
+    [15] => 2021-09-30
+    [16] => 16:30
+    [17] => Tuberculosis
+    [18] => watamuhospitallimited@gmail.com
 )
 
+Message body empty
 
+[2021-09-25 14:00:47]=>	Failed to send facility confirmation SMS.
+Function: sendConfirmationMessages
+Params: Array
+(
+    [0] => Angelo Karugo
+    [1] => angelo@myhealthafrica.com
+    [2] => +254703398416
+    [3] => Watamu Hospital
+    [4] => Watamu Hospital
+    [5] => Opp Turtle Bay Beach Club
+    [6] => Turtle Bay Road
+    [7] => 
+    [8] => Watamu
+    [9] => Kenya
+    [10] => +254720838318
+    [11] => Watamu Hospital - In-person Consultation
+    [12] => KES
+    [13] => 1000.00
+    [14] => Thursday
+    [15] => 2021-09-30
+    [16] => 16:30
+    [17] => Tuberculosis
+    [18] => watamuhospitallimited@gmail.com
+)
+
+InvalidSenderId
+
+[2021-09-25 14:02:43]=>	Failed to send confirmation email message to doctor.
+Function: sendConfirmationMessages
+Params: Array
+(
+    [0] => Angelo Karugo
+    [1] => angelo@myhealthafrica.com
+    [2] => +254703398416
+    [3] => Watamu Hospital
+    [4] => Watamu Hospital
+    [5] => Opp Turtle Bay Beach Club
+    [6] => Turtle Bay Road
+    [7] => 
+    [8] => Watamu
+    [9] => Kenya
+    [10] => +254720838318
+    [11] => Watamu Hospital - In-person Consultation
+    [12] => KES
+    [13] => 1000.00
+    [14] => Thursday
+    [15] => 2021-09-30
+    [16] => 13:00
+    [17] => HIV
+    [18] => watamuhospitallimited@gmail.com
+)
+
+Message body empty
+
+[2021-09-25 14:02:43]=>	Failed to send facility confirmation SMS.
+Function: sendConfirmationMessages
+Params: Array
+(
+    [0] => Angelo Karugo
+    [1] => angelo@myhealthafrica.com
+    [2] => +254703398416
+    [3] => Watamu Hospital
+    [4] => Watamu Hospital
+    [5] => Opp Turtle Bay Beach Club
+    [6] => Turtle Bay Road
+    [7] => 
+    [8] => Watamu
+    [9] => Kenya
+    [10] => +254720838318
+    [11] => Watamu Hospital - In-person Consultation
+    [12] => KES
+    [13] => 1000.00
+    [14] => Thursday
+    [15] => 2021-09-30
+    [16] => 13:00
+    [17] => HIV
+    [18] => watamuhospitallimited@gmail.com
+)
+
+InvalidSenderId
+
+[2021-09-25 14:04:57]=>	Failed to send confirmation email message to doctor.
+Function: sendConfirmationMessages
+Params: Array
+(
+    [0] => Angelo Karugo
+    [1] => angelo@myhealthafrica.com
+    [2] => +254703398416
+    [3] => Watamu Hospital
+    [4] => Watamu Hospital
+    [5] => Opp Turtle Bay Beach Club
+    [6] => Turtle Bay Road
+    [7] => 
+    [8] => Watamu
+    [9] => Kenya
+    [10] => +254720838318
+    [11] => Watamu Hospital - In-person Consultation
+    [12] => KES
+    [13] => 1000.00
+    [14] => Thursday
+    [15] => 2021-09-30
+    [16] => 13:30
+    [17] => Non-communicable diseases
+    [18] => watamuhospitallimited@gmail.com
+)
+
+Message body empty
+
+[2021-09-25 14:04:57]=>	Failed to send facility confirmation SMS.
+Function: sendConfirmationMessages
+Params: Array
+(
+    [0] => Angelo Karugo
+    [1] => angelo@myhealthafrica.com
+    [2] => +254703398416
+    [3] => Watamu Hospital
+    [4] => Watamu Hospital
+    [5] => Opp Turtle Bay Beach Club
+    [6] => Turtle Bay Road
+    [7] => 
+    [8] => Watamu
+    [9] => Kenya
+    [10] => +254720838318
+    [11] => Watamu Hospital - In-person Consultation
+    [12] => KES
+    [13] => 1000.00
+    [14] => Thursday
+    [15] => 2021-09-30
+    [16] => 13:30
+    [17] => Non-communicable diseases
+    [18] => watamuhospitallimited@gmail.com
+)
+
+InvalidSenderId
+
+[2021-09-25 14:06:10]=>	Failed to send confirmation email message to doctor.
+Function: sendConfirmationMessages
+Params: Array
+(
+    [0] => Angelo Karugo
+    [1] => angelo@myhealthafrica.com
+    [2] => +254703398416
+    [3] => Watamu Hospital
+    [4] => Watamu Hospital
+    [5] => Opp Turtle Bay Beach Club
+    [6] => Turtle Bay Road
+    [7] => 
+    [8] => Watamu
+    [9] => Kenya
+    [10] => +254720838318
+    [11] => Watamu Hospital - In-person Consultation
+    [12] => KES
+    [13] => 1000.00
+    [14] => Thursday
+    [15] => 2021-09-30
+    [16] => 13:30
+    [17] => Non-communicable diseases
+    [18] => watamuhospitallimited@gmail.com
+)
+
+Message body empty
+
+[2021-09-25 14:06:10]=>	Failed to send facility confirmation SMS.
+Function: sendConfirmationMessages
+Params: Array
+(
+    [0] => Angelo Karugo
+    [1] => angelo@myhealthafrica.com
+    [2] => +254703398416
+    [3] => Watamu Hospital
+    [4] => Watamu Hospital
+    [5] => Opp Turtle Bay Beach Club
+    [6] => Turtle Bay Road
+    [7] => 
+    [8] => Watamu
+    [9] => Kenya
+    [10] => +254720838318
+    [11] => Watamu Hospital - In-person Consultation
+    [12] => KES
+    [13] => 1000.00
+    [14] => Thursday
+    [15] => 2021-09-30
+    [16] => 13:30
+    [17] => Non-communicable diseases
+    [18] => watamuhospitallimited@gmail.com
+)
+
+InvalidSenderId
+
+[2021-09-25 14:07:55]=>	Failed to send confirmation email message to doctor.
+Function: sendConfirmationMessages
+Params: Array
+(
+    [0] => Angelo Karugo
+    [1] => angelo@myhealthafrica.com
+    [2] => +254703398416
+    [3] => Watamu Hospital
+    [4] => Watamu Hospital
+    [5] => Opp Turtle Bay Beach Club
+    [6] => Turtle Bay Road
+    [7] => 
+    [8] => Watamu
+    [9] => Kenya
+    [10] => +254720838318
+    [11] => Watamu Hospital - In-person Consultation
+    [12] => KES
+    [13] => 1000.00
+    [14] => Thursday
+    [15] => 2021-09-30
+    [16] => 14:00
+    [17] => Non-communicable diseases
+    [18] => watamuhospitallimited@gmail.com
+)
+
+Message body empty
+
+[2021-09-25 14:07:55]=>	Failed to send facility confirmation SMS.
+Function: sendConfirmationMessages
+Params: Array
+(
+    [0] => Angelo Karugo
+    [1] => angelo@myhealthafrica.com
+    [2] => +254703398416
+    [3] => Watamu Hospital
+    [4] => Watamu Hospital
+    [5] => Opp Turtle Bay Beach Club
+    [6] => Turtle Bay Road
+    [7] => 
+    [8] => Watamu
+    [9] => Kenya
+    [10] => +254720838318
+    [11] => Watamu Hospital - In-person Consultation
+    [12] => KES
+    [13] => 1000.00
+    [14] => Thursday
+    [15] => 2021-09-30
+    [16] => 14:00
+    [17] => Non-communicable diseases
+    [18] => watamuhospitallimited@gmail.com
+)
+
+InvalidSenderId
+
+[2021-09-25 14:08:39]=>	Failed to send confirmation email message to doctor.
+Function: sendConfirmationMessages
+Params: Array
+(
+    [0] => Angelo Karugo
+    [1] => angelo@myhealthafrica.com
+    [2] => +254703398416
+    [3] => Watamu Hospital
+    [4] => Watamu Hospital
+    [5] => Opp Turtle Bay Beach Club
+    [6] => Turtle Bay Road
+    [7] => 
+    [8] => Watamu
+    [9] => Kenya
+    [10] => +254720838318
+    [11] => Watamu Hospital - In-person Consultation
+    [12] => KES
+    [13] => 1000.00
+    [14] => Wednesday
+    [15] => 2021-09-29
+    [16] => 14:00
+    [17] => HIV
+    [18] => watamuhospitallimited@gmail.com
+)
+
+Message body empty
+
+[2021-09-25 14:08:39]=>	Failed to send facility confirmation SMS.
+Function: sendConfirmationMessages
+Params: Array
+(
+    [0] => Angelo Karugo
+    [1] => angelo@myhealthafrica.com
+    [2] => +254703398416
+    [3] => Watamu Hospital
+    [4] => Watamu Hospital
+    [5] => Opp Turtle Bay Beach Club
+    [6] => Turtle Bay Road
+    [7] => 
+    [8] => Watamu
+    [9] => Kenya
+    [10] => +254720838318
+    [11] => Watamu Hospital - In-person Consultation
+    [12] => KES
+    [13] => 1000.00
+    [14] => Wednesday
+    [15] => 2021-09-29
+    [16] => 14:00
+    [17] => HIV
+    [18] => watamuhospitallimited@gmail.com
+)
+
+InvalidSenderId
 
