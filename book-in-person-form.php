@@ -343,6 +343,14 @@
                         </div>
                     </div>
                 </section>
+
+                <div class="w-100 d-flex flex-column text-center my-2">
+                    <div class="form-check">
+                        <input type="checkbox" name="terms-conditions-consent" id="terms-conditions-consent" required>
+                        <label for="terms-conditions-consent">Tick the checkbox to state that you have read and agreed to our <a href="https://www.myhealthafrica.com/my-health-africa-consent-form/">consent form.</a></label>
+                    </div>
+                    <span class="error"></span>
+                </div>
             </div>
         </fieldset>
     </form>

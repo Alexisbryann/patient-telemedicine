@@ -34,8 +34,8 @@
                         <!--    <input type="text" class="form-control input-small" id="set-appointment-date" name="appointment-date" value="<?php echo date("Y-m-d"); ?>">-->
                         <!--    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>-->
                         <!--</div>-->
-                        <input type="date" class="form-control mb-3" id="set-appointment-date" name="appointment-date" min="<?php echo date("Y-m-d")?>" />
-                        
+                        <input type="date" class="form-control mb-3" id="set-appointment-date" name="appointment-date" min="<?php echo date("Y-m-d") ?>" />
+
                         <div id="date-error" class="error" style="display: none;"></div>
 
                         <input type="time" class="form-control my-2" id="set-appointment-time" name="appointment-time" data-screen="mobile-only" min="08:00" max="18:00" value="<?php echo date("H:i") ?>">
@@ -47,7 +47,7 @@
                         <div id="time-error" class="error" style="display: none;"></div>
                     </div>
                 </div>
-                
+
                 <div class="patient-details input-group col-12 col-md-8 border-0">
                     <div class="w-100 d-none d-md-flex" style="margin-bottom: 30px; margin-top: 30px; font-weight: bold;">Fill in the patient's details</div>
                     <div class="col-12 col-md-6 mt-i">
@@ -81,8 +81,8 @@
                     </div>
                     <div class="col-12 col-md-6 mt-i">
                         <label>Location<span class="required"></span></label>
-                        <input list = "location" name="location" class = "form-control" placeholder = "Select location">
-                            <datalist id = "location">
+                        <input list="location" name="location" class="form-control" placeholder="Select location">
+                        <datalist id="location">
                             <option value='Baringo'>Baringo</option>
                             <option value='Bomet'>Bomet</option>
                             <option value='Bungoma'>Bungoma</option>
@@ -131,11 +131,11 @@
                             <option value='West Pokot'>West Pokot</option>
                             <option value='Wajir'>Wajir</option>
                             <option value='Others'>Others</option>
-                        </input>
-                        <div id="location-error" class="col-12 col-md-12 error" style="display: none;"></div>
+                            </input>
+                            <div id="location-error" class="col-12 col-md-12 error" style="display: none;"></div>
                     </div>
                 </div>
-                
+
                 <input type="hidden" name="clinic" value="psi" hidden />
                 <input type="hidden" name="operation" value="booking" hidden />
             </div>
@@ -188,9 +188,9 @@
                                 <div class="d-flex flex-column mr-auto">
                                     <span>Date</span><span class="preview mr-auto" id="date-preview">2021-09-20</span>
                                 </div>
-                                 
+
                                 <div class="d-flex flex-column mr-4">
-                                   <span>Time</span><span class="preview" id="time-preview">8:00 AM</span>
+                                    <span>Time</span><span class="preview" id="time-preview">8:00 AM</span>
                                 </div>
                             </div>
                         </div>
@@ -204,6 +204,13 @@
                     </div>
                 </div>
 
+                <div class="w-100 d-flex flex-column text-center my-2">
+                    <div class="form-check">
+                        <input type="checkbox" name="terms-conditions-consent" id="terms-conditions-consent" required>
+                        <label for="terms-conditions-consent">Tick the checkbox to state that you have read and agreed to our <a href="https://www.myhealthafrica.com/my-health-africa-consent-form/">consent form.</a></label>
+                    </div>
+                    <span class="error"></span>
+                </div>
             </div>
         </fieldset>
     </form>

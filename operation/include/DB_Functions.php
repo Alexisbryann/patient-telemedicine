@@ -23,7 +23,8 @@ class DB_Functions {
 
     private $conn;
     public function __construct(){
-        $this->conn = mysqli_connect('localhost', 'myhealth_db', 'g0%kVgZgex6W', 'myhealth_database');
+        require "db_config.php";
+        $this->conn = mysqli_connect($db_host_name, $db_user_name, $db_password, $db_database_name);
         if (!$this->conn) {
             die("Connection failed: " . mysqli_connect_error());
           }
@@ -1632,7 +1633,7 @@ class DB_Functions {
             $booked_data[] = $sub_array;
         }
 
-        $statement = " SELECT DISTINCT Any_VALUE(time_from) AS time_from, Any_VALUE(time_to) AS time_to FROM `wp_ea_connections` WHERE worker = '$doctorId' AND service='$serviceId' AND day_from <= '$selected_date' AND day_of_week LIKE '%$dayOfWeek%' AND is_working = 1 GROUP BY time_from ";
+        $statement = " SELECT DISTINCT time_from, time_to FROM `wp_ea_connections` WHERE worker = '$doctorId' AND service='$serviceId' AND day_from <= '$selected_date' AND day_of_week LIKE '%$dayOfWeek%' AND is_working = 1 GROUP BY time_from ";
         $result = mysqli_query($db, $statement) or die(mysqli_error($db));
         while ($row = mysqli_fetch_array($result)) {
             $start_time = strtotime($row["time_from"]);
