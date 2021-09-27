@@ -449,9 +449,9 @@ $("#book-inperson").steps({
             appointment_type_validity: {
                 validity: $("[name='appointment-type']:checked").length > 0,
                 error_message: "Please select the type of appointment you wish to book.",
-                value: $(`[name='appointment-type']:checked`).val(),
+                value: $(`[name='appointment-type']:checked`).val() == "in_person_service" ? "In person" : "Telemedicine",
                 element: $("#appointment-type-container"),
-                preview_element: $(`#concern-preview`),
+                preview_element: $(`#appointment-type-preview`),
                 step: 0,
             },
             date_validity: {

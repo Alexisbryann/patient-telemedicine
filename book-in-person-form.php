@@ -278,9 +278,15 @@
                 <section class="d-flex mx-0 mx-md-4 flex-column flex-md-row">
                     <div class="w-100 border d-flex flex-column p-3">
                         <strong class="mb-2">Appointment Details</strong>
-                        <div class="preview-details-container flex-column">
-                            <span class="w-100 preview-detail-label">Medical concern</span>
-                            <span class="preview-detail" id="concern-preview">Preview detail</span>
+                        <div class="preview-details-container">
+                            <div class="w-100 d-flex flex-column">
+                                <span class="preview-detail-label">Medical concern</span>
+                                <span class="preview-detail" id="concern-preview">Preview detail</span>
+                            </div>
+                            <div class="w-100 d-flex flex-column">
+                                <span class="preview-detail-label">Appointment type</span>
+                                <span class="preview-detail" id="appointment-type-preview">Preview detail</span>
+                            </div>
                         </div>
                         <div class="preview-details-container flex-column">
                             <span class="w-100 preview-detail-label">Medical concern description</span>
@@ -288,11 +294,11 @@
                             <span id="show-more-link" title="Show more" data-toggle="modal" data-target="#medical-condition-description">show more</span>
                         </div>
                         <div class="preview-details-container">
-                            <div class="mr-auto d-flex flex-column">
+                            <div class="w-100 d-flex flex-column">
                                 <span class="preview-detail-label">Date</span>
                                 <span class="preview-detail" id="date-preview">Preview detail</span>
                             </div>
-                            <div class="mr-auto d-flex flex-column">
+                            <div class="w-100 d-flex flex-column">
                                 <span class="preview-detail-label">Time</span>
                                 <span class="preview-detail" id="time-preview">Preview detail</span>
                             </div>
