@@ -1,7 +1,7 @@
 var appointment_id, onboarding;
 const global_settings = {
     window_width: window.innerWidth,
-    get screen_is_mobile () {
+    get screen_is_mobile() {
         // return this.window_width < 768
         return false;
     },
@@ -85,13 +85,13 @@ form.steps({
             2: "Confirm Details"
         };
         // if (global_settings.screen_is_mobile) {
-            const booking_form_progress = $("#booking-form-progress"),
-                current_progress_value = booking_form_progress.val(),
-                new_progress_value = priorIndex < currentIndex ? current_progress_value + 1 : current_progress_value - 1;
+        const booking_form_progress = $("#booking-form-progress"),
+            current_progress_value = booking_form_progress.val(),
+            new_progress_value = priorIndex < currentIndex ? current_progress_value + 1 : current_progress_value - 1;
 
-            booking_form_progress.val(new_progress_value);
-            $("#booking-form-step-number").text(new_progress_value);
-            $("#step-title").text(step_titles[currentIndex]);
+        booking_form_progress.val(new_progress_value);
+        $("#booking-form-step-number").text(new_progress_value);
+        $("#step-title").text(step_titles[currentIndex]);
         // }
     },
     onFinishing: function (event, currentIndex) {
@@ -386,22 +386,9 @@ const in_person_settings = {
                                             ${display}
                                         </label>
                                     </div>`,
-    get appointment_cost() {
-        const facility_id = this.facility_id,
-            cost = {
-                127: "1000",
-                120: "200",
-                126: "600",
-                116: "500",
-                121: "300",
-                123: "500",
-                119: "500",
-                122: "400",
-            };
-        return cost[facility_id];
-    }
 };
 
+// in person form steps wizard
 $("#book-inperson").steps({
     bodyTag: "fieldset",
     headerTag: "h3",
@@ -443,6 +430,14 @@ $("#book-inperson").steps({
                 value: $(`option[value='${$(`#facility`).val()}'`).text(),
                 element: $("#facility"),
                 preview_element: $(`#facility-preview`),
+                step: 0,
+            },
+            appointment_type_validity: {
+                validity: $("[name='appointment-type']:checked").length > 0,
+                error_message: "Please select the type of appointment you wish to book.",
+                value: $(`[name='appointment-type']:checked`).val(),
+                element: $("#appointment-type-container"),
+                preview_element: $(`#concern-preview`),
                 step: 0,
             },
             date_validity: {
@@ -552,9 +547,15 @@ $("#book-inperson").steps({
 
         $("#medical-condition-description .modal-body").text(medical_condition_description.value);
 
-        $("#appointment-cost-display").text(in_person_settings.appointment_cost)
+        $("#appointment-cost-display").text(in_person_settings.appointment_cost);
 
         $(`input[name='radio-button'][value='${currentIndex}']`).addClass("visited-step");
+
+        if (in_person_settings.appointment_type == "telemedicine_service") {
+            $("#payment-disclaimer").removeClass("d-flex").hide();
+        } else {
+            $("#payment-disclaimer").addClass("d-flex").show();
+        }
         return true;
     },
     onStepChanged: function (event, currentIndex, priorIndex) {
@@ -565,13 +566,13 @@ $("#book-inperson").steps({
             2: "Confirm Details"
         };
         // if (global_settings.screen_is_mobile) {
-            const booking_form_progress = $("#booking-form-progress"),
-                current_progress_value = booking_form_progress.val(),
-                new_progress_value = priorIndex < currentIndex ? current_progress_value + 1 : current_progress_value - 1;
+        const booking_form_progress = $("#booking-form-progress"),
+            current_progress_value = booking_form_progress.val(),
+            new_progress_value = priorIndex < currentIndex ? current_progress_value + 1 : current_progress_value - 1;
 
-            booking_form_progress.val(new_progress_value);
-            $("#booking-form-step-number").text(new_progress_value);
-            $("#step-title").text(step_titles[currentIndex]);
+        booking_form_progress.val(new_progress_value);
+        $("#booking-form-step-number").text(new_progress_value);
+        $("#step-title").text(step_titles[currentIndex]);
         // }
     },
     onFinished: function (event, currentIndex) {
@@ -594,19 +595,24 @@ $("#book-inperson").steps({
             dataType: "json",
             success: function (response) {
                 if (response.response == 200) {
-                    swal({
-                        title: "Booked",
-                        text: "Your appointment has been booked successfully.",
-                        type: "success",
-                        timer: 4000,
-                        showCloseButton: true,
-                        showConfirmButton: false,
-                        showCancelButton: true,
-                        cancelButtonText: "Close"
-                    });
 
-                    $("#book-inperson")[0].reset();
-                    $("#book-inperson").steps("reset");
+                    if (in_person_settings.appointment_type == "telemedicine_service") {
+                        flutterWavePayment(response.id, $("#name").val(), $("#phone").val(), $("#email").val());
+                    } else {
+                        swal({
+                            title: "Booked",
+                            text: "Your appointment has been booked successfully.",
+                            type: "success",
+                            timer: 4000,
+                            showCloseButton: true,
+                            showConfirmButton: false,
+                            showCancelButton: true,
+                            cancelButtonText: "Close"
+                        });
+
+                        $("#book-inperson")[0].reset();
+                        $("#book-inperson").steps("reset");
+                    }
                 } else {
                     swal({
                         title: "Failed",
@@ -625,15 +631,18 @@ $("#book-inperson").steps({
     }
 });
 
+// handler for selecting date on calendar
 $("#in-person-appointment-date").datepicker({
     ...datepicker_settings,
 }).on("changeDate", function () {
-    const selected_date = $('#in-person-appointment-date').datepicker('getFormattedDate');
+    const selected_date = $('#in-person-appointment-date').datepicker('getFormattedDate'),
+        appointment_type = $(`[name="appointment-type"]:checked`).val();
 
     $('#appointment-date').val(selected_date);
 
+
     $.ajax({
-        url: `operation/getTakenTimeSlots.php?operation=getTakenTimeSlots&facility_id=${in_person_settings.facility_id}&selected_date=${selected_date}`,
+        url: `operation/getServiceDetails.php?operation=getServiceDetails&facility_id=${in_person_settings.facility_id}&selected_date=${selected_date}&appointment_type=${appointment_type}`,
         dataType: "json",
         success: function (response) {
             if (response.error) {
@@ -641,10 +650,14 @@ $("#in-person-appointment-date").datepicker({
                 return false;
             }
 
-            const month = (global_settings.date_now.getMonth() + 1).toString().length == 1 ? `0${global_settings.date_now.getMonth() + 1}` : global_settings.date_now.getMonth() + 1,
-                date_today = `${global_settings.date_now.getDate()}/${month}/${global_settings.date_now.getFullYear()}`,
-                time_slots = timeSlotsList(date_today == selected_date),
-                available_time_slots = time_slots.filter(x => !response.includes(x));
+            // const month = (global_settings.date_now.getMonth() + 1).toString().length == 1 ? `0${global_settings.date_now.getMonth() + 1}` : global_settings.date_now.getMonth() + 1,
+            //     date_today = `${global_settings.date_now.getDate()}/${month}/${global_settings.date_now.getFullYear()}`,
+            //     time_slots = timeSlotsList(date_today == selected_date),
+            //     available_time_slots = time_slots.filter(x => !response.includes(x));
+
+            const available_time_slots = Object.values(response.time_slots);
+
+            in_person_settings["appointment_cost"] = response.service_details.price;
 
             if (available_time_slots.length == 0) {
                 $("#time-slots-container")
@@ -652,7 +665,7 @@ $("#in-person-appointment-date").datepicker({
                     .closest("section").addClass("d-none");
 
                 $("#time-slots-disabled").addClass("d-flex").removeClass("d-none");
-                $("#time-slots-disabled h2").text("No time slots available.");
+                $("#time-slots-disabled h5").text("No time slots available.");
                 return false;
             }
 
@@ -681,12 +694,15 @@ $("#in-person-appointment-date").datepicker({
     });
 });
 
+// hide medical concern description input when page loads
 $("#medical-concern-description").closest(".form-group").hide();
 
+// display medical concern description input when a medical concern is selected
 $('[name="medical-concern"]').on("input", function () {
     $("#medical-concern-description").closest(".form-group").show(100);
 });
 
+// set the facility id when a facility is selected
 $("#book-inperson #facility").on("change", function () {
     const facility_id = $(this).val();
     in_person_settings.facility_id = facility_id;
@@ -768,13 +784,15 @@ $(".disabled-element").on("click", function () {
 });
 
 $("#facility").on("change", function () {
-    const facility = $(this).val();
-
     $(".disabled-element-error").text("");
 
-    $("#in-person-appointment-date").closest(".disabled-element").removeClass("disabled-element").find(".disabled-element-error").remove();
+    $("#in-person-appointment-date")
+        .datepicker("clearDates")
+        .closest(".disabled-element").removeClass("disabled-element")
+        .find(".disabled-element-error").remove();
 });
 
+// display appointment time when a time slot is selected
 $(document).on("change", `[name=appointment-time]`, function () {
     const appointment_date = $("#appointment-date").val().split("/"),
         appointment_date_obj = new Date(appointment_date[2], parseInt(appointment_date[1]) - 1, appointment_date[0]),
@@ -804,6 +822,10 @@ $("[name=medical-concern]").on("change", function () {
 function validatePhoneNumber(input) {
     /**
      * Validates phone number. Allows input starting with +, starting with 254, starting with 0, starting with 1, starting with 7, longer than 10 characters.
+     *
+     * @param string input input phone number string
+     *
+     * @return string formatted phone number
      */
     let input_sanitized = input.replace(/[\s-]/g, ""); // sanitize input
 
@@ -859,6 +881,69 @@ $(`.booking-step.telemed-steps [name="radio-button"]`).on("change", function () 
     $(`.booking-step.telemed-steps [name="radio-button"][value='${step}']`).prop("checked", true);
 });
 
+// hide facilities dropdown if facility id is set in the url, for individual hospitals booking forms
 if (in_person_settings.facility_id) {
     $("#facility").val(in_person_settings.facility_id).trigger("change").closest(".form-group").hide();
+} else {
+    $("#appointment-type-container")
+        .removeClass("d-flex")
+        .hide();
+
+    $("input#in-person-appointment").prop("checked", true);
+}
+
+// set app setting appointment type
+$(`[name="appointment-type"]`).on("change", function () {
+    if ($(this).prop("checked")) in_person_settings["appointment_type"] = $(this).val();
+});
+
+function flutterWavePayment(
+    appointment_id,
+    patient_name,
+    patient_phone,
+    patient_email,
+    cost
+) {
+    const API_publicKey = "FLWPUBK-59c70a34288d4c9337bc3a8ad22db9e7-X";
+
+    var flutter_wave = getpaidSetup({
+        PBFPubKey: API_publicKey,
+        customer_firstname: patient_name.split(" ").shift(),
+        customer_lastname: patient_name.split(" ").pop(),
+        customer_phone: patient_phone,
+        customer_email: patient_email,
+        currency: "KES",
+        amount: cost,
+        country: "KE",
+        txref: appointment_id,
+
+        callback: function (response) {
+            let wave = response.hasOwnProperty("tx") ? response.tx : response.data;
+
+            if (wave.paymentType == "card") {
+                wave["customer.phone"] = flutter_wave.customer_phone;
+                wave["customer.email"] = flutter_wave.customer_email;
+            }
+
+            // saves all transactions, even failed/cancelled ones
+            $.ajax({
+                url: "operation/addonPaymentHandler.php",
+                method: "POST",
+                data: { addon_item: addon_item, wave: wave, rate: rate, number_of_accounts: number_of_accounts },
+                dataType: "json",
+                success: function (response) {
+
+                },
+                error: function (error) {
+                    $.toast({
+                        heading: "Error",
+                        text: 'There was a problem processing your payment. Please try again or contact <a href="mailto:billing@myhealthafrica.com">billing@myhealthafrica.com</a> for assistance.',
+                        position: 'bottom-right',
+                        showHideTransition: 'slide',
+                        timer: 3000,
+                    });
+                }
+            });
+        },
+    });
 }

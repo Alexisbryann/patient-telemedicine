@@ -9,4 +9,6 @@
 <script src="https://myhealthafrica.com/myonemedpro/assets/bundles/sweet-alert/sweetalert.min.js?v=<?php echo $inclusions_version; ?>"></script>
 <script src="assets/booking.js?v=<?php echo $inclusions_version ?>"></script>
 <script src="assets/patientAvatar.js"></script>
+<!-- Flutterwave -->
+<script type="text/javascript" src="https://api.ravepay.co/flwv3-pug/getpaidx/api/flwpbf-inline.js"></script>
 <!-- end js include path -->

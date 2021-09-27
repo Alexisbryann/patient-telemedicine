@@ -1087,3 +1087,168 @@ Params: Array
 
 InvalidSenderId
 
+[2021-09-25 11:42:53]=>	Failed to fetch service data for facility_id: 33.
+Function: getServiceDetails
+Params: Array
+(
+    [0] => 33
+    [1] => telemedicine
+)
+
+SQL: SELECT facility_id, price, currency, slot_step FROM wp_ea_services WHERE id = 
+You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+
+[2021-09-25 11:43:22]=>	Failed to fetch service data for facility_id: 33.
+Function: getServiceDetails
+Params: Array
+(
+    [0] => 33
+    [1] => telemedicine
+)
+
+SQL: SELECT facility_id, price, currency, slot_step FROM wp_ea_services WHERE id = 
+You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+
+[2021-09-25 11:43:37]=>	Failed to fetch service data for facility_id: 33.
+Function: getServiceDetails
+Params: Array
+(
+    [0] => 33
+    [1] => telemedicine_service
+)
+
+SQL: SELECT facility_id, price, currency, slot_step FROM wp_ea_services WHERE id = 
+You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+
+[2021-09-25 12:06:26]=>	Failed to fetch service data for facility_id: 127.
+Function: getServiceDetails
+Params: Array
+(
+    [0] => 127
+    [1] => undefined
+)
+
+SQL: SELECT id, facility_id, price, currency, slot_step FROM wp_ea_services WHERE id = 
+You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+
+[2021-09-25 12:06:26]=>	Failed to fetch service data for facility_id: 127.
+Function: getServiceDetails
+Params: Array
+(
+    [0] => 127
+    [1] => undefined
+)
+
+SQL: SELECT id, facility_id, price, currency, slot_step FROM wp_ea_services WHERE id = 
+You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+
+[2021-09-25 12:24:17]=>	Failed to fetch service data for facility_id: 127.
+Function: getServiceDetails
+Params: Array
+(
+    [0] => 127
+    [1] => telemedicine_service
+)
+
+SQL: SELECT id, facility_id, price, currency, slot_step FROM wp_ea_services WHERE id = 
+You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+
+[2021-09-25 12:24:32]=>	Failed to fetch service data for facility_id: 127.
+Function: getServiceDetails
+Params: Array
+(
+    [0] => 127
+    [1] => telemedicine_service
+)
+
+SQL: SELECT id, facility_id, price, currency, slot_step FROM wp_ea_services WHERE id = 
+You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+
+[2021-09-25 12:24:33]=>	Failed to fetch service data for facility_id: 127.
+Function: getServiceDetails
+Params: Array
+(
+    [0] => 127
+    [1] => telemedicine_service
+)
+
+SQL: SELECT id, facility_id, price, currency, slot_step FROM wp_ea_services WHERE id = 
+You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+
+[2021-09-25 12:24:34]=>	Failed to fetch service data for facility_id: 127.
+Function: getServiceDetails
+Params: Array
+(
+    [0] => 127
+    [1] => telemedicine_service
+)
+
+SQL: SELECT id, facility_id, price, currency, slot_step FROM wp_ea_services WHERE id = 
+You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+
+[2021-09-25 12:24:35]=>	Failed to fetch service data for facility_id: 127.
+Function: getServiceDetails
+Params: Array
+(
+    [0] => 127
+    [1] => telemedicine_service
+)
+
+SQL: SELECT id, facility_id, price, currency, slot_step FROM wp_ea_services WHERE id = 
+You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+
+[2021-09-25 12:49:43]=>	Failed to fetch service data for facility_id: 127.
+Function: getServiceDetails
+Params: Array
+(
+    [0] => 127
+    [1] => telemedicine_service
+)
+
+SQL: SELECT id, facility_id, price, currency, slot_step FROM wp_ea_services WHERE id = 
+You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+
+[2021-09-25 12:49:45]=>	Failed to fetch service data for facility_id: 127.
+Function: getServiceDetails
+Params: Array
+(
+    [0] => 127
+    [1] => telemedicine_service
+)
+
+SQL: SELECT id, facility_id, price, currency, slot_step FROM wp_ea_services WHERE id = 
+You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+
+[2021-09-25 12:49:46]=>	Failed to fetch service data for facility_id: 127.
+Function: getServiceDetails
+Params: Array
+(
+    [0] => 127
+    [1] => telemedicine_service
+)
+
+SQL: SELECT id, facility_id, price, currency, slot_step FROM wp_ea_services WHERE id = 
+You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+
+[2021-09-25 12:49:47]=>	Failed to fetch service data for facility_id: 127.
+Function: getServiceDetails
+Params: Array
+(
+    [0] => 127
+    [1] => telemedicine_service
+)
+
+SQL: SELECT id, facility_id, price, currency, slot_step FROM wp_ea_services WHERE id = 
+You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+
+[2021-09-27 8:23:46]=>	Failed to fetch service data for facility_id: 13.
+Function: getServiceDetails
+Params: Array
+(
+    [0] => 13
+    [1] => in_person_service
+)
+
+SQL: SELECT id, facility_id, price, currency, slot_step FROM wp_ea_services WHERE id = 
+You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+
