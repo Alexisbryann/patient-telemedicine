@@ -149,16 +149,22 @@
                         </div>
 
                         <div class="d-flex flex-column" id="appointment-type-container">
-                            <span class="mb-2">Select appointment type<span class="required"></span></span>
+                            <div class="form-group">
+                                <label for="appointment-type">Select appointment type<span class="required"></span></label>
+                                <select name="appointment-type" id="appointment-type" class="form-control" required>
+                                    <option value="in_person_service" selected>In person consultation</option>
+                                    <option value="telemedicine_service">Telemedicine consultation</option>
+                                </select>
+                            </div>
 
-                            <div class="form-check">
+                            <!-- <div class="form-check">
                                 <input class="form-check-input" type="radio" name="appointment-type" value="in_person_service" id="in-person-appointment" checked>
                                 <label class="form-check-label" for="in-person-appointment">In person appointment</label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="appointment-type" value="telemedicine_service" id="telemedicine-appointment">
                                 <label class="form-check-label" for="telemedicine-appointment">Telemedicine appointment</label>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
 
