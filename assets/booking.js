@@ -561,7 +561,7 @@ $("#book-inperson").steps({
 
         $("#medical-condition-description .modal-body").text(medical_condition_description.value);
 
-        $("#appointment-cost-display").text(in_person_settings.appointment_cost);
+        $("#appointment-cost-display").text(new Intl.NumberFormat().format(in_person_settings.appointment_cost));
 
         $(`input[name='radio-button'][value='${currentIndex}']`).addClass("visited-step");
 
