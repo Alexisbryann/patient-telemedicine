@@ -30,6 +30,10 @@ class DB_Functions {
 
     }
 
+    private $africastalking_username = "myhealthafrica";
+    private $africastalking_api_key = "2a058bb5b78798effe6f25520b10f3fc518798e800b07d0e5afff887a3c766c4";
+    private $africastalking_sender_name = "MyHealthAfr";
+    
     private $facility_data =
     [
         127 => ["in_person_service" => 216, "location" => 145, "telemedicine_service" => 218],
@@ -143,8 +147,8 @@ class DB_Functions {
 
         if ($appointment_type == "inperson") {
             $facility_details = mysqli_fetch_assoc(mysqli_query($db, "SELECT name, email, phone FROM wp_ea_staff WHERE id = $facility_id"));
-            $service_details = mysqli_fetch_assoc(mysqli_query($db, "SELECT name, currency, price FROM wp_ea_services WHERE id = {$facility_services[$facility_id]['service']}"));
-            $location_details = mysqli_fetch_assoc(mysqli_query($db, "SELECT name, street, district, city, address FROM wp_ea_locations WHERE id = {$facility_services[$facility_id]['location']}"));
+            $service_details = mysqli_fetch_assoc(mysqli_query($db, "SELECT name, currency, price FROM wp_ea_services WHERE id = {$this->facility_data[$facility_id]['in_person_service']}"));
+            $location_details = mysqli_fetch_assoc(mysqli_query($db, "SELECT name, street, district, city, address FROM wp_ea_locations WHERE id = {$this->facility_data[$facility_id]['location']}"));
 
             $weekday = date("l", strtotime($date));
 
@@ -221,7 +225,7 @@ class DB_Functions {
                         $field_value = $value;
                     }
                 }
-                if (in_array($field, [1,2,7,15,16,20])) {
+                if (in_array($field, [1, 2, 7, 15, 16, 20]) || $appointment_type == "in-person") {
                     $enc_iv = ''; $enc_key = '';
                 } else{
                     $enc_iv = $ivBase64; $enc_key = $keyBase64;
@@ -1596,6 +1600,7 @@ class DB_Functions {
         $serviceId = $service_details["id"];
         $doctorId = $service_details["facility_id"];
         date_default_timezone_set('Africa/Nairobi');
+        $selected_date = implode("-", array_reverse(explode("/", $selected_date)));
         $dayOfWeek = date("l", strtotime($selected_date));
 
         $output = array();
@@ -1660,6 +1665,129 @@ class DB_Functions {
 
         return $filteredTimeSlots;
     }
+
+    public function processFlutterwavePayment(
+        int $appointment_id,
+        array $rave
+    ) {
+        /**
+         * Records flutterwave transaction response to database.
+         * Checks if amount paid is same as the expected amount
+         * Marks the appointment being paid for as paid if the amount is right
+         * Sends confirmation sms to the patient phone number
+         * 
+         * @param string $appointment_id appointment id
+         * @param array $rave flutterwave response array
+         * 
+         * @return array contains error message if any, or empty if none
+         */
+
+        $db = $this->conn;
+        $date = new DateTimeImmutable("now", new DateTimeZone("+3"));
+
+        if (!in_array($rave["status"], ["success", "successful"])) {
+            $this->logError(__FUNCTION__, func_get_args(), "Flutterwave transaction failed.");
+            return ["error" => "flutterwave transaction was unsuccessful.", "error_code" => 5];
+        }
+
+        // parsed this way because sometimes flutterwave response has empty strings on some keys, that cause query to fail because of sql_mode on the server at the time of writing this code
+        $query_fields = array("tx_ref", "raveRef");
+        $query_fields["txRef"] = !empty($rave["txRef"]) ? "`txRef`," : '';
+        $query_fields["raveRef"] = !empty($rave["raveRef"]) ? "`raveRef`," : '';
+
+        $query_values = array("tx_ref", "raveRef");
+        $query_values["txRef"] = !empty($rave["txRef"]) ? "'" . $rave["txRef"] . "'," : '';
+        $query_values["raveRef"] = !empty($rave["raveRef"]) ? "'" . $rave["raveRef"] . "'," : '';
+
+        // store transaction data to database
+        $transaction_sql = "INSERT INTO `wave_transactions`(`status`, `trx_id`,  {$query_fields['txRef']} `flwRef`, `device_fingerprint`, `amount`, `charged_amount`, `appfee`, `chargeResponseCode`, {$query_fields['raveRef']} `chargeResponseMessage`, `authModelUsed`, `currency`, `narration`, `acctvalrespmsg`, `paymentType`, `fraud_status`, `createdAt`, `updatedAt`, `customer_phone`, `customer_email`, `customer_name`, `date_added`) VALUES ('{$rave['status']}','{$rave["id"]}',{$query_values['txRef']} '{$rave["flwRef"]}','{$rave["device_fingerprint"]}','{$rave["amount"]}','{$rave["charged_amount"]}','{$rave["appfee"]}','{$rave["chargeResponseCode"]}', {$query_values['raveRef']}'" . mysqli_real_escape_string($db, trim($rave["chargeResponseMessage"])) . "','{$rave["authModelUsed"]}','{$rave["currency"]}','" . trim($rave["narration"]) . "','{$rave["acctvalrespmsg"]}','{$rave["paymentType"]}','{$rave["fraud_status"]}','{$rave["createdAt"]}','{$rave["updatedAt"]}','{$rave["customer.phone"]}','{$rave["customer.email"]}','{$rave["customer.fullName"]}','{$date->format('Y-m-d H:i:s')}')";
+
+        mysqli_query($db, $transaction_sql);
+        if (mysqli_error($db)) {
+            $this->logError(__FUNCTION__, func_get_args(), "Failed to store transaction data.", $transaction_sql, mysqli_error($db));
+            return ["error" => "Failed to save transaction to database.", "error_code" => 6];
+        }
+
+        $appointment_details = mysqli_fetch_assoc(mysqli_query($db, "SELECT service, date, start, name, phone FROM wp_ea_appointments, wp_ea_staff WHERE wp_ea_appointments.worker = wp_ea_staff.id AND wp_ea_appointments.id = '$appointment_id'"));
+
+        $service_details = mysqli_fetch_assoc(mysqli_query($db, "SELECT price, currency FROM wp_ea_services WHERE id = '{$appointment_details["service"]}'"));
+
+        if ($service_details["price"] < $rave["amount"]) {
+            $this->logError(__FUNCTION__, func_get_args(), "Insufficient amount paid.");
+            return ["error" => "Insufficient amount paid.", "error_code" => 7];
+        }
+
+        // mark appointment as paid
+        mysqli_query($db, "UPDATE wp_ea_appointments SET status = 'pending' WHERE id = '$appointment_id'");
+
+        if (mysqli_error($db)) {
+            $this->logError(__FUNCTION__, func_get_args(), "Failed to update appointment to paid.", "UPDATE wp_ea_appointments SET status = 'panding' WHERE id = '$appointment_id'", mysqli_error($db));
+        }
+
+        // get patient name
+        $patient_names_qry = mysqli_query($db, "SELECT field_id, value FROM wp_ea_fields WHERE app_id = '$appointment_id' AND field_id IN (2, 7, 8)");
+        $first_name = $last_name = $patient_phone = "";
+        while ($patient_details = mysqli_fetch_assoc($patient_names_qry)) {
+            switch ($patient_details["field_id"]) {
+                case '2':
+                    $first_name = $patient_details["value"];
+                    break;
+                case '7':
+                    $last_name = $patient_details["value"];
+                    break;
+                case '8':
+                    $patient_phone = $patient_details["value"];
+                    break;
+            }
+        }
+
+        // send confirmation sms
+        $this->sendTelemedicineConfirmationSMS(
+            $patient_phone,
+            trim("$first_name $last_name"),
+            $appointment_details["date"],
+            $appointment_details["start"],
+            $appointment_details["name"],
+            $appointment_details["phone"]
+        );
+
+        return array();
+    }
+
+    private function sendTelemedicineConfirmationSMS(
+        $patient_phone,
+        $patient_name,
+        $appointment_date,
+        $appointment_time,
+        $facility_name,
+        $facility_phone
+    ) {
+        $africastalking_gateway = new AfricasTalkingGateway($this->africastalking_username, $this->africastalking_api_key);
+
+        $appointment_date = date("d/m/Y", strtotime($appointment_date));
+
+        $patient_message = "$doctor_name has confirmed your telemedicine appointment on $appointment_date at $appointment_time. Log in to your account at https://myhealthafrica.com/patient-login to manage your appointments.";
+
+        $facility_message = "Your telemedicine appointment with $patient_name on $appointment_date at $appointment_time has been confirmed. Log in to your account at https://myhealthafrica.com/myonemedpro/login to manage your appointments.";
+
+        try {
+            $africastalking_gateway->sendMessage(
+                $patient_phone,
+                $patient_message,
+                $this->africastalking_sender_name
+            );
+        } catch (AfricasTalkingGatewayException $e) {
+            $this->logError(__FUNCTION__, func_get_args(), "Failed to send patient telemedicine appointment confirmation SMS.", "", $e->getMessage());
+        }
+
+        // try {
+        //     $africastalking_gateway->sendMessage(
+        //         $facility_phone,
+        //         $facility_message,
+        //         $this->africastalking_sender_name
+        //     );
+        // } catch (AfricasTalkingGatewayException $e) {
+        //     $this->logError(__FUNCTION__, func_get_args(), "Failed to send facility telemedicine appointment confirmation SMS.", "", $e->getMessage());
+        // }
+    }
 }
- 
-?>
