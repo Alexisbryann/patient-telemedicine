@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- BEGIN HEAD -->
-<?php $inclusions_version = 1 ?>
+<?php $inclusions_version = 0 ?>
 
 <head>
     <meta charset="utf-8" />
@@ -156,15 +156,6 @@
                                     <option value="telemedicine_service">Telemedicine consultation</option>
                                 </select>
                             </div>
-
-                            <!-- <div class="form-check">
-                                <input class="form-check-input" type="radio" name="appointment-type" value="in_person_service" id="in-person-appointment" checked>
-                                <label class="form-check-label" for="in-person-appointment">In person appointment</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="appointment-type" value="telemedicine_service" id="telemedicine-appointment">
-                                <label class="form-check-label" for="telemedicine-appointment">Telemedicine appointment</label>
-                            </div> -->
                         </div>
                     </div>
 
@@ -239,17 +230,17 @@
             <div class="row md-col" style="margin-left: 15px;margin-right: 15px;margin-bottom: 15px;">
                 <div class="patient-details input-grp col-12 col-md-8">
 
-                    <div class="col-12 col-md-6 mt-i">
+                    <div class="col-12 col-md-6">
                         <label>Full name<span class="required"></span></label>
                         <input type="text" id="name" name="name" class="form-control" placeholder="Full name" required />
                         <div id="name-error" class="col-12 col-md-12 error" style="display: none;"></div>
                     </div>
-                    <div class="col-12 col-md-6 mt-i">
+                    <div class="col-12 col-md-6">
                         <label>Email address<span class="required"></span></label>
                         <input type="email" id="email" name="email" class="form-control" placeholder="Email address" required />
                         <div id="email-error" class="col-12 col-md-12 error" style="display: none;"></div>
                     </div>
-                    <div class="col-12 col-md-6 mt-i">
+                    <div class="col-12 col-md-6">
                         <label>Gender<span class="required"></span></label>
                         <select id="gender" name="gender" class="form-control" required>
                             <option selected disabled value="">Select gender</option>
@@ -259,12 +250,12 @@
                         </select>
                         <div id="gender-error" class="col-12 col-md-12 error" style="display: none;"></div>
                     </div>
-                    <div class="col-12 col-md-6 mt-i">
+                    <div class="col-12 col-md-6">
                         <label>Phone number<span class="required"></span></label>
                         <input type="text" id="phone" name="phone" class="form-control" placeholder="Phone number" required />
                         <div id="phone-error" class="col-12 col-md-12 error" style="display: none;"></div>
                     </div>
-                    <div class="col-12 col-md-6 mt-i">
+                    <div class="col-12 col-md-6">
                         <label>Date of birth<span class="required"></span></label>
                         <input type="date" id="dob" name="dob" class="form-control" placeholder="Date of birth" max="<?php echo date("Y-m-d") ?>" step="1" required />
                         <div id="dob-error" class="col-12 col-md-12 error" style="display: none;"></div>
@@ -274,6 +265,26 @@
 
                 <input type="hidden" name="clinic" value="psi" hidden />
                 <input type="hidden" name="operation" value="booking" hidden />
+            </div>
+            <div class="border-top d-none" id="guardian-details">
+                <div class="row md-col mx-3">
+                    <span class="w-100 text-center my-2 h6">Fill in the guardian's details</span>
+
+                    <div class="col-12 col-md-6">
+                        <label>Full name<span class="required"></span></label>
+                        <input type="text" id="guardian-name" name="guardian-name" class="form-control" placeholder="Guardian's full name" disabled>
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                        <label>Phone number<span class="required"></span></label>
+                        <input type="text" id="guardian-phone" name="guardian-phone" class="form-control" placeholder="Guardian's phone number" disabled>
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                        <label>Email address<span class="required"></span></label>
+                        <input type="email" id="guardian-email" name="guardian-email" class="form-control" placeholder="Guardian's email address" disabled>
+                    </div>
+                </div>
             </div>
         </fieldset>
         <h3></h3>
@@ -287,7 +298,7 @@
                         <div class="preview-details-container">
                             <div class="w-100 d-flex flex-column">
                                 <span class="preview-detail-label">Medical concern</span>
-                                <span class="preview-detail" id="concern-preview">Preview detail</span>
+                                <span class="preview-detail pr-2" id="concern-preview">Preview detail</span>
                             </div>
                             <div class="w-100 d-flex flex-column">
                                 <span class="preview-detail-label">Appointment type</span>
@@ -341,6 +352,25 @@
                         <div class="preview-details-container flex-column">
                             <span class="w-100 preview-detail-label">Date of birth</span>
                             <span class="preview-detail" id="dob-preview">Preview detail</span>
+                        </div>
+                        <div class="d-none" id="guardian-details-preview">
+                            <strong class="mb-2">Guardian's Details</strong>
+                            <div class="preview-details-container flex-wrap">
+                                <div class="mw-25 mr-2 d-flex flex-column">
+                                    <span class="preview-detail-label">Full name</span>
+                                    <span class="preview-detail" id="guardian-name-preview">Preview detail</span>
+                                </div>
+                                <div class="mw-75 d-flex flex-column">
+                                    <span class="preview-detail-label">Email address</span>
+                                    <span class="preview-detail" id="guardian-email-preview">Preview detail</span>
+                                </div>
+                            </div>
+                            <div class="preview-details-container flex-wrap">
+                                <div class="mw-25 mr-2 d-flex flex-column">
+                                    <span class="preview-detail-label">Phone number</span>
+                                    <span class="preview-detail" id="guardian-phone-preview">Preview detail</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="w-50 w-100-md border d-flex flex-column pt-3">
