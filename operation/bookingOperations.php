@@ -56,7 +56,10 @@ if (isset($_POST["operation"])) {
             $service,
             $facility_id ?? null,
             $medical_concern ?? null,
-            $_POST["manual-booking"] ?? 0
+            $_POST["manual-booking"] ?? 0,
+            $_POST["guardian-name"] ?? null,
+            $_POST["guardian-phone"] ?? null,
+            $_POST["guardian-email"] ?? null
 		);
         
 		if ($user != false) {

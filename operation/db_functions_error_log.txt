@@ -1737,3 +1737,25 @@ Params: Array
 SQL: SELECT id, facility_id, price, currency, slot_step FROM wp_ea_services WHERE id = 
 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
 
+[2021-09-28 9:48:17]=>	Failed to fetch service data for facility_id: 13.
+Function: getServiceDetails
+Params: Array
+(
+    [0] => 13
+    [1] => in_person_service
+)
+
+SQL: SELECT id, facility_id, price, currency, slot_step FROM wp_ea_services WHERE id = 
+You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+
+[2021-09-28 9:48:25]=>	Failed to fetch service data for facility_id: 13.
+Function: getServiceDetails
+Params: Array
+(
+    [0] => 13
+    [1] => in_person_service
+)
+
+SQL: SELECT id, facility_id, price, currency, slot_step FROM wp_ea_services WHERE id = 
+You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+

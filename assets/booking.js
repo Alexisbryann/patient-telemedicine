@@ -495,7 +495,7 @@ $("#book-inperson").steps({
                 step: 1
             },
             patient_phone: {
-                validity: validatePhoneNumber($("#phone").val()),
+                validity: validatePhoneNumber($("#phone").val(), $("#phone")),
                 error_message: "Please enter a valid phone number",
                 value: $(`#phone`).val(),
                 element: $("#phone"),
@@ -510,17 +510,40 @@ $("#book-inperson").steps({
                 preview_element: $(`#dob-preview`),
                 step: 1
             },
+            guardian_name: {
+                validity: $("#guardian-name")[0].checkValidity(),
+                error_message: "Please enter the guardian's name",
+                value: $(`#guardian-name`).val(),
+                element: $("#guardian-name"),
+                preview_element: $(`#guardian-name-preview`),
+                step: 1
+            },
+            guardian_phone: {
+                validity: validatePhoneNumber($("#guardian-phone").val(), $("#guardian-phone")),
+                error_message: "Please enter the guardian's phone number",
+                value: $(`#guardian-phone`).val(),
+                element: $("#guardian-phone"),
+                preview_element: $(`#guardian-phone-preview`),
+                step: 1
+            },
+            guardian_email: {
+                validity: $("#guardian-email")[0].checkValidity(),
+                error_message: "Please enter the guardian's email address",
+                value: $(`#guardian-email`).val(),
+                element: $("#guardian-email"),
+                preview_element: $(`#guardian-email-preview`),
+                step: 1
+            },
         }
 
         for (const key in validation_options) {
             if (Object.hasOwnProperty.call(validation_options, key)) {
                 const validation_element = validation_options[key];
 
-                if (validation_element.step !== currentIndex) continue;
+                if (validation_element.step !== currentIndex || validation_element.element.prop("disabled")) continue;
 
                 if (!validation_element.validity) {
                     all_elements_valid = false;
-
 
                     setTimeout(() => {
                         $("#step-0-error-display").text("");
@@ -619,7 +642,6 @@ $("#book-inperson").steps({
             dataType: "json",
             success: function (response) {
                 if (response.response == 200) {
-
                     if (in_person_settings.appointment_type == "telemedicine_service") {
                         flutterWavePayment(response.id, $("#name").val(), $("#phone").val(), $("#email").val(), 1);
                     } else {
@@ -635,6 +657,7 @@ $("#book-inperson").steps({
                         });
 
                         $("#book-inperson")[0].reset();
+                        $("#facility").val(in_person_settings.facility_id);
                         $("#book-inperson").steps("reset");
                     }
                 } else {
@@ -842,11 +865,14 @@ $("[name=medical-concern]").on("change", function () {
     $(this).addClass("selected");
 });
 
-function validatePhoneNumber(input) {
+function validatePhoneNumber(input, element) {
     /**
-     * Validates phone number. Allows input starting with +, starting with 254, starting with 0, starting with 1, starting with 7, longer than 10 characters.
+     * Validates phone number.
+     * Allows input starting with +, starting with 254, starting with 0, starting with 1, starting with 7, longer than 10 characters.
+     * Sanitizes value of input parameter if parent element is provided.
      *
      * @param string input input phone number string
+    * @param jQuery element input element whose value is to be updated
      *
      * @return string formatted phone number
      */
@@ -859,7 +885,7 @@ function validatePhoneNumber(input) {
         || !input_sanitized.match(/^\+[0-9]{10,14}$/)
     ) return false;
 
-    $("#phone").val(input_sanitized);
+    element.val(input_sanitized);
 
     return input_sanitized;
 }
@@ -977,3 +1003,28 @@ function flutterWavePayment(
 }
 
 $(in_person_settings.disclaimer_text).insertAfter(`.actions.clearfix`);
+
+// check if age is less 18 years
+$("#dob").on("change", function () {
+    if (ageLessThanEighteenYears($(this).val())) {
+        $("#guardian-details, #guardian-details-preview").removeClass("d-none").find("input").prop({ "required": true, "disabled": false });
+    } else {
+        $("#guardian-details, #guardian-details-preview").addClass("d-none").find("input").prop({ "required": false, "disabled": true });
+    }
+});
+
+function ageLessThanEighteenYears(date_of_birth_value) {
+    /**
+     * Checks if age is less than eighteen years
+     * 
+     * @param Date date_of_birth date of birth
+     * 
+     * @return boolean. true if age is less than 18, false otherwise
+     */
+
+    const today = new Date(),
+        date_of_birth = new Date(date_of_birth_value),
+        dates_difference = today.getTime() - date_of_birth.getTime();
+
+    return dates_difference / (365.25 * 24 * 60 * 60 * 1000) < 18;
+}
