@@ -1,5 +1,5 @@
 <?php
-include('../../myonemedpro/functions.php');
+include("{$_SERVER["DOCUMENT_ROOT"]}/myonemedpro/functions.php");
 
 $inclusions_version = 2;
 function clean_str($string)
@@ -17,6 +17,7 @@ if (empty($_GET["user_type"]) || empty($_GET["app_id"])) die(http_response_code(
 $user_type = ucfirst(strtolower($_GET["user_type"]));
 $appointment_id = base64_decode($_GET["app_id"]);
 $patient_id = mysqli_fetch_assoc(mysqli_query($db, "SELECT user FROM wp_ea_appointments WHERE id = $appointment_id"))["user"];
+echo mysqli_error($db);
 $patient_data_result = mysqli_query($db, "SELECT value, field_id FROM wp_ea_fields WHERE app_id = $appointment_id AND field_id IN (2, 7)");
 $patient_first_name = $patient_last_name = "";
 
@@ -75,10 +76,17 @@ switch ($user_type) {
     <link rel="shortcut icon" type="image/x-icon" href="https://www.myhealthafrica.com/wp-content/uploads/2018/05/MyHealthAfrica_sd3-final-heart.png">
     <link rel="stylesheet" type="text/css" href="../../myonemedpro/css/font-awesome.min.css?v=<?php echo $inclusions_version ?>">
     <link rel="stylesheet" type="text/css" href="../../myonemedpro/assets/bundles/bootstrap/css/bootstrap.min.css?v=<?php echo $inclusions_version ?>">
+    <link rel="stylesheet" type="text/css" href="../../myonemedpro/assets/bundles/steps/steps.css?v=<?php echo $inclusions_version ?>">
+    <link rel="stylesheet" type="text/css" href="../../myonemedpro/assets/bundles/jquery-toast-plugin-master/jquery.toast.min.css?v=<?php echo $inclusions_version ?>">
+    <link rel="stylesheet" type="text/css" href="../../myonemedpro/css/theme_style.css?v=<?php echo $inclusions_version ?>">
+
     <link href="css/telemedicine.css?v=<?php echo $inclusions_version ?>" type="text/css" rel="stylesheet" />
+    <link href="css/telemedicine-prescription.css?v=<?php echo $inclusions_version ?>" type="text/css" rel="stylesheet" />
 
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js?v=<?php echo $inclusions_version ?>"></script>
     <script type="text/javascript" src="../../myonemedpro/assets/bundles/bootstrap/js/bootstrap.min.js?v=<?php echo $inclusions_version ?>"></script>
+    <script type="text/javascript" src="../../myonemedpro/assets/bundles/steps/jquery.steps.js?v=<?php echo $inclusions_version ?>"></script>
+    <script type="text/javascript" src="../../myonemedpro/assets/bundles/jquery-toast-plugin-master/jquery.toast.min.js"></script>
 </head>
 
 
@@ -107,18 +115,24 @@ switch ($user_type) {
             </div>
         </div>
 
-        <span id="leave-room-btn" title="Leave Consultation" data-toggle="modal" data-target="#leave-room-modal">Leave Virtual Room</span>
+        <span id="leave-room-btn" title="Leave Consultation">Leave Virtual Room</span>
         <!-- Telemedicine video room iframe -->
-        <iframe id="telemed-iframe" src="https://video-app-9155-dev.twil.io?new_room_name=<?php echo $video_room_name ?>&new_patient_name=<?php echo $room_participant_name ?>&passcode=3574959155" allow="camera;microphone" loading="eager" title="My Health Africa telemedicine consultation virtual room" data-user_type="<?php echo $user_type ?>" data-appointment_id="<?php echo $appointment_id ?>" data-user_id="<?php echo $user ?>" data-recipient_id="<?php echo $chat_recipient ?>" data-chat_recipient_name="<?php echo $chat_recipient_name ?>"></iframe>
+        <iframe id="telemed-iframe" src="https://video-app-9155-dev.twil.io?new_room_name=<?php echo $video_room_name ?>&new_patient_name=<?php echo $room_participant_name ?>&passcode=3574959155" loading="eager" title="My Health Africa telemedicine consultation virtual room" data-user_type="<?php echo $user_type ?>" data-appointment_id="<?php echo $appointment_id ?>" data-user_id="<?php echo $user ?>" data-recipient_id="<?php echo $chat_recipient ?>" data-chat_recipient_name="<?php echo $chat_recipient_name ?>"></iframe>
 
         <?php
-        if ($user_type == "Doc") require_once("virtual-room-notes.html"); // only display case notes if user is a doctor
+        if ($user_type == "Doc") { // only display case notes if user is a doctor
+            require_once("virtual-room-notes.html");
+            require("prescription-lab-request-modal.php");
+        }
         require_once("virtual-room-chat.php");
         ?>
 
     </main>
 
     <script type="text/javascript" src="js/telemedicine.js?v=<?php echo $inclusions_version ?>"></script>
+    <script type="text/javascript" src="js/telemedicine-prescription.js?v=<?php echo $inclusions_version ?>"></script>
+    <script type="text/javascript" src="../../myonemedpro/assets/bundles/modal/modal-steps.min.js?v=<?php echo $inclusions_version ?>"></script>
+    <script type=" text/javascript" src="../../myonemedpro/assets/ePrescriptonModal.js?v=<?php echo $inclusions_version ?>"></script>
 </body>
 
 </html>

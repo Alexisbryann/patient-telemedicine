@@ -45,8 +45,9 @@ $(function () {
         removeFileUpload(uploaded_files[file_designation], $(this));
     });
 
-    $("#save-notes-button").on("click", function () {
-        const case_note_text = $("#notes-textarea").val(),
+    $("#save-notes-button, #notes-review-save").on("click", function () {
+        const target_element_id = $(this).data("target"),
+            case_note_text = $(`#${target_element_id}`).val(),
             appointment_id = chat_app_settings.appointment_id;
 
         saveCaseNotes(uploaded_files.notes, uploaded_files.notes.slice(notes_settings.uploads_start_index), case_note_text, appointment_id, $(this), notes_settings);
@@ -136,6 +137,21 @@ $(function () {
     } else {
         $("#notes-btn-container").remove();
     }
+
+    $("#consultation-review-modal").on("shown.bs.modal", function () {
+        const notes_text = $("#notes-textarea").val();
+        $("#notes-review-textarea").val(notes_text);
+
+        if (notes_text.length > 0) {
+            $("#notes-review-save").text("Update");
+        } else {
+            $("#notes-review-save").text("Save");
+        }
+    });
+
+    $("#leave-room-btn").on("click", function () {
+        chat_app_settings.user_type === "Doc" ? $("#consultation-review-modal").modal("show") : $("#leave-room-modal").modal("show");
+    });
 });
 
 function addFileUpload(files_field, files_display_container, uploaded_files, error_message_container, file_designation = "notes") {
@@ -238,7 +254,7 @@ function saveCaseNotes(all_uploads, new_files, case_note_text, appointment_id, c
     });
 
     $.ajax({
-        url: "../../operation/addCaseNotes.php",
+        url: "operation/addCaseNotes.php",
         method: "POST",
         data: case_note_form_data,
         processData: false,
