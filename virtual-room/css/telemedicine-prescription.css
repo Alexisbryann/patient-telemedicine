@@ -1,0 +1,23 @@
+#addNewPrescription .steps {
+    display: none;
+}
+
+#addNewPrescription.wizard>.content {
+    border: none;
+    margin: 0;
+}
+
+#addNewPrescription .input-group>div {
+    padding-left: 0;
+}
+
+#addNewPrescription.wizard>.actions a, #addNewPrescription.wizard>.actions a:hover, .wizard>.actions a:active {
+    background-color: var(--success);
+    padding: 0 1em;
+    border-radius: 2px;
+}
+
+#consultation-review-modal .nav-link:not(.active) {
+    border: 1px solid silver;
+    color: gray;
+}
