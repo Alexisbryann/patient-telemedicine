@@ -1,17 +1,17 @@
-#addNewPrescription .steps {
+.telemed-forms .steps {
     display: none;
 }
 
-#addNewPrescription.wizard>.content {
+.telemed-forms.wizard>.content {
     border: none;
     margin: 0;
 }
 
-#addNewPrescription .input-group>div {
+.telemed-forms .input-group>div {
     padding-left: 0;
 }
 
-#addNewPrescription.wizard>.actions a, #addNewPrescription.wizard>.actions a:hover, .wizard>.actions a:active {
+.telemed-forms.wizard>.actions a, .telemed-forms.wizard>.actions a:hover, .wizard>.actions a:active {
     background-color: var(--success);
     padding: 0 1em;
     border-radius: 2px;

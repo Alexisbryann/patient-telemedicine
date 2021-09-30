@@ -25,34 +25,57 @@
                         <span class="btn btn-success mt-2 float-right py-1" id="notes-review-save" data-target="notes-review-textarea">Save</span>
                     </div>
                     <div class="tab-pane fade mx-2" id="prescription" role="tabpanel" aria-labelledby="prescription-tab">
-                        <form role="form" name="addNewPrescription" id="addNewPrescription" method="post" enctype="multipart/form-data">
+                        <form class="telemed-forms" role="form" name="addNewPrescription" id="addNewPrescription" method="post" enctype="multipart/form-data">
                             <!-- prescription details step -->
                             <h4></h4>
                             <section>
                                 <h3>Prescription details</h3>
-                                <?php require "../../myonemedpro/e-prescription-details-section.html" ?>
+                                <?php require "{$_SERVER['DOCUMENT_ROOT']}/myonemedpro/e-prescription-details-section.html" ?>
                             </section>
 
                             <!-- prescription confirmation step -->
                             <h4></h4>
                             <section>
                                 <h3>Confirm and send</h3>
-                                <?php require "../../myonemedpro/e-prescription-confirmation-section.html" ?>
+                                <?php require "{$_SERVER['DOCUMENT_ROOT']}/myonemedpro/e-prescription-confirmation-section.html" ?>
                             </section>
-                            <input name="patient_firstname" type="hidden">
-                            <input name="patient_lastname" type="hidden">
-                            <input name="patient_gender" type="hidden">
-                            <input name="patient_dob" type="hidden">
-                            <input name="patient_email" type="hidden">
-                            <input name="patient_phone" type="hidden">
+                            <input id="patient_firstname" name="patient_firstname" type="hidden">
+                            <input id="patient_lastname" name="patient_lastname" type="hidden">
+                            <input id="patient_gender" name="patient_gender" type="hidden">
+                            <input id="patient_dob" name="patient_dob" type="hidden">
+                            <input id="patient_email" name="patient_email" type="hidden">
+                            <input id="patient_phone" name="patient_phone" type="hidden">
                             <input name="doctorPostId" type="hidden" value="<?php echo $_SESSION['doctorid']["dr_post_id"] ?>">
                         </form>
                     </div>
                     <div class="tab-pane fade mx-2" id="lab-request" role="tabpanel" aria-labelledby="lab-request-tab">
-                        lab request</div>
+                        <form class="telemed-forms" role="form" name="diagnosticsForm" id="diagnosticsForm" method="post" enctype="multipart/form-data">
+                            <!-- prescription details step -->
+                            <h4></h4>
+                            <section>
+                                <h3>Lab request details</h3>
+                                <?php require "{$_SERVER['DOCUMENT_ROOT']}/myonemedpro/diagnostics-test-details-section.html" ?>
+                            </section>
+
+                            <!-- prescription confirmation step -->
+                            <h4></h4>
+                            <section>
+                                <h3>Confirm and send</h3>
+                                <?php require "{$_SERVER['DOCUMENT_ROOT']}/myonemedpro/diagnostics-confirm-details-section.html" ?>
+                            </section>
+                            <input id="patient_diagnostic_firstname" name="patient_diagnostic_firstname" type="hidden">
+                            <input id="patient_diagnostic_lastname" name="patient_diagnostic_lastname" type="hidden">
+                            <input id="patient_diagnostic_gender" name="patient_diagnostic_gender" type="hidden">
+                            <input id="patient_diagnostic_dob" name="patient_diagnostic_dob" type="hidden">
+                            <input id="patient_diagnostic_email" name="patient_diagnostic_email" type="hidden">
+                            <input id="patient_diagnostic_phone" name="patient_diagnostic_phone" type="hidden">
+                            <input name="doctorDiagnosticPostId" type="hidden" value="<?php echo $_SESSION['doctorid']["dr_post_id"] ?>">
+                        </form>
+                    </div>
                 </div>
             </div>
             <div class="modal-footer">
+                <span class="border btn-secondary px-2 mr-auto mr-md-2" data-dismiss="modal"><a>Close</a></span>
                 <span class="border px-2 d-flex align-items-center" title="Return to the queue."><a href="https://www.myhealthafrica.com/myonemedpro/medondemand">Return to queue&nbsp;&nbsp;</a><i class="fa fa-chevron-right"></i></span>
             </div>
         </div>

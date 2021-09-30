@@ -81,7 +81,7 @@ switch ($user_type) {
     <link rel="stylesheet" type="text/css" href="../../myonemedpro/css/theme_style.css?v=<?php echo $inclusions_version ?>">
 
     <link href="css/telemedicine.css?v=<?php echo $inclusions_version ?>" type="text/css" rel="stylesheet" />
-    <link href="css/telemedicine-prescription.css?v=<?php echo $inclusions_version ?>" type="text/css" rel="stylesheet" />
+    <link href="css/telemedicine-prescription-diagnostics.css?v=<?php echo $inclusions_version ?>" type="text/css" rel="stylesheet" />
 
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js?v=<?php echo $inclusions_version ?>"></script>
     <script type="text/javascript" src="../../myonemedpro/assets/bundles/bootstrap/js/bootstrap.min.js?v=<?php echo $inclusions_version ?>"></script>
@@ -130,9 +130,10 @@ switch ($user_type) {
     </main>
 
     <script type="text/javascript" src="js/telemedicine.js?v=<?php echo $inclusions_version ?>"></script>
-    <script type="text/javascript" src="js/telemedicine-prescription.js?v=<?php echo $inclusions_version ?>"></script>
+    <script type="text/javascript" src="js/telemedicine-prescription-diagnostics.js?v=<?php echo $inclusions_version ?>"></script>
     <script type="text/javascript" src="../../myonemedpro/assets/bundles/modal/modal-steps.min.js?v=<?php echo $inclusions_version ?>"></script>
     <script type=" text/javascript" src="../../myonemedpro/assets/ePrescriptonModal.js?v=<?php echo $inclusions_version ?>"></script>
+    <script type=" text/javascript" src="../../myonemedpro/assets/addDiagnosticModal.js?v=<?php echo $inclusions_version ?>"></script>
 </body>
 
 </html>
