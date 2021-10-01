@@ -65,6 +65,7 @@ form.steps({
                     $("a[href$='previous']").show();
                     document.getElementById("appointment").checked = false;
                     document.getElementById("confirm").checked = true;
+                    $(`input[name='radio-button'][value='${currentIndex}']`).addClass("visited-step");
                     return true;
                 }
             } else if (currentIndex === 1) {
@@ -78,6 +79,7 @@ form.steps({
         }
     },
     onStepChanged: function (event, currentIndex, priorIndex) {
+        $(`input[name='radio-button'][value='${currentIndex}']`).removeClass("visited-step");
         $(`input[name='radio-button'][value='${currentIndex}']`).click();
         const step_titles = {
             0: "Patient Details",
@@ -597,6 +599,7 @@ $("#book-inperson").steps({
     },
     onStepChanged: function (event, currentIndex, priorIndex) {
         $(`input[name='radio-button'][value='${currentIndex}']`).click();
+        $(`input[name='radio-button'][value='${currentIndex}']`).removeClass("visited-step");
         const step_titles = {
             0: "Appointment Details",
             1: "Patient Details",

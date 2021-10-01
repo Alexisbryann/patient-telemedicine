@@ -1091,10 +1091,6 @@ div.testGroup {
     display: none;
 }
 
-.booking-step label>span {
-    font-weight: bold;
-}
-
 .booking-step label>input[type="radio"]+*::before {
     content: "";
     display: inline-block;
@@ -1108,12 +1104,17 @@ div.testGroup {
 }
 
 .booking-step label>input[type="radio"]:checked+*::before {
-    border: 4px solid #F7941C;
-    background-color: none;
+    border: 4px solid #f7941c!important;
+    background-color: none!important;
+}
+
+.booking-step label>input[type="radio"]:checked+span {
+    font-weight: 600;
 }
 
 .booking-step label .visited-step+*::before {
-    background-color: #F7941C;
+    background-color: #fbc98d;
+    border: none!important;
 }
 
 .booking-step label>input[type="radio"]+* {
