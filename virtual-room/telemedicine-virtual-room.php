@@ -1,7 +1,7 @@
 <?php
 include("{$_SERVER["DOCUMENT_ROOT"]}/myonemedpro/functions.php");
 
-$inclusions_version = 2;
+$inclusions_version = 0;
 function clean_str($string)
 {
     $remove_single_ap = str_replace("'", "_", $string);
@@ -74,11 +74,11 @@ switch ($user_type) {
 
     <title>My Health Africa Telemedicine</title>
     <link rel="shortcut icon" type="image/x-icon" href="https://www.myhealthafrica.com/wp-content/uploads/2018/05/MyHealthAfrica_sd3-final-heart.png">
-    <link rel="stylesheet" type="text/css" href="../../myonemedpro/css/font-awesome.min.css?v=<?php echo $inclusions_version ?>">
-    <link rel="stylesheet" type="text/css" href="../../myonemedpro/assets/bundles/bootstrap/css/bootstrap.min.css?v=<?php echo $inclusions_version ?>">
-    <link rel="stylesheet" type="text/css" href="../../myonemedpro/assets/bundles/steps/steps.css?v=<?php echo $inclusions_version ?>">
-    <link rel="stylesheet" type="text/css" href="../../myonemedpro/assets/bundles/jquery-toast-plugin-master/jquery.toast.min.css?v=<?php echo $inclusions_version ?>">
-    <link rel="stylesheet" type="text/css" href="../../myonemedpro/css/theme_style.css?v=<?php echo $inclusions_version ?>">
+    <link rel="stylesheet" type="text/css" href="https://<?php echo $_SERVER["SERVER_NAME"] ?>/myonemedpro/css/font-awesome.min.css?v=<?php echo $inclusions_version ?>">
+    <link rel="stylesheet" type="text/css" href="https://<?php echo $_SERVER["SERVER_NAME"] ?>/myonemedpro/assets/bundles/bootstrap/css/bootstrap.min.css?v=<?php echo $inclusions_version ?>">
+    <link rel="stylesheet" type="text/css" href="https://<?php echo $_SERVER["SERVER_NAME"] ?>/myonemedpro/assets/bundles/steps/steps.css?v=<?php echo $inclusions_version ?>">
+    <link rel="stylesheet" type="text/css" href="https://<?php echo $_SERVER["SERVER_NAME"] ?>/myonemedpro/assets/bundles/jquery-toast-plugin-master/jquery.toast.min.css?v=<?php echo $inclusions_version ?>">
+    <link rel="stylesheet" type="text/css" href="https://<?php echo $_SERVER["SERVER_NAME"] ?>/myonemedpro/css/theme_style.css?v=<?php echo $inclusions_version ?>">
 
     <link href="css/telemedicine.css?v=<?php echo $inclusions_version ?>" type="text/css" rel="stylesheet" />
     <link href="css/telemedicine-prescription-diagnostics.css?v=<?php echo $inclusions_version ?>" type="text/css" rel="stylesheet" />
@@ -131,9 +131,9 @@ switch ($user_type) {
 
     <script type="text/javascript" src="js/telemedicine.js?v=<?php echo $inclusions_version ?>"></script>
     <script type="text/javascript" src="js/telemedicine-prescription-diagnostics.js?v=<?php echo $inclusions_version ?>"></script>
-    <script type="text/javascript" src="../../myonemedpro/assets/bundles/modal/modal-steps.min.js?v=<?php echo $inclusions_version ?>"></script>
-    <script type=" text/javascript" src="../../myonemedpro/assets/ePrescriptonModal.js?v=<?php echo $inclusions_version ?>"></script>
-    <script type=" text/javascript" src="../../myonemedpro/assets/addDiagnosticModal.js?v=<?php echo $inclusions_version ?>"></script>
+    <script type="text/javascript" src="https://<?php echo $_SERVER["SERVER_NAME"] ?>/myonemedpro/assets/bundles/modal/modal-steps.min.js?v=<?php echo $inclusions_version ?>"></script>
+    <script type=" text/javascript" src="https://<?php echo $_SERVER["SERVER_NAME"] ?>/myonemedpro/assets/ePrescriptonModal.js?v=<?php echo $inclusions_version ?>"></script>
+    <script type=" text/javascript" src="https://<?php echo $_SERVER["SERVER_NAME"] ?>/myonemedpro/assets/addDiagnosticModal.js?v=<?php echo $inclusions_version ?>"></script>
 </body>
 
 </html>

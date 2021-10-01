@@ -1,14 +1,14 @@
 <div class="col-md-12" style="padding:0px">
     <div class="booking-step col-md-12 d-md-flex align-items-center justify-content-center d-none" style="border-bottom: solid 1px gray;">
         <label>
-            <input type="radio" id="appointment" name="radio-button" checked="">
+            <input type="radio" id="appointment" name="radio-button" checked value="0">
             <span>Appointment Details</span>
         </label>
         <label>
             <hr>
         </label>
         <label>
-            <input type="radio" id="confirm" name="radio-button">
+            <input type="radio" id="confirm" name="radio-button" value="1">
             <span>Confirm Details</span>
         </label>
     </div>
