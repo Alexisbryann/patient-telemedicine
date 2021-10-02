@@ -49,19 +49,40 @@
                 </div>
 
                 <div class="patient-details input-group col-12 col-md-8 border-0">
-                    <div class="w-100 d-none d-md-flex" style="margin-bottom: 30px; margin-top: 30px; font-weight: bold;">Fill in the patient's details</div>
+                    <div class="col-12">
+                        <span>Who are you booking the appointment for?</span>
+                        <div class="form-check pl-0 pl-md-2">
+                            <input type="radio" name="booking-for" id="booking-for-self" value="self" checked>
+                            <label for="booking-for-self">I am booking for myself</label>
+                        </div>
+                        <div class="form-check pl-0 pl-md-2">
+                            <input type="radio" name="booking-for" id="booking-for-other" value="other">
+                            <label for="booking-for-other">I am booking for somebody else</label>
+                        </div>
+                    </div>
+                    <strong class="col-12 d-none d-md-flex my-2">Fill in the Your details</strong>
                     <div class="col-12 col-md-6 mt-i">
-                        <label>Full name<span class="required"></span></label>
+                        <label>Your full name</label><span class="required"></span>
                         <input type="text" id="name" name="name" class="form-control" placeholder="Full name" required />
                         <div id="name-error" class="col-12 col-md-12 error" style="display: none;"></div>
                     </div>
                     <div class="col-12 col-md-6 mt-i">
-                        <label>Email address<span class="required"></span></label>
+                        <label>Your date of birth</label><span class="required"></span>
+                        <input type="date" id="dob" name="dob" class="form-control" max="<?php echo date("Y-m-d") ?>" step="1" required />
+                        <div id="dob-error" class="col-12 col-md-12 error" style="display: none;"></div>
+                    </div>
+                    <div class="col-12 col-md-6 mt-i">
+                        <label>Your email address</label><span class="required"></span>
                         <input type="email" id="email" name="email" class="form-control" placeholder="Email address" required />
                         <div id="email-error" class="col-12 col-md-12 error" style="display: none;"></div>
                     </div>
                     <div class="col-12 col-md-6 mt-i">
-                        <label>Gender<span class="required"></span></label>
+                        <label>Your phone number</label><span class="required"></span>
+                        <input type="text" id="phone" name="phone" class="form-control" placeholder="Phone number" required />
+                        <div id="phone-error" class="col-12 col-md-12 error" style="display: none;"></div>
+                    </div>
+                    <div class="col-12 col-md-6 mt-i">
+                        <label>Patient's gender</label><span class="required"></span>
                         <select id="gender" name="gender" class="form-control" required>
                             <option selected disabled value="">Select gender</option>
                             <option value="Male">Male</option>
@@ -70,17 +91,7 @@
                         <div id="gender-error" class="col-12 col-md-12 error" style="display: none;"></div>
                     </div>
                     <div class="col-12 col-md-6 mt-i">
-                        <label>Phone number<span class="required"></span></label>
-                        <input type="text" id="phone" name="phone" class="form-control" placeholder="Phone number" required />
-                        <div id="phone-error" class="col-12 col-md-12 error" style="display: none;"></div>
-                    </div>
-                    <div class="col-12 col-md-6 mt-i">
-                        <label>Date of birth<span class="required"></span></label>
-                        <input type="date" id="dob" name="dob" class="form-control" max="<?php echo date("Y-m-d") ?>" step="1" required />
-                        <div id="dob-error" class="col-12 col-md-12 error" style="display: none;"></div>
-                    </div>
-                    <div class="col-12 col-md-6 mt-i">
-                        <label>Location<span class="required"></span></label>
+                        <label>Your location</label><span class="required"></span>
                         <input list="location" name="location" class="form-control" placeholder="Select location">
                         <datalist id="location">
                             <option value='Baringo'>Baringo</option>

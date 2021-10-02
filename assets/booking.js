@@ -10,6 +10,7 @@ const global_settings = {
         return this.date_now.toTimeString().split(" ").shift().split(":");
     },
     minimum_appointment_time: "08:00 AM",
+    booking_for: "self",
 },
     datepicker_settings = {
         daysOfWeekDisabled: ["0"],
@@ -442,7 +443,7 @@ $("#book-inperson").steps({
             },
             facility_validity: {
                 validity: $("#facility").val(),
-                error_message: "Please select the facility for your appointment.",
+                error_message: "Please select the facility for the appointment.",
                 value: $(`option[value='${$(`#facility`).val()}'`).text(),
                 element: $("#facility"),
                 preview_element: $(`#facility-preview`),
@@ -458,7 +459,7 @@ $("#book-inperson").steps({
             },
             date_validity: {
                 validity: $("#appointment-date").val(),
-                error_message: "Please select the date for your appointment.",
+                error_message: "Please select the date for the appointment.",
                 value: $(`#appointment-date`).val(),
                 element: $("#in-person-appointment-date"),
                 preview_element: $(`#date-preview`),
@@ -467,17 +468,25 @@ $("#book-inperson").steps({
             time_validity: {
                 validity: $("input[name='appointment-time']:checked").length > 0,
                 value: $(`input[name='appointment-time']:checked`).val(),
-                error_message: "Please select the time for your appointment.",
+                error_message: "Please select the time for the appointment.",
                 element: $("#time-slots-container"),
                 preview_element: $(`#time-preview`),
                 step: 0,
             },
             patient_name: {
                 validity: $("#name")[0].checkValidity(),
-                error_message: "Please enter your name",
+                error_message: "Please enter the name",
                 value: $(`#name`).val(),
                 element: $("#name"),
                 preview_element: $(`#name-preview`),
+                step: 1
+            },
+            patient_dob: {
+                validity: $("#dob")[0].checkValidity(),
+                error_message: "Please select the date of birth",
+                value: $(`#dob`).val().split("-").reverse().join("/"),
+                element: $("#dob"),
+                preview_element: $(`#dob-preview`),
                 step: 1
             },
             patient_email: {
@@ -490,7 +499,7 @@ $("#book-inperson").steps({
             },
             patient_gender: {
                 validity: $("#gender")[0].checkValidity(),
-                error_message: "Please enter your gender",
+                error_message: "Please enter the gender",
                 value: $(`#gender`).val(),
                 element: $("#gender"),
                 preview_element: $(`#gender-preview`),
@@ -502,38 +511,6 @@ $("#book-inperson").steps({
                 value: $(`#phone`).val(),
                 element: $("#phone"),
                 preview_element: $(`#phone-preview`),
-                step: 1
-            },
-            patient_dob: {
-                validity: $("#dob")[0].checkValidity(),
-                error_message: "Please select your date of birth",
-                value: $(`#dob`).val().split("-").reverse().join("/"),
-                element: $("#dob"),
-                preview_element: $(`#dob-preview`),
-                step: 1
-            },
-            guardian_name: {
-                validity: $("#guardian-name")[0].checkValidity(),
-                error_message: "Please enter the guardian's name",
-                value: $(`#guardian-name`).val(),
-                element: $("#guardian-name"),
-                preview_element: $(`#guardian-name-preview`),
-                step: 1
-            },
-            guardian_phone: {
-                validity: validatePhoneNumber($("#guardian-phone").val(), $("#guardian-phone")),
-                error_message: "Please enter the guardian's phone number",
-                value: $(`#guardian-phone`).val(),
-                element: $("#guardian-phone"),
-                preview_element: $(`#guardian-phone-preview`),
-                step: 1
-            },
-            guardian_email: {
-                validity: $("#guardian-email")[0].checkValidity(),
-                error_message: "Please enter the guardian's email address",
-                value: $(`#guardian-email`).val(),
-                element: $("#guardian-email"),
-                preview_element: $(`#guardian-email-preview`),
                 step: 1
             },
         }
@@ -698,11 +675,6 @@ $("#in-person-appointment-date").datepicker({
                 // time slots fetching error handling
                 return false;
             }
-
-            // const month = (global_settings.date_now.getMonth() + 1).toString().length == 1 ? `0${global_settings.date_now.getMonth() + 1}` : global_settings.date_now.getMonth() + 1,
-            //     date_today = `${global_settings.date_now.getDate()}/${month}/${global_settings.date_now.getFullYear()}`,
-            //     time_slots = timeSlotsList(date_today == selected_date),
-            //     available_time_slots = time_slots.filter(x => !response.includes(x));
 
             const available_time_slots = Object.values(response.time_slots);
 
@@ -1007,15 +979,6 @@ function flutterWavePayment(
 
 $(in_person_settings.disclaimer_text).insertAfter(`.actions.clearfix`);
 
-// check if age is less 18 years
-$("#dob").on("change", function () {
-    if (ageLessThanEighteenYears($(this).val())) {
-        $("#guardian-details, #guardian-details-preview").removeClass("d-none").find("input").prop({ "required": true, "disabled": false });
-    } else {
-        $("#guardian-details, #guardian-details-preview").addClass("d-none").find("input").prop({ "required": false, "disabled": true });
-    }
-});
-
 function ageLessThanEighteenYears(date_of_birth_value) {
     /**
      * Checks if age is less than eighteen years
@@ -1031,3 +994,67 @@ function ageLessThanEighteenYears(date_of_birth_value) {
 
     return dates_difference / (365.25 * 24 * 60 * 60 * 1000) < 18;
 }
+
+$(`[name="booking-for"]`).on("change", function () {
+    const booking_for_option = $(this).val(),
+        eighteen_years_birth_date = dateMinusEighteenYears(global_settings.date_now).toISOString().split("T").shift();
+    if ($(this).prop("checked")) {
+        global_settings.booking_for = booking_for_option;
+    }
+
+    switch (booking_for_option) {
+        case "self":
+            $(`[name="dob"]`).attr("max", eighteen_years_birth_date).trigger("change");
+            $(`[name="name"]`).val(null).siblings("label").text("Your full name");
+            $(`[name="dob"]`).val(null).siblings("label").text("Your date of birth");
+            $(`[name="email"]`).val(null).siblings("label").text("Your email address");
+            $(`[name="phone"]`).val(null).siblings("label").text("Your phone number");
+            $(`[name="gender"]`).val(null).siblings("label").text("Your gender");
+            $(`[name="location"]`).val(null).siblings("label").text("Your location");
+            break;
+        case "other":
+            $(`[name="dob"]`).attr("max", global_settings.date_now.toISOString().split("T").shift());
+            $(`[name="name"]`).val(null).siblings("label").text("Patient's full name");
+            $(`[name="dob"]`).val(null).siblings("label").text("Patient's date of birth");
+            $(`[name="email"]`).val(null).siblings("label").text("Patient's email address");
+            $(`[name="phone"]`).val(null).siblings("label").text("Patient's phone number");
+            $(`[name="gender"]`).val(null).siblings("label").text("Patient's gender");
+            $(`[name="location"]`).val(null).siblings("label").text("Patient's location");
+            break;
+    }
+});
+
+function dateMinusEighteenYears(date) {
+    /**
+     * Finds the date that is 18 years ago from input date
+     * 
+     * @param Date date date to get 18 years ago from
+     * 
+     * @return string date if input date sub 18 years
+     */
+
+    const date_timestamp = date.getTime() / 1000, // timestamp of input date in seconds
+        eighteen_years_seconds = 18 * 365.25 * 24 * 60 * 60,
+        eighteen_years_ago_timestamp = date_timestamp - eighteen_years_seconds,
+        eighteen_years_ago_date = new Date(eighteen_years_ago_timestamp * 1000);
+    return eighteen_years_ago_date;
+}
+
+$(`[name="dob"]`).on("change", function () {
+    const date_object = new Date($(this).val());
+    if (new Date($(this).val()) > dateMinusEighteenYears(global_settings.date_now)) { // if entered patient age is below 18 years
+        if (global_settings.booking_for == "self") {
+            $(this).val(null);
+            $("#dob-error").text("Only users 18 years and older are allowed to book an appointment on this platform.").show();
+            return false;
+        } else {
+            $("#dob-error").text("");
+            $(`[name="email"]`).val(null).siblings("label").text("Guardian's email address");
+            $(`[name="phone"]`).val(null).siblings("label").text("Guardian's phone number");
+        }
+    } else {
+        $(`[name="email"]`).siblings("label").text("Patient's email address");
+        $(`[name="phone"]`).siblings("label").text("Patient's phone number");
+        $("#dob-error").text("");
+    }
+});

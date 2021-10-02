@@ -1,4 +1,4 @@
-<?php $inclusions_version = 0 ?>
+<?php $inclusions_version = 1 ?>
 <!DOCTYPE html>
 <html lang="en">
 <!-- BEGIN HEAD -->
