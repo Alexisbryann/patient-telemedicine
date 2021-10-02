@@ -401,7 +401,7 @@ const in_person_settings = {
                                     </div>`,
     disclaimer_text: `<span id="disclaimer-text">
                         <span id="account-creation-info">Please note that a My Health Africa account will be created for you after completing this form to help you better manage your appointments.</span>
-                        <span>By proceeding to book an appointment, you agree with our <strong><a href='https://www.myhealthafrica.com/terms-of-use/'>terms of use.</a><strong></span>
+                        <span>By proceeding to book an appointment, you agree with our <strong><a href='https://www.myhealthafrica.com/terms-of-use/' target='_blank'>terms of use.</a><strong></span>
                     </span>`,
 };
 
