@@ -27,7 +27,11 @@
 <body>
     <section class="d-none d-md-flex flex-column  align-items-center ">
         <header class="text-center mb-3">
-            <h2 class="h1"><strong>Alternatively, Book An In-Person Appointment</strong></h2>
+            <?php
+            if (empty($_GET["facility_id"])) {
+                echo '<h2 class="h1"><strong>Alternatively, Book An In-Person Appointment</strong></h2>';
+            }
+            ?>
             <h4 class="text-muted">Please complete the steps below to book an appointment.</h4>
         </header>
     </section>
@@ -176,24 +180,6 @@
 
                             <section class="d-none">
                                 <div class="d-flex flex-wrap" id="time-slots-container">
-                                    <div class="form-check radio-css-slots align-items-center ml-2">
-                                        <input class="form-check-input d-none" type="radio" name="time-slots" value="option1" id="exampleRadios10">
-                                        <label class="form-check-label " for="exampleRadios10">
-                                            00:21 AM
-                                        </label>
-                                    </div>
-                                    <div class="form-check radio-css-slots align-items-center ml-2">
-                                        <input class="form-check-input d-none" type="radio" name="time-slots" value="option1" id="exampleRadios11">
-                                        <label class="form-check-label " for="exampleRadios11">
-                                            09:30 AM
-                                        </label>
-                                    </div>
-                                    <div class="form-check radio-css-slots align-items-center ml-2">
-                                        <input class="form-check-input d-none" type="radio" name="time-slots" value="option1" id="exampleRadios12">
-                                        <label class="form-check-label " for="exampleRadios12">
-                                            11:45 AM
-                                        </label>
-                                    </div>
                                 </div>
                             </section>
                             <section class="d-flex flex-column apt" id="time-slots-disabled">
@@ -221,27 +207,45 @@
             </div>
 
             <span class="error" id="step-0-error-display"></span>
-            </div>
-            </div>
         </fieldset>
         <h3></h3>
         <fieldset style="text-align:left;" id="patient-details-step-parent">
-            <div class="w-100 d-none d-md-flex pad-t patient-details">Fill in the patient's details</div>
+            <strong class="w-100 d-none d-md-flex pad-t patient-details">Fill in the patient's details</strong>
             <div class="row md-col" style="margin-left: 15px;margin-right: 15px;margin-bottom: 15px;">
                 <div class="patient-details input-grp col-12 col-md-8">
-
                     <div class="col-12 col-md-6">
-                        <label>Full name<span class="required"></span></label>
+                        <span>Who are you booking the appointment for?</span>
+                        <div class="form-check pl-0 pl-md-2">
+                            <input type="radio" name="booking-for" id="booking-for-self" value="self" checked>
+                            <label for="booking-for-self">I am booking for myself</label>
+                        </div>
+                        <div class="form-check pl-0 pl-md-2">
+                            <input type="radio" name="booking-for" id="booking-for-other" value="other">
+                            <label for="booking-for-other">I am booking for somebody else</label>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label>Your date of birth</label><span class="required"></span>
+                        <input type="date" id="dob" name="dob" class="form-control" placeholder="Date of birth" max="<?php echo date("Y-m-d") ?>" step="1" required />
+                        <div id="dob-error" class="col-12 col-md-12 error" style="display: none;"></div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label>Your full name</label><span class="required"></span>
                         <input type="text" id="name" name="name" class="form-control" placeholder="Full name" required />
                         <div id="name-error" class="col-12 col-md-12 error" style="display: none;"></div>
                     </div>
                     <div class="col-12 col-md-6">
-                        <label>Email address<span class="required"></span></label>
+                        <label>Your email address</label><span class="required"></span>
                         <input type="email" id="email" name="email" class="form-control" placeholder="Email address" required />
                         <div id="email-error" class="col-12 col-md-12 error" style="display: none;"></div>
                     </div>
                     <div class="col-12 col-md-6">
-                        <label>Gender<span class="required"></span></label>
+                        <label>Your phone number</label><span class="required"></span>
+                        <input type="text" id="phone" name="phone" class="form-control" placeholder="Phone number" required />
+                        <div id="phone-error" class="col-12 col-md-12 error" style="display: none;"></div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label>Your gender</label><span class="required"></span>
                         <select id="gender" name="gender" class="form-control" required>
                             <option selected disabled value="">Select gender</option>
                             <option value="Male">Male</option>
@@ -250,23 +254,12 @@
                         </select>
                         <div id="gender-error" class="col-12 col-md-12 error" style="display: none;"></div>
                     </div>
-                    <div class="col-12 col-md-6">
-                        <label>Phone number<span class="required"></span></label>
-                        <input type="text" id="phone" name="phone" class="form-control" placeholder="Phone number" required />
-                        <div id="phone-error" class="col-12 col-md-12 error" style="display: none;"></div>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <label>Date of birth<span class="required"></span></label>
-                        <input type="date" id="dob" name="dob" class="form-control" placeholder="Date of birth" max="<?php echo date("Y-m-d") ?>" step="1" required />
-                        <div id="dob-error" class="col-12 col-md-12 error" style="display: none;"></div>
-                    </div>
-
                 </div>
 
                 <input type="hidden" name="clinic" value="psi" hidden />
                 <input type="hidden" name="operation" value="booking" hidden />
             </div>
-            <div class="border-top d-none" id="guardian-details">
+            <!-- <div class="border-top d-none" id="guardian-details">
                 <div class="row md-col mx-3">
                     <span class="w-100 text-center my-2 h6">Fill in the guardian's details</span>
 
@@ -285,7 +278,7 @@
                         <input type="email" id="guardian-email" name="guardian-email" class="form-control" placeholder="Guardian's email address" disabled>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </fieldset>
         <h3></h3>
         <fieldset style="text-align:left;">
@@ -353,7 +346,7 @@
                             <span class="w-100 preview-detail-label">Date of birth</span>
                             <span class="preview-detail" id="dob-preview">Preview detail</span>
                         </div>
-                        <div class="d-none" id="guardian-details-preview">
+                        <!-- <div class="d-none" id="guardian-details-preview">
                             <strong class="mb-2">Guardian's Details</strong>
                             <div class="preview-details-container flex-wrap">
                                 <div class="mw-25 mr-2 d-flex flex-column">
@@ -371,7 +364,7 @@
                                     <span class="preview-detail" id="guardian-phone-preview">Preview detail</span>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="w-50 w-100-md border d-flex flex-column pt-3">
                         <strong class="mb-2 px-3">Appointment Cost</strong>
