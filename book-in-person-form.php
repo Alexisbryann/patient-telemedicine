@@ -213,26 +213,28 @@
             <strong class="w-100 d-none d-md-flex pad-t patient-details">Fill in the patient's details</strong>
             <div class="row md-col" style="margin-left: 15px;margin-right: 15px;margin-bottom: 15px;">
                 <div class="patient-details input-grp col-12 col-md-8">
-                    <div class="col-12 col-md-6">
-                        <span>Who are you booking the appointment for?</span>
-                        <div class="form-check pl-0 pl-md-2">
-                            <input type="radio" name="booking-for" id="booking-for-self" value="self" checked>
-                            <label for="booking-for-self">I am booking for myself</label>
+                    <div class="col-12">
+                        <span>Making appointment for:</span>
+                        <div class="d-flex">
+                            <div class="form-check pl-0 pl-md-2 mr-3">
+                                <input type="radio" name="booking-for" id="booking-for-self" value="self" checked>
+                                <label for="booking-for-self">Self</label>
+                            </div>
+                            <div class="form-check pl-0 pl-md-2">
+                                <input type="radio" name="booking-for" id="booking-for-other" value="other">
+                                <label for="booking-for-other">Others</label>
+                            </div>
                         </div>
-                        <div class="form-check pl-0 pl-md-2">
-                            <input type="radio" name="booking-for" id="booking-for-other" value="other">
-                            <label for="booking-for-other">I am booking for somebody else</label>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <label>Your date of birth</label><span class="required"></span>
-                        <input type="date" id="dob" name="dob" class="form-control" placeholder="Date of birth" max="<?php echo date("Y-m-d") ?>" step="1" required />
-                        <div id="dob-error" class="col-12 col-md-12 error" style="display: none;"></div>
                     </div>
                     <div class="col-12 col-md-6">
                         <label>Your full name</label><span class="required"></span>
                         <input type="text" id="name" name="name" class="form-control" placeholder="Full name" required />
                         <div id="name-error" class="col-12 col-md-12 error" style="display: none;"></div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label>Your date of birth</label><span class="required"></span>
+                        <input type="date" id="dob" name="dob" class="form-control" placeholder="Date of birth" max="<?php echo date("Y-m-d") ?>" step="1" required />
+                        <div id="dob-error" class="col-12 col-md-12 error" style="display: none;"></div>
                     </div>
                     <div class="col-12 col-md-6">
                         <label>Your email address</label><span class="required"></span>
@@ -259,26 +261,6 @@
                 <input type="hidden" name="clinic" value="psi" hidden />
                 <input type="hidden" name="operation" value="booking" hidden />
             </div>
-            <!-- <div class="border-top d-none" id="guardian-details">
-                <div class="row md-col mx-3">
-                    <span class="w-100 text-center my-2 h6">Fill in the guardian's details</span>
-
-                    <div class="col-12 col-md-6">
-                        <label>Full name<span class="required"></span></label>
-                        <input type="text" id="guardian-name" name="guardian-name" class="form-control" placeholder="Guardian's full name" disabled>
-                    </div>
-
-                    <div class="col-12 col-md-6">
-                        <label>Phone number<span class="required"></span></label>
-                        <input type="text" id="guardian-phone" name="guardian-phone" class="form-control" placeholder="Guardian's phone number" disabled>
-                    </div>
-
-                    <div class="col-12 col-md-6">
-                        <label>Email address<span class="required"></span></label>
-                        <input type="email" id="guardian-email" name="guardian-email" class="form-control" placeholder="Guardian's email address" disabled>
-                    </div>
-                </div>
-            </div> -->
         </fieldset>
         <h3></h3>
         <fieldset style="text-align:left;">
@@ -346,25 +328,6 @@
                             <span class="w-100 preview-detail-label">Date of birth</span>
                             <span class="preview-detail" id="dob-preview">Preview detail</span>
                         </div>
-                        <!-- <div class="d-none" id="guardian-details-preview">
-                            <strong class="mb-2">Guardian's Details</strong>
-                            <div class="preview-details-container flex-wrap">
-                                <div class="mw-25 mr-2 d-flex flex-column">
-                                    <span class="preview-detail-label">Full name</span>
-                                    <span class="preview-detail" id="guardian-name-preview">Preview detail</span>
-                                </div>
-                                <div class="mw-75 d-flex flex-column">
-                                    <span class="preview-detail-label">Email address</span>
-                                    <span class="preview-detail" id="guardian-email-preview">Preview detail</span>
-                                </div>
-                            </div>
-                            <div class="preview-details-container flex-wrap">
-                                <div class="mw-25 mr-2 d-flex flex-column">
-                                    <span class="preview-detail-label">Phone number</span>
-                                    <span class="preview-detail" id="guardian-phone-preview">Preview detail</span>
-                                </div>
-                            </div>
-                        </div> -->
                     </div>
                     <div class="w-50 w-100-md border d-flex flex-column pt-3">
                         <strong class="mb-2 px-3">Appointment Cost</strong>
@@ -382,7 +345,7 @@
                 <div class="w-100 d-flex flex-column text-center my-2">
                     <div class="form-check">
                         <input type="checkbox" name="terms-conditions-consent" id="terms-conditions-consent" required>
-                        <label for="terms-conditions-consent">Tick the checkbox to state that you have read and agreed to our <a href="https://www.myhealthafrica.com/my-health-africa-consent-form/">consent form.</a></label>
+                        <label for="terms-conditions-consent">Tick the checkbox to state that you have read and agreed to our <a href="https://www.myhealthafrica.com/my-health-africa-consent-form/" target="_blank">consent form.</a></label>
                     </div>
                     <span class="error"></span>
                 </div>
