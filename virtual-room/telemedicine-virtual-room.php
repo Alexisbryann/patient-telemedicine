@@ -74,11 +74,11 @@ switch ($user_type) {
 
     <title>My Health Africa Telemedicine</title>
     <link rel="shortcut icon" type="image/x-icon" href="https://www.myhealthafrica.com/wp-content/uploads/2018/05/MyHealthAfrica_sd3-final-heart.png">
-    <link rel="stylesheet" type="text/css" href="https://<?php echo $_SERVER["SERVER_NAME"] ?>/myonemedpro/css/font-awesome.min.css?v=<?php echo $inclusions_version ?>">
-    <link rel="stylesheet" type="text/css" href="https://<?php echo $_SERVER["SERVER_NAME"] ?>/myonemedpro/assets/bundles/bootstrap/css/bootstrap.min.css?v=<?php echo $inclusions_version ?>">
-    <link rel="stylesheet" type="text/css" href="https://<?php echo $_SERVER["SERVER_NAME"] ?>/myonemedpro/assets/bundles/steps/steps.css?v=<?php echo $inclusions_version ?>">
-    <link rel="stylesheet" type="text/css" href="https://<?php echo $_SERVER["SERVER_NAME"] ?>/myonemedpro/assets/bundles/jquery-toast-plugin-master/jquery.toast.min.css?v=<?php echo $inclusions_version ?>">
-    <link rel="stylesheet" type="text/css" href="https://<?php echo $_SERVER["SERVER_NAME"] ?>/myonemedpro/css/theme_style.css?v=<?php echo $inclusions_version ?>">
+    <link rel="stylesheet" type="text/css" href="https://<?php echo $_SERVER["SERVER_NAME"]?>/myonemedpro/css/font-awesome.min.css?v=<?php echo $inclusions_version ?>">
+    <link rel="stylesheet" type="text/css" href="https://<?php echo $_SERVER["SERVER_NAME"]?>/myonemedpro/assets/bundles/bootstrap/css/bootstrap.min.css?v=<?php echo $inclusions_version ?>">
+    <link rel="stylesheet" type="text/css" href="https://<?php echo $_SERVER["SERVER_NAME"]?>/myonemedpro/assets/bundles/steps/steps.css?v=<?php echo $inclusions_version ?>">
+    <link rel="stylesheet" type="text/css" href="https://<?php echo $_SERVER["SERVER_NAME"]?>/myonemedpro/assets/bundles/jquery-toast-plugin-master/jquery.toast.min.css?v=<?php echo $inclusions_version ?>">
+    <link rel="stylesheet" type="text/css" href="https://<?php echo $_SERVER["SERVER_NAME"]?>/myonemedpro/css/theme_style.css?v=<?php echo $inclusions_version ?>">
 
     <link href="css/telemedicine.css?v=<?php echo $inclusions_version ?>" type="text/css" rel="stylesheet" />
     <link href="css/telemedicine-prescription-diagnostics.css?v=<?php echo $inclusions_version ?>" type="text/css" rel="stylesheet" />
@@ -117,7 +117,7 @@ switch ($user_type) {
 
         <span id="leave-room-btn" title="Leave Consultation">Leave Virtual Room</span>
         <!-- Telemedicine video room iframe -->
-        <iframe id="telemed-iframe" src="https://video-app-9155-dev.twil.io?new_room_name=<?php echo $video_room_name ?>&new_patient_name=<?php echo $room_participant_name ?>&passcode=3574959155" loading="eager" title="My Health Africa telemedicine consultation virtual room" data-user_type="<?php echo $user_type ?>" data-appointment_id="<?php echo $appointment_id ?>" data-user_id="<?php echo $user ?>" data-recipient_id="<?php echo $chat_recipient ?>" data-chat_recipient_name="<?php echo $chat_recipient_name ?>"></iframe>
+        <iframe id="telemed-iframe" src="https://video-app-9155-dev.twil.io?new_room_name=<?php echo $video_room_name ?>&new_patient_name=<?php echo $room_participant_name ?>&passcode=3574959155" allow="camera;microphone" loading="eager" title="My Health Africa telemedicine consultation virtual room" data-user_type="<?php echo $user_type ?>" data-appointment_id="<?php echo $appointment_id ?>" data-user_id="<?php echo $user ?>" data-recipient_id="<?php echo $chat_recipient ?>" data-chat_recipient_name="<?php echo $chat_recipient_name ?>"></iframe>
 
         <?php
         if ($user_type == "Doc") { // only display case notes if user is a doctor
@@ -131,9 +131,9 @@ switch ($user_type) {
 
     <script type="text/javascript" src="js/telemedicine.js?v=<?php echo $inclusions_version ?>"></script>
     <script type="text/javascript" src="js/telemedicine-prescription-diagnostics.js?v=<?php echo $inclusions_version ?>"></script>
-    <script type="text/javascript" src="https://<?php echo $_SERVER["SERVER_NAME"] ?>/myonemedpro/assets/bundles/modal/modal-steps.min.js?v=<?php echo $inclusions_version ?>"></script>
-    <script type=" text/javascript" src="https://<?php echo $_SERVER["SERVER_NAME"] ?>/myonemedpro/assets/ePrescriptonModal.js?v=<?php echo $inclusions_version ?>"></script>
-    <script type=" text/javascript" src="https://<?php echo $_SERVER["SERVER_NAME"] ?>/myonemedpro/assets/addDiagnosticModal.js?v=<?php echo $inclusions_version ?>"></script>
+    <script type="text/javascript" src="https://<?php echo $_SERVER["SERVER_NAME"]?>/myonemedpro/assets/bundles/modal/modal-steps.min.js?v=<?php echo $inclusions_version ?>"></script>
+    <script type=" text/javascript" src="https://<?php echo $_SERVER["SERVER_NAME"]?>/myonemedpro/assets/ePrescriptonModal.js?v=<?php echo $inclusions_version ?>"></script>
+    <script type=" text/javascript" src="https://<?php echo $_SERVER["SERVER_NAME"]?>/coldroom/myonemedpro/assets/addDiagnosticModal.js?v=<?php echo $inclusions_version ?>"></script>
 </body>
 
 </html>

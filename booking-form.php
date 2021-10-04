@@ -50,17 +50,19 @@
 
                 <div class="patient-details input-group col-12 col-md-8 border-0">
                     <div class="col-12">
-                        <span>Who are you booking the appointment for?</span>
-                        <div class="form-check pl-0 pl-md-2">
-                            <input type="radio" name="booking-for" id="booking-for-self" value="self" checked>
-                            <label for="booking-for-self">I am booking for myself</label>
-                        </div>
-                        <div class="form-check pl-0 pl-md-2">
-                            <input type="radio" name="booking-for" id="booking-for-other" value="other">
-                            <label for="booking-for-other">I am booking for somebody else</label>
+                        <span>Making appointment for:</span>
+                        <div class="d-flex">
+                            <div class="form-check pl-0 pl-md-2 mr-3">
+                                <input type="radio" name="booking-for" id="booking-for-self" value="self" checked>
+                                <label for="booking-for-self">Self</label>
+                            </div>
+                            <div class="form-check pl-0 pl-md-2">
+                                <input type="radio" name="booking-for" id="booking-for-other" value="other">
+                                <label for="booking-for-other">Others</label>
+                            </div>
                         </div>
                     </div>
-                    <strong class="col-12 d-none d-md-flex my-2">Fill in the Your details</strong>
+                    <strong class="col-12 d-none d-md-flex my-2">Fill in the patient's details</strong>
                     <div class="col-12 col-md-6 mt-i">
                         <label>Your full name</label><span class="required"></span>
                         <input type="text" id="name" name="name" class="form-control" placeholder="Full name" required />
@@ -218,7 +220,7 @@
                 <div class="w-100 d-flex flex-column text-center my-2">
                     <div class="form-check">
                         <input type="checkbox" name="terms-conditions-consent" id="terms-conditions-consent" required>
-                        <label for="terms-conditions-consent">Tick the checkbox to state that you have read and agreed to our <a href="https://www.myhealthafrica.com/my-health-africa-consent-form/">consent form.</a></label>
+                        <label for="terms-conditions-consent">Tick the checkbox to state that you have read and agreed to our <a href="https://www.myhealthafrica.com/my-health-africa-consent-form/" target="_blank">consent form.</a></label>
                     </div>
                     <span class="error"></span>
                 </div>

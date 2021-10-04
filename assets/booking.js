@@ -1045,7 +1045,7 @@ $(`[name="dob"]`).on("change", function () {
     if (new Date($(this).val()) > dateMinusEighteenYears(global_settings.date_now)) { // if entered patient age is below 18 years
         if (global_settings.booking_for == "self") {
             $(this).val(null);
-            $("#dob-error").text("Only users 18 years and older are allowed to book an appointment on this platform.").show();
+            $("#dob-error").text("Only users 18 years and above are allowed to book an appointment for themselves.").show();
             return false;
         } else {
             $("#dob-error").text("");

@@ -269,3 +269,6 @@ Stack trace:
 [25-Sep-2021 13:57:31 Africa/Nairobi] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 147
 [25-Sep-2021 13:58:00 Africa/Nairobi] PHP Notice:  Undefined index: service in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 146
 [25-Sep-2021 13:58:00 Africa/Nairobi] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 146
+[28-Sep-2021 14:43:31 Africa/Nairobi] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 27
+[28-Sep-2021 14:43:39 Africa/Nairobi] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 27
+[29-Sep-2021 13:25:29 Africa/Nairobi] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 1731
