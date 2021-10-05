@@ -1131,12 +1131,12 @@ div.testGroup {
 
 /* pretty radio */
 
-.booking-time label>input[type="radio"] {
+.booking-time label>input[type="radio"], .booking-for label>input[type="radio"] {
     display: none;
     margin-top: 1em;
 }
 
-.booking-time label>input[type="radio"]+*::before {
+.booking-time label>input[type="radio"]+*::before, .booking-for label>input[type="radio"]+*::before {
     content: "";
     display: inline-block;
     vertical-align: bottom;
@@ -1149,7 +1149,7 @@ div.testGroup {
     cursor: pointer;
 }
 
-.booking-time label>input[type="radio"]:checked+*::before {
+.booking-time label>input[type="radio"]:checked+*::before, .booking-for label>input[type="radio"]:checked+*::before {
     background: radial-gradient(#F7941C 0%, #F7941C 50%, transparent 50%, transparent);
     border-color: #F7941C;
 }
