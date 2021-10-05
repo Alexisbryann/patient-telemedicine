@@ -52,14 +52,26 @@
                     <div class="col-12">
                         <span>Making appointment for:</span>
                         <div class="d-flex">
-                            <div class="form-check pl-0 pl-md-2 mr-3">
-                                <input type="radio" name="booking-for" id="booking-for-self" value="self" checked>
-                                <label for="booking-for-self">Self</label>
+                            <div class="booking-for form-check pl-0 pl-md-2 mr-3">
+                                <label>
+                                    <input type="radio" name="booking-for" id="booking-for-self" value="self" checked>
+                                    <span>Self</span>
+                                </label>
+                                <!-- <input type="radio" name="booking-for" id="booking-for-self" value="self" checked>
+                                <label for="booking-for-self">Self</label> -->
                             </div>
-                            <div class="form-check pl-0 pl-md-2">
+                            <div class="booking-for form-check pl-0 pl-md-2 mr-3">
+                                <label>
+                                    <input type="radio" name="booking-for" id="booking-for-other" value="other">
+                                    <span>Others</span>
+                                </label>
+                                <!-- <input type="radio" name="booking-for" id="booking-for-self" value="self" checked>
+                                <label for="booking-for-self">Self</label> -->
+                            </div>
+                            <!-- <div class="form-check pl-0 pl-md-2">
                                 <input type="radio" name="booking-for" id="booking-for-other" value="other">
                                 <label for="booking-for-other">Others</label>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <strong class="col-12 d-none d-md-flex my-2">Fill in the patient's details</strong>
@@ -94,7 +106,7 @@
                     </div>
                     <div class="col-12 col-md-6 mt-i">
                         <label>Your location</label><span class="required"></span>
-                        <input list="location" name="location" class="form-control" placeholder="Select location">
+                        <input list="location" name="location" class="form-control" placeholder="Select location" />
                         <datalist id="location">
                             <option value='Baringo'>Baringo</option>
                             <option value='Bomet'>Bomet</option>
@@ -144,8 +156,8 @@
                             <option value='West Pokot'>West Pokot</option>
                             <option value='Wajir'>Wajir</option>
                             <option value='Others'>Others</option>
-                            </input>
-                            <div id="location-error" class="col-12 col-md-12 error" style="display: none;"></div>
+                        </datalist>
+                        <div id="location-error" class="col-12 col-md-12 error" style="display: none;"></div>
                     </div>
                 </div>
 
