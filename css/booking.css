@@ -1494,3 +1494,7 @@ a[href="#next"]:hover {
 #booking-form #account-creation-info {
     display: none;
 }
+
+.wizard>.actions a {
+    white-space: nowrap;
+}
