@@ -104,10 +104,10 @@ form.steps({
         event.preventDefault();
 
         if (!$(`[name="terms-conditions-consent"]`).prop("checked")) {
-            $(`[name="terms-conditions-consent"]`).closest(".form-check").siblings(".error").text("Please confirm that you have read and agreed to our consent form.");
+            $(`[name="terms-conditions-consent"]`).closest(".form-check").siblings("span").addClass("error").text("Please confirm that you have read and agreed to our consent form.");
 
             setTimeout(() => {
-                $(`[name="terms-conditions-consent"]`).closest(".form-check").siblings(".error").empty();
+                $(`[name="terms-conditions-consent"]`).closest(".form-check").siblings("span").empty();
             }, 3000);
             return false;
         }
@@ -596,10 +596,10 @@ $("#book-inperson").steps({
         event.preventDefault();
 
         if (!$(`[name="terms-conditions-consent"]`).prop("checked")) {
-            $(`[name="terms-conditions-consent"]`).closest(".form-check").siblings(".error").text("Please confirm that you have read and agreed to our consent form.");
+            $(`[name="terms-conditions-consent"]`).closest(".form-check").siblings("span").addClass("error").text("Please confirm that you have read and agreed to our consent form.");
 
             setTimeout(() => {
-                $(`[name="terms-conditions-consent"]`).closest(".form-check").siblings(".error").empty();
+                $(`[name="terms-conditions-consent"]`).closest(".form-check").siblings("span").empty();
             }, 3000);
             return false;
         }
