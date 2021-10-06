@@ -131,10 +131,9 @@ form.steps({
             success: function (response) {
                 var response = JSON.parse(response);
                 if (response.response == 200) {
-                    $(btn).html('');
-                    $(btn).html('Submitted');
+                    $(btn).html('Submitted').css({ "pointer-events": "none" });
                     var appointment_id = response.id;
-                    DPO_Payment(PaymentURL, name, email, phone, txRef, appointment_id);
+                    DPO_Payment(PaymentURL, name, email, phone, txRef, appointment_id, btn);
                 } else if (response == 500) {
                     $(btn).css("pointer-events", "auto");
                     $(btn).html('');
@@ -237,7 +236,7 @@ $(".datepicker .input-group-addon").on("click", function () {
     $(this).closest(".datepicker").find("input").focus();
 });
 
-function DPO_Payment(PaymentURL, name, email, phone, txRef, appointment_id) {
+function DPO_Payment(PaymentURL, name, email, phone, txRef, appointment_id, btn) {
     var type;
     if (document.getElementById('now').checked) {
         type = 'now';
@@ -270,7 +269,7 @@ function DPO_Payment(PaymentURL, name, email, phone, txRef, appointment_id) {
                     timer: 5000,
                     showConfirmButton: false
                 });
-                $(btn).prop('disabled', false).html('Proceed To Pay');
+                $(btn).html('Proceed To Pay').css({ "pointer-events": "all" });
             }
         }
     });
@@ -314,11 +313,13 @@ function validateInput(step) {
             $('#dob-error').show(500);
         } else $('#dob-error').hide(500);
         document.getElementById('phone-error').innerHTML = '';
-        if (phone == null || phone == '') {
+        if (phone == null || phone == '' || !validatePhoneNumber(phone, $(`[name="phone"]`))) {
             error++;
             document.getElementById('phone-error').innerHTML = 'Kindly input your phone number.';
             $('#phone-error').show(500);
-        } else $('#phone-error').hide(500);
+        } else {
+            $('#phone-error').hide(500);
+        }
         document.getElementById('location-error').innerHTML = '';
         if (location == null || location == '') {
             error++;

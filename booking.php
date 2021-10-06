@@ -1,4 +1,4 @@
-<?php $inclusions_version = 0 ?>
+<?php $inclusions_version = 1 ?>
 <!DOCTYPE html>
 <html lang="en">
 <!-- BEGIN HEAD -->
@@ -20,6 +20,7 @@
     <link href="css/responsive.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="assets/bundles/bootstrap-timepicker/css/bootstrap-timepicker.css" />
     <link rel="stylesheet" type="text/css" href="assets/bundles/bootstrap-datepicker/css/bootstrap-datepicker.css" />
+    <link rel="stylesheet" type="text/css" href="https://www.myhealthafrica.com/myonemedpro/assets/bundles/sweet-alert/sweetalert.min.css" />
     <link href="css/booking.css?v=<?php echo $inclusions_version ?>" rel="stylesheet" type="text/css" />
     <!-- favicon -->
     <link rel="shortcut icon" href="images/my-health-africa.png" />
