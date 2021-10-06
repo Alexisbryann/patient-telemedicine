@@ -313,11 +313,13 @@ function validateInput(step) {
             $('#dob-error').show(500);
         } else $('#dob-error').hide(500);
         document.getElementById('phone-error').innerHTML = '';
-        if (phone == null || phone == '') {
+        if (phone == null || phone == '' || !validatePhoneNumber(phone, $(`[name="phone"]`))) {
             error++;
             document.getElementById('phone-error').innerHTML = 'Kindly input your phone number.';
             $('#phone-error').show(500);
-        } else $('#phone-error').hide(500);
+        } else {
+            $('#phone-error').hide(500);
+        }
         document.getElementById('location-error').innerHTML = '';
         if (location == null || location == '') {
             error++;
