@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- BEGIN HEAD -->
-<?php $inclusions_version = 0 ?>
+<?php $inclusions_version = 3 ?>
 
 <head>
     <meta charset="utf-8" />

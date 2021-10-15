@@ -137,11 +137,11 @@ checkDeviceSupport(function() {
             closeOnConfirm: false,
         },function(isConfirm) {
             if (isConfirm) {
-                window.location ='https://www.myhealthafrica.com/coldroom/myonemedpro/med-ondemand-setupiguide';
+                window.location ='https://www.myhealthafrica.com/myonemedpro/med-ondemand-setupiguide';
             }
         }
         );
-         setTimeout(()=>window.location.href = 'https://www.myhealthafrica.com/coldroom/myonemedpro/med-ondemand-setupiguide', 9000);
+         setTimeout(()=>window.location.href = 'https://www.myhealthafrica.com/myonemedpro/med-ondemand-setupiguide', 9000);
         // window.location ='https://ones.myhealthafrica.co.ke/myonemedpro/med-ondemand-setupiguide';
     }
     // if(isWebcamAlreadyCaptured == true){

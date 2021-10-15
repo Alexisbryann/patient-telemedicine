@@ -299,16 +299,15 @@ class DB_Functions {
                 }
                 if ($type == 'now') {
                     $email1 = $this->sendBookingConfirmationEmailToPatient($type, $appointment_id, $date, $time, $email, $first_name.' '.$last_name, $phone, $gender, $location);
-                    //$email2 = $this->sendBookingConfirmationEmailToFacility($type, $appointment_id, $date, $time, $email, $first_name.' '.$last_name, $phone, $gender, $location);
+                    // $email2 = $this->sendBookingConfirmationEmailToFacility($type, $appointment_id, $date, $time, $email, $first_name.' '.$last_name, $phone, $gender, $location);
                     $sms1 = $this->sendBookingSMSToPatient($type, $appointment_id, $first_name.' '.$last_name, $phone, $date, $time);
-                    $paymentInvoice = $this->paymentInvoice('telemedicine',$first_name.' '.$last_name,$email,$TransactionAmount,$TransactionRef,$ResultExplanation,$TransactionPaymentDate,$CardType);
                     //$sms2 = $this->sendBookingSMSToFacility($type, $appointment_id, $first_name.' '.$last_name, $phone, $date, $time);
                 } else if($type == 'schedule'){
                     $email1 = $this->sendBookingConfirmationEmailToPatient($type, $appointment_id, $date, $time, $email, $first_name.' '.$last_name, $phone, $gender, $location);
                     $sms1 = $this->sendBookingSMSToPatient($type, $appointment_id, $first_name.' '.$last_name, $phone, $date, $time);
-                    $paymentInvoice = $this->paymentInvoice('telemedicine',$first_name.' '.$last_name,$email,$TransactionAmount,$TransactionRef,$ResultExplanation,$TransactionPaymentDate,$CardType);
                 }
-                ($email1 && $sms1) ? $response = 200 : $response = 500;
+                $paymentInvoice = $this->paymentInvoice('telemedicine',$first_name.' '.$last_name,$email,$TransactionAmount,$TransactionRef,$ResultExplanation,$TransactionPaymentDate,$CardType);
+                ($sms1) ? $response = 200 : $response = 500;
                 return $response;
             } else {
                 mysqli_close($db);
@@ -848,9 +847,7 @@ class DB_Functions {
         $mail->addReplyTo("support@myhealthafrica.com", "My Health Africa");
         $mail->Subject = $subject;
         $mail->Body = $body;
-        if ($type == 'schedule') {
-            $mail->addStringAttachment($ical, $calendar_attachment, "base64", "text/calendar");
-        }
+        $mail->addStringAttachment($ical, $calendar_attachment, "base64", "text/calendar");
 
         try {
             $mail->addAddress($emailTo);
@@ -1648,7 +1645,7 @@ class DB_Functions {
             $booked_data[] = $sub_array;
         }
 
-        $statement = " SELECT DISTINCT time_from, time_to FROM `wp_ea_connections` WHERE worker = '$doctorId' AND service='$serviceId' AND day_from <= '$selected_date' AND day_of_week LIKE '%$dayOfWeek%' AND is_working = 1 GROUP BY time_from ";
+        $statement = " SELECT DISTINCT ANY_VALUE(time_from) AS time_from, ANY_VALUE(time_to) AS time_to FROM `wp_ea_connections` WHERE worker = '$doctorId' AND service='$serviceId' AND day_from <= '$selected_date' AND day_of_week LIKE '%$dayOfWeek%' AND is_working = 1 GROUP BY time_from ";
         $result = mysqli_query($db, $statement) or die(mysqli_error($db));
         while ($row = mysqli_fetch_array($result)) {
             $start_time = strtotime($row["time_from"]);

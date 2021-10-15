@@ -624,7 +624,7 @@ $("#book-inperson").steps({
             success: function (response) {
                 if (response.response == 200) {
                     if (in_person_settings.appointment_type == "telemedicine_service") {
-                        flutterWavePayment(response.id, $("#name").val(), $("#phone").val(), $("#email").val(), 1);
+                        flutterWavePayment(response.id, $("#name").val(), $("#phone").val(), $("#email").val(), in_person_settings.appointment_cost);
                     } else {
                         swal({
                             title: "Booked",

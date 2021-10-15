@@ -40,16 +40,16 @@
                     <input type="file" id="medical-reports" name="medical-reports[]" accept=".png,.jpg.jpeg,.pdf,.docx" data-conv-question="Kindly upload the medical reports/scans." multiple>
                 </div>
             </div> -->
-            <select name="fourth-question" data-conv-question="Got it, are you currently taking any prescribed medication?">
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
-            </select>
+            <!--<select name="fourth-question" data-conv-question="Got it, are you currently taking any prescribed medication?">-->
+            <!--    <option value="yes">Yes</option>-->
+            <!--    <option value="no">No</option>-->
+            <!--</select>-->
             <div data-conv-fork="fourth-question">
                 <div data-conv-case="yes">
                     <input type="text" name="medication" data-conv-question="Kindly state the medication you're currently using.">
                 </div>
             </div>
-            <select name="fifth-question" data-conv-question="<?php echo $patient_first_name; ?>, do you have any medical allergies?">
+            <select name="fifth-question" data-conv-question="Do you have any medical allergies?">
                 <option value="yes">Yes</option>
                 <option value="no">No</option>
             </select>

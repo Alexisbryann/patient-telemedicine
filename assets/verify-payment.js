@@ -65,11 +65,19 @@ $(document).ready(function() {
                         dataType: "json",
                         success: function(result) {
                             if (result.response == 200) {
-                                $('.payment-step-one').hide();
-                                $('.payment-step-two').show(500);
-                                setInterval(function () {
-                                    window.location.href = 'https://www.myhealthafrica.com/psi/patient-setup.php?caseappid=' + result.id + '';
-                                }, 5000);
+                                if (type == 'now') {
+                                    $('.payment-step-one').hide();
+                                    $('.payment-step-two').show(500);
+                                    setInterval(function () {
+                                        window.location.href = 'https://www.myhealthafrica.com/psi/patient-setup.php?caseappid=' + result.id + '';
+                                    }, 5000);
+                                } else if (type == 'schedule'){
+                                    $('.payment-step-one').hide();
+                                    $('.payment-step-two').show(500);
+                                    setInterval(function () {
+                                        window.location.href = 'https://www.myhealthafrica.com/talk-to-a-tunza-daktari-online';
+                                    }, 5000);
+                                }
                             } else if (response == 500) {
                                 document.getElementById('error').innerHTML = '';
                                 document.getElementById('error').innerHTML = 'Sorry. There was an error in updating your payment status. Kindly contact our support team for assistance.';

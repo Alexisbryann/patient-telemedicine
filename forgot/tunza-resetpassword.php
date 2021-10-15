@@ -62,10 +62,10 @@ $response = '';
         $output .='<p>There was recently a request to change the password on your OneMed Pro account.</p>';
         $output .='<p>No changes have been made to your account yet.</p>';
         $output .='<p>If you made this request, kindly proceed to reset your password by clicking the button below:</p>';
-        $output .='<a href="https://www.myhealthafrica.com/coldroom/myonemedpro/psi-login/reset-password.php?token='. $key .'">
+        $output .='<a href="https://www.myhealthafrica.com/myonemedpro/psi-login/reset-password.php?token='. $key .'">
         <button style="border-radius:10px;background-color:#0080ff;border:none;color:white;padding:10px;text-align:center;text-decoration:none;display:inline-block;font-size:16px;margin:4px 2px;color:white;cursor: pointer;">Reset Password</button></a><br><br>'; 
         $output .='<p>If the button above does not work, kindly copy and paste the url link below into your browser:</p>
-         https://https://www.myhealthafrica.com/coldroom/myonemedpro/psi-login/reset-password.php?token='.$key.'';
+         https://https://www.myhealthafrica.com/myonemedpro/psi-login/reset-password.php?token='.$key.'';
         $output .='<p>Please ignore this email and consider changing your password if you did not make the reset password request.</p>'; 
         $output .='Thank you.<br><br>';
         $output .='Regards,<br>';

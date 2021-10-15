@@ -280,3 +280,40 @@ Stack trace:
 [01-Oct-2021 16:43:33 Africa/Nairobi] PHP Notice:  Undefined offset: 4 in /home/myhealthafrica/public_html/coldroom/myonemedpro/operation/sendDiagnosticForm.php on line 262
 [01-Oct-2021 16:43:33 Africa/Nairobi] PHP Notice:  Undefined offset: 5 in /home/myhealthafrica/public_html/coldroom/myonemedpro/operation/sendDiagnosticForm.php on line 262
 [01-Oct-2021 16:43:33 Africa/Nairobi] PHP Notice:  Undefined variable: formNumber in /home/myhealthafrica/public_html/coldroom/myonemedpro/operation/sendDiagnosticForm.php on line 989
+[05-Oct-2021 10:35:16 UTC] PHP Warning:  require_once(../functions.php): failed to open stream: No such file or directory in /home/myhealthafrica/public_html/myonemedpro/operation/addCaseNotes.php on line 6
+[05-Oct-2021 10:35:16 UTC] PHP Fatal error:  require_once(): Failed opening required '../functions.php' (include_path='.:/opt/cpanel/ea-php72/root/usr/share/pear') in /home/myhealthafrica/public_html/myonemedpro/operation/addCaseNotes.php on line 6
+[05-Oct-2021 10:37:04 UTC] PHP Warning:  require_once(../functions.php): failed to open stream: No such file or directory in /home/myhealthafrica/public_html/myonemedpro/operation/addCaseNotes.php on line 6
+[05-Oct-2021 10:37:04 UTC] PHP Fatal error:  require_once(): Failed opening required '../functions.php' (include_path='.:/opt/cpanel/ea-php72/root/usr/share/pear') in /home/myhealthafrica/public_html/myonemedpro/operation/addCaseNotes.php on line 6
+[05-Oct-2021 13:38:33 Africa/Nairobi] PHP Warning:  require_once(../functions.php): failed to open stream: No such file or directory in /home/myhealthafrica/public_html/coldroom/myonemedpro/operation/addCaseNotes.php on line 6
+[05-Oct-2021 13:38:33 Africa/Nairobi] PHP Fatal error:  require_once(): Failed opening required '../functions.php' (include_path='.:/opt/cpanel/ea-php72/root/usr/share/pear') in /home/myhealthafrica/public_html/coldroom/myonemedpro/operation/addCaseNotes.php on line 6
+[06-Oct-2021 16:04:59 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/myhealthafrica/public_html/psi/functions.php on line 5
+[06-Oct-2021 16:04:59 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/myhealthafrica/public_html/psi/functions.php on line 35
+[06-Oct-2021 16:04:59 UTC] PHP Notice:  Undefined index: doctorid in /home/myhealthafrica/public_html/psi/virtual-room/operation/sendDiagnosticForm.php on line 7
+[06-Oct-2021 19:06:47 Africa/Nairobi] PHP Notice:  Undefined offset: 1 in /home/myhealthafrica/public_html/myonemedpro/operation/sendDiagnosticForm.php on line 256
+[06-Oct-2021 19:06:47 Africa/Nairobi] PHP Notice:  Undefined offset: 2 in /home/myhealthafrica/public_html/myonemedpro/operation/sendDiagnosticForm.php on line 256
+[06-Oct-2021 19:06:47 Africa/Nairobi] PHP Notice:  Undefined offset: 3 in /home/myhealthafrica/public_html/myonemedpro/operation/sendDiagnosticForm.php on line 256
+[06-Oct-2021 19:06:47 Africa/Nairobi] PHP Notice:  Undefined offset: 4 in /home/myhealthafrica/public_html/myonemedpro/operation/sendDiagnosticForm.php on line 256
+[06-Oct-2021 19:06:47 Africa/Nairobi] PHP Notice:  Undefined offset: 5 in /home/myhealthafrica/public_html/myonemedpro/operation/sendDiagnosticForm.php on line 256
+[06-Oct-2021 19:06:47 Africa/Nairobi] PHP Notice:  Undefined offset: 1 in /home/myhealthafrica/public_html/myonemedpro/operation/sendDiagnosticForm.php on line 262
+[06-Oct-2021 19:06:47 Africa/Nairobi] PHP Notice:  Undefined offset: 2 in /home/myhealthafrica/public_html/myonemedpro/operation/sendDiagnosticForm.php on line 262
+[06-Oct-2021 19:06:47 Africa/Nairobi] PHP Notice:  Undefined offset: 3 in /home/myhealthafrica/public_html/myonemedpro/operation/sendDiagnosticForm.php on line 262
+[06-Oct-2021 19:06:47 Africa/Nairobi] PHP Notice:  Undefined offset: 4 in /home/myhealthafrica/public_html/myonemedpro/operation/sendDiagnosticForm.php on line 262
+[06-Oct-2021 19:06:47 Africa/Nairobi] PHP Notice:  Undefined offset: 5 in /home/myhealthafrica/public_html/myonemedpro/operation/sendDiagnosticForm.php on line 262
+[06-Oct-2021 19:06:47 Africa/Nairobi] PHP Warning:  file_put_contents(/home/myhealthafrica/public_html/myonemedpro/operation/include/diagnostics/Test20211006190647_diagnosticForm.pdf): failed to open stream: No such file or directory in /home/myhealthafrica/public_html/myonemedpro/operation/fpdf/fpdf.php on line 1054
+[06-Oct-2021 19:06:47 Africa/Nairobi] PHP Fatal error:  Uncaught Exception: FPDF error: Unable to create output file: /home/myhealthafrica/public_html/myonemedpro/operation/include/diagnostics/Test20211006190647_diagnosticForm.pdf in /home/myhealthafrica/public_html/myonemedpro/operation/fpdf/fpdf.php:272
+Stack trace:
+#0 /home/myhealthafrica/public_html/myonemedpro/operation/fpdf/fpdf.php(1055): FPDF->Error('Unable to creat...')
+#1 /home/myhealthafrica/public_html/myonemedpro/operation/sendDiagnosticForm.php(976): FPDF->Output('F', '/home/myhealtha...')
+#2 /home/myhealthafrica/public_html/psi/virtual-room/operation/sendDiagnosticForm.php(8): require('/home/myhealtha...')
+#3 {main}
+  thrown in /home/myhealthafrica/public_html/myonemedpro/operation/fpdf/fpdf.php on line 272
+[06-Oct-2021 19:07:29 Africa/Nairobi] PHP Notice:  Undefined offset: 1 in /home/myhealthafrica/public_html/myonemedpro/operation/sendDiagnosticForm.php on line 256
+[06-Oct-2021 19:07:29 Africa/Nairobi] PHP Notice:  Undefined offset: 2 in /home/myhealthafrica/public_html/myonemedpro/operation/sendDiagnosticForm.php on line 256
+[06-Oct-2021 19:07:29 Africa/Nairobi] PHP Notice:  Undefined offset: 3 in /home/myhealthafrica/public_html/myonemedpro/operation/sendDiagnosticForm.php on line 256
+[06-Oct-2021 19:07:29 Africa/Nairobi] PHP Notice:  Undefined offset: 4 in /home/myhealthafrica/public_html/myonemedpro/operation/sendDiagnosticForm.php on line 256
+[06-Oct-2021 19:07:29 Africa/Nairobi] PHP Notice:  Undefined offset: 5 in /home/myhealthafrica/public_html/myonemedpro/operation/sendDiagnosticForm.php on line 256
+[06-Oct-2021 19:07:29 Africa/Nairobi] PHP Notice:  Undefined offset: 1 in /home/myhealthafrica/public_html/myonemedpro/operation/sendDiagnosticForm.php on line 262
+[06-Oct-2021 19:07:29 Africa/Nairobi] PHP Notice:  Undefined offset: 2 in /home/myhealthafrica/public_html/myonemedpro/operation/sendDiagnosticForm.php on line 262
+[06-Oct-2021 19:07:29 Africa/Nairobi] PHP Notice:  Undefined offset: 3 in /home/myhealthafrica/public_html/myonemedpro/operation/sendDiagnosticForm.php on line 262
+[06-Oct-2021 19:07:29 Africa/Nairobi] PHP Notice:  Undefined offset: 4 in /home/myhealthafrica/public_html/myonemedpro/operation/sendDiagnosticForm.php on line 262
+[06-Oct-2021 19:07:29 Africa/Nairobi] PHP Notice:  Undefined offset: 5 in /home/myhealthafrica/public_html/myonemedpro/operation/sendDiagnosticForm.php on line 262

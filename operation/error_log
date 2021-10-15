@@ -272,3 +272,13 @@ Stack trace:
 [28-Sep-2021 14:43:31 Africa/Nairobi] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 27
 [28-Sep-2021 14:43:39 Africa/Nairobi] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 27
 [29-Sep-2021 13:25:29 Africa/Nairobi] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 1731
+[04-Oct-2021 16:44:51 Africa/Nairobi] PHP Fatal error:  Uncaught Error: Call to undefined function sendBookingConfirmationEmailToPatient() in /home/myhealthafrica/public_html/coldroom/psi/operation/test.php:6
+Stack trace:
+#0 {main}
+  thrown in /home/myhealthafrica/public_html/coldroom/psi/operation/test.php on line 6
+[04-Oct-2021 16:46:14 Africa/Nairobi] PHP Fatal error:  Uncaught Error: Call to undefined function sendBookingConfirmationEmailToPatient() in /home/myhealthafrica/public_html/coldroom/psi/operation/test.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/myhealthafrica/public_html/coldroom/psi/operation/test.php on line 9
+[05-Oct-2021 09:48:02 Africa/Nairobi] PHP Notice:  Undefined variable: type in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 850
+[05-Oct-2021 09:48:40 Africa/Nairobi] PHP Notice:  Undefined variable: type in /home/myhealthafrica/public_html/coldroom/psi/operation/include/DB_Functions.php on line 850

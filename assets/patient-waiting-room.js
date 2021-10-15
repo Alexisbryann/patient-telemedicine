@@ -1,4 +1,4 @@
-var appointment_id,onboarding, interval;
+var appointment_id,onboarding, interval, bookingTimes;
 jQuery(document).ready(function () {
     'use strict';
 
@@ -23,34 +23,89 @@ jQuery(document).ready(function () {
         $('.telemed-step-one,.logo').hide();
         $('.telemed-step-two').show(500);
     });
+    
+    function timeNow() {
+        var now = new Date(),
+            date = [now.getDate(),'/',now.getMonth() + 1,'/',now.getFullYear(), ' ',now.getHours(),':',('0'+now.getMinutes()).slice(-2)].join('');
+        return date;
+    }
+
+    var makeTimeIntervals = function (startTime, endTime, increment) {
+        startTime = startTime.toString().split(':');
+        endTime = endTime.toString().split(':');
+        increment = parseInt(increment, 10);
+        var pad = function (n) { return (n < 10) ? '0' + n.toString() : n; },
+            startHr = parseInt(startTime[0], 10),
+            startMin = parseInt(startTime[1], 10),
+            endHr = parseInt(endTime[0], 10),
+            endMin = parseInt(endTime[1], 10),
+            currentHr = startHr,
+            currentMin = startMin,
+            previous = currentHr + ':' + pad(currentMin),
+            current = '',
+            slot = '',
+            timeSlots = ['08:00'];
+        do {
+            currentMin += increment;
+            if ((currentMin % 60) === 0 || currentMin > 60) {
+                currentMin = (currentMin === 60) ? 0 : currentMin - 60;
+                currentHr += 1;
+            }
+            current = currentHr + ':' + pad(currentMin);
+            if (currentHr.toString().length < 2) {
+                slot = '0'+current
+                timeSlots.push(slot);
+            } else timeSlots.push(current);
+            
+      } while (currentHr !== endHr);
+    
+        return timeSlots;
+    };
+
+    bookingTimes = makeTimeIntervals('08:00', '18:00', 20).filter(function(x) {
+        return x > timeNow().split(' ')[1];
+    });
+
+    $("#datetimepicker").change(function() {
+        var selected_date = $(this).val().split(' ')[0];
+        var newDateFormat = [selected_date.split('/')[1],'/',selected_date.split('/')[0],'/',selected_date.split('/')[2]].join('');
+        // Get today's date
+        var todaysDate = new Date();
+        var isToday = (todaysDate.toDateString() == new Date(newDateFormat).toDateString());
+        bookingTimes = '';
+        if(isToday) {
+            bookingTimes = makeTimeIntervals('08:00', '18:00', 20).filter(function(x) {
+                return x > timeNow().split(' ')[1];
+            });
+        } else bookingTimes = makeTimeIntervals('08:00', '18:00', 20);
+
+        $('#datetimepicker').datetimepicker({
+            format:'d/m/Y H:i',
+            defaultDate: false,
+            defaultTime:false,
+            minDate:0,
+            maxDate:'+1970/01/07',
+            validateOnBlur:true,
+            maxTime:'18:20',
+            allowTimes:bookingTimes,
+            roundTime:'ceil'
+        });
+    });
 
     $('#datetimepicker').datetimepicker({
         format:'d/m/Y H:i',
         defaultDate: false,
         defaultTime:false,
         minDate:0,
-        maxDate:'+1970/01/07',
+        maxDate:'+1970/01/30',
         validateOnBlur:true,
-        maxTime:'18:30',
-        allowTimes:[
-            '08:00',
-            '09:00',
-            '10:00',
-            '11:00',
-            '12:00',
-            '13:00',
-            '14:00',
-            '15:00',
-            '16:00',
-            '17:00',
-            '18:00'
-          ],
+        maxTime:'18:20',
+        allowTimes:bookingTimes,
         roundTime:'ceil'
     });
 
     $(document).on('click', '#continue-waiting', function () {
         $('#callback').modal('hide');
-        //setInterval(checkStatus,5000);
         interval = setInterval(function(){
             checkStatus();
         }, 5000);
@@ -112,6 +167,9 @@ jQuery(document).ready(function () {
                         $('#message').html('');
                         $('#message').html('Your Appointment Has Been Rescheduled');
                         $('.waiting, .callback-success').show(500);
+                        setInterval(function () {
+                            window.location.href = 'https://www.myhealthafrica.com/talk-to-a-tunza-daktari-online';
+                        }, 5000);
                     } else {
                         document.getElementById('reschedule-error').innerHTML = '';
                         $('#reschedule-error').show(500);
